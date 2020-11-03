@@ -8,7 +8,7 @@ public class ChiTietGoiMon {
     public ChiTietGoiMon() {
 
     }
-    
+
     public ChiTietGoiMon(int mMaGoiMon, int mMaMonAn, int mSoLuong) {
         this.mMaGoiMon = mMaGoiMon;
         this.mMaMonAn = mMaMonAn;
