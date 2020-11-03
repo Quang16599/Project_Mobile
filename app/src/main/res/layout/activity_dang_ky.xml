@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
     tools:context=".DangKy">
 
     <TextView
@@ -18,10 +20,10 @@
 
     <EditText
         android:id="@+id/edtTenDN"
+        android:drawableLeft="@drawable/rsz_dn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tên đăng nhập"
-        ></EditText>
+        android:hint="Tên đăng nhập"></EditText>
 
     <EditText
         android:id="@+id/edtMK"
