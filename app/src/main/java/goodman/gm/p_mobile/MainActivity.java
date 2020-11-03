@@ -2,7 +2,13 @@ package goodman.gm.p_mobile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Pair;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -15,29 +21,18 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 
 public class MainActivity extends AppCompatActivity {
-
+        ImageView imageView;
+        TextView text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        ReadJSON("http://localhost/OderFood/getdata.php");
-    }
+        imageView = findViewById(R.id.image);
+        text = findViewById(R.id.text);
 
-//    private void ReadJSON(String urlData) {
-//        RequestQueue requestQueue = Volley.newRequestQueue(this);
-//        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, urlData, null, new Response.Listener<JSONArray>() {
-//            @Override
-//            public void onResponse(JSONArray response) {
-//                Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                Toast.makeText(MainActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//        );
-//        requestQueue.add(jsonArrayRequest);
-//    }
+
+
+       
+
 }
