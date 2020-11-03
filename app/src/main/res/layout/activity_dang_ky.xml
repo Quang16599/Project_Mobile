@@ -5,88 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_centerHorizontal="true"
-    android:layout_centerVertical="true"
     tools:context=".DangKy">
 
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"></ImageView>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Đăng Ký"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:textColor="#FF5722"
-        ></TextView>
-
-    <EditText
-        android:id="@+id/edtTenDN"
-        android:drawableLeft="@drawable/rsz_dn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Tên đăng nhập"></EditText>
-
-    <EditText
-        android:id="@+id/edtMK"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Mật khẩu"
-        ></EditText>
-
-    <RadioGroup
-        android:id="@+id/radiogroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/rdNam"
-            android:checked="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nam"
-           />
-        <RadioButton
-            android:id="@+id/rdNu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nữ"
-            />
-    </RadioGroup>
-
-    <EditText
-        android:id="@+id/edtNgaySinh"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="ngaysinh"
-        />
-
-    <EditText
-        android:id="@+id/edtCMND"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="CMND"
-        android:inputType="number"
-        android:maxLength="9"/>
-
-    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
+        android:text="welcom"
+        android:textSize="40sp"
+        android:fontFamily="@font/"
+        ></TextView>
 
-        <Button
-            android:id="@+id/btnDongY"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đồng ý">
-        </Button>
-
-        <Button
-            android:id="@+id/btnThoat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50sp"
-            android:text="Thoát">
-        </Button>
-    </LinearLayout>
 </LinearLayout>
