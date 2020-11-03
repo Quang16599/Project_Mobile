@@ -8,29 +8,26 @@
     tools:context=".DangNhap"
     android:orientation="vertical"
     android:background="#fff"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:gravity="center">
 
     <ImageView
+        android:layout_gravity="center"
         android:id="@+id/logoImage"
         android:src="@drawable/logo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         />
     <TextView
+        android:layout_gravity="center"
         android:id="@+id/logoName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello there, Welcome Back"
+        android:text="Sign In "
+        android:fontFamily="@font/bungee"
         android:textSize="40sp"
         />
-    <TextView
-        android:id="@+id/slogan_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Sign In to continue"
 
-        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
