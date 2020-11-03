@@ -31,16 +31,16 @@ public class DangKy extends AppCompatActivity {
 
 
     private void Init() {
-        edtTenDn = findViewById(R.id.edtTenDN);
-        edtMatKhau = findViewById(R.id.edtMK);
-        edtNgaySinh = findViewById(R.id.edtNgaySinh);
-        edtCMND = findViewById(R.id.edtCMND);
-
-        radioGroup = findViewById(R.id.radiogroup);
-        rdNam = findViewById(R.id.rdNam);
-        rdNu  = findViewById(R.id.rdNu);
-
-        btnDongY = findViewById(R.id.btnDongY);
-        btnThoat = findViewById(R.id.btnThoat);
+//        edtTenDn = findViewById(R.id.edtTenDN);
+//        edtMatKhau = findViewById(R.id.edtMK);
+//        edtNgaySinh = findViewById(R.id.edtNgaySinh);
+//        edtCMND = findViewById(R.id.edtCMND);
+//
+//        radioGroup = findViewById(R.id.radiogroup);
+//        rdNam = findViewById(R.id.rdNam);
+//        rdNu  = findViewById(R.id.rdNu);
+//
+//        btnDongY = findViewById(R.id.btnDongY);
+//        btnThoat = findViewById(R.id.btnThoat);
     }
 }
