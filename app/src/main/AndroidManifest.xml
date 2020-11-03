@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DangKy"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".DangNhap"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".DangKy">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
