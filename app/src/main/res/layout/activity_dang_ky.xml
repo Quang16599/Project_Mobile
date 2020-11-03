@@ -17,18 +17,21 @@
         ></TextView>
 
     <EditText
+        android:id="@+id/edtTenDN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Tên đăng nhập"
         ></EditText>
 
     <EditText
+        android:id="@+id/edtMK"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Mật khẩu"
         ></EditText>
 
     <RadioGroup
+        android:id="@+id/radiogroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -49,14 +52,14 @@
     </RadioGroup>
 
     <EditText
-        android:id="@+id/edNgaySinhDK"
+        android:id="@+id/edtNgaySinh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="ngaysinh"
         />
 
     <EditText
-        android:id="@+id/edCMNDDK"
+        android:id="@+id/edtCMND"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="CMND"
@@ -70,12 +73,14 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btnDongY"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Đồng ý">
         </Button>
 
         <Button
+            android:id="@+id/btnThoat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50sp"
