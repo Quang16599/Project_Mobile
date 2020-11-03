@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:text="welcom"
         android:textSize="40sp"
-        android:fontFamily="@font/"
         ></TextView>
 
 </LinearLayout>
