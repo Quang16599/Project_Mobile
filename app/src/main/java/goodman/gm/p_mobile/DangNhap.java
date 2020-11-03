@@ -1,10 +1,8 @@
-package goodman.gm.p_mobile.Model;
+package goodman.gm.p_mobile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
-import goodman.gm.p_mobile.R;
 
 public class DangNhap extends AppCompatActivity {
 
