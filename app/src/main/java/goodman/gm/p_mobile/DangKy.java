@@ -3,10 +3,12 @@ package goodman.gm.p_mobile;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
 
 public class DangKy extends AppCompatActivity {
 
@@ -15,6 +17,7 @@ public class DangKy extends AppCompatActivity {
     RadioGroup radioGroup;
     RadioButton rdNam, rdNu;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +25,10 @@ public class DangKy extends AppCompatActivity {
 
         // khởi tạo
         Init();
+
     }
+
+
 
     private void Init() {
         edtTenDn = findViewById(R.id.edtTenDN);

@@ -4,47 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".Model.DangNhap"
     android:orientation="vertical"
-    tools:context=".DangKy">
+    android:background="#fff">
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Đăng nhập"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:textColor="#FF5722"
-        ></TextView>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Tên đăng nhập"
-        ></EditText>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Mật khẩu"
-        ></EditText>
-
-       <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đăng nhập">
-        </Button>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50sp"
-            android:text="Thoát">
-        </Button>
-    </LinearLayout>
 </LinearLayout>
