@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "115932936772",
+    "firebase_url": "https://pmobile-da78b.firebaseio.com",
+    "project_id": "pmobile-da78b",
+    "storage_bucket": "pmobile-da78b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115932936772:android:5572fbe352fe63a8e7da11",
+        "android_client_info": {
+          "package_name": "goodman.gm.p_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "115932936772-3bv5622rkv1a4ce21b6t4vb6qs1in8r5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "goodman.gm.p_mobile",
+            "certificate_hash": "35fdbbb8f196235a84d885c4fd47ecbb5d202814"
+          }
+        },
+        {
+          "client_id": "115932936772-s4gli9efppr2s183pn7vt1ufamnjr7e9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlTKNpx6D0TcKBvPbWkpjvX8wN9iU6hhM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "115932936772-s4gli9efppr2s183pn7vt1ufamnjr7e9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
