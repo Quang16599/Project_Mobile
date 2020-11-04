@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -22,7 +23,6 @@ public class DangKy extends AppCompatActivity {
 
     TextInputLayout edtFullName, edtUserName, edtEmail, edtPhone,edtPass;
     Button btnBack, btnDangKy;
-    FirebaseDatabase rootNode;
     DatabaseReference reference;
 
 
@@ -37,20 +37,20 @@ public class DangKy extends AppCompatActivity {
         btnDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rootNode = FirebaseDatabase.getInstance();
-                reference = rootNode.getReference("users");
+                reference = FirebaseDatabase.getInstance().getReference();
 
+//                User a = new User("pvq","quang","123","a@gmail.com","093125");
 
-                String name = edtFullName.getEditText().getText().toString();
-                String username = edtUserName.getEditText().getText().toString();
-                String email = edtEmail.getEditText().getText().toString();
-                String phone = edtPhone.getEditText().getText().toString();
-                String pass = edtPass.getEditText().getText().toString();
+              String fullname = edtFullName.getEditText().getText().toString();
+              String username = edtUserName.getEditText().getText().toString();
+              String password = edtPass.getEditText().getText().toString();
+              String email    = edtEmail.getEditText().getText().toString();
+              String phone    = edtPhone.getEditText().getText().toString();
 
-                User data = new User(name,username,pass,email,phone);
+              User user = new User(fullname,username,password,email,phone);
 
-
-                reference.setValue(data);
+                reference.child("User").setValue(user);
+                Toast.makeText(DangKy.this, "dsada", Toast.LENGTH_SHORT).show();
             }
         });
     }

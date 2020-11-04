@@ -1,53 +1,61 @@
 package goodman.gm.p_mobile.Model;
 
 public class User {
-    String name,username, password,email,phone;
+   public String mFullName;
+   public String mUserName;
+   public String mPassword;
+   public String mEmail;
+   public String mPhoneNumber;
 
-    public User(String name, String username, String password, String email, String phone) {
-        this.name = name;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.phone = phone;
+    public User(){
+
     }
 
-    public String getName() {
-        return name;
+    public User(String mFullName, String mUserName, String mPassword, String mEmail, String mPhoneNumber) {
+        this.mFullName = mFullName;
+        this.mUserName = mUserName;
+        this.mPassword = mPassword;
+        this.mEmail = mEmail;
+        this.mPhoneNumber = mPhoneNumber;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getmFullName() {
+        return mFullName;
     }
 
-    public String getUsername() {
-        return username;
+    public void setmFullName(String mFullName) {
+        this.mFullName = mFullName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getmUserName() {
+        return mUserName;
     }
 
-    public String getEmail() {
-        return email;
+    public void setmUserName(String mUserName) {
+        this.mUserName = mUserName;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getmPassword() {
+        return mPassword;
     }
 
-    public String getPhone() {
-        return phone;
+    public void setmPassword(String mPassword) {
+        this.mPassword = mPassword;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public String getmEmail() {
+        return mEmail;
     }
 
-    public String getPassword() {
-        return password;
+    public void setmEmail(String mEmail) {
+        this.mEmail = mEmail;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public String getmPhoneNumber() {
+        return mPhoneNumber;
+    }
+
+    public void setmPhoneNumber(String mPhoneNumber) {
+        this.mPhoneNumber = mPhoneNumber;
     }
 }
