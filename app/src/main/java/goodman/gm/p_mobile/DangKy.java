@@ -4,18 +4,26 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import goodman.gm.p_mobile.Model.User;
+
 
 public class DangKy extends AppCompatActivity {
 
-    EditText edtTenDn, edtMatKhau, edtNgaySinh, edtCMND;
-    Button btnThoat, btnDongY;
-    RadioGroup radioGroup;
-    RadioButton rdNam, rdNu;
+    TextInputLayout edtFullName, edtUserName, edtEmail, edtPhone,edtPass;
+    Button btnBack, btnDangKy;
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
 
 
     @Override
@@ -26,21 +34,36 @@ public class DangKy extends AppCompatActivity {
         // khởi tạo
         Init();
 
+        btnDangKy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rootNode = FirebaseDatabase.getInstance();
+                reference = rootNode.getReference("users");
+
+
+                String name = edtFullName.getEditText().getText().toString();
+                String username = edtUserName.getEditText().getText().toString();
+                String email = edtEmail.getEditText().getText().toString();
+                String phone = edtPhone.getEditText().getText().toString();
+                String pass = edtPass.getEditText().getText().toString();
+
+                User data = new User(name,username,pass,email,phone);
+
+
+                reference.setValue(data);
+            }
+        });
     }
 
 
 
     private void Init() {
-//        edtTenDn = findViewById(R.id.edtTenDN);
-//        edtMatKhau = findViewById(R.id.edtMK);
-//        edtNgaySinh = findViewById(R.id.edtNgaySinh);
-//        edtCMND = findViewById(R.id.edtCMND);
-//
-//        radioGroup = findViewById(R.id.radiogroup);
-//        rdNam = findViewById(R.id.rdNam);
-//        rdNu  = findViewById(R.id.rdNu);
-//
-//        btnDongY = findViewById(R.id.btnDongY);
-//        btnThoat = findViewById(R.id.btnThoat);
+        edtFullName = findViewById(R.id.edtFullName);
+        edtUserName = findViewById(R.id.edtUserName);
+        edtEmail = findViewById(R.id.edtEmail);
+        edtPhone = findViewById(R.id.edtPhone);
+        edtPass = findViewById(R.id.edtPass);
+        btnBack = findViewById(R.id.btnBack);
+        btnDangKy = findViewById(R.id.btnDangKy);
     }
 }

@@ -11,8 +11,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class DangNhap extends AppCompatActivity {
-    FirebaseDatabase  rootNode;
-    DatabaseReference reference;
+
     Button btnDangKy,btnDangnhap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +21,7 @@ public class DangNhap extends AppCompatActivity {
         btnDangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rootNode = FirebaseDatabase.getInstance();
-                reference = rootNode.getReference("user");
-                reference.setValue("dmmm");
+
             }
         });
 
