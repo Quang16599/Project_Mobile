@@ -41,11 +41,12 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
+
+                android:id="@+id/edtFullName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
 
-                ></com.google.android.material.textfield.TextInputEditText>
+                android:inputType="text"></com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -115,17 +116,19 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             >
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="GO"
-            android:background="#000"
-            android:textColor="#fff"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginRight="25dp">
 
-        </Button>
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="5dp"
+                android:background="#000"
+                android:text="REGISTER"
+                android:textColor="#fff">
+
+            </Button>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
