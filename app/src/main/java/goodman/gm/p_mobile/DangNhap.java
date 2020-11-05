@@ -12,7 +12,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class DangNhap extends AppCompatActivity {
 
-    Button btnDangKy,btnDangnhap;
+    Button btnDangKy,btnDangnhap,btnQuenMK;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +31,14 @@ public class DangNhap extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(DangNhap.this, DangKy.class);
                 startActivity(intent);
+            }
+        });
+
+        btnQuenMK = findViewById(R.id.btnForgot);
+        btnQuenMK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }

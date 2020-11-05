@@ -49,6 +49,7 @@ public class DangKy extends AppCompatActivity {
 
               User user = new User(fullname,username,password,email,phone);
 
+//                reference.child("User").setValue(a);
                 reference.child("User").setValue(user);
                 Toast.makeText(DangKy.this, "dsada", Toast.LENGTH_SHORT).show();
             }
@@ -62,7 +63,7 @@ public class DangKy extends AppCompatActivity {
         edtUserName = findViewById(R.id.edtUserName);
         edtEmail = findViewById(R.id.edtEmail);
         edtPhone = findViewById(R.id.edtPhone);
-        edtPass = findViewById(R.id.edtPass);
+        edtPass = findViewById(R.id.edtPassWord);
         btnBack = findViewById(R.id.btnBack);
         btnDangKy = findViewById(R.id.btnDangKy);
     }
