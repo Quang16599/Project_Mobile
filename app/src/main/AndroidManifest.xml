@@ -11,7 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
         <activity android:name=".Home"></activity>
 =======
 >>>>>>> a442d1bd9db5e08e0902787d51e9486e0378b392

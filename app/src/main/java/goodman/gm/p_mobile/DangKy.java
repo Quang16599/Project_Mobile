@@ -68,7 +68,7 @@ public class DangKy extends AppCompatActivity {
 
                 User user = new User(fullname, username, password, email, phone);
 
-                reference.child("Users").push().setValue(user);
+                reference.child("Users").child(username).setValue(user);
                 Toast.makeText(DangKy.this, "Register Succes", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(DangKy.this, DangNhap.class);
                 startActivity(intent);

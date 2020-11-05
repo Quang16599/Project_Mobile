@@ -59,12 +59,15 @@ public class DangNhap extends AppCompatActivity {
                             } else {
                                 Toast.makeText(DangNhap.this, "Wrong!!", Toast.LENGTH_SHORT).show();
                             }
-                        }
-                        else{
+                        } else{
                             Toast.makeText(DangNhap.this, "User not exist!!", Toast.LENGTH_SHORT).show();
                             dialog.dismiss();
                         }
+                        Intent intent = new Intent(DangNhap.this, Home.class);
+                        startActivity(intent);
                     }
+
+
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -95,7 +98,8 @@ public class DangNhap extends AppCompatActivity {
 
     private void Init() {
         btnDangnhap = findViewById(R.id.btnLogin);
-        btnDangKy = findViewById(R.id.btnRegiste);
+        btnDangKy = findViewById(R.id.btnRegister);
+        btnQuenMK = findViewById(R.id.btnForgot);
         edtUser = findViewById(R.id.edtUser);
         edtPass = findViewById(R.id.edtPass);
 
