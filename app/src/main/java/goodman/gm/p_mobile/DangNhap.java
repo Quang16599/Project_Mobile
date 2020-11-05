@@ -67,8 +67,6 @@ public class DangNhap extends AppCompatActivity {
                         }
                     }
 
-
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
