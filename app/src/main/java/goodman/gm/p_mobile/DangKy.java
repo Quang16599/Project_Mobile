@@ -50,7 +50,7 @@ public class DangKy extends AppCompatActivity {
               User user = new User(fullname,username,password,email,phone);
 
 //                reference.child("User").setValue(a);
-                reference.child("User").setValue(user);
+                reference.child("User").push().setValue(user);
                 Toast.makeText(DangKy.this, "dsada", Toast.LENGTH_SHORT).show();
             }
         });
