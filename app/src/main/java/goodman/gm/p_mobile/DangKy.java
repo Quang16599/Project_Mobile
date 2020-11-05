@@ -2,6 +2,7 @@ package goodman.gm.p_mobile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,25 +36,6 @@ public class DangKy extends AppCompatActivity {
         Init();
 
 
-        btnDangKy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                if(!validateName() || ! )
-                reference = FirebaseDatabase.getInstance().getReference();
-
-
-                String fullname = edtFullName.getEditText().getText().toString();
-                String username = edtUserName.getEditText().getText().toString();
-                String password = edtPassWord.getEditText().getText().toString();
-                String email = edtEmail.getEditText().getText().toString();
-                String phone = edtPhone.getEditText().getText().toString();
-
-                User user = new User(fullname, username, password, email, phone);
-
-                reference.child("Users").push().setValue(user);
-                Toast.makeText(DangKy.this, "dsada", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     private boolean validateName() {
@@ -70,7 +52,7 @@ public class DangKy extends AppCompatActivity {
 
     private boolean validateUser() {
         String val = edtUserName.getEditText().getText().toString();
-        String noWhiteSpace = " (?=\\S+$)";
+        String noWhiteSpace = "\\A\\w{4,20}\\z";
 
         if (val.isEmpty()) {
             edtUserName.setError("Field cannot be empty");
@@ -83,13 +65,20 @@ public class DangKy extends AppCompatActivity {
             return false;
         } else {
             edtUserName.setError(null);
+            edtUserName.setErrorEnabled(false);
             return true;
         }
     }
 
     private boolean validatePass() {
         String val = edtPassWord.getEditText().getText().toString();
-        String passwordVal = "^(?=.*[A-Za-z])(?=.*\\\\d)(?=.*[$@$!%*#?&])[A-Za-z\\\\d$@$!%*#?&]{8,}$";
+
+        String passwordVal = "^" +
+                "(?=.*[A-Za-z])" +                //  bất kì kí tự nào
+                "(?=.*[!@#$%^&*=])" +             //  ít nhất 1 kí tự đặc biệt
+                "(?=\\S+$)" +                     //  không có khoảng trắng
+                ".{4,}" +                         //  ít nhất có 4 kí tự
+                "$" ;
 
         if (val.isEmpty()) {
             edtPassWord.setError("Field cannot be empty");
@@ -121,9 +110,9 @@ public class DangKy extends AppCompatActivity {
 
     private boolean validatePhoneNumber() {
         String val = edtPhone.getEditText().getText().toString();
-        String regexStr = "^[0-9]$";
+        String MobilePattern = "[0-9]{10}";
 
-        if (val.length() < 10 || val.length() > 13 || val.matches(regexStr) == false) {
+        if (val.length() < 10 || val.length() > 13 || !val.matches(MobilePattern)) {
             edtPhone.setError("Wrong phone number");
             return false;
         } else {
@@ -143,7 +132,26 @@ public class DangKy extends AppCompatActivity {
         btnDangKy = findViewById(R.id.btnDangKy);
     }
 
+    // bắt sự kiện onClick bên activity_dk
+    public void registerUser(View view) {
+        if(!validateName() | !validateUser() | !validatePass() | !validateEmail() | !validatePhoneNumber() ){
+            return;
+        }
 
+        reference = FirebaseDatabase.getInstance().getReference();
 
+        String fullname = edtFullName.getEditText().getText().toString();
+        String username = edtUserName.getEditText().getText().toString();
+        String password = edtPassWord.getEditText().getText().toString();
+        String email = edtEmail.getEditText().getText().toString();
+        String phone = edtPhone.getEditText().getText().toString();
 
+        User user = new User(fullname, username, password, email, phone);
+
+        reference.child("Users").push().setValue(user);
+        Toast.makeText(DangKy.this, "Register Succes", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(DangKy.this, DangNhap.class);
+        startActivity(intent);
+
+    }
 }
