@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.service.controls.templates.ControlButton;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -34,8 +35,54 @@ public class DangKy extends AppCompatActivity {
 
         // khởi tạo
         Init();
+        controlButton();
 
 
+    }
+
+    private void Init() {
+        edtFullName = findViewById(R.id.edtFullName);
+        edtUserName = findViewById(R.id.edtUserName);
+        edtEmail = findViewById(R.id.edtEmail);
+        edtPhone = findViewById(R.id.edtPhone);
+        edtPassWord = findViewById(R.id.edtPassWord);
+        btnBack = findViewById(R.id.btnBack);
+        btnDangKy = findViewById(R.id.btnDangKy);
+    }
+
+    private void controlButton() {
+        btnDangKy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!validateName() | !validateUser() | !validatePass() | !validateEmail() | !validatePhoneNumber() ){
+                    return;
+                }
+
+                reference = FirebaseDatabase.getInstance().getReference();
+
+                String fullname = edtFullName.getEditText().getText().toString();
+                String username = edtUserName.getEditText().getText().toString();
+                String password = edtPassWord.getEditText().getText().toString();
+                String email = edtEmail.getEditText().getText().toString();
+                String phone = edtPhone.getEditText().getText().toString();
+
+                User user = new User(fullname, username, password, email, phone);
+
+                reference.child("Users").push().setValue(user);
+                Toast.makeText(DangKy.this, "Register Succes", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(DangKy.this, DangNhap.class);
+                startActivity(intent);
+
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DangKy.this, DangNhap.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private boolean validateName() {
@@ -65,7 +112,6 @@ public class DangKy extends AppCompatActivity {
             return false;
         } else {
             edtUserName.setError(null);
-            edtUserName.setErrorEnabled(false);
             return true;
         }
     }
@@ -122,36 +168,4 @@ public class DangKy extends AppCompatActivity {
     }
 
 
-    private void Init() {
-        edtFullName = findViewById(R.id.edtFullName);
-        edtUserName = findViewById(R.id.edtUserName);
-        edtEmail = findViewById(R.id.edtEmail);
-        edtPhone = findViewById(R.id.edtPhone);
-        edtPassWord = findViewById(R.id.edtPassWord);
-        btnBack = findViewById(R.id.btnBack);
-        btnDangKy = findViewById(R.id.btnDangKy);
-    }
-
-    // bắt sự kiện onClick bên activity_dk
-    public void registerUser(View view) {
-        if(!validateName() | !validateUser() | !validatePass() | !validateEmail() | !validatePhoneNumber() ){
-            return;
-        }
-
-        reference = FirebaseDatabase.getInstance().getReference();
-
-        String fullname = edtFullName.getEditText().getText().toString();
-        String username = edtUserName.getEditText().getText().toString();
-        String password = edtPassWord.getEditText().getText().toString();
-        String email = edtEmail.getEditText().getText().toString();
-        String phone = edtPhone.getEditText().getText().toString();
-
-        User user = new User(fullname, username, password, email, phone);
-
-        reference.child("Users").push().setValue(user);
-        Toast.makeText(DangKy.this, "Register Succes", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(DangKy.this, DangNhap.class);
-        startActivity(intent);
-
-    }
 }
