@@ -21,7 +21,7 @@ import goodman.gm.p_mobile.Model.User;
 
 public class DangKy extends AppCompatActivity {
 
-    TextInputLayout edtFullName, edtUserName, edtEmail, edtPhone,edtPass;
+    TextInputLayout edtFullName, edtUserName, edtEmail, edtPhone, edtPassWord;
     Button btnBack, btnDangKy;
     DatabaseReference reference;
 
@@ -34,28 +34,103 @@ public class DangKy extends AppCompatActivity {
         // khởi tạo
         Init();
 
+
         btnDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                if(!validateName() || ! )
                 reference = FirebaseDatabase.getInstance().getReference();
 
-//                User a = new User("pvq","quang","123","a@gmail.com","093125");
 
-              String fullname = edtFullName.getEditText().getText().toString();
-              String username = edtUserName.getEditText().getText().toString();
-              String password = edtPass.getEditText().getText().toString();
-              String email    = edtEmail.getEditText().getText().toString();
-              String phone    = edtPhone.getEditText().getText().toString();
+                String fullname = edtFullName.getEditText().getText().toString();
+                String username = edtUserName.getEditText().getText().toString();
+                String password = edtPassWord.getEditText().getText().toString();
+                String email = edtEmail.getEditText().getText().toString();
+                String phone = edtPhone.getEditText().getText().toString();
 
-              User user = new User(fullname,username,password,email,phone);
+                User user = new User(fullname, username, password, email, phone);
 
-//                reference.child("User").setValue(a);
-                reference.child("User").push().setValue(user);
+                reference.child("Users").push().setValue(user);
                 Toast.makeText(DangKy.this, "dsada", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
+    private boolean validateName() {
+        String val = edtFullName.getEditText().getText().toString();
+
+        if (val.isEmpty()) {
+            edtFullName.setError("Field cannot be empty");
+            return false;
+        } else {
+            edtFullName.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validateUser() {
+        String val = edtUserName.getEditText().getText().toString();
+        String noWhiteSpace = " (?=\\S+$)";
+
+        if (val.isEmpty()) {
+            edtUserName.setError("Field cannot be empty");
+            return false;
+        } else if (val.length() >= 15) {
+            edtUserName.setError("username is too long");
+            return false;
+        } else if (!val.matches(noWhiteSpace)) {
+            edtUserName.setError("White Space are not allowed");
+            return false;
+        } else {
+            edtUserName.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validatePass() {
+        String val = edtPassWord.getEditText().getText().toString();
+        String passwordVal = "^(?=.*[A-Za-z])(?=.*\\\\d)(?=.*[$@$!%*#?&])[A-Za-z\\\\d$@$!%*#?&]{8,}$";
+
+        if (val.isEmpty()) {
+            edtPassWord.setError("Field cannot be empty");
+            return false;
+        } else if(!val.matches(passwordVal)) {
+            edtPassWord.setError("Password is too weak");
+            return false;
+        }else {
+            edtPassWord.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validateEmail() {
+        String val = edtEmail.getEditText().getText().toString();
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+        if (val.isEmpty()) {
+            edtEmail.setError("Field cannot be empty");
+            return false;
+        } else if (!val.matches(emailPattern)) {
+            edtEmail.setError("Invalid email address");
+            return false;
+        } else {
+            edtEmail.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validatePhoneNumber() {
+        String val = edtPhone.getEditText().getText().toString();
+        String regexStr = "^[0-9]$";
+
+        if (val.length() < 10 || val.length() > 13 || val.matches(regexStr) == false) {
+            edtPhone.setError("Wrong phone number");
+            return false;
+        } else {
+            edtPhone.setError(null);
+            return true;
+        }
+    }
 
 
     private void Init() {
@@ -63,8 +138,12 @@ public class DangKy extends AppCompatActivity {
         edtUserName = findViewById(R.id.edtUserName);
         edtEmail = findViewById(R.id.edtEmail);
         edtPhone = findViewById(R.id.edtPhone);
-        edtPass = findViewById(R.id.edtPassWord);
+        edtPassWord = findViewById(R.id.edtPassWord);
         btnBack = findViewById(R.id.btnBack);
         btnDangKy = findViewById(R.id.btnDangKy);
     }
+
+
+
+
 }
