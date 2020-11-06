@@ -59,29 +59,28 @@
 
             <com.google.android.material.textfield.TextInputEditText
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
 
-        ></com.google.android.material.textfield.TextInputEditText>
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/edtPassWord"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
-                app:passwordToggleEnabled="true"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                >
 
-                <com.google.android.material.textfield.TextInputEditText
+                android:inputType="text"></com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
 
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtPassWord"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            app:passwordToggleEnabled="true">
 
-                    ></com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edtEmail"
             android:layout_width="match_parent"
@@ -92,28 +91,31 @@
 
             <com.google.android.material.textfield.TextInputEditText
 
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
 
-                ></com.google.android.material.textfield.TextInputEditText>
+                android:inputType="text"></com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edtPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone Number"
+            android:hint="PhoneNumber"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             >
 
             <com.google.android.material.textfield.TextInputEditText
 
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
 
-                ></com.google.android.material.textfield.TextInputEditText>
+                android:inputType="text"></com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
+
+
         <LinearLayout
             android:gravity="center"
             android:layout_width="match_parent"

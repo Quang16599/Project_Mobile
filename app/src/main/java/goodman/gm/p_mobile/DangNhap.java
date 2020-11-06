@@ -42,37 +42,38 @@ public class DangNhap extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                final ProgressDialog dialog = new ProgressDialog(DangNhap.this);
-                dialog.setMessage("Please waiting");
-                dialog.show();
-
-                databaseReference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        // kiem tra tai khoan co ton tai trong database
-                        if(dataSnapshot.child(edtUser.getText().toString()).exists()) {
-                            dialog.dismiss();
-                            // lay du lieu
-                            User user = dataSnapshot.child(edtUser.getText().toString()).getValue(User.class);
-                            if (user.getmPassword().equals(edtPass.getText().toString())) {
-                                Toast.makeText(DangNhap.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(DangNhap.this, Home.class);
-                                startActivity(intent);
+                if(edtUser.getText().toString().isEmpty() || edtPass.getText().toString().isEmpty()) {
+                    Toast.makeText(DangNhap.this, "Please Enter values", Toast.LENGTH_SHORT).show();
+                } else {
+                    final ProgressDialog dialog = new ProgressDialog(DangNhap.this);
+                    dialog.setMessage("Please waiting");
+                    dialog.show();
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            // kiem tra tai khoan co ton tai trong database
+                            if (dataSnapshot.child(edtUser.getText().toString()).exists()) {
+                                dialog.dismiss();
+                                // lay du lieu
+                                User user = dataSnapshot.child(edtUser.getText().toString()).getValue(User.class);
+                                if (user.getmPassword().equals(edtPass.getText().toString())) {
+                                    Toast.makeText(DangNhap.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(DangNhap.this, Home.class);
+                                    startActivity(intent);
+                                } else {
+                                    Toast.makeText(DangNhap.this, "Wrong UserName or PassWord!!", Toast.LENGTH_SHORT).show();
+                                }
                             } else {
-                                Toast.makeText(DangNhap.this, "Wrong!!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(DangNhap.this, "User not exist!!", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
                             }
-                        } else{
-                            Toast.makeText(DangNhap.this, "User not exist!!", Toast.LENGTH_SHORT).show();
-                            dialog.dismiss();
                         }
-                    }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-
+                        }
+                    });
+                }
             }
         });
 

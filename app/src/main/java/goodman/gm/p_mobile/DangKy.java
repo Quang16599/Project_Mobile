@@ -1,5 +1,6 @@
 package goodman.gm.p_mobile;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,8 +16,11 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import goodman.gm.p_mobile.Model.User;
 
@@ -25,7 +29,7 @@ public class DangKy extends AppCompatActivity {
 
     TextInputLayout edtFullName, edtUserName, edtEmail, edtPhone, edtPassWord;
     Button btnBack, btnDangKy;
-    DatabaseReference reference;
+    DatabaseReference reference  =  FirebaseDatabase.getInstance().getReference("Users");
 
 
     @Override
@@ -58,21 +62,33 @@ public class DangKy extends AppCompatActivity {
                     return;
                 }
 
-                reference = FirebaseDatabase.getInstance().getReference();
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
 
-                String fullname = edtFullName.getEditText().getText().toString();
-                String username = edtUserName.getEditText().getText().toString();
-                String password = edtPassWord.getEditText().getText().toString();
-                String email = edtEmail.getEditText().getText().toString();
-                String phone = edtPhone.getEditText().getText().toString();
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        // kiem tra tai khoan co ton tai trong database
+                        if(dataSnapshot.child(edtUserName.getEditText().getText().toString()).exists()) {
+                                Toast.makeText(DangKy.this, "User Name already exists", Toast.LENGTH_SHORT).show();
+                            } else {
+                            String fullname = edtFullName.getEditText().getText().toString();
+                            String username = edtUserName.getEditText().getText().toString();
+                            String password = edtPassWord.getEditText().getText().toString();
+                            String email = edtEmail.getEditText().getText().toString();
+                            String phone = edtPhone.getEditText().getText().toString();
 
-                User user = new User(fullname, username, password, email, phone);
+                            User user = new User(fullname, username, password, email, phone);
 
-                reference.child("Users").child(username).setValue(user);
-                Toast.makeText(DangKy.this, "Register Succes", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(DangKy.this, DangNhap.class);
-                startActivity(intent);
+                            reference.child(username).setValue(user);
+                            Toast.makeText(DangKy.this, "Register Succes", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(DangKy.this, DangNhap.class);
+                            startActivity(intent);
+                            }
+                        }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
+                    }
+                });
             }
         });
 
