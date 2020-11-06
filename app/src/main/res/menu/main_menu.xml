@@ -1,45 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-
-    <group android:checkableBehavior="single" ></group>
-
-        <item
-            android:id="@+id/nav_a"
-            android:title="Home"
-            android:icon="@drawable/logout_icon">
-
-        </item>
-
-         <item
-        android:id="@+id/nav_b"
-        android:title="Home"
-        android:icon="@drawable/logout_icon">
-
-         </item>
-
-        <item
-        android:id="@+id/nav_c"
-        android:title="Home"
-        android:icon="@drawable/logout_icon">
-
-        </item>
-
     <group android:checkableBehavior="single">
-        <item
-            android:title="Profile">
 
-            <menu>
+        <item android:id="@+id/nav_home"
+            android:title="Home"
+            android:icon="@drawable/ic_home"
+            ></item>
 
-                <item
-                    android:id="@+id/nav_home"
-                    android:title="Home"
-                    android:icon="@drawable/logout_icon">
+        <item android:id="@+id/nav_a"
+            android:title="Home"
+            android:icon="@drawable/ic_home"
+            ></item>
 
-                </item>
-            </menu>
+        <item android:id="@+id/nav_b"
+            android:title="Home"
+            android:icon="@drawable/ic_home"
+            ></item>
 
-        </item>
+        <item android:id="@+id/nav_c"
+            android:title="Home"
+            android:icon="@drawable/ic_home"
+            ></item>
+
 
     </group>
+
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/nav_d"
+            android:title="Profile"
+            ></item>
+
+        <menu>
+
+            <item android:id="@+id/nav_e"
+                android:title="Home"
+                android:icon="@drawable/ic_home"
+                ></item>
+
+            <item android:id="@+id/nav_f"
+                android:title="Home"
+                android:icon="@drawable/ic_home"
+                ></item>
+
+            <item android:id="@+id/nav_g"
+                android:title="Home"
+                android:icon="@drawable/ic_home"
+                ></item>
+        </menu>
+
+    </group>
+
+    <item
+        android:title="Communicate"
+        >
+        <menu>
+
+            <item android:id="@+id/nav_k"
+                android:title="Home"
+                android:icon="@drawable/ic_home"
+                ></item>
+
+            <item android:id="@+id/nav_h"
+                android:title="Home"
+                android:icon="@drawable/ic_home"
+                ></item>
+        </menu>
+
+    </item>
+
+
 </menu>
