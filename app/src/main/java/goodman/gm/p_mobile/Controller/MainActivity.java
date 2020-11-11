@@ -1,4 +1,4 @@
-package goodman.gm.p_mobile;
+package goodman.gm.p_mobile.Controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,16 +12,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
+import goodman.gm.p_mobile.R;
 
 public class MainActivity extends AppCompatActivity {
         ImageView img;

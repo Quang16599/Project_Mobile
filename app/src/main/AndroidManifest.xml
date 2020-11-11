@@ -11,21 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name=".ContentHomeActivity"
-            android:label="@string/title_activity_content_home"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
-        <activity android:name=".Home" />
-        <activity android:name=".DangNhap" />
-        <activity android:name=".MainActivity" >
+        <activity android:name=".Controller.Home" />
+        <activity android:name=".Controller.DangNhap" />
+        <activity android:name=".Controller.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DangKy" />
+        <activity android:name=".Controller.DangKy" />
     </application>
 
 </manifest>

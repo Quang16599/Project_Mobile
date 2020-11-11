@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:fitsSystemWindows="true"
     tools:openDrawer="start"
-    tools:context=".Home">
+    tools:context=".Controller.Home">
     
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:orientation="vertical"
-        tools:context=".Home">
+        tools:context=".Controller.Home">
 
 
         <View

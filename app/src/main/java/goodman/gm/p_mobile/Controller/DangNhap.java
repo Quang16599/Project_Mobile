@@ -1,4 +1,4 @@
-package goodman.gm.p_mobile;
+package goodman.gm.p_mobile.Controller;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import goodman.gm.p_mobile.Model.User;
+import goodman.gm.p_mobile.R;
 
 public class DangNhap extends AppCompatActivity {
 

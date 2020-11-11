@@ -1,4 +1,4 @@
-package goodman.gm.p_mobile;
+package goodman.gm.p_mobile.Controller;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
+
+import goodman.gm.p_mobile.R;
 
 
 public class Home extends AppCompatActivity {
