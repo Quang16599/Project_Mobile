@@ -146,7 +146,7 @@ public class DangKy extends AppCompatActivity {
             edtPassWord.setError("Field cannot be empty");
             return false;
         } else if(!val.matches(passwordVal)) {
-            edtPassWord.setError("Password is too weak");
+            edtPassWord.setError("Please add special characters ");
             return false;
         }else {
             edtPassWord.setError(null);
