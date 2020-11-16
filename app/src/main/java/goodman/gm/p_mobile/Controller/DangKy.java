@@ -1,6 +1,7 @@
 package goodman.gm.p_mobile.Controller;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -24,7 +25,7 @@ public class DangKy extends AppCompatActivity {
 
     TextInputLayout edtFullName, edtUserName, edtEmail, edtPhone, edtPassWord;
     Button btnBack, btnDangKy;
-    DatabaseReference reference  =  FirebaseDatabase.getInstance().getReference("Users");
+    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
 
 
     @Override
@@ -53,35 +54,35 @@ public class DangKy extends AppCompatActivity {
         btnDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!validateName() | !validateUser() | !validatePass() | !validateEmail() | !validatePhoneNumber() ){
+                if (!validateName() | !validateUser() | !validatePass() | !validateEmail() | !validatePhoneNumber()) {
                     return;
                 }
 
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
-
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         // kiem tra tai khoan co ton tai trong database
-                        if(dataSnapshot.child(edtUserName.getEditText().getText().toString()).exists()) {
-                                Toast.makeText(DangKy.this, "User Name already exists", Toast.LENGTH_SHORT).show();
-                            } else {
+                        if (!dataSnapshot.child(edtUserName.getEditText().getText().toString()).exists()) {
                             String fullname = edtFullName.getEditText().getText().toString();
                             String username = edtUserName.getEditText().getText().toString();
                             String password = edtPassWord.getEditText().getText().toString();
                             String email = edtEmail.getEditText().getText().toString();
                             String phone = edtPhone.getEditText().getText().toString();
 
-                            User user = new User(fullname, username, password, email, phone);
 
+                            User user = new User(fullname,username,password,email,phone);
                             reference.child(username).setValue(user);
+
                             Toast.makeText(DangKy.this, "Register Succes", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(DangKy.this, DangNhap.class);
-                            startActivity(intent);
-                            }
+                            finish();
+
+                        } else {
+                            Toast.makeText(DangKy.this, "User Name already exists", Toast.LENGTH_SHORT).show();
                         }
+                    }
+
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
                     }
                 });
             }
@@ -135,15 +136,15 @@ public class DangKy extends AppCompatActivity {
                 "(?=.*[!@#$%^&*=])" +             //  ít nhất 1 kí tự đặc biệt
                 "(?=\\S+$)" +                     //  không có khoảng trắng
                 ".{4,}" +                         //  ít nhất có 4 kí tự
-                "$" ;
+                "$";
 
         if (val.isEmpty()) {
             edtPassWord.setError("Field cannot be empty");
             return false;
-        } else if(!val.matches(passwordVal)) {
+        } else if (!val.matches(passwordVal)) {
             edtPassWord.setError("Please add special characters ");
             return false;
-        }else {
+        } else {
             edtPassWord.setError(null);
             return true;
         }
