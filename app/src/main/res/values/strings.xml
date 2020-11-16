@@ -12,4 +12,11 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_home">Home</string>
+    <string name="moinhat">Mới nhất</string>
+    <string name="doanhmuc">Doanh mục</string>
+    <string name="khuvuc">HCM</string>
+    <string name="gantoi">Gần tôi</string>
+    <string name="giaohang">Giao hàng</string>
+    <string name="danhgia">Đánh giá</string>
+    <string name="blogs">Blogs</string>
 </resources>
