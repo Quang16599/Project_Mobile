@@ -62,7 +62,7 @@ public class DangNhap extends AppCompatActivity {
                                     Intent intent = new Intent(DangNhap.this, Home.class);
                                     startActivity(intent);
                                 } else {
-                                    Toast.makeText(DangNhap.this, "Wrong UserName or PassWord!!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(DangNhap.this, "Wrong PassWord!!", Toast.LENGTH_SHORT).show();
                                 }
                             } else {
                                 Toast.makeText(DangNhap.this, "User not exist!!", Toast.LENGTH_SHORT).show();
