@@ -2,6 +2,7 @@ package goodman.gm.p_mobile.Fragments;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,28 +10,82 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import goodman.gm.p_mobile.Controller.Where;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import goodman.gm.p_mobile.Adapter.Where_Adapter;
+import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
-public class  OdauFragment extends Fragment {
+public class OdauFragment extends Fragment {
     RecyclerView recyclerView;
-    Where where ;
+    Where_Adapter adapter;
+    List<QuanAn> list_QuanAn;
+    View view;
+    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("quanans");
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.layout_fragment_odau,container,false);
-        recyclerView =view.findViewById(R.id.recyclerViewODau);
+        View view = inflater.inflate(R.layout.layout_fragment_odau, container, false);
+
         return view;
     }
 
-
     @Override
-    public void onStart() {
-        super.onStart();
-        where = new Where(getContext());
-        where.getDanhSachQuanAnController(recyclerView);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        this.view = view;
+        init();
+        loadData();
+
+    }
+
+    private void init() {
+        recyclerView = view.findViewById(R.id.recyclerViewODau);
+        list_QuanAn = new ArrayList<>();
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new Where_Adapter(R.layout.custom_layout_recyclerview_odau, list_QuanAn);
+        recyclerView.setAdapter(adapter);
+
+    }
+
+    private void loadData(){
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot value : snapshot.getChildren()) {
+                    QuanAn quanAn = new QuanAn();
+                    quanAn.setmTenQuanAn(value.child("tenquanan").getValue().toString());
+                    quanAn.setmGioMoCua(value.child("giomocua").getValue().toString());
+                    quanAn.setmGioDongCua(value.child("giodongcua").getValue().toString());
+                    quanAn.setmHinhAnh(value.child("hinhanh").getValue().toString());
+                    quanAn.setmGiaoHang((Boolean) value.child("giaohang").getValue());
+
+                    Log.d("kiemtra", quanAn.getmTenQuanAn());
+
+                    list_QuanAn.add(quanAn);
+                }
+                adapter.notifyDataSetChanged();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 }
+
+

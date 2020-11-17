@@ -27,7 +27,7 @@ public class DangNhap extends AppCompatActivity {
     TextInputEditText edtUser,edtPass;
 
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    DatabaseReference databaseReference = firebaseDatabase.getReference("Users");
+    DatabaseReference databaseReference = firebaseDatabase.getReference("thanhviens");
 
 
     @Override
