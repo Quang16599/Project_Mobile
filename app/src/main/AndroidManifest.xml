@@ -22,9 +22,6 @@
             android:name=".Controller.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Controller.DangNhap" />
-        <activity android:name=".Controller.Home">
-
-        </activity>
         <activity android:name=".Controller.DangKy" />
     </application>
 

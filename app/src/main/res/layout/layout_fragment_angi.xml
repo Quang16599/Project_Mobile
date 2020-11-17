@@ -138,7 +138,8 @@
                     android:gravity="left|center"
                     android:drawablePadding="10dp"/>
             </LinearLayout>
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewAngi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
