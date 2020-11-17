@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
     <LinearLayout
@@ -26,16 +26,13 @@
             android:layout_weight="1"
             android:layout_margin="5dp">
             <TextView
+                android:id="@+id/tvTenQuanAnODau"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="GOGI HOUSE"
+                android:text="Quang HOUSE"
                 android:textStyle="bold"
                 android:textSize="18dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="36 Thu Duc"
-                android:textSize="18dp"/>
+
         </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
@@ -47,15 +44,18 @@
 
     </LinearLayout>
     <ImageView
+        android:id="@+id/HinhQuanAnODau"
         android:scaleType="fitXY"
         android:src="@drawable/banner"
         android:layout_width="match_parent"
         android:layout_height="180dp"/>
     <Button
+        android:id="@+id/btnDatMonODau"
         android:drawableTop="@drawable/ic_local_shipping_white_24dp"
         android:padding="5dp"
         android:fontFamily="@font/bungee"
         android:text="ĐẶT HÀNG"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/buton_radius_5dp"
@@ -133,6 +133,12 @@
                 android:layout_height="wrap_content"
                 android:text="36 Thu Duc"
                 android:textSize="18dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="36 Thu Duc"
+                android:textSize="18dp" />
         </LinearLayout>
         <TextView
             android:layout_width="wrap_content"

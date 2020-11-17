@@ -11,15 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
-        <activity
-            android:name=".Controller.Home"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".Controller.DangNhap" />
-        <activity android:name=".Controller.MainActivity">
-=======
         <activity android:name=".Controller.TrangChu">
->>>>>>> baccbc739587d4b3512514ebf182a831a06d632f
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,9 +22,6 @@
             android:name=".Controller.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Controller.DangNhap" />
-        <activity android:name=".Controller.Home">
-
-        </activity>
         <activity android:name=".Controller.DangKy" />
     </application>
 

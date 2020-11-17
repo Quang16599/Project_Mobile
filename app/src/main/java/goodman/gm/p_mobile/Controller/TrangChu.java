@@ -66,8 +66,6 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
             case R.id.rdAnGi:
                 viewPagerTrangChu.setCurrentItem(1);
                 break;
-
-
         }
     }
 }

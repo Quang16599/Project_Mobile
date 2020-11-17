@@ -59,7 +59,7 @@ public class DangNhap extends AppCompatActivity {
                                 User user = dataSnapshot.child(edtUser.getText().toString()).getValue(User.class);
                                 if (user.getmPassword().equals(edtPass.getText().toString())) {
                                     Toast.makeText(DangNhap.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(DangNhap.this, Home.class);
+                                    Intent intent = new Intent(DangNhap.this, TrangChu.class);
                                     startActivity(intent);
                                 } else {
                                     Toast.makeText(DangNhap.this, "Wrong PassWord!!", Toast.LENGTH_SHORT).show();
