@@ -57,6 +57,11 @@
             />
 
     </androidx.appcompat.widget.Toolbar>
+    <ImageView
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:src="@drawable/banner"/>
        <androidx.viewpager.widget.ViewPager
            android:id="@+id/viewPagerTrangChu"
            android:layout_width="match_parent"
