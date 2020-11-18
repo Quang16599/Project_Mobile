@@ -78,13 +78,15 @@ public class OdauFragment extends Fragment {
 
                 for (DataSnapshot value : snapshot.getChildren()) {
                     QuanAn quanAn = new QuanAn();
+                    quanAn.setmDiaChiQuan(value.child("diachi").getValue().toString());
                     quanAn.setmTenQuanAn(value.child("tenquanan").getValue().toString());
                     quanAn.setmGioMoCua(value.child("giomocua").getValue().toString());
                     quanAn.setmGioDongCua(value.child("giodongcua").getValue().toString());
                     quanAn.setmHinhAnh(value.child("hinhanh").getValue().toString());
                     quanAn.setmGiaoHang((Boolean) value.child("giaohang").getValue());
 
-                    Log.d("kiemtra", quanAn.getmTenQuanAn());
+
+//                    Log.d("kiemtra", quanAn.getmDiaChiQuan());
 
                     list_QuanAn.add(quanAn);
                 }

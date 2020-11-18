@@ -9,6 +9,7 @@ public class QuanAn {
     private String mGioMoCua;
     private String mHinhAnh;
     private String mTenQuanAn;
+    private String mDiaChiQuan;
 
 
 
@@ -16,12 +17,13 @@ public class QuanAn {
 
     }
 
-    public QuanAn(boolean mGiaoHang, String mGioDongCua, String mGioMoCua, String mHinhAnh, String mTenQuanAn) {
+    public QuanAn(boolean mGiaoHang, String mGioDongCua, String mGioMoCua, String mHinhAnh, String mTenQuanAn, String mDiaChiQuan) {
         this.mGiaoHang = mGiaoHang;
         this.mGioDongCua = mGioDongCua;
         this.mGioMoCua = mGioMoCua;
         this.mHinhAnh = mHinhAnh;
         this.mTenQuanAn = mTenQuanAn;
+        this.mDiaChiQuan = mDiaChiQuan;
     }
 
     public boolean ismGiaoHang() {
@@ -64,4 +66,11 @@ public class QuanAn {
         this.mTenQuanAn = mTenQuanAn;
     }
 
+    public String getmDiaChiQuan() {
+        return mDiaChiQuan;
+    }
+
+    public void setmDiaChiQuan(String mDiaChiQuan) {
+        this.mDiaChiQuan = mDiaChiQuan;
+    }
 }
