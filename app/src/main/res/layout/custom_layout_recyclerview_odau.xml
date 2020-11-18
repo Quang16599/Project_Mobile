@@ -1,181 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="match_parent"
+<androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dp"
-      >
-        <TextView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:gravity="center"
-            android:background="@drawable/background_cycle"
-            android:textColor="#fff"
-            android:layout_margin="5dp"
-            android:text="6.8"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/HinhQuanAnODau"
+            android:scaleType="fitXY"
+            android:src="@drawable/banner"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_margin="5dp">
-            <TextView
-                android:id="@+id/tvTenQuanAnODau"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            >
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Quang HOUSE"
-                android:textStyle="bold"
-                android:textSize="18dp"/>
-            <TextView
-                android:id="@+id/tvDiaChiQuanAn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="HỒ CHí Minh"
-                android:textStyle="bold"
-                android:textSize="18dp"/>
+                android:orientation="horizontal"
+                android:layout_weight="10"
+                android:layout_margin="5dp">
+                <TextView
+                    android:id="@+id/tvTenQuanAnODau"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Quang HOUSE"
+                    android:textColor="#000000"
+                    android:layout_weight="3"
+                    android:textSize="13dp"/>
+                <TextView
+                    android:id="@+id/tvDiaChiQuanAn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hồ chí Minh"
+                    android:textColor="#000000"
+                    android:layout_weight="7"
+                    android:textSize="13dp"/>
 
+            </LinearLayout>
         </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="10km"
-            android:textSize="20dp"
-            android:gravity="center"
-            />
-
     </LinearLayout>
-    <ImageView
-        android:id="@+id/HinhQuanAnODau"
-        android:scaleType="fitXY"
-        android:src="@drawable/banner"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"/>
-    <Button
-        android:id="@+id/btnDatMonODau"
-        android:drawableTop="@drawable/ic_local_shipping_white_24dp"
-        android:padding="5dp"
-        android:fontFamily="@font/bungee"
-        android:text="ĐẶT HÀNG"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/buton_radius_5dp"
-        android:textColor="#fff"
-        android:textAllCaps="false"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dp"
-        >
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:gravity="center"
-            android:src="@drawable/logo"
-            android:textColor="#fff"
-            android:layout_margin="5dp"
-          />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_margin="5dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="GOGI HOUSE"
-                android:textStyle="bold"
-                android:textSize="18dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="36 Thu Duc"
-                android:textSize="18dp"/>
-        </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="8"
-            android:textSize="18dp"
-
-            />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dp"
-        >
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:gravity="center"
-            android:src="@drawable/logo"
-            android:textColor="#fff"
-            android:layout_margin="5dp"
-            />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_margin="5dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="GOGI HOUSE"
-                android:textStyle="bold"
-                android:textSize="18dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="36 Thu Duc"
-                android:textSize="18dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="36 Thu Duc"
-                android:textSize="18dp" />
-        </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="7"
-            android:textSize="18dp" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-       >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="153"
-        android:layout_margin="5dp"
-        android:drawableLeft="@drawable/ic_insert_comment_black_24dp"
-        android:padding="5dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:padding="5dp"
-        android:text="500"
-        android:drawableLeft="@drawable/ic_photo_camera_black_24dp"/>
-    </LinearLayout>
-
-
-</LinearLayout>
 </androidx.cardview.widget.CardView>
