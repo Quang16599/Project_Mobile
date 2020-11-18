@@ -1,7 +1,10 @@
 package goodman.gm.p_mobile.Fragments;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,6 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import goodman.gm.p_mobile.Adapter.Where_Adapter;
+import goodman.gm.p_mobile.Model.ChiNhanhQuanAn;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
@@ -36,8 +40,11 @@ public class OdauFragment extends Fragment {
     RecyclerView recyclerView;
     Where_Adapter adapter;
     List<QuanAn> list_QuanAn;
+    List<ChiNhanhQuanAn> list_ChiNhanh;
     View view;
-    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("quanans");
+    SharedPreferences sharedPreferences;
+    Location vitrihientai;
+    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("quanans");
 
     @Nullable
     @Override
@@ -53,10 +60,21 @@ public class OdauFragment extends Fragment {
         this.view = view;
         init();
         loadData();
+        getToaDo();
+
+    }
+
+    private void getToaDo() {
+        vitrihientai.setLatitude(Double.parseDouble(sharedPreferences.getString("Latitue","0")));
+        vitrihientai.setLatitude(Double.parseDouble(sharedPreferences.getString("Longitue","0")));
 
     }
 
     private void init() {
+        list_ChiNhanh = new ArrayList<>();
+        sharedPreferences = getContext().getSharedPreferences("ToaDo", Context.MODE_PRIVATE);
+        vitrihientai = new Location("");
+
         recyclerView = view.findViewById(R.id.recyclerViewODau);
         list_QuanAn = new ArrayList<>();
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -83,7 +101,7 @@ public class OdauFragment extends Fragment {
                     quanAn.setmHinhAnh(value.child("hinhanh").getValue().toString());
                     quanAn.setmGiaoHang((Boolean) value.child("giaohang").getValue());
 
-                    Log.d("kiemtra", quanAn.getmTenQuanAn());
+                    Log.e("kiemtra", quanAn.getmTenQuanAn());
 
                     list_QuanAn.add(quanAn);
                 }

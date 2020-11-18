@@ -1,5 +1,7 @@
 package goodman.gm.p_mobile.Model;
 
+import java.util.List;
+
 public class QuanAn {
 
     private boolean mGiaoHang;
@@ -7,6 +9,8 @@ public class QuanAn {
     private String mGioMoCua;
     private String mHinhAnh;
     private String mTenQuanAn;
+
+
 
     public QuanAn(){
 
@@ -59,4 +63,5 @@ public class QuanAn {
     public void setmTenQuanAn(String mTenQuanAn) {
         this.mTenQuanAn = mTenQuanAn;
     }
+
 }

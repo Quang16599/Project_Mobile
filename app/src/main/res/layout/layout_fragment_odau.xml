@@ -110,6 +110,7 @@
                         android:gravity="left|center"
                         android:drawablePadding="10dp"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -141,6 +142,7 @@
                         android:padding="10dp"
                         android:gravity="left|center"
                         android:drawablePadding="10dp"/>
+
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerViewODau"

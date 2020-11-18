@@ -25,7 +25,7 @@ public class DangKy extends AppCompatActivity {
 
     TextInputLayout edtFullName, edtUserName, edtEmail, edtPhone, edtPassWord;
     Button btnBack, btnDangKy;
-    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("thanhviens");
+    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("thanhviens");
 
 
     @Override
