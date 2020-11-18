@@ -12,8 +12,8 @@
         android:padding="5dp"
       >
         <TextView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:gravity="center"
             android:background="@drawable/background_cycle"
             android:textColor="#fff"
@@ -32,14 +32,21 @@
                 android:text="Quang HOUSE"
                 android:textStyle="bold"
                 android:textSize="18dp"/>
+            <TextView
+                android:id="@+id/tvDiaChiQuanAn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="HỒ CHí Minh"
+                android:textStyle="bold"
+                android:textSize="18dp"/>
 
         </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="10km"
-            android:textSize="18dp"
-            android:gravity="bottom"
+            android:textSize="20dp"
+            android:gravity="center"
             />
 
     </LinearLayout>

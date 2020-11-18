@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -46,16 +47,9 @@ public class Where_Adapter extends RecyclerView.Adapter<Where_Adapter.ViewHolder
         if (quanAn.ismGiaoHang()) {
             holder.btnDatMonODau.setVisibility(View.VISIBLE);
         }
+        Picasso.get().load(quanAn.getmHinhAnh()).into(holder.hinhQuanAnODau);
 
-//        StorageReference storageHinhAnh = FirebaseStorage.getInstance().getReference().child(quanAn.getmHinhAnh());
-//        long ONE_MEGABYTE = 1024 * 1024;
-//        storageHinhAnh.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-//            @Override
-//            public void onSuccess(byte[] bytes) {
-//                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-//                holder.hinhQuanAnODau.setImageBitmap(bitmap);
-//            }
-//        });
+
     }
 
 

@@ -1,6 +1,7 @@
 package goodman.gm.p_mobile.Fragments;
 
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,7 +10,10 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +29,8 @@ import java.util.List;
 import goodman.gm.p_mobile.Adapter.Where_Adapter;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
+
+import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 
 public class OdauFragment extends Fragment {
     RecyclerView recyclerView;
@@ -57,6 +63,10 @@ public class OdauFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         adapter = new Where_Adapter(R.layout.custom_layout_recyclerview_odau, list_QuanAn);
         recyclerView.setAdapter(adapter);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
+        Drawable drawable = ContextCompat.getDrawable(getContext(),R.drawable.custom_divider);
+        dividerItemDecoration.setDrawable(drawable);
+        recyclerView.addItemDecoration(dividerItemDecoration);
 
     }
 
