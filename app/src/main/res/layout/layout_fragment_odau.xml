@@ -29,10 +29,6 @@
 
             </LinearLayout>
 
-
-
-
-
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -24,6 +24,7 @@ public class AnGi_Adapter extends RecyclerView.Adapter<AnGi_Adapter.ViewHolder> 
         this.layout = layout;
         this.list_QuanAn = list_QuanAn;
     }
+
     @NonNull
     @Override
     public AnGi_Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -36,14 +37,9 @@ public class AnGi_Adapter extends RecyclerView.Adapter<AnGi_Adapter.ViewHolder> 
 
         QuanAn quanAn = list_QuanAn.get(position);
 
-//            if (quanAn.ismGiaoHang()) {
 
-                holder.tvTenQuanAnAngi.setText(quanAn.getmTenQuanAn());
-                Picasso.get().load(quanAn.getmHinhAnh()).into(holder.hinhQuanAnAngi);
-
-
-//            }
-
+        holder.tvTenQuanAnAngi.setText(quanAn.getmTenQuanAn());
+        Picasso.get().load(quanAn.getmHinhAnh()).into(holder.hinhQuanAnAngi);
 
 
     }
@@ -52,6 +48,7 @@ public class AnGi_Adapter extends RecyclerView.Adapter<AnGi_Adapter.ViewHolder> 
     public int getItemCount() {
         return list_QuanAn.size();
     }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvTenQuanAnAngi;
         ImageView hinhQuanAnAngi;

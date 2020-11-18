@@ -89,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(Location location) {
                 if (location != null) {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("Latitue", String.valueOf(location.getLatitude()));
-                    editor.putString("Longitue",String.valueOf(location.getLongitude()));
+                    editor.putString("Latitude", String.valueOf(location.getLatitude()));
+                    editor.putString("Longitude",String.valueOf(location.getLongitude()));
                     editor.commit();
                     Log.d("kiemtraodau", location.getLatitude()+"");
                 }

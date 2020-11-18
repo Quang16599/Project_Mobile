@@ -4,8 +4,8 @@
     android:layout_height="match_parent">
 
     <size
-        android:width="20dp"
-        android:height="20dp"
+        android:width="10dp"
+        android:height="5dp"
         ></size>
     <solid android:color = "#E8430F" ></solid>
 
