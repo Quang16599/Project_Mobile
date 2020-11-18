@@ -2,59 +2,23 @@
 <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            >
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:background="@drawable/background_cycle"
-                android:textColor="#fff"
-                android:layout_margin="5dp"
-                android:text="6.8"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_margin="5dp">
-                <TextView
-                    android:id="@+id/tvTenQuanAnAnGi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Quang HOUSE"
-                    android:textStyle="bold"
-                    android:textSize="18dp"/>
-                <TextView
-                    android:id="@+id/tvDiaChiQuanAn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="HỒ CHí Minh"
-                    android:textStyle="bold"
-                    android:textSize="18dp"/>
-
-            </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="10km"
-                android:textSize="20dp"
-                android:gravity="center"
-                />
-
-        </LinearLayout>
         <ImageView
             android:id="@+id/HinhQuanAnAnGi"
             android:scaleType="fitXY"
             android:src="@drawable/banner"
             android:layout_width="match_parent"
-            android:layout_height="180dp"/>
+            android:layout_height="130dp"/>
+        <TextView
+            android:id="@+id/tvTenQuanAnAnGi"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quang "
+            android:textColor="#000000"
+            android:textSize="13dp"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

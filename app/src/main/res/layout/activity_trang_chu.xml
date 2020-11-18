@@ -10,7 +10,7 @@
     <androidx.appcompat.widget.Toolbar
 
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:background="@color/colorPrimary">
         <ImageView
             android:scaleType="fitXY"
@@ -56,12 +56,131 @@
             android:layout_margin="10dp"
             />
 
+
     </androidx.appcompat.widget.Toolbar>
     <ImageView
         android:scaleType="fitXY"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:src="@drawable/banner"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <Button
+            android:text="@string/gantoi"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#fff"
+            android:textAllCaps="false"
+            android:layout_margin="5dp"
+            android:drawableLeft="@drawable/nearby"
+            android:padding="10dp"
+            android:gravity="left|center"
+            android:drawablePadding="10dp"/>
+        <Button
+            android:textSize="15dp"
+            android:text="@string/giaohang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:textAllCaps="false"
+            android:background="#fff"
+            android:drawableLeft="@drawable/order"
+            android:padding="10dp"
+            android:gravity="left|center"
+            android:drawablePadding="10dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <Button
+            android:textSize="15dp"
+            android:text="@string/danhgia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:background="#fff"
+            android:layout_margin="5dp"
+            android:drawableLeft="@drawable/review"
+            android:padding="10dp"
+            android:gravity="left|center"
+            android:drawablePadding="10dp"
+            />
+        <Button
+            android:textSize="15dp"
+            android:text="@string/blogs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:layout_margin="5dp"
+            android:background="#fff"
+            android:drawableLeft="@drawable/review"
+            android:padding="10dp"
+            android:gravity="left|center"
+            android:drawablePadding="10dp"/>
+    </LinearLayout>
+    <RadioGroup
+        android:id="@+id/group_tab_radio"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+        <RadioButton
+            android:textColor="@drawable/change_text_trangchu"
+            android:textSize="15dp"
+            android:id="@+id/rdMoiNhat"
+            android:gravity="center"
+            android:button="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/change_background"
+            android:drawableBottom="@drawable/ic_keyboard_arrow_down_black_24dp"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/moinhat"/>
+        <View android:layout_width="2dp"
+            android:layout_height="match_parent"
+            >
+
+        </View>
+        <RadioButton
+            android:textColor="@drawable/change_text_trangchu"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:drawableBottom="@drawable/ic_keyboard_arrow_down_black_24dp"
+            android:id="@+id/rdDoanhMuc"
+            android:layout_width="match_parent"
+            android:button="@android:color/transparent"
+            android:layout_height="match_parent"
+            android:background="@drawable/change_background"
+            android:layout_weight="1"
+            android:text="@string/doanhmuc"/>
+        <View android:layout_width="2dp"
+            android:layout_height="match_parent"
+            >
+
+        </View>
+        <RadioButton
+            android:textColor="@drawable/change_text_trangchu"
+            android:textSize="15dp"
+            android:id="@+id/rdKhuVuc"
+            android:gravity="center"
+            android:drawableBottom="@drawable/ic_keyboard_arrow_down_black_24dp"
+            android:button="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/change_background"
+            android:layout_weight="1"
+
+            android:text="@string/khuvuc"/>
+
+    </RadioGroup>
        <androidx.viewpager.widget.ViewPager
            android:id="@+id/viewPagerTrangChu"
            android:layout_width="match_parent"

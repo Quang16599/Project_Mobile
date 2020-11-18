@@ -36,11 +36,16 @@ public class AnGi_Adapter extends RecyclerView.Adapter<AnGi_Adapter.ViewHolder> 
     public void onBindViewHolder(@NonNull AnGi_Adapter.ViewHolder holder, int position) {
 
         QuanAn quanAn = list_QuanAn.get(position);
-        if (quanAn.ismGiaoHang() == true) {
-            holder.tvTenQuanAnAngi.setText(quanAn.getmTenQuanAn());
-            Picasso.get().load(quanAn.getmHinhAnh()).into(holder.hinhQuanAnAngi);
 
-        }
+//            if (quanAn.ismGiaoHang()) {
+
+                holder.tvTenQuanAnAngi.setText(quanAn.getmTenQuanAn());
+                Picasso.get().load(quanAn.getmHinhAnh()).into(holder.hinhQuanAnAngi);
+
+
+//            }
+
+
 
     }
 

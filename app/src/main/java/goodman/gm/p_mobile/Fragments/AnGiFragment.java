@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,7 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import goodman.gm.p_mobile.Adapter.AnGi_Adapter;
-import goodman.gm.p_mobile.Adapter.Where_Adapter;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
@@ -54,14 +54,12 @@ public class AnGiFragment extends Fragment {
     private void init() {
         recyclerView = view.findViewById(R.id.recyclerViewAnGi);
         list_QuanAn = new ArrayList<>();
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(),2);
         recyclerView.setLayoutManager(layoutManager);
         adapter = new AnGi_Adapter(R.layout.custom_layout_gridview_angi, list_QuanAn);
         recyclerView.setAdapter(adapter);
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
-        Drawable drawable = ContextCompat.getDrawable(getContext(),R.drawable.custom_divider);
-        dividerItemDecoration.setDrawable(drawable);
-        recyclerView.addItemDecoration(dividerItemDecoration);
+
+
     }
 
     private void loadData(){

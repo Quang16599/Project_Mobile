@@ -4,9 +4,9 @@
     android:layout_height="match_parent">
 
     <size
-        android:width="20dp"
-        android:height="20dp"
+        android:width="2.5dp"
+        android:height="2.5dp"
         ></size>
-    <solid android:color = "#E8430F" ></solid>
+    <solid android:color = "@color/colorPrimary" ></solid>
 
 </shape>
