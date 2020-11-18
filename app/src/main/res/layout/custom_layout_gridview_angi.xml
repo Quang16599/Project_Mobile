@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout
-        android:padding="10dp"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="4dp">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="180dp">
         <ImageView
-            android:id="@+id/HinhQuanAnAnGi"
+            android:src="@drawable/logo"
             android:scaleType="fitXY"
-            android:src="@drawable/banner"
             android:layout_width="match_parent"
-            android:layout_height="130dp"/>
+            android:layout_height="match_parent"/>
         <TextView
-            android:id="@+id/tvTenQuanAnAnGi"
-            android:textStyle="bold"
-            android:layout_width="match_parent"
+
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Quang "
-            android:textColor="#000000"
-            android:textSize="13dp"/>
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+            android:padding="5dp"
+            android:background="#1E88E5"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:text="Truyen Tranh"
+            android:textColor="#fff"
+            android:textSize="10dp"/>
+    </RelativeLayout>
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:text="Ten quan an"
+        android:textSize="14dp"
+        android:textColor="#000"/>
+</LinearLayout>
