@@ -6,11 +6,14 @@
     android:layout_height="match_parent"
     android:background="@color/backgroundTrangchu"
     android:orientation="vertical">
-    <ImageView
-        android:scaleType="fitXY"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:src="@drawable/banner"/>
+<!--    <androidx.viewpager.widget.ViewPager-->
+<!--        android:id="@+id/viewpager"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="150dp">-->
+
+<!--    </androidx.viewpager.widget.ViewPager>-->
+
+
 
     <RadioGroup
         android:id="@+id/group_tab_radio"
@@ -138,8 +141,7 @@
                     android:gravity="left|center"
                     android:drawablePadding="10dp"/>
             </LinearLayout>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewAngi"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -171,6 +173,7 @@
                     android:gravity="left|center"
                     android:drawablePadding="10dp"/>
                 <GridView
+                    android:layout_marginRight="30dp"
                     android:id="@+id/gvDSTruyen"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -181,7 +184,8 @@
 
         </LinearLayout>
 
-        </androidx.core.widget.NestedScrollView>
+
+    </androidx.core.widget.NestedScrollView>
 
 
 
