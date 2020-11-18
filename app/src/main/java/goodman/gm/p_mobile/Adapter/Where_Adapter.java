@@ -44,7 +44,7 @@ public class Where_Adapter extends RecyclerView.Adapter<Where_Adapter.ViewHolder
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         QuanAn quanAn = list_QuanAn.get(position);
         holder.tvTenQuanAnODau.setText(quanAn.getmTenQuanAn());
-
+        holder.tvDiaChi.setText(quanAn.getmDiaChiQuan());
         Picasso.get().load(quanAn.getmHinhAnh()).into(holder.hinhQuanAnODau);
 
 
@@ -57,14 +57,14 @@ public class Where_Adapter extends RecyclerView.Adapter<Where_Adapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTenQuanAnODau;
+        TextView tvTenQuanAnODau, tvDiaChi;
 
         ImageView hinhQuanAnODau;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTenQuanAnODau = itemView.findViewById(R.id.tvTenQuanAnODau);
-
+            tvDiaChi = itemView.findViewById(R.id.tvDiaChiQuanAn);
             hinhQuanAnODau = itemView.findViewById(R.id.HinhQuanAnODau);
 
 
