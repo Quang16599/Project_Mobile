@@ -10,7 +10,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:text="10km"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:gravity="center"
         android:padding="10dp">
 

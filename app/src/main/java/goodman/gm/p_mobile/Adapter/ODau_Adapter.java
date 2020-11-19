@@ -1,20 +1,14 @@
 package goodman.gm.p_mobile.Adapter;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -23,12 +17,12 @@ import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
 
-public class Where_Adapter extends RecyclerView.Adapter<Where_Adapter.ViewHolder> {
+public class ODau_Adapter extends RecyclerView.Adapter<ODau_Adapter.ViewHolder> {
 
     private int layout;
     private List<QuanAn> list_QuanAn;
 
-    public Where_Adapter(int layout, List<QuanAn> list_QuanAn) {
+    public ODau_Adapter(int layout, List<QuanAn> list_QuanAn) {
         this.layout = layout;
         this.list_QuanAn = list_QuanAn;
     }

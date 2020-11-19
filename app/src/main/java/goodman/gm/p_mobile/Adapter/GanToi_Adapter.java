@@ -13,7 +13,7 @@ import java.util.List;
 import goodman.gm.p_mobile.Model.ChiNhanhQuanAn;
 import goodman.gm.p_mobile.R;
 
-public class GanToi_Adapter  extends BaseAdapter {
+public class GanToi_Adapter extends BaseAdapter {
 
     private int layout;
     private List<ChiNhanhQuanAn> list_ChiNhanh;
@@ -38,28 +38,28 @@ public class GanToi_Adapter  extends BaseAdapter {
         return 0;
     }
 
-    public class ViewHolder{
-        TextView khoangcach,ten,diachi;
+    public class ViewHolder {
+        TextView khoangcach, ten, diachi;
 
     }
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         ViewHolder holder;
-        if(view == null){
+        if (view == null) {
             view = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
             holder = new ViewHolder();
             holder.khoangcach = view.findViewById(R.id.khoangcach);
             holder.ten = view.findViewById(R.id.textViewTen);
             holder.diachi = view.findViewById(R.id.textViewDiaChi);
             view.setTag(holder);
-        }else {
+        } else {
             holder = (ViewHolder) view.getTag();
         }
         ChiNhanhQuanAn chiNhanhQuanAn = list_ChiNhanh.get(position);
-        holder.khoangcach.setText(String.valueOf(chiNhanhQuanAn.getmKhoangCach()));
         holder.diachi.setText(chiNhanhQuanAn.getmDiaChi());
-
+        holder.khoangcach.setText(String.format("%.1f",chiNhanhQuanAn.getmKhoangCach())+ "km");
+        holder.ten.setText("quang");
         return view;
     }
 }

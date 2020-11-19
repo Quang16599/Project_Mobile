@@ -10,20 +10,20 @@ public class QuanAn {
     private String mHinhAnh;
     private String mTenQuanAn;
     private String mDiaChiQuan;
-
-
+    private String mMaQuanAn;
 
     public QuanAn(){
 
     }
 
-    public QuanAn(boolean mGiaoHang, String mGioDongCua, String mGioMoCua, String mHinhAnh, String mTenQuanAn, String mDiaChiQuan) {
+    public QuanAn(boolean mGiaoHang, String mGioDongCua, String mGioMoCua, String mHinhAnh, String mTenQuanAn, String mDiaChiQuan, String mMaQuanAn) {
         this.mGiaoHang = mGiaoHang;
         this.mGioDongCua = mGioDongCua;
         this.mGioMoCua = mGioMoCua;
         this.mHinhAnh = mHinhAnh;
         this.mTenQuanAn = mTenQuanAn;
         this.mDiaChiQuan = mDiaChiQuan;
+        this.mMaQuanAn = mMaQuanAn;
     }
 
     public boolean ismGiaoHang() {
@@ -72,5 +72,13 @@ public class QuanAn {
 
     public void setmDiaChiQuan(String mDiaChiQuan) {
         this.mDiaChiQuan = mDiaChiQuan;
+    }
+
+    public String getmMaQuanAn() {
+        return mMaQuanAn;
+    }
+
+    public void setmMaQuanAn(String mMaQuanAn) {
+        this.mMaQuanAn = mMaQuanAn;
     }
 }

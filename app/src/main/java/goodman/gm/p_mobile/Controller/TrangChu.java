@@ -3,9 +3,12 @@ package goodman.gm.p_mobile.Controller;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.service.controls.templates.ControlButton;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -16,6 +19,7 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
     ViewPager viewPagerTrangChu;
     RadioButton rdOdau, rdAnGi;
     RadioGroup rdGroup;
+    Button btnGanToi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +29,17 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
         viewPagerTrangChu.setAdapter(adapterViewPagerTrangChu);
         viewPagerTrangChu.addOnPageChangeListener(this);
         rdGroup.setOnCheckedChangeListener(this);
+        controlButton();
+    }
+
+    private void controlButton() {
+        btnGanToi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TrangChu.this, GanToi.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void init() {
@@ -32,6 +47,7 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
         rdOdau = (RadioButton) findViewById(R.id.rdOdau);
         rdAnGi = (RadioButton) findViewById(R.id.rdAnGi);
         rdGroup = (RadioGroup) findViewById(R.id.rdGroup);
+        btnGanToi = findViewById(R.id.btnGanToi);
     }
 
     @Override

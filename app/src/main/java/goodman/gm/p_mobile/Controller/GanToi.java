@@ -19,12 +19,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import goodman.gm.p_mobile.Adapter.GanToi_Adapter;
 import goodman.gm.p_mobile.Model.ChiNhanhQuanAn;
+import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
 public class GanToi extends AppCompatActivity {
 
+    List<QuanAn> list_QuanAn;
     ListView listView;
+    GanToi_Adapter adapter;
     List<ChiNhanhQuanAn> list_ChiNhanh;
     SharedPreferences sharedPreferences;
     Location vitrihientai;
@@ -35,7 +39,6 @@ public class GanToi extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gan_toi);
 
-
         Init();
         LoadData();
         getToaDo();
@@ -45,18 +48,25 @@ public class GanToi extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot value : snapshot.getChildren()){
-                    ChiNhanhQuanAn chiNhanhQuanAn = new ChiNhanhQuanAn();
-                    chiNhanhQuanAn.setmLatitue(Double.parseDouble(value.child("latitude").getValue().toString()));
-                    chiNhanhQuanAn.setmLongitue(Double.parseDouble(value.child("longitude").getValue().toString()));
-                    Location location = new Location("");
-                    location.setLatitude(chiNhanhQuanAn.getmLatitue());
-                    location.setLongitude(chiNhanhQuanAn.getmLongitue());
+                    for (DataSnapshot value : snapshot.getChildren()){
+                        ChiNhanhQuanAn chiNhanhQuanAn = new ChiNhanhQuanAn();
+                        chiNhanhQuanAn.setmLongitue((Double) value.child("longitude").getValue());
+                        chiNhanhQuanAn.setmLatitue((Double) value.child("latitude").getValue());
+                        chiNhanhQuanAn.setmDiaChi(value.child("diachi").getValue().toString());
 
-                    double khoangcach = vitrihientai.distanceTo(location);
-                    Log.d("khoangcach",chiNhanhQuanAn.getmDiaChi());
-                    list_ChiNhanh.add(chiNhanhQuanAn);
+                        Location location = new Location("");
+                        location.setLatitude(chiNhanhQuanAn.getmLatitue());
+                        location.setLongitude(chiNhanhQuanAn.getmLongitue());
+
+                        double khoangcach = vitrihientai.distanceTo(location)/1000;
+
+                        chiNhanhQuanAn.setmKhoangCach(khoangcach);
+
+                        list_ChiNhanh.add(chiNhanhQuanAn);
+
                 }
+                listView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
 
             }
 
@@ -77,6 +87,12 @@ public class GanToi extends AppCompatActivity {
         vitrihientai = new Location("");
         vitrihientai.setLatitude(Double.parseDouble(sharedPreferences.getString("Latitude","0")));
         vitrihientai.setLongitude(Double.parseDouble(sharedPreferences.getString("Longitude","0")));
+        Log.d("vitri","latitude"+vitrihientai.getLatitude()+" " +"longitude" + vitrihientai.getLongitude());
+        listView = findViewById(R.id.listview);
+        adapter = new GanToi_Adapter(R.layout.custom_layout_listview_gantoi,list_ChiNhanh);
+
+
+
 
 
 

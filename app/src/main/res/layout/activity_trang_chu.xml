@@ -68,6 +68,7 @@
         android:layout_height="50dp"
         android:orientation="horizontal">
         <Button
+            android:id="@+id/btnGanToi"
             android:text="@string/gantoi"
             android:textSize="15dp"
             android:layout_width="match_parent"

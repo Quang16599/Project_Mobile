@@ -1,23 +1,18 @@
 package goodman.gm.p_mobile.Fragments;
 
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
-import android.location.Location;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,15 +25,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import goodman.gm.p_mobile.Adapter.Where_Adapter;
+import goodman.gm.p_mobile.Adapter.ODau_Adapter;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
-import static com.firebase.ui.auth.AuthUI.getApplicationContext;
-
 public class OdauFragment extends Fragment {
+    ProgressBar progressBarODau;
     RecyclerView recyclerView;
-    Where_Adapter adapter;
+    ODau_Adapter adapter;
     List<QuanAn> list_QuanAn;
     View view;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("quanans");
@@ -61,11 +55,12 @@ public class OdauFragment extends Fragment {
     }
 
     private void init() {
+        progressBarODau = view.findViewById(R.id.progressBarODau);
         recyclerView = view.findViewById(R.id.recyclerViewODau);
         list_QuanAn = new ArrayList<>();
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new Where_Adapter(R.layout.custom_layout_recyclerview_odau, list_QuanAn);
+        adapter = new ODau_Adapter(R.layout.custom_layout_recyclerview_odau, list_QuanAn);
         recyclerView.setAdapter(adapter);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
         Drawable drawable = ContextCompat.getDrawable(getContext(),R.drawable.custom_divider);
@@ -93,6 +88,7 @@ public class OdauFragment extends Fragment {
 
                     list_QuanAn.add(quanAn);
                 }
+                progressBarODau.setVisibility(View.GONE);
                 adapter.notifyDataSetChanged();
             }
             @Override
