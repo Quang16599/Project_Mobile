@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+        <include layout="@layout/header_toolbar"></include>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#fff">
+
+        <Button
+            android:padding="5dp"
+            android:drawableTop="@drawable/ic_exit_to_app_white_24dp"
+            android:textAllCaps="false"
+            android:background="#615F5F"
+            android:textColor="#ffff"
+            android:text="Tải hình"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"></Button>
+        <Button
+            android:padding="5dp"
+            android:drawableTop="@drawable/ic_exit_to_app_white_24dp"
+            android:textAllCaps="false"
+            android:background="#615F5F"
+            android:textColor="#ffff"
+            android:text="Check-in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"></Button>
+        <Button
+            android:padding="5dp"
+            android:drawableTop="@drawable/ic_exit_to_app_white_24dp"
+            android:textAllCaps="false"
+            android:background="#615F5F"
+            android:textColor="#ffff"
+            android:text="Bình luân"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"></Button>
+        <Button
+            android:padding="5dp"
+            android:drawableTop="@drawable/ic_exit_to_app_white_24dp"
+            android:textAllCaps="false"
+            android:background="#615F5F"
+            android:textColor="#ffff"
+            android:text="Lưu lại"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"></Button>
+        <Button
+            android:padding="5dp"
+            android:drawableTop="@drawable/ic_exit_to_app_white_24dp"
+            android:textAllCaps="false"
+            android:background="#615F5F"
+            android:textColor="#ffff"
+            android:text="Chia sẻ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"></Button>
+
+
+    </LinearLayout>
+    <ImageView
+        android:scaleType="fitXY"
+        android:src="@drawable/banner"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+    </ImageView>
+    <TextView
+
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="A Xìn-Chân Gà Rút Xương Ngâm Sả Tắc ">
+    </TextView>
+    <TextView
+
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Địa chỉ">
+    </TextView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#615F5F"
+        android:paddingLeft="10dp">
+
+    </View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="8"></TextView>
+
+            <TextView
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bình luận"></TextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="8"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Hình ảnh"></TextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="8"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Check-in"></TextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="8"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Lưu lại"></TextView>
+
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#615F5F"
+        android:paddingLeft="10dp">
+    </View>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
+
+</LinearLayout>

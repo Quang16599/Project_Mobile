@@ -39,7 +39,7 @@ public class ODau_Adapter extends RecyclerView.Adapter<ODau_Adapter.ViewHolder> 
         QuanAn quanAn = list_QuanAn.get(position);
         holder.tvTenQuanAnODau.setText(quanAn.getmTenQuanAn());
         holder.tvDiaChi.setText(quanAn.getmDiaChiQuan());
-        Picasso.get().load(quanAn.getmHinhAnh()).into(holder.hinhQuanAnODau);
+        Picasso.get().load(quanAn.getmHinhAnhQuanAn()).into(holder.hinhQuanAnODau);
 
 
     }
