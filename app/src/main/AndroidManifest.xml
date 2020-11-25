@@ -13,10 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controller.TrangCaNhan"></activity>
+        <activity android:name=".Controller.ChiTietQuanAn"></activity>
+        <activity android:name=".Controller.TrangCaNhan" />
         <activity android:name=".Controller.GanToi" />
         <activity android:name=".Controller.TestAPIGoogle" />
-        <activity android:name=".Controller.MainActivity">
+        <activity android:name=".Controller.TrangChu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Controller.TrangChu"
+            android:name=".Controller.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Controller.DangNhap" />
         <activity android:name=".Controller.DangKy" />

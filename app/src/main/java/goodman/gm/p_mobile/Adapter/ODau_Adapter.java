@@ -1,7 +1,9 @@
 package goodman.gm.p_mobile.Adapter;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
 import java.util.List;
 
-import goodman.gm.p_mobile.Fragments.OdauFragment;
+import goodman.gm.p_mobile.Controller.ChiTietQuanAn;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
@@ -45,22 +48,18 @@ public class ODau_Adapter extends RecyclerView.Adapter<ODau_Adapter.ViewHolder> 
         holder.tvTenQuanAnODau.setText(quanAn.getmTenQuanAn());
         holder.tvDiaChi.setText(quanAn.getmDiaChiQuan());
         Picasso.get().load(quanAn.getmHinhAnh()).into(holder.hinhQuanAnODau);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("test");
-                String msg = list_QuanAn.get(position).getmTenQuanAn();
-                builder.setMessage(msg);
-
-                builder.show();
-
+                Intent intent = new Intent(context, ChiTietQuanAn.class);
+                intent.putExtra("quanans", list_QuanAn.get(position));
+                context.startActivity(intent);
 
             }
         });
 
     }
-
 
     @Override
     public int getItemCount() {

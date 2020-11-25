@@ -1,8 +1,9 @@
 package goodman.gm.p_mobile.Model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class QuanAn {
+public class QuanAn implements Serializable {
 
     private boolean mGiaoHang;
     private String mGioDongCua;
