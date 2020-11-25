@@ -59,7 +59,6 @@ public class ODau_Adapter extends RecyclerView.Adapter<ODau_Adapter.ViewHolder> 
             }
         });
 
-
     }
 
 
