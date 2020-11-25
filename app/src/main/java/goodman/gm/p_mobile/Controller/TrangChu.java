@@ -9,6 +9,7 @@ import android.service.controls.templates.ControlButton;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -20,6 +21,7 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
     RadioButton rdOdau, rdAnGi;
     RadioGroup rdGroup;
     Button btnGanToi;
+    ImageButton imbPerson;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +35,13 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
     }
 
     private void controlButton() {
+        imbPerson.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TrangChu.this, TrangCaNhan.class);
+                startActivity(intent);
+            }
+        });
         btnGanToi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,6 +57,7 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
         rdAnGi = (RadioButton) findViewById(R.id.rdAnGi);
         rdGroup = (RadioGroup) findViewById(R.id.rdGroup);
         btnGanToi = findViewById(R.id.btnGanToi);
+        imbPerson = findViewById(R.id.imageButtonPerson);
     }
 
     @Override

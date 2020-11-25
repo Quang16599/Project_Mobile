@@ -41,7 +41,6 @@ public class GanToi extends AppCompatActivity {
 
         Init();
         LoadData();
-        getToaDo();
     }
 
     private void LoadData() {
@@ -75,10 +74,6 @@ public class GanToi extends AppCompatActivity {
 
             }
         });
-    }
-
-    private void getToaDo() {
-
     }
 
     private void Init() {

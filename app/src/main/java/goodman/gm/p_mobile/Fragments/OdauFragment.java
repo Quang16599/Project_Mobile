@@ -60,7 +60,7 @@ public class OdauFragment extends Fragment {
         list_QuanAn = new ArrayList<>();
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new ODau_Adapter(R.layout.custom_layout_recyclerview_odau, list_QuanAn);
+        adapter = new ODau_Adapter(getContext(),R.layout.custom_layout_recyclerview_odau, list_QuanAn);
         recyclerView.setAdapter(adapter);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
         Drawable drawable = ContextCompat.getDrawable(getContext(),R.drawable.custom_divider);
