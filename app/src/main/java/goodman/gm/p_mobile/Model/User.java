@@ -1,6 +1,8 @@
 package goodman.gm.p_mobile.Model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
    public String mFullName;
    public String mUserName;
    public String mPassword;

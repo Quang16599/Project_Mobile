@@ -2,10 +2,21 @@ package goodman.gm.p_mobile.Controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
+import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
 public class TrangCaNhan extends AppCompatActivity {
@@ -18,6 +29,74 @@ public class TrangCaNhan extends AppCompatActivity {
         setContentView(R.layout.activity_trang_ca_nhan);
 
         Init();
+        controlButton();
+    }
+
+    private void controlButton() {
+        btnChangePass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        });
+
+        btnLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(TrangCaNhan.this);
+                builder.setMessage("Bạn muốn đăng xuất ?");
+                builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(TrangCaNhan.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+                builder.setCancelable(false);
+                builder.show();
+
+            }
+        });
+    }
+
+    private void showDialog() {
+        final Dialog dialog = new Dialog(TrangCaNhan.this);
+        dialog.setContentView(R.layout.custom_change_password);
+
+
+        TextInputLayout oldPass = dialog.findViewById(R.id.oldpassword);
+        TextInputLayout newPass = dialog.findViewById(R.id.newPassword);
+        TextInputLayout confirmPass = dialog.findViewById(R.id.confirmPassword);
+        Button btnHuy = dialog.findViewById(R.id.btnHuy);
+        Button btnDongY = dialog.findViewById(R.id.btnDongY);
+
+        btnHuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        btnDongY.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(TrangCaNhan.this, "Change Password Successfully", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+
+
+        dialog.setCancelable(false);
+        dialog.show();
     }
 
     private void Init() {
