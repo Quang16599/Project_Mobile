@@ -32,7 +32,7 @@ public class ChiTietQuanAn extends AppCompatActivity {
         tvThoiGianHoatDong = findViewById(R.id.tvGioHoatDong);
         tvTrangThaiHoatDong = findViewById(R.id.tvTrangThai);
         tvTenQuanAn = findViewById(R.id.tvTenQuanAn);
-        tvDiem = findViewById(R.id.tvDiem);
+//        tvDiem = findViewById(R.id.tvDiem);
         tvDiaChi = findViewById(R.id.tvDiaChi);
     }
 
@@ -42,7 +42,7 @@ public class ChiTietQuanAn extends AppCompatActivity {
         Intent intent = getIntent();
         quanAn = (QuanAn) intent.getSerializableExtra("quanans");
 
-        Picasso.get().load(quanAn.getmHinhAnh()).into(imgView);
+        Picasso.get().load(quanAn.getmHinhAnhQuanAn()).into(imgView);
         tvTenQuanAn.setText(quanAn.getmTenQuanAn());
         tvDiaChi.setText(quanAn.getmDiaChiQuan());
         tvThoiGianHoatDong.setText(quanAn.getmGioMoCua() + " " + quanAn.getmGioDongCua());
