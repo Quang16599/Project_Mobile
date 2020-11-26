@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,104 +8,181 @@
 
     tools:context=".Controller.TrangCaNhan">
 
-    <Button
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageviewAvatar"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:src="@drawable/custom_avatar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        >
+
+    </de.hdodenhof.circleimageview.CircleImageView>
+
+    <TextView
+        android:id="@+id/FullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:background="@drawable/custom_avatar"
+        android:text="Phạm Văn Quang"
+        android:textColor="#000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_below="@id/imageviewAvatar"
+        android:layout_centerHorizontal="true"></TextView>
 
-        ></Button>
-
-
-    <TableLayout
-        android:layout_marginTop="30dp"
+    <ImageView
+        android:id="@+id/imageviewHinh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="100dp"
+        android:src="@drawable/trangcanhan"
+        android:layout_below="@id/FullName"
+        android:layout_marginTop="-7dp"></ImageView>
 
-        <TableRow>
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageviewHinh"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
 
-            <TextView android:text="Full Name"></TextView>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_person"
+            android:layout_marginLeft="10dp"></ImageView>
 
-            <EditText
-                android:layout_width="300dp"
-                android:layout_marginLeft="20dp"
-                android:text="Phạm Văn Quang"></EditText>
-        </TableRow>
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="quang"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:layout_marginLeft="20dp"></TextView>
 
-        <TableRow>
 
-            <TextView android:text="User Name"></TextView>
+    </LinearLayout>
 
-            <EditText
-                android:layout_width="300dp"
-                android:layout_marginLeft="20dp"
-                android:hint="quang"></EditText>
-        </TableRow>
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear1"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
 
-        <TableRow>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_lock"
+            android:layout_marginLeft="10dp"></ImageView>
 
-            <TextView android:text="Pass Word"></TextView>
+        <TextView
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="***********"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:layout_marginLeft="20dp"></TextView>
 
-            <EditText
-                android:layout_width="300dp"
-                android:layout_marginLeft="20dp"
-                android:hint="123456@qw"></EditText>
-        </TableRow>
 
-        <TableRow>
+    </LinearLayout>
 
-            <TextView android:text="Email"></TextView>
+    <LinearLayout
+        android:id="@+id/linear3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear2"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
 
-            <EditText
-                android:layout_width="300dp"
-                android:layout_marginLeft="20dp"
-                android:hint="phamquang16599@gmail.com"></EditText>
-        </TableRow>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_mail"
+            android:layout_marginLeft="10dp"></ImageView>
 
-        <TableRow>
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="phamquang16599@gmail.com"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:layout_marginLeft="20dp"></TextView>
 
-            <TextView android:text="Số điện thoại"></TextView>
 
-            <EditText
-                android:id="@+id/mahang"
-                android:layout_width="300dp"
-                android:layout_marginLeft="20dp"
-                android:hint="0975390766"></EditText>
-        </TableRow>
+    </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+    <LinearLayout
+        android:id="@+id/linear4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear3"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_phone"
+            android:layout_marginLeft="10dp"></ImageView>
+
+        <TextView
+            android:id="@+id/phoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0975390766"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:layout_marginLeft="20dp"></TextView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear4"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+       <Button
+           android:id="@+id/btnChangPass"
+           android:layout_marginTop="30dp"
+           android:layout_width="200dp"
+           android:layout_height="50dp"
+           android:text="Change PassWord"
+           android:textColor="#128FC8"
+           android:textSize="15dp"
+           android:gravity="center"
+           android:paddingLeft="10dp"
+           android:drawableLeft="@drawable/ic_pen">
+
+       </Button>
+
+        <Button
+            android:id="@+id/btnLogOut"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:text="Log Out"
+            android:textSize="20dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:textColor="#F32112"
+            android:padding="10dp"
+            android:paddingLeft="10dp"
+            android:drawableLeft="@drawable/ic_logout">
 
-            <Button
-                android:id="@+id/btnLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#fff"
-                android:layout_gravity="center"
-                android:text="Change Password"
-                android:textColor="#00BCD4">
+        </Button>
 
-            </Button>
-
-            <Button
-                android:id="@+id/btnRegister"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:background="#fff"
-                android:text="Log Out"
-                android:textColor="#F43646"></Button>
-        </LinearLayout>
-
-
-    </TableLayout>
+    </LinearLayout>
 
 
 
 
-</LinearLayout>
+</RelativeLayout>
