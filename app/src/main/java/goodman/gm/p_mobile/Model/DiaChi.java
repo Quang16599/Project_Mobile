@@ -1,16 +1,18 @@
 package goodman.gm.p_mobile.Model;
 
-public class GanToi {
+import java.util.List;
+
+public class DiaChi  {
     private String mDiaChi;
     private double mLatitue;
     private double mLongitue;
     private double mKhoangCach;
 
-    public GanToi(){
+    public DiaChi(){
 
     }
 
-    public GanToi(String mDiaChi, double mLatitue, double mLongitue, double mKhoangCach) {
+    public DiaChi(String mDiaChi, double mLatitue, double mLongitue, double mKhoangCach) {
         this.mDiaChi = mDiaChi;
         this.mLatitue = mLatitue;
         this.mLongitue = mLongitue;

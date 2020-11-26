@@ -17,9 +17,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import goodman.gm.p_mobile.Adapter.GanToi_Adapter;
+import goodman.gm.p_mobile.Model.DiaChi;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
@@ -28,7 +31,7 @@ public class GanToi extends AppCompatActivity {
     List<QuanAn> list_QuanAn;
     ListView listView;
     GanToi_Adapter adapter;
-    List<goodman.gm.p_mobile.Model.GanToi> list_ChiNhanh;
+    List<DiaChi> list_ChiNhanh;
     SharedPreferences sharedPreferences;
     Location vitrihientai;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("gantois");
@@ -47,7 +50,7 @@ public class GanToi extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot value : snapshot.getChildren()){
-                        goodman.gm.p_mobile.Model.GanToi chiNhanhQuanAn = new goodman.gm.p_mobile.Model.GanToi();
+                        DiaChi chiNhanhQuanAn = new DiaChi();
                         chiNhanhQuanAn.setmLongitue((Double) value.child("longitude").getValue());
                         chiNhanhQuanAn.setmLatitue((Double) value.child("latitude").getValue());
                         chiNhanhQuanAn.setmDiaChi(value.child("diachi").getValue().toString());
@@ -63,6 +66,15 @@ public class GanToi extends AppCompatActivity {
                         list_ChiNhanh.add(chiNhanhQuanAn);
 
                 }
+
+                Collections.sort(list_ChiNhanh, new Comparator<DiaChi>() {
+                    @Override
+                    public int compare(DiaChi d1, DiaChi d2) {
+                        double a = d1.getmKhoangCach() - d2.getmKhoangCach();
+                        return (int) a;
+
+                    }
+                });
                 listView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
 

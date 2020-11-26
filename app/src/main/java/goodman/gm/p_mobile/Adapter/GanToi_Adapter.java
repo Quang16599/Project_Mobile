@@ -1,22 +1,25 @@
 package goodman.gm.p_mobile.Adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
-import goodman.gm.p_mobile.Model.GanToi;
+import goodman.gm.p_mobile.Model.DiaChi;
 import goodman.gm.p_mobile.R;
 
 public class GanToi_Adapter extends BaseAdapter {
 
     private int layout;
-    private List<GanToi> list_ChiNhanh;
+    private List<DiaChi> list_ChiNhanh;
 
-    public GanToi_Adapter(int layout, List<GanToi> list_ChiNhanh) {
+    public GanToi_Adapter(int layout, List<DiaChi> list_ChiNhanh) {
         this.layout = layout;
         this.list_ChiNhanh = list_ChiNhanh;
     }
@@ -54,10 +57,41 @@ public class GanToi_Adapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) view.getTag();
         }
-        GanToi chiNhanhQuanAn = list_ChiNhanh.get(position);
+
+
+        DiaChi chiNhanhQuanAn = list_ChiNhanh.get(position);
+
         holder.diachi.setText(chiNhanhQuanAn.getmDiaChi());
-        holder.khoangcach.setText(String.format("%.1f",chiNhanhQuanAn.getmKhoangCach())+ "km");
+        holder.khoangcach.setText(String.format("%.1f", chiNhanhQuanAn.getmKhoangCach()) + "km");
         holder.ten.setText("quang");
+
+//
+//        for(int i=0; i<list_ChiNhanh.size();i++){
+//            for (int j = i+1; j<list_ChiNhanh.size() ; j++){
+//                if(list_ChiNhanh.get(j).getmKhoangCach() < list_ChiNhanh.get(i).getmKhoangCach() ){
+//                    double a = list_ChiNhanh.get(j).getmKhoangCach();
+//                    double b = list_ChiNhanh.get(i).getmKhoangCach();
+//                     swap = a;
+//                     a = b;
+//                     b = swap;
+//                }
+//            }
+//        }
+
+
+//        Collections.sort(list_ChiNhanh, new Comparator<DiaChi>() {
+//            @Override
+//            public int compare(DiaChi d1, DiaChi d2) {
+//                return (int) (d1.getmKhoangCach() - d2.getmKhoangCach() );
+//            }
+//        });
+//
+//        for(int i = 0 ; i<list_ChiNhanh.size();i++){
+//            list_ChiNhanh.get(i);
+//            Log.d("adc",list_ChiNhanh.get(i).getmKhoangCach()+ "");
+//        }
+
+
         return view;
     }
 }
