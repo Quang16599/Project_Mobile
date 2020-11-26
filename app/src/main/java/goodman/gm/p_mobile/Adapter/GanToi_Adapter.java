@@ -1,24 +1,22 @@
 package goodman.gm.p_mobile.Adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
 
-import goodman.gm.p_mobile.Model.ChiNhanhQuanAn;
+import goodman.gm.p_mobile.Model.GanToi;
 import goodman.gm.p_mobile.R;
 
 public class GanToi_Adapter extends BaseAdapter {
 
     private int layout;
-    private List<ChiNhanhQuanAn> list_ChiNhanh;
+    private List<GanToi> list_ChiNhanh;
 
-    public GanToi_Adapter(int layout, List<ChiNhanhQuanAn> list_ChiNhanh) {
+    public GanToi_Adapter(int layout, List<GanToi> list_ChiNhanh) {
         this.layout = layout;
         this.list_ChiNhanh = list_ChiNhanh;
     }
@@ -56,7 +54,7 @@ public class GanToi_Adapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) view.getTag();
         }
-        ChiNhanhQuanAn chiNhanhQuanAn = list_ChiNhanh.get(position);
+        GanToi chiNhanhQuanAn = list_ChiNhanh.get(position);
         holder.diachi.setText(chiNhanhQuanAn.getmDiaChi());
         holder.khoangcach.setText(String.format("%.1f",chiNhanhQuanAn.getmKhoangCach())+ "km");
         holder.ten.setText("quang");

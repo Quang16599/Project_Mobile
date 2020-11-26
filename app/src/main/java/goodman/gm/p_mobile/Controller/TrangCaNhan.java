@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +24,7 @@ import goodman.gm.p_mobile.R;
 public class TrangCaNhan extends AppCompatActivity {
     TextView tvFullName, tvUserName, tvPassword, tvEmail, tvPhone;
     Button btnChangePass, btnLogOut;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +33,23 @@ public class TrangCaNhan extends AppCompatActivity {
 
         Init();
         controlButton();
+        loadData();
     }
 
+
+
+
+
+    private void Init() {
+        tvFullName = findViewById(R.id.FullName);
+        tvUserName = findViewById(R.id.userName);
+        tvPassword = findViewById(R.id.password);
+        tvEmail    = findViewById(R.id.email);
+        tvPhone    = findViewById(R.id.phoneNumber);
+        btnChangePass = findViewById(R.id.btnChangPass);
+        btnLogOut     = findViewById(R.id.btnLogOut);
+        sharedPreferences = getSharedPreferences("User", Context.MODE_PRIVATE);
+    }
     private void controlButton() {
         btnChangePass.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +96,9 @@ public class TrangCaNhan extends AppCompatActivity {
         Button btnHuy = dialog.findViewById(R.id.btnHuy);
         Button btnDongY = dialog.findViewById(R.id.btnDongY);
 
+
+
+
         btnHuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,13 +120,11 @@ public class TrangCaNhan extends AppCompatActivity {
         dialog.show();
     }
 
-    private void Init() {
-        tvFullName = findViewById(R.id.FullName);
-        tvUserName = findViewById(R.id.userName);
-        tvPassword = findViewById(R.id.password);
-        tvEmail    = findViewById(R.id.email);
-        tvPhone    = findViewById(R.id.phoneNumber);
-        btnChangePass = findViewById(R.id.btnChangPass);
-        btnLogOut     = findViewById(R.id.btnLogOut);
+    private void loadData() {
+        tvFullName.setText(sharedPreferences.getString("FullName","1"));
+        tvUserName.setText(sharedPreferences.getString("UserName","1"));
+        tvPassword.setText(sharedPreferences.getString("PassWord","1"));
+        tvEmail.setText(sharedPreferences.getString("Email","1"));
+        tvPhone.setText(sharedPreferences.getString("Phone","1"));
     }
 }

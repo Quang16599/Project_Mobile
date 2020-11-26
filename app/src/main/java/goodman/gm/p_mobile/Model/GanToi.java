@@ -1,16 +1,16 @@
 package goodman.gm.p_mobile.Model;
 
-public class ChiNhanhQuanAn {
+public class GanToi {
     private String mDiaChi;
     private double mLatitue;
     private double mLongitue;
     private double mKhoangCach;
 
-    public ChiNhanhQuanAn(){
+    public GanToi(){
 
     }
 
-    public ChiNhanhQuanAn(String mDiaChi, double mLatitue, double mLongitue, double mKhoangCach) {
+    public GanToi(String mDiaChi, double mLatitue, double mLongitue, double mKhoangCach) {
         this.mDiaChi = mDiaChi;
         this.mLatitue = mLatitue;
         this.mLongitue = mLongitue;

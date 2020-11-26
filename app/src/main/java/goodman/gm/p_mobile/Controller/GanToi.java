@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import goodman.gm.p_mobile.Adapter.GanToi_Adapter;
-import goodman.gm.p_mobile.Model.ChiNhanhQuanAn;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
@@ -29,7 +28,7 @@ public class GanToi extends AppCompatActivity {
     List<QuanAn> list_QuanAn;
     ListView listView;
     GanToi_Adapter adapter;
-    List<ChiNhanhQuanAn> list_ChiNhanh;
+    List<goodman.gm.p_mobile.Model.GanToi> list_ChiNhanh;
     SharedPreferences sharedPreferences;
     Location vitrihientai;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("gantois");
@@ -48,7 +47,7 @@ public class GanToi extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot value : snapshot.getChildren()){
-                        ChiNhanhQuanAn chiNhanhQuanAn = new ChiNhanhQuanAn();
+                        goodman.gm.p_mobile.Model.GanToi chiNhanhQuanAn = new goodman.gm.p_mobile.Model.GanToi();
                         chiNhanhQuanAn.setmLongitue((Double) value.child("longitude").getValue());
                         chiNhanhQuanAn.setmLatitue((Double) value.child("latitude").getValue());
                         chiNhanhQuanAn.setmDiaChi(value.child("diachi").getValue().toString());

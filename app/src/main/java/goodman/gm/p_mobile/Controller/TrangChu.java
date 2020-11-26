@@ -12,8 +12,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import goodman.gm.p_mobile.Adapter.AdapterViewPagerTrangChu;
+import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
 public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener {
@@ -32,6 +34,14 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
         viewPagerTrangChu.addOnPageChangeListener(this);
         rdGroup.setOnCheckedChangeListener(this);
         controlButton();
+        receiveData();
+    }
+
+
+
+    private void receiveData() {
+        Intent intent = getIntent();
+        User user = (User) intent.getSerializableExtra("users");
     }
 
     private void controlButton() {

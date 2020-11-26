@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +26,7 @@ public class DangNhap extends AppCompatActivity {
 
     Button btnDangKy,btnDangnhap,btnQuenMK;
     TextInputEditText edtUser,edtPass;
+    SharedPreferences sharedPreferences;
 
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference("thanhviens");
@@ -59,6 +61,13 @@ public class DangNhap extends AppCompatActivity {
                                 User user = dataSnapshot.child(edtUser.getText().toString()).getValue(User.class);
                                 if (user.getmPassword().equals(edtPass.getText().toString())) {
                                     Toast.makeText(DangNhap.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString("FullName", user.getmFullName());
+                                    editor.putString("UserName", user.getmUserName());
+                                    editor.putString("PassWord", user.getmPassword());
+                                    editor.putString("Email", user.getmEmail());
+                                    editor.putString("Phone", user.getmPhoneNumber());
+                                    editor.commit();
                                     Intent intent = new Intent(DangNhap.this, TrangChu.class);
                                     startActivity(intent);
                                 } else {
@@ -102,6 +111,7 @@ public class DangNhap extends AppCompatActivity {
         btnQuenMK = findViewById(R.id.btnForgot);
         edtUser = findViewById(R.id.edtUser);
         edtPass = findViewById(R.id.edtPass);
+        sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
 
 
     }
