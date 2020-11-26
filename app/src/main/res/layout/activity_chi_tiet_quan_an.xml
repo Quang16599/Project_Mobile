@@ -12,6 +12,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/tvTieuDe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -110,14 +111,41 @@
         android:layout_height="wrap_content"
         android:text="A Xìn-Chân Gà Rút Xương Ngâm Sả Tắc ">
     </TextView>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TextView
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mô tả: ">
+    </TextView>
+        <TextView
+            android:id="@+id/tvMoTa"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="abc">
+        </TextView>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal">
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:text="Thời gian hoạt động: "></TextView>
         <TextView
             android:id="@+id/tvGioHoatDong"
             android:layout_width="wrap_content"
@@ -138,17 +166,52 @@
             ></TextView>
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+        <TextView
 
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Giá tiền: ">
+        </TextView>
+        <TextView
+            android:id="@+id/tvGiaTien"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="abc">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+        <TextView
+
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Địa chỉ: ">
+        </TextView>
     <TextView
-        android:layout_marginTop="10dp"
         android:id="@+id/tvDiaChi"
         android:textColor="#000"
-        android:textStyle="bold"
         android:textSize="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Địa chỉ">
+        android:text="abc">
     </TextView>
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
@@ -255,10 +318,12 @@
         android:background="#615F5F"
         android:paddingLeft="10dp">
     </View>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewBinhLuan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>
