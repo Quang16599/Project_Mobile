@@ -56,7 +56,7 @@ public class AnGiFragment extends Fragment {
         list_QuanAn = new ArrayList<>();
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(),2);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new AnGi_Adapter(R.layout.custom_layout_gridview_angi, list_QuanAn);
+        adapter = new AnGi_Adapter(getContext(), R.layout.custom_layout_gridview_angi,list_QuanAn);
         recyclerView.setAdapter(adapter);
 
 
@@ -75,6 +75,9 @@ public class AnGiFragment extends Fragment {
                     quanAn.setmGioDongCua(value.child("giodongcua").getValue().toString());
                     quanAn.setmHinhAnh(value.child("hinhanh").getValue().toString());
                     quanAn.setmGiaoHang((Boolean) value.child("giaohang").getValue());
+                    quanAn.setmHinhAnhQuanAn(value.child("hinhanhquanan").getValue().toString());
+                    quanAn.setmGiaTien(value.child("giatien").getValue().toString());
+                    quanAn.setmMoTaQuanAn(value.child("motaquanan").getValue().toString());
 
 
                     list_QuanAn.add(quanAn);

@@ -1,5 +1,7 @@
 package goodman.gm.p_mobile.Adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,16 +15,19 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import goodman.gm.p_mobile.Controller.ChiTietQuanAn;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
 public class AnGi_Adapter extends RecyclerView.Adapter<AnGi_Adapter.ViewHolder> {
     private int layout;
     private List<QuanAn> list_QuanAn;
+    private Context  context;
 
-    public AnGi_Adapter(int layout, List<QuanAn> list_QuanAn) {
+    public AnGi_Adapter(Context context,int layout, List<QuanAn> list_QuanAn) {
         this.layout = layout;
         this.list_QuanAn = list_QuanAn;
+        this.context = context;
     }
 
     @NonNull
@@ -33,12 +38,20 @@ public class AnGi_Adapter extends RecyclerView.Adapter<AnGi_Adapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AnGi_Adapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AnGi_Adapter.ViewHolder holder,final int position) {
 
         QuanAn quanAn = list_QuanAn.get(position);
         holder.tvTenQuanAnAngi.setText(quanAn.getmTenQuanAn());
         Picasso.get().load(quanAn.getmHinhAnh()).into(holder.hinhQuanAnAngi);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ChiTietQuanAn.class);
+                intent.putExtra("quanans", list_QuanAn.get(position));
+                context.startActivity(intent);
 
+            }
+        });
 
     }
 

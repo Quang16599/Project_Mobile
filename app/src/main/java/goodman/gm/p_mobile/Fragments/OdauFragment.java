@@ -83,6 +83,8 @@ public class OdauFragment extends Fragment {
                     quanAn.setmHinhAnh(value.child("hinhanh").getValue().toString());
                     quanAn.setmGiaoHang((Boolean) value.child("giaohang").getValue());
                     quanAn.setmHinhAnhQuanAn(value.child("hinhanhquanan").getValue().toString());
+                    quanAn.setmGiaTien(value.child("giatien").getValue().toString());
+                    quanAn.setmMoTaQuanAn(value.child("motaquanan").getValue().toString());
 
 
 //                    Log.d("kiemtra", quanAn.getmDiaChiQuan());

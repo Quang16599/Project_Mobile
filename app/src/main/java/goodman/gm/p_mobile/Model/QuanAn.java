@@ -13,12 +13,16 @@ public class QuanAn implements Serializable {
     private String mDiaChiQuan;
     private String mMaQuanAn;
     private String mHinhAnhQuanAn;
+    private String mGiaTien;
+    private String mMoTaQuanAn;
 
     public QuanAn(){
 
     }
 
-    public QuanAn(boolean mGiaoHang, String mGioDongCua, String mGioMoCua, String mHinhAnh, String mTenQuanAn, String mDiaChiQuan, String mMaQuanAn, String mHinhAnhQuanAn) {
+    public QuanAn(boolean mGiaoHang, String mGioDongCua,
+                  String mGioMoCua, String mHinhAnh, String mTenQuanAn, String mDiaChiQuan,
+                  String mMaQuanAn, String mHinhAnhQuanAn, String mGiaTien, String mMoTaQuanAn) {
         this.mGiaoHang = mGiaoHang;
         this.mGioDongCua = mGioDongCua;
         this.mGioMoCua = mGioMoCua;
@@ -27,6 +31,8 @@ public class QuanAn implements Serializable {
         this.mDiaChiQuan = mDiaChiQuan;
         this.mMaQuanAn = mMaQuanAn;
         this.mHinhAnhQuanAn = mHinhAnhQuanAn;
+        this.mGiaTien = mGiaTien;
+        this.mMoTaQuanAn = mMoTaQuanAn;
     }
 
     public boolean ismGiaoHang() {
@@ -91,5 +97,21 @@ public class QuanAn implements Serializable {
 
     public void setmHinhAnhQuanAn(String mHinhAnhQuanAn) {
         this.mHinhAnhQuanAn = mHinhAnhQuanAn;
+    }
+
+    public String getmGiaTien() {
+        return mGiaTien;
+    }
+
+    public void setmGiaTien(String mGiaTien) {
+        this.mGiaTien = mGiaTien;
+    }
+
+    public String getmMoTaQuanAn() {
+        return mMoTaQuanAn;
+    }
+
+    public void setmMoTaQuanAn(String mMoTaQuanAn) {
+        this.mMoTaQuanAn = mMoTaQuanAn;
     }
 }
