@@ -1,10 +1,7 @@
 package goodman.gm.p_mobile.Controller;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -90,6 +87,7 @@ public class DoiMatKhau extends AppCompatActivity {
             return true;
         }
     }
+
     @Override
     protected void onStart() {
         controller();
@@ -100,9 +98,11 @@ public class DoiMatKhau extends AppCompatActivity {
                 if (oldPass.getEditText().getText().toString().isEmpty() || newPass.getEditText().getText().toString().isEmpty()
                         || confirmPass.getEditText().toString().isEmpty()) {
                     Toast.makeText(DoiMatKhau.this, "Không được để trống", Toast.LENGTH_SHORT).show();
-                }if (!oldPass.getEditText().getText().toString().equals(passWord) && !validatePass()) {
+                }
+                if (!oldPass.getEditText().getText().toString().equals(passWord) && !validatePass()) {
                     Toast.makeText(DoiMatKhau.this, "Mật khẩu cũ bị sai", Toast.LENGTH_SHORT).show();
-                }if (!newPass.getEditText().getText().toString().equals(confirmPass.getEditText().getText().toString())) {
+                }
+                if (!newPass.getEditText().getText().toString().equals(confirmPass.getEditText().getText().toString())) {
                     Toast.makeText(DoiMatKhau.this, "Xác nhận mật khẩu sai", Toast.LENGTH_SHORT).show();
                 } else {
                     User user = new User(fullName, userName, newPass.getEditText().getText().toString(), email, phoneNumber);
@@ -113,7 +113,6 @@ public class DoiMatKhau extends AppCompatActivity {
                 }
 
             }
-
 
 
         });

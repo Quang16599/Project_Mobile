@@ -31,7 +31,7 @@ import goodman.gm.p_mobile.R;
 
 public class ChiTietQuanAn extends AppCompatActivity {
     ImageView imgView;
-    TextView tvThoiGianHoatDong, tvTrangThaiHoatDong, tvTenQuanAn, tvDiem, tvDiaChi;
+    TextView tvThoiGianHoatDong, tvTrangThaiHoatDong, tvTenQuanAn, tvDiem, tvDiaChi,tvMoTa,tvGiaTien;
     QuanAn quanAn;
 
     RecyclerView recyclerViewBinhLuan;
@@ -82,6 +82,8 @@ public class ChiTietQuanAn extends AppCompatActivity {
         tvTenQuanAn = findViewById(R.id.tvTenQuanAn);
 //        tvDiem = findViewById(R.id.tvDiem);
         tvDiaChi = findViewById(R.id.tvDiaChi);
+        tvMoTa = findViewById(R.id.tvMoTa);
+        tvGiaTien = findViewById(R.id.tvGiaTien);
 //        lstBinhLuan = new ArrayList<>();
 //        recyclerViewBinhLuan = findViewById(R.id.recyclerViewBinhLuan);
 //        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -100,7 +102,8 @@ public class ChiTietQuanAn extends AppCompatActivity {
         tvTenQuanAn.setText(quanAn.getmTenQuanAn());
         tvDiaChi.setText(quanAn.getmDiaChiQuan());
         tvThoiGianHoatDong.setText(quanAn.getmGioMoCua() + " " + quanAn.getmGioDongCua());
-
+        tvMoTa.setText(quanAn.getmMoTaQuanAn());
+        tvGiaTien.setText(quanAn.getmGiaTien());
 
 
 
