@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:background="#FDD835">
+    <ImageView
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:src="@drawable/logo">
+    </ImageView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/bungee"
+        android:text="FOODY">
+
+    </TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:text="Đánh giá đồ ăn một cách chân thật">
+
+    </TextView>
+
+
+</LinearLayout>

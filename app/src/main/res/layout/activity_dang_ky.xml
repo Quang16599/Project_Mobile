@@ -22,7 +22,7 @@
         android:fontFamily="@font/bungee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="REGISTER"
+        android:text="ĐĂNG KÝ"
         android:textSize="20dp"
         ></TextView>
     <LinearLayout
@@ -36,7 +36,7 @@
             android:id="@+id/edtFullName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Full name"
+            android:hint="Tên đầy đủ"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             >
 
@@ -53,7 +53,7 @@
             android:id="@+id/edtUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="User name"
+            android:hint="Tên đăng nhập"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             >
 
@@ -71,7 +71,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="Mật khẩu"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -102,7 +102,7 @@
             android:id="@+id/edtPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="PhoneNumber"
+            android:hint="Số điện thoại"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             >
 
@@ -131,7 +131,7 @@
                 android:layout_marginRight="25dp"
                 android:layout_marginBottom="5dp"
                 android:background="#000"
-                android:text="REGISTER"
+                android:text="ĐĂNG KÝ"
                 android:textColor="#fff">
 
             </Button>
@@ -143,7 +143,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:background="#fff"
-                android:text="Already have an account? Log in"
+                android:text="BẠN ĐÃ CÓ TÀI KHOẢN?"
                 android:textColor="#000">
 
             </Button>
