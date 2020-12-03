@@ -87,6 +87,7 @@ public class DangNhap extends AppCompatActivity {
                                     startActivity(intent);
                                 } else {
                                     Toast.makeText(DangNhap.this, "Wrong PassWord!!", Toast.LENGTH_SHORT).show();
+
                                 }
                             } else {
                                 Toast.makeText(DangNhap.this, "User not exist!!", Toast.LENGTH_SHORT).show();
@@ -121,6 +122,7 @@ public class DangNhap extends AppCompatActivity {
         });
     }
 
+
     private void Init() {
         btnDangnhap = findViewById(R.id.btnLogin);
         btnDangKy = findViewById(R.id.btnRegister);
@@ -131,4 +133,6 @@ public class DangNhap extends AppCompatActivity {
 
 
     }
+
+
 }

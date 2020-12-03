@@ -25,6 +25,7 @@ public class TrangCaNhan extends AppCompatActivity {
     TextView tvFullName, tvUserName, tvPassword, tvEmail, tvPhone;
     Button btnChangePass, btnLogOut;
     SharedPreferences sharedPreferences;
+    String passWord, fullName, email, phoneNumber, userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,9 @@ public class TrangCaNhan extends AppCompatActivity {
         Init();
         controlButton();
         loadData();
+        sendData();
     }
+
 
 
     private void Init() {
@@ -53,6 +56,8 @@ public class TrangCaNhan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TrangCaNhan.this, DoiMatKhau.class);
+                User user = new User(fullName,userName,passWord,email,phoneNumber);
+                intent.putExtra("send",user);
                 startActivity(intent);
             }
         });
@@ -84,40 +89,6 @@ public class TrangCaNhan extends AppCompatActivity {
         });
     }
 
-//    private void showDialog() {
-//        final Dialog dialog = new Dialog(TrangCaNhan.this);
-//        dialog.setContentView(R.layout.custom_change_password);
-//
-//
-//        TextInputLayout oldPass = dialog.findViewById(R.id.oldpassword);
-//        TextInputLayout newPass = dialog.findViewById(R.id.newPassword);
-//        TextInputLayout confirmPass = dialog.findViewById(R.id.confirmPassword);
-//        Button btnHuy = dialog.findViewById(R.id.btnHuy);
-//        Button btnDongY = dialog.findViewById(R.id.btnDongY);
-//
-//
-//
-//
-//        btnHuy.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                dialog.dismiss();
-//            }
-//        });
-//
-//        btnDongY.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(TrangCaNhan.this, "Change Password Successfully", Toast.LENGTH_SHORT).show();
-//                dialog.dismiss();
-//            }
-//        });
-//
-//
-//
-//        dialog.setCancelable(false);
-//        dialog.show();
-//    }
 
     private void loadData() {
         tvFullName.setText(sharedPreferences.getString("FullName", "1"));
@@ -125,5 +96,15 @@ public class TrangCaNhan extends AppCompatActivity {
         tvPassword.setText(sharedPreferences.getString("PassWord", "1"));
         tvEmail.setText(sharedPreferences.getString("Email", "1"));
         tvPhone.setText(sharedPreferences.getString("Phone", "1"));
+    }
+
+    private void sendData() {
+        fullName = tvFullName.getText().toString();
+        email = tvEmail.getText().toString();
+        phoneNumber = tvPhone.getText().toString();
+        userName = tvUserName.getText().toString();
+        passWord = tvPassword.getText().toString();
+
+
     }
 }

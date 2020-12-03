@@ -22,6 +22,7 @@
         <activity android:name=".Controller.ChiTietQuanAn" />
         <activity android:name=".Controller.TrangCaNhan" />
         <activity android:name=".Controller.GanToi" />
+        <activity android:name=".Controller.DoiMatKhau" />
         <activity android:name=".Controller.TestAPIGoogle" />
         <activity android:name=".Controller.MainActivity">
             <intent-filter>
