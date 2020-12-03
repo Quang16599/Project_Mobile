@@ -17,16 +17,16 @@ import goodman.gm.p_mobile.R;
 public class GanToi_Adapter extends BaseAdapter {
 
     private int layout;
-    private List<DiaChi> list_ChiNhanh;
+    private List<DiaChi> list_DiaChi;
 
-    public GanToi_Adapter(int layout, List<DiaChi> list_ChiNhanh) {
+    public GanToi_Adapter(int layout, List<DiaChi> list_DiaChi) {
         this.layout = layout;
-        this.list_ChiNhanh = list_ChiNhanh;
+        this.list_DiaChi = list_DiaChi;
     }
 
     @Override
     public int getCount() {
-        return list_ChiNhanh.size();
+        return list_DiaChi.size();
     }
 
     @Override
@@ -59,11 +59,11 @@ public class GanToi_Adapter extends BaseAdapter {
         }
 
 
-        DiaChi chiNhanhQuanAn = list_ChiNhanh.get(position);
+        DiaChi diaChi = list_DiaChi.get(position);
 
-        holder.diachi.setText(chiNhanhQuanAn.getmDiaChi());
-        holder.khoangcach.setText(String.format("%.1f", chiNhanhQuanAn.getmKhoangCach()) + "km");
-        holder.ten.setText("quang");
+        holder.diachi.setText(diaChi.getmDiaChi());
+        holder.khoangcach.setText(String.format("%.1f", diaChi.getmKhoangCach()) + "km");
+        holder.ten.setText(diaChi.getmTenQuanAn());
 
 //
 //        for(int i=0; i<list_ChiNhanh.size();i++){

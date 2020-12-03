@@ -13,12 +13,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_api_key"/>
+
+
         <activity android:name=".Controller.Admin"></activity>
         <activity android:name=".Controller.ChiTietQuanAn" />
         <activity android:name=".Controller.TrangCaNhan" />
         <activity android:name=".Controller.GanToi" />
         <activity android:name=".Controller.TestAPIGoogle" />
-        <activity android:name=".Controller.DangNhap">
+        <activity android:name=".Controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,7 +32,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Controller.MainActivity"
+            android:name=".Controller.DangNhap"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Controller.TrangChu" />
         <activity android:name=".Controller.DangKy" />

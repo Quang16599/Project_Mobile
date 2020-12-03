@@ -2,21 +2,31 @@ package goodman.gm.p_mobile.Model;
 
 import java.util.List;
 
-public class DiaChi  {
+public class DiaChi {
+    private String mTenQuanAn;
     private String mDiaChi;
     private double mLatitue;
     private double mLongitue;
     private double mKhoangCach;
 
-    public DiaChi(){
+    public DiaChi() {
 
     }
 
-    public DiaChi(String mDiaChi, double mLatitue, double mLongitue, double mKhoangCach) {
+    public DiaChi(String mTenQuanAn, String mDiaChi, double mLatitue, double mLongitue, double mKhoangCach) {
+        this.mTenQuanAn = mTenQuanAn;
         this.mDiaChi = mDiaChi;
         this.mLatitue = mLatitue;
         this.mLongitue = mLongitue;
         this.mKhoangCach = mKhoangCach;
+    }
+
+    public String getmTenQuanAn() {
+        return mTenQuanAn;
+    }
+
+    public void setmTenQuanAn(String mTenQuanAn) {
+        this.mTenQuanAn = mTenQuanAn;
     }
 
     public String getmDiaChi() {

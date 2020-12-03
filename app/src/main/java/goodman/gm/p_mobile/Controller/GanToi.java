@@ -53,6 +53,8 @@ public class GanToi extends AppCompatActivity {
                         diaChi.setmLongitue((Double) value.child("longitude").getValue());
                         diaChi.setmLatitue((Double) value.child("latitude").getValue());
                         diaChi.setmDiaChi(value.child("diachi").getValue().toString());
+                        diaChi.setmTenQuanAn(value.child("tenquanan").getValue().toString());
+
 
                         Location location = new Location("");
                         location.setLatitude(diaChi.getmLatitue());
