@@ -37,24 +37,23 @@ public class TrangCaNhan extends AppCompatActivity {
     }
 
 
-
-
-
     private void Init() {
         tvFullName = findViewById(R.id.FullName);
         tvUserName = findViewById(R.id.userName);
         tvPassword = findViewById(R.id.password);
-        tvEmail    = findViewById(R.id.email);
-        tvPhone    = findViewById(R.id.phoneNumber);
+        tvEmail = findViewById(R.id.email);
+        tvPhone = findViewById(R.id.phoneNumber);
         btnChangePass = findViewById(R.id.btnChangPass);
-        btnLogOut     = findViewById(R.id.btnLogOut);
+        btnLogOut = findViewById(R.id.btnLogOut);
         sharedPreferences = getSharedPreferences("User", Context.MODE_PRIVATE);
     }
+
     private void controlButton() {
         btnChangePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog();
+                Intent intent = new Intent(TrangCaNhan.this, DoiMatKhau.class);
+                startActivity(intent);
             }
         });
 
@@ -85,46 +84,46 @@ public class TrangCaNhan extends AppCompatActivity {
         });
     }
 
-    private void showDialog() {
-        final Dialog dialog = new Dialog(TrangCaNhan.this);
-        dialog.setContentView(R.layout.custom_change_password);
-
-
-        TextInputLayout oldPass = dialog.findViewById(R.id.oldpassword);
-        TextInputLayout newPass = dialog.findViewById(R.id.newPassword);
-        TextInputLayout confirmPass = dialog.findViewById(R.id.confirmPassword);
-        Button btnHuy = dialog.findViewById(R.id.btnHuy);
-        Button btnDongY = dialog.findViewById(R.id.btnDongY);
-
-
-
-
-        btnHuy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-
-        btnDongY.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(TrangCaNhan.this, "Change Password Successfully", Toast.LENGTH_SHORT).show();
-                dialog.dismiss();
-            }
-        });
-
-
-
-        dialog.setCancelable(false);
-        dialog.show();
-    }
+//    private void showDialog() {
+//        final Dialog dialog = new Dialog(TrangCaNhan.this);
+//        dialog.setContentView(R.layout.custom_change_password);
+//
+//
+//        TextInputLayout oldPass = dialog.findViewById(R.id.oldpassword);
+//        TextInputLayout newPass = dialog.findViewById(R.id.newPassword);
+//        TextInputLayout confirmPass = dialog.findViewById(R.id.confirmPassword);
+//        Button btnHuy = dialog.findViewById(R.id.btnHuy);
+//        Button btnDongY = dialog.findViewById(R.id.btnDongY);
+//
+//
+//
+//
+//        btnHuy.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        btnDongY.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(TrangCaNhan.this, "Change Password Successfully", Toast.LENGTH_SHORT).show();
+//                dialog.dismiss();
+//            }
+//        });
+//
+//
+//
+//        dialog.setCancelable(false);
+//        dialog.show();
+//    }
 
     private void loadData() {
-        tvFullName.setText(sharedPreferences.getString("FullName","1"));
-        tvUserName.setText(sharedPreferences.getString("UserName","1"));
-        tvPassword.setText(sharedPreferences.getString("PassWord","1"));
-        tvEmail.setText(sharedPreferences.getString("Email","1"));
-        tvPhone.setText(sharedPreferences.getString("Phone","1"));
+        tvFullName.setText(sharedPreferences.getString("FullName", "1"));
+        tvUserName.setText(sharedPreferences.getString("UserName", "1"));
+        tvPassword.setText(sharedPreferences.getString("PassWord", "1"));
+        tvEmail.setText(sharedPreferences.getString("Email", "1"));
+        tvPhone.setText(sharedPreferences.getString("Phone", "1"));
     }
 }
