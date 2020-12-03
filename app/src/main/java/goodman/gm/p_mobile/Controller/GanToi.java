@@ -28,10 +28,9 @@ import goodman.gm.p_mobile.R;
 
 public class GanToi extends AppCompatActivity {
 
-    List<QuanAn> list_QuanAn;
     ListView listView;
     GanToi_Adapter adapter;
-    List<DiaChi> list_ChiNhanh;
+    List<DiaChi> list_DiaChi;
     SharedPreferences sharedPreferences;
     Location vitrihientai;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("gantois");
@@ -50,29 +49,28 @@ public class GanToi extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot value : snapshot.getChildren()){
-                        DiaChi chiNhanhQuanAn = new DiaChi();
-                        chiNhanhQuanAn.setmLongitue((Double) value.child("longitude").getValue());
-                        chiNhanhQuanAn.setmLatitue((Double) value.child("latitude").getValue());
-                        chiNhanhQuanAn.setmDiaChi(value.child("diachi").getValue().toString());
+                        DiaChi diaChi = new DiaChi();
+                        diaChi.setmLongitue((Double) value.child("longitude").getValue());
+                        diaChi.setmLatitue((Double) value.child("latitude").getValue());
+                        diaChi.setmDiaChi(value.child("diachi").getValue().toString());
 
                         Location location = new Location("");
-                        location.setLatitude(chiNhanhQuanAn.getmLatitue());
-                        location.setLongitude(chiNhanhQuanAn.getmLongitue());
+                        location.setLatitude(diaChi.getmLatitue());
+                        location.setLongitude(diaChi.getmLongitue());
 
                         double khoangcach = vitrihientai.distanceTo(location)/1000;
 
-                        chiNhanhQuanAn.setmKhoangCach(khoangcach);
+                        diaChi.setmKhoangCach(khoangcach);
 
-                        list_ChiNhanh.add(chiNhanhQuanAn);
+                        list_DiaChi.add(diaChi);
 
                 }
 
-                Collections.sort(list_ChiNhanh, new Comparator<DiaChi>() {
+                Collections.sort(list_DiaChi, new Comparator<DiaChi>() {
                     @Override
                     public int compare(DiaChi d1, DiaChi d2) {
                         double a = d1.getmKhoangCach() - d2.getmKhoangCach();
                         return (int) a;
-
                     }
                 });
                 listView.setAdapter(adapter);
@@ -88,14 +86,14 @@ public class GanToi extends AppCompatActivity {
     }
 
     private void Init() {
-        list_ChiNhanh = new ArrayList<>();
+        list_DiaChi = new ArrayList<>();
         sharedPreferences = getSharedPreferences("ToaDo", Context.MODE_PRIVATE);
         vitrihientai = new Location("");
         vitrihientai.setLatitude(Double.parseDouble(sharedPreferences.getString("Latitude","0")));
         vitrihientai.setLongitude(Double.parseDouble(sharedPreferences.getString("Longitude","0")));
         Log.d("vitri","latitude"+vitrihientai.getLatitude()+" " +"longitude" + vitrihientai.getLongitude());
         listView = findViewById(R.id.listview);
-        adapter = new GanToi_Adapter(R.layout.custom_layout_listview_gantoi,list_ChiNhanh);
+        adapter = new GanToi_Adapter(R.layout.custom_layout_listview_gantoi,list_DiaChi);
 
 
 

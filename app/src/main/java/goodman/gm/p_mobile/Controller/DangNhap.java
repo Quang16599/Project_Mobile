@@ -24,8 +24,8 @@ import goodman.gm.p_mobile.R;
 
 public class DangNhap extends AppCompatActivity {
 
-    Button btnDangKy,btnDangnhap,btnQuenMK;
-    TextInputEditText edtUser,edtPass;
+    Button btnDangKy, btnDangnhap, btnQuenMK;
+    TextInputEditText edtUser, edtPass;
     SharedPreferences sharedPreferences;
 
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
@@ -45,7 +45,7 @@ public class DangNhap extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(edtUser.getText().toString().isEmpty() || edtPass.getText().toString().isEmpty()) {
+                if (edtUser.getText().toString().isEmpty() || edtPass.getText().toString().isEmpty()) {
                     Toast.makeText(DangNhap.this, "Please Enter values", Toast.LENGTH_SHORT).show();
                 } else {
                     final ProgressDialog dialog = new ProgressDialog(DangNhap.this);
@@ -59,7 +59,22 @@ public class DangNhap extends AppCompatActivity {
                                 dialog.dismiss();
                                 // lay du lieu
                                 User user = dataSnapshot.child(edtUser.getText().toString()).getValue(User.class);
-                                if (user.getmPassword().equals(edtPass.getText().toString())) {
+                                if (user.getmUserName().equals("admin")) {
+                                    if (user.getmPassword().equals(edtPass.getText().toString())) {
+                                        Toast.makeText(DangNhap.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
+                                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                                        editor.putString("FullName", user.getmFullName());
+                                        editor.putString("UserName", user.getmUserName());
+                                        editor.putString("PassWord", user.getmPassword());
+                                        editor.putString("Email", user.getmEmail());
+                                        editor.putString("Phone", user.getmPhoneNumber());
+                                        editor.commit();
+                                        Intent intent = new Intent(DangNhap.this, Admin.class);
+                                        startActivity(intent);
+                                    } else {
+                                        Toast.makeText(DangNhap.this, "Wrong PassWord!!", Toast.LENGTH_SHORT).show();
+                                    }
+                                } else if (user.getmPassword().equals(edtPass.getText().toString())) {
                                     Toast.makeText(DangNhap.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.putString("FullName", user.getmFullName());
@@ -78,6 +93,7 @@ public class DangNhap extends AppCompatActivity {
                                 dialog.dismiss();
                             }
                         }
+
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {
 
