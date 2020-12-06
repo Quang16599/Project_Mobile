@@ -66,6 +66,7 @@ public class DangNhap extends AppCompatActivity {
                                         sendData();
                                         Intent intent = new Intent(DangNhap.this, Admin.class);
                                         startActivity(intent);
+
                                     } else {
                                         Toast.makeText(DangNhap.this, "Wrong PassWord!!", Toast.LENGTH_SHORT).show();
                                     }
