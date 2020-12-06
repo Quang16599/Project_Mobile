@@ -111,6 +111,7 @@ public class DoiMatKhau extends AppCompatActivity {
                     Toast.makeText(DoiMatKhau.this, "Đổi thành công", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(DoiMatKhau.this, TrangCaNhan.class);
                     startActivity(intent);
+                    finish();
                 }
 
             }
