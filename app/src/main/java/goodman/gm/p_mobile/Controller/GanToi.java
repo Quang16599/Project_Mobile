@@ -21,15 +21,14 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import goodman.gm.p_mobile.Adapter.GanToi_Adapter;
+import goodman.gm.p_mobile.Adapter.DiaChi_Adapter;
 import goodman.gm.p_mobile.Model.DiaChi;
-import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
 public class GanToi extends AppCompatActivity {
 
     ListView listView;
-    GanToi_Adapter adapter;
+    DiaChi_Adapter adapter;
     List<DiaChi> list_DiaChi;
     SharedPreferences sharedPreferences;
     Location vitrihientai;
@@ -95,7 +94,7 @@ public class GanToi extends AppCompatActivity {
         vitrihientai.setLongitude(Double.parseDouble(sharedPreferences.getString("Longitude","0")));
         Log.d("vitri","latitude"+vitrihientai.getLatitude()+" " +"longitude" + vitrihientai.getLongitude());
         listView = findViewById(R.id.listview);
-        adapter = new GanToi_Adapter(R.layout.custom_layout_listview_gantoi,list_DiaChi);
+        adapter = new DiaChi_Adapter(R.layout.custom_layout_listview_gantoi,list_DiaChi);
 
 
 

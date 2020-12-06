@@ -90,6 +90,7 @@ public class DoiMatKhau extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+        super.onStart();
         controller();
         loadData();
         btnDongY.setOnClickListener(new View.OnClickListener() {
@@ -116,7 +117,6 @@ public class DoiMatKhau extends AppCompatActivity {
 
 
         });
-        super.onStart();
     }
-
+    
 }

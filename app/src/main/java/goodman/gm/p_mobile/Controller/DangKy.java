@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hbb20.CountryCodePicker;
 
 import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
@@ -26,6 +27,7 @@ public class DangKy extends AppCompatActivity {
     TextInputLayout edtFullName, edtUserName, edtEmail, edtPhone, edtPassWord;
     Button btnBack, btnDangKy;
     private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("thanhviens");
+    CountryCodePicker countryCodePicker ;
 
 
     @Override
@@ -48,6 +50,7 @@ public class DangKy extends AppCompatActivity {
         edtPassWord = findViewById(R.id.edtPassWord);
         btnBack = findViewById(R.id.btnBack);
         btnDangKy = findViewById(R.id.btnDangKy);
+        countryCodePicker = findViewById(R.id.country_code);
     }
 
     private void controlButton() {
@@ -69,12 +72,15 @@ public class DangKy extends AppCompatActivity {
                             String email = edtEmail.getEditText().getText().toString();
                             String phone = edtPhone.getEditText().getText().toString();
 
+                            String phoneNumber = "+"+countryCodePicker.getFullNumber()+phone;
 
-                            User user = new User(fullname,username,password,email,phone);
+                            User user = new User(fullname,username,password,email,phoneNumber);
                             reference.child(username).setValue(user);
 
                             Toast.makeText(DangKy.this, "Register Succes", Toast.LENGTH_SHORT).show();
-                            finish();
+
+                            Intent intent = new Intent(DangKy.this, DangNhap.class);
+                            startActivity(intent);
 
                         } else {
                             Toast.makeText(DangKy.this, "User Name already exists", Toast.LENGTH_SHORT).show();
@@ -91,8 +97,7 @@ public class DangKy extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DangKy.this, DangNhap.class);
-                startActivity(intent);
+                finish();
             }
         });
     }
@@ -170,7 +175,7 @@ public class DangKy extends AppCompatActivity {
         String val = edtPhone.getEditText().getText().toString();
         String MobilePattern = "[0-9]{10}";
 
-        if (val.length() < 10 || val.length() > 13 || !val.matches(MobilePattern)) {
+        if (val.length() < 10 || val.length() > 12 || !val.matches(MobilePattern)) {
             edtPhone.setError("Wrong phone number");
             return false;
         } else {

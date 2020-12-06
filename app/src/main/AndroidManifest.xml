@@ -13,14 +13,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Controller.Vertify_OTP"></activity>
+        <activity android:name=".Controller.QuenMatKhau" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/map_api_key"/>
+            android:value="@string/map_api_key" />
 
-
-        <activity android:name=".Controller.Admin"></activity>
+        <activity android:name=".Controller.Admin" />
         <activity android:name=".Controller.ChiTietQuanAn" />
         <activity android:name=".Controller.TrangCaNhan" />
+        <activity android:name=".Controller.AdminFood" />
+        <activity android:name=".Controller.AdminNear" />
+        <activity android:name=".Controller.AdminUser" />
+        <activity android:name=".Controller.AdminComment" />
         <activity android:name=".Controller.GanToi" />
         <activity android:name=".Controller.DoiMatKhau" />
         <activity android:name=".Controller.TestAPIGoogle" />

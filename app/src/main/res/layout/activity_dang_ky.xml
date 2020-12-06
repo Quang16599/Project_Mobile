@@ -58,11 +58,8 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:inputType="text"></com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,13 +87,20 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:inputType="text"></com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/country_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:ccp_autoDetectCountry="true"
+            app:ccp_showFlag="true"
+            app:ccp_showNameCode="true"
+            app:ccp_showFullName="true"
+            ></com.hbb20.CountryCodePicker>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edtPhone"

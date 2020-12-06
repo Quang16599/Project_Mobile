@@ -27,6 +27,7 @@ public class DangNhap extends AppCompatActivity {
     Button btnDangKy, btnDangnhap, btnQuenMK;
     TextInputEditText edtUser, edtPass;
     SharedPreferences sharedPreferences;
+    User user;
 
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference("thanhviens");
@@ -58,17 +59,11 @@ public class DangNhap extends AppCompatActivity {
                             if (dataSnapshot.child(edtUser.getText().toString()).exists()) {
                                 dialog.dismiss();
                                 // lay du lieu
-                                User user = dataSnapshot.child(edtUser.getText().toString()).getValue(User.class);
+                                user = dataSnapshot.child(edtUser.getText().toString()).getValue(User.class);
                                 if (user.getmUserName().equals("admin")) {
                                     if (user.getmPassword().equals(edtPass.getText().toString())) {
                                         Toast.makeText(DangNhap.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
-                                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                                        editor.putString("FullName", user.getmFullName());
-                                        editor.putString("UserName", user.getmUserName());
-                                        editor.putString("PassWord", user.getmPassword());
-                                        editor.putString("Email", user.getmEmail());
-                                        editor.putString("Phone", user.getmPhoneNumber());
-                                        editor.commit();
+                                        sendData();
                                         Intent intent = new Intent(DangNhap.this, Admin.class);
                                         startActivity(intent);
                                     } else {
@@ -76,18 +71,11 @@ public class DangNhap extends AppCompatActivity {
                                     }
                                 } else if (user.getmPassword().equals(edtPass.getText().toString())) {
                                     Toast.makeText(DangNhap.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
-                                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                                    editor.putString("FullName", user.getmFullName());
-                                    editor.putString("UserName", user.getmUserName());
-                                    editor.putString("PassWord", user.getmPassword());
-                                    editor.putString("Email", user.getmEmail());
-                                    editor.putString("Phone", user.getmPhoneNumber());
-                                    editor.commit();
+                                    sendData();
                                     Intent intent = new Intent(DangNhap.this, TrangChu.class);
                                     startActivity(intent);
                                 } else {
                                     Toast.makeText(DangNhap.this, "Wrong PassWord!!", Toast.LENGTH_SHORT).show();
-
                                 }
                             } else {
                                 Toast.makeText(DangNhap.this, "User not exist!!", Toast.LENGTH_SHORT).show();
@@ -113,13 +101,25 @@ public class DangNhap extends AppCompatActivity {
             }
         });
 
-        btnQuenMK = findViewById(R.id.btnForgot);
+
         btnQuenMK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(DangNhap.this, QuenMatKhau.class);
+                startActivity(intent);
 
             }
         });
+    }
+
+    private void sendData() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("FullName", user.getmFullName());
+        editor.putString("UserName", user.getmUserName());
+        editor.putString("PassWord", user.getmPassword());
+        editor.putString("Email", user.getmEmail());
+        editor.putString("Phone", user.getmPhoneNumber());
+        editor.commit();
     }
 
 
@@ -130,6 +130,7 @@ public class DangNhap extends AppCompatActivity {
         edtUser = findViewById(R.id.edtUser);
         edtPass = findViewById(R.id.edtPass);
         sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
+        user = new User();
 
 
     }

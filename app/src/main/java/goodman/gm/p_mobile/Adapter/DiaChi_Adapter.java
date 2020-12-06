@@ -14,12 +14,12 @@ import java.util.List;
 import goodman.gm.p_mobile.Model.DiaChi;
 import goodman.gm.p_mobile.R;
 
-public class GanToi_Adapter extends BaseAdapter {
+public class DiaChi_Adapter extends BaseAdapter {
 
     private int layout;
     private List<DiaChi> list_DiaChi;
 
-    public GanToi_Adapter(int layout, List<DiaChi> list_DiaChi) {
+    public DiaChi_Adapter(int layout, List<DiaChi> list_DiaChi) {
         this.layout = layout;
         this.list_DiaChi = list_DiaChi;
     }

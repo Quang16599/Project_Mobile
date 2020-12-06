@@ -1,17 +1,23 @@
 package goodman.gm.p_mobile.Controller;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.google.android.material.navigation.NavigationView;
+
 import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
 public class Admin extends AppCompatActivity {
     ImageButton imgBack, imgUser,imgFood,imgNear,imgCom;
+
+    DrawerLayout drawerLayout ;
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +71,8 @@ public class Admin extends AppCompatActivity {
         imgUser = findViewById(R.id.imgUser);
         imgFood = findViewById(R.id.imgFood);
         imgNear = findViewById(R.id.imgNear);
-        imgCom = findViewById(R.id.imgBack);
+        imgCom = findViewById(R.id.imgComment);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.navigation_view);
     }
 }
