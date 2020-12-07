@@ -33,6 +33,7 @@ public class Vertify_OTP extends AppCompatActivity {
     PinView pinView;
     Button btnVertify;
     String phone, codeBySystem;
+    User user;
     FirebaseAuth auth = FirebaseAuth.getInstance();
 
 
@@ -98,13 +99,15 @@ public class Vertify_OTP extends AppCompatActivity {
 
     private void signInUsingCredential(PhoneAuthCredential credential) {
 
+
         auth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-
-
+                            Intent intent = new Intent(Vertify_OTP.this, SetNewPassword.class);
+                            intent.putExtra("data", user);
+                            startActivity(intent);
                             Toast.makeText(Vertify_OTP.this, "Hoàn tất", Toast.LENGTH_SHORT).show();
 
                         } else {
@@ -135,7 +138,9 @@ public class Vertify_OTP extends AppCompatActivity {
 
     private void loadData() {
         Intent intent = getIntent();
-        User user = (User) intent.getSerializableExtra("phone");
-        phone = user.getmPhoneNumber();
+        user = (User) intent.getSerializableExtra("phone");
+        phone = user.getmPhoneNumber().trim();
     }
+
+
 }

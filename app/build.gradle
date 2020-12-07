@@ -48,7 +48,8 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:26.1.1')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-database'
-    implementation 'com.google.firebase:firebase-auth:20.0.1'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation "androidx.browser:browser:1.2.0"
 
 
     testImplementation 'junit:junit:4.12'
@@ -72,6 +73,7 @@ dependencies {
 
     //ma otp
     implementation 'com.chaos.view:pinview:1.4.4'
+
 
 
 

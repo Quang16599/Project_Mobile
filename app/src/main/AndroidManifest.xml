@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controller.Vertify_OTP"></activity>
+        <activity android:name=".Controller.SetNewPassword"></activity>
+        <activity android:name=".Controller.Vertify_OTP" />
         <activity android:name=".Controller.QuenMatKhau" />
 
         <meta-data
