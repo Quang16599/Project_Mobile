@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "228777390490",
+    "project_id": "mobile-15eb6",
+    "storage_bucket": "mobile-15eb6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228777390490:android:4daef4d8fd470de3db4a23",
+        "android_client_info": {
+          "package_name": "goodman.gm.p_mobile.Controller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "228777390490-ebhnv74hgqanqhvb4rnsamhr2q4ivg13.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "goodman.gm.p_mobile.Controller",
+            "certificate_hash": "adf0bcd414a04b0162a3dfbd41a2bc2851eba5e9"
+          }
+        },
+        {
+          "client_id": "228777390490-k7edb2dcdmnbj9b0u48jotj6o5qanhif.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWzH3gYS54xex6AMQKVsgJSR7UWzQcuVQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228777390490-k7edb2dcdmnbj9b0u48jotj6o5qanhif.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
