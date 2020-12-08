@@ -3,10 +3,9 @@ package goodman.gm.p_mobile.Controller;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -14,7 +13,6 @@ import android.widget.Toast;
 import com.chaos.view.PinView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.hbb20.CountryCodePicker;
+
 
 import java.util.concurrent.TimeUnit;
 
@@ -32,7 +30,7 @@ import goodman.gm.p_mobile.R;
 public class Vertify_OTP extends AppCompatActivity {
     PinView pinView;
     Button btnVertify;
-    String phone, codeBySystem;
+    String phone, codeBySystem ;
     User user;
     FirebaseAuth auth = FirebaseAuth.getInstance();
 
@@ -51,6 +49,7 @@ public class Vertify_OTP extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 callNextScreenFromOTP();
+
             }
         });
 
@@ -106,12 +105,12 @@ public class Vertify_OTP extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Intent intent = new Intent(Vertify_OTP.this, SetNewPassword.class);
-//                            intent.putExtra("data", user);
+                            intent.putExtra("username", user.getmUserName());
                             startActivity(intent);
+                            finish();
                             Toast.makeText(Vertify_OTP.this, "Hoàn tất", Toast.LENGTH_SHORT).show();
 
                         } else {
-
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 Toast.makeText(Vertify_OTP.this, "Không hợp lệ. Thử lại", Toast.LENGTH_SHORT).show();
 
@@ -119,14 +118,13 @@ public class Vertify_OTP extends AppCompatActivity {
                         }
                     }
                 });
-        auth.signOut();
     }
 
     private void callNextScreenFromOTP() {
         String code = pinView.getText().toString();
         if (!code.isEmpty()) {
             vertify(code);
-        }else {
+        } else {
             pinView.requestFocus();
         }
     }
@@ -138,7 +136,7 @@ public class Vertify_OTP extends AppCompatActivity {
 
     private void loadData() {
         Intent intent = getIntent();
-        user = (User) intent.getSerializableExtra("phone");
+        user = (User) intent.getSerializableExtra("user");
         phone = user.getmPhoneNumber().trim();
     }
 

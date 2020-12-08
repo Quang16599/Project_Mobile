@@ -105,19 +105,19 @@ public class DoiMatKhau extends AppCompatActivity {
                 }
                 if (!newPass.getEditText().getText().toString().equals(confirmPass.getEditText().getText().toString())) {
                     Toast.makeText(DoiMatKhau.this, "Xác nhận mật khẩu sai", Toast.LENGTH_SHORT).show();
-                } else {
-                    User user = new User(fullName, userName, newPass.getEditText().getText().toString(), email, phoneNumber);
-                    reference.child(userName).setValue(user);
-                    Toast.makeText(DoiMatKhau.this, "Đổi thành công", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(DoiMatKhau.this, TrangCaNhan.class);
-                    startActivity(intent);
-                    finish();
                 }
+                User user = new User(fullName, userName, newPass.getEditText().getText().toString(), email, phoneNumber);
+                reference.child(userName).setValue(user);
+                Toast.makeText(DoiMatKhau.this, "Đổi thành công", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(DoiMatKhau.this, TrangCaNhan.class);
+                startActivity(intent);
+                finish();
+
 
             }
 
 
         });
     }
-    
+
 }

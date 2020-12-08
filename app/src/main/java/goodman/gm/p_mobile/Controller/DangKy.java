@@ -81,6 +81,7 @@ public class DangKy extends AppCompatActivity {
 
                             Intent intent = new Intent(DangKy.this, DangNhap.class);
                             startActivity(intent);
+                            finish();
 
                         } else {
                             Toast.makeText(DangKy.this, "User Name already exists", Toast.LENGTH_SHORT).show();

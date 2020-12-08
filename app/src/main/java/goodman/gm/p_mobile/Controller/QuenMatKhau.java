@@ -22,6 +22,7 @@ import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
 public class QuenMatKhau extends AppCompatActivity {
+
     Button btnNext;
     TextInputEditText edtUserName;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("thanhviens");
@@ -56,9 +57,10 @@ public class QuenMatKhau extends AppCompatActivity {
                         // lay du lieu
                         User user = snapshot.child(edtUserName.getText().toString()).getValue(User.class);
                         Intent intent = new Intent(QuenMatKhau.this, Vertify_OTP.class);
-                        intent.putExtra("phone", user);
+                        intent.putExtra("user", user);
                         Log.d("log", user.getmPhoneNumber());
                         startActivity(intent);
+                        finish();
                     } else {
                         Toast.makeText(QuenMatKhau.this, "User Name is not exists", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
@@ -72,9 +74,7 @@ public class QuenMatKhau extends AppCompatActivity {
 
                 }
             });
-
         }
-
     }
 
     private void init() {

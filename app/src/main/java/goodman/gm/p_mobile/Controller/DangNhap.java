@@ -99,6 +99,7 @@ public class DangNhap extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(DangNhap.this, DangKy.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -108,6 +109,7 @@ public class DangNhap extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(DangNhap.this, QuenMatKhau.class);
                 startActivity(intent);
+                finish();
 
             }
         });
