@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -37,6 +38,7 @@ public class SetNewPassword extends AppCompatActivity {
     private void loadData() {
         Intent intent = getIntent();
         user = (User) intent.getSerializableExtra("data");
+        Log.d("user", user.getmFullName());
 
     }
 
