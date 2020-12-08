@@ -38,7 +38,7 @@ public class SetNewPassword extends AppCompatActivity {
     private void loadData() {
         Intent intent = getIntent();
         user = (User) intent.getSerializableExtra("data");
-        Log.d("user", user.getmFullName());
+        Log.d("user", user.getmFullName() + user.getmPassword());
 
     }
 
