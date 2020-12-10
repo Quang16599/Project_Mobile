@@ -47,23 +47,23 @@ public class GanToi extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    for (DataSnapshot value : snapshot.getChildren()){
-                        DiaChi diaChi = new DiaChi();
-                        diaChi.setmLongitue((Double) value.child("longitude").getValue());
-                        diaChi.setmLatitue((Double) value.child("latitude").getValue());
-                        diaChi.setmDiaChi(value.child("diachi").getValue().toString());
-                        diaChi.setmTenQuanAn(value.child("tenquanan").getValue().toString());
+                for (DataSnapshot value : snapshot.getChildren()) {
+                    DiaChi diaChi = new DiaChi();
+                    diaChi.setmLongitue((Double) value.child("longitude").getValue());
+                    diaChi.setmLatitue((Double) value.child("latitude").getValue());
+                    diaChi.setmDiaChi(value.child("diachi").getValue().toString());
+                    diaChi.setmTenQuanAn(value.child("tenquanan").getValue().toString());
 
 
-                        Location location = new Location("");
-                        location.setLatitude(diaChi.getmLatitue());
-                        location.setLongitude(diaChi.getmLongitue());
+                    Location location = new Location("");
+                    location.setLatitude(diaChi.getmLatitue());
+                    location.setLongitude(diaChi.getmLongitue());
 
-                        double khoangcach = vitrihientai.distanceTo(location)/1000;
+                    double khoangcach = vitrihientai.distanceTo(location) / 1000;
 
-                        diaChi.setmKhoangCach(khoangcach);
+                    diaChi.setmKhoangCach(khoangcach);
 
-                        list_DiaChi.add(diaChi);
+                    list_DiaChi.add(diaChi);
 
                 }
 
@@ -90,15 +90,11 @@ public class GanToi extends AppCompatActivity {
         list_DiaChi = new ArrayList<>();
         sharedPreferences = getSharedPreferences("ToaDo", Context.MODE_PRIVATE);
         vitrihientai = new Location("");
-        vitrihientai.setLatitude(Double.parseDouble(sharedPreferences.getString("Latitude","0")));
-        vitrihientai.setLongitude(Double.parseDouble(sharedPreferences.getString("Longitude","0")));
-        Log.d("vitri","latitude"+vitrihientai.getLatitude()+" " +"longitude" + vitrihientai.getLongitude());
+        vitrihientai.setLatitude(Double.parseDouble(sharedPreferences.getString("Latitude", "0")));
+        vitrihientai.setLongitude(Double.parseDouble(sharedPreferences.getString("Longitude", "0")));
+        Log.d("vitri", "latitude" + vitrihientai.getLatitude() + " " + "longitude" + vitrihientai.getLongitude());
         listView = findViewById(R.id.listview);
-        adapter = new DiaChi_Adapter(R.layout.custom_layout_listview_gantoi,list_DiaChi);
-
-
-
-
+        adapter = new DiaChi_Adapter(R.layout.custom_layout_listview_gantoi, list_DiaChi);
 
 
     }

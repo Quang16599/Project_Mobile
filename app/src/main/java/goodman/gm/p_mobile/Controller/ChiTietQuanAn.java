@@ -31,7 +31,7 @@ import goodman.gm.p_mobile.R;
 
 public class ChiTietQuanAn extends AppCompatActivity {
     ImageView imgView;
-    TextView tvThoiGianHoatDong, tvTrangThaiHoatDong, tvTenQuanAn, tvDiem, tvDiaChi,tvMoTa,tvGiaTien;
+    TextView tvThoiGianHoatDong, tvTrangThaiHoatDong, tvTenQuanAn, tvDiem, tvDiaChi, tvMoTa, tvGiaTien;
     QuanAn quanAn;
 
     RecyclerView recyclerViewBinhLuan;
@@ -45,38 +45,13 @@ public class ChiTietQuanAn extends AppCompatActivity {
         setContentView(R.layout.activity_chi_tiet_quan_an);
 
         Init();
-//        loadData();
 
 
     }
 
-//    private void loadData() {
-//        reference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot value : snapshot.getChildren()) {
-//                    BinhLuan binhLuan = new BinhLuan();
-//                    binhLuan.setmChamDiem(value.child("chamdiem").getValue().toString());
-//                    binhLuan.setmLuotThich(value.child("luotthich").getValue().toString());
-//                    binhLuan.setmNoiDung(value.child("noidung").getValue().toString());
-//                    binhLuan.setmTieuDe(value.child("tieude").getValue().toString());
-//
-//
-//                    lstBinhLuan.add(binhLuan);
-//                }
-//
-//                binhLuan_adapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//    }
 
     private void Init() {
-        imgView  = findViewById(R.id.imageView);
+        imgView = findViewById(R.id.imageView);
         tvThoiGianHoatDong = findViewById(R.id.tvGioHoatDong);
         tvTrangThaiHoatDong = findViewById(R.id.tvTrangThai);
         tvTenQuanAn = findViewById(R.id.tvTenQuanAn);
@@ -84,12 +59,7 @@ public class ChiTietQuanAn extends AppCompatActivity {
         tvDiaChi = findViewById(R.id.tvDiaChi);
         tvMoTa = findViewById(R.id.tvMoTa);
         tvGiaTien = findViewById(R.id.tvGiaTien);
-//        lstBinhLuan = new ArrayList<>();
-//        recyclerViewBinhLuan = findViewById(R.id.recyclerViewBinhLuan);
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-//        recyclerViewBinhLuan.setLayoutManager(layoutManager);
-//        binhLuan_adapter = new BinhLuan_Adapter(R.layout.custom_layout_recyclerview_odau, lstBinhLuan);
-//        recyclerViewBinhLuan.setAdapter(binhLuan_adapter);
+
     }
 
     @Override
@@ -104,7 +74,6 @@ public class ChiTietQuanAn extends AppCompatActivity {
         tvThoiGianHoatDong.setText(quanAn.getmGioMoCua() + " " + quanAn.getmGioDongCua());
         tvMoTa.setText(quanAn.getmMoTaQuanAn());
         tvGiaTien.setText(quanAn.getmGiaTien());
-
 
 
     }

@@ -18,7 +18,6 @@ import java.util.List;
 import goodman.gm.p_mobile.Controller.ChiTietQuanAn;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
-
 public class AnGi_Adapter extends RecyclerView.Adapter<AnGi_Adapter.ViewHolder> {
     private int layout;
     private List<QuanAn> list_QuanAn;

@@ -60,4 +60,15 @@ public class User implements Serializable {
     public void setmPhoneNumber(String mPhoneNumber) {
         this.mPhoneNumber = mPhoneNumber;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "mFullName='" + mFullName + '\'' +
+                ", mUserName='" + mUserName + '\'' +
+                ", mPassword='" + mPassword + '\'' +
+                ", mEmail='" + mEmail + '\'' +
+                ", mPhoneNumber='" + mPhoneNumber + '\'' +
+                '}';
+    }
 }
