@@ -55,7 +55,7 @@ public class AdminUser extends AppCompatActivity {
                     user.setmPhoneNumber(value.child("mPhoneNumber").getValue().toString());
                     user.setmUserName(value.child("mUserName").getValue().toString());
                     lstUser.add(user);
-//                    Log.e("abc", user.toString());
+                    Log.e("abc", user.toString());
 
 
                 }

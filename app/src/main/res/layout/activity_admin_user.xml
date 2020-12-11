@@ -14,12 +14,12 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <ImageButton
-            android:layout_width="250dp"
-            android:layout_height="100dp"
-            android:background="@null"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_person"></ImageButton>
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:background="@drawable/custom_avatar"
+            android:src="@drawable/ic_person"></ImageView>
 
         <TextView
             android:layout_width="match_parent"

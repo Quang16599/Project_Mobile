@@ -1,6 +1,7 @@
 package goodman.gm.p_mobile.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import goodman.gm.p_mobile.Controller.AdminChiTietUser;
 import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
@@ -45,7 +47,7 @@ public class AdminUser_Adapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
@@ -61,7 +63,15 @@ public class AdminUser_Adapter extends BaseAdapter {
 
         viewHolder.tvSdt.setText(user.getmPhoneNumber());
         viewHolder.tvFullName.setText(user.getmFullName());
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, AdminChiTietUser.class);
+                intent.putExtra("adminUsers", lstUser.get(position));
+                context.startActivity(intent);
 
+            }
+        });
 
         return convertView;
     }
