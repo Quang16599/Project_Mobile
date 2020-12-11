@@ -14,9 +14,9 @@ import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
 public class Admin extends AppCompatActivity {
-    ImageButton imgBack, imgUser,imgFood,imgNear,imgCom;
+    ImageButton imgBack, imgUser, imgFood, imgNear, imgCom;
 
-    DrawerLayout drawerLayout ;
+    DrawerLayout drawerLayout;
     NavigationView navigationView;
 
     @Override
@@ -72,7 +72,5 @@ public class Admin extends AppCompatActivity {
         imgFood = findViewById(R.id.imgFood);
         imgNear = findViewById(R.id.imgNear);
         imgCom = findViewById(R.id.imgComment);
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.navigation_view);
     }
 }
