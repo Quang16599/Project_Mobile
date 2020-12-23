@@ -35,7 +35,6 @@
                 android:fontFamily="@font/bungee"
                 android:gravity="center"
                 android:text="Hello Admin"
-                android:textColor="#000"
                 android:textSize="30dp"></TextView>
 
 

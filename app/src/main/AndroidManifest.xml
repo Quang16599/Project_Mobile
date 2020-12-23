@@ -26,7 +26,7 @@
 
         <activity android:name=".Controller.Admin" />
         <activity android:name=".Controller.ChiTietQuanAn" />
-        <activity android:name=".Controller.TrangCaNhan" />
+        <activity android:name=".Controller.MainActivity" />
         <activity android:name=".Controller.AdminFood" />
         <activity android:name=".Controller.AdminNear" />
         <activity android:name=".Controller.AdminUser" />
@@ -34,7 +34,7 @@
         <activity android:name=".Controller.GanToi" />
         <activity android:name=".Controller.DoiMatKhau" />
         <activity android:name=".Controller.TestAPIGoogle" />
-        <activity android:name=".Controller.MainActivity">
+        <activity android:name=".Controller.TestGoogleMap">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,7 +45,7 @@
             android:name=".Controller.DangNhap"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Controller.TrangChu" />
-        <activity android:name=".Controller.DangKy" />
+        <activity android:name=".Controller.TrangCaNhan" />
     </application>
 
 </manifest>
