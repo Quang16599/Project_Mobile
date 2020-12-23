@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
 
+import com.google.android.gms.maps.MapFragment;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,6 +34,7 @@ public class GanToi extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     Location vitrihientai;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("gantois");
+    MapFragment mapFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +97,6 @@ public class GanToi extends AppCompatActivity {
         Log.d("vitri", "latitude" + vitrihientai.getLatitude() + " " + "longitude" + vitrihientai.getLongitude());
         listView = findViewById(R.id.listview);
         adapter = new DiaChi_Adapter(R.layout.custom_layout_listview_gantoi, list_DiaChi);
-
 
     }
 }
