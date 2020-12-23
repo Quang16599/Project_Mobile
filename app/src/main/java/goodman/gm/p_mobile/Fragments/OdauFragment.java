@@ -41,7 +41,6 @@ public class OdauFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.layout_fragment_odau, container, false);
-
         return view;
     }
 
@@ -58,10 +57,12 @@ public class OdauFragment extends Fragment {
         progressBarODau = view.findViewById(R.id.progressBarODau);
         recyclerView = view.findViewById(R.id.recyclerViewODau);
         list_QuanAn = new ArrayList<>();
+
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         adapter = new ODau_Adapter(getContext(),R.layout.custom_layout_recyclerview_odau, list_QuanAn);
         recyclerView.setAdapter(adapter);
+
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
         Drawable drawable = ContextCompat.getDrawable(getContext(),R.drawable.custom_divider);
         dividerItemDecoration.setDrawable(drawable);

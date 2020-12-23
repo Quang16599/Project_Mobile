@@ -32,13 +32,25 @@ public class SetNewPassword extends AppCompatActivity {
         setContentView(R.layout.activity_set_new_password);
 
         init();
-
         loadData();
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateUser();
+                if (newPassWord.getEditText().getText().toString().isEmpty()
+                        ||confirmPassWord.getEditText().getText().toString().isEmpty()) {
+                    Toast.makeText(SetNewPassword.this, "Không được để trống", Toast.LENGTH_SHORT).show();
+                }else if(!validatePass()){
+                    return;
+                }else if(!confirmPassWord.getEditText().getText().toString().equals(newPassWord.getEditText().getText().toString())){
+                    Toast.makeText(SetNewPassword.this, "Xác nhận mật khẩu sai", Toast.LENGTH_SHORT).show();
+                }else {
+                    reference.child(userName).child("mPassword").setValue(newPassWord.getEditText().getText().toString().trim());
+                    Toast.makeText(SetNewPassword.this, "Update mật khẩu thành công", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(SetNewPassword.this, DangNhap.class);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -48,27 +60,6 @@ public class SetNewPassword extends AppCompatActivity {
         Intent intent = getIntent();
         userName = intent.getStringExtra("username");
 
-    }
-
-
-    private void updateUser() {
-        if (newPassWord.getEditText().getText().toString().isEmpty()
-                ||confirmPassWord.getEditText().getText().toString().isEmpty()) {
-            Toast.makeText(SetNewPassword.this, "Không được để trống", Toast.LENGTH_SHORT).show();
-        }
-        if(!validatePass()){
-            return;
-        }
-        if(!confirmPassWord.getEditText().getText().toString().equals(newPassWord.getEditText().getText().toString())){
-            Toast.makeText(this, "Xác nhận mật khẩu sai", Toast.LENGTH_SHORT).show();
-        }
-
-        reference.child(userName).child("mPassword").setValue(newPassWord.getEditText().getText().toString().trim());
-        Toast.makeText(this, "Update mật khẩu thành công", Toast.LENGTH_SHORT).show();
-
-        Intent intent = new Intent(SetNewPassword.this, DangNhap.class);
-        startActivity(intent);
-        finish();
     }
 
     private void init() {

@@ -27,8 +27,44 @@ public class DoiMatKhau extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doi_mat_khau);
-        init();
 
+        init();
+        loadData();
+        controlButton();
+
+
+    }
+
+    private void controlButton() {
+        btnDongY.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (oldPass.getEditText().getText().toString().isEmpty() || newPass.getEditText().getText().toString().isEmpty()
+                        || confirmPass.getEditText().toString().isEmpty()) {
+                    Toast.makeText(DoiMatKhau.this, "Không được để trống", Toast.LENGTH_SHORT).show();
+                }
+                if (!oldPass.getEditText().getText().toString().equals(passWord) && !validatePass()) {
+                    Toast.makeText(DoiMatKhau.this, "Mật khẩu cũ bị sai", Toast.LENGTH_SHORT).show();
+                }
+                if (!newPass.getEditText().getText().toString().equals(confirmPass.getEditText().getText().toString())) {
+                    Toast.makeText(DoiMatKhau.this, "Xác nhận mật khẩu sai", Toast.LENGTH_SHORT).show();
+                }
+                User user = new User(fullName, userName, newPass.getEditText().getText().toString(), email, phoneNumber);
+                reference.child(userName).setValue(user);
+                Toast.makeText(DoiMatKhau.this, "Đổi thành công", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(DoiMatKhau.this, TrangCaNhan.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnHuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DoiMatKhau.this, TrangCaNhan.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -43,20 +79,6 @@ public class DoiMatKhau extends AppCompatActivity {
 
 
     }
-
-
-    private void controller() {
-        btnHuy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DoiMatKhau.this, TrangCaNhan.class);
-                startActivity(intent);
-            }
-        });
-
-
-    }
-
 
     private void init() {
         oldPass = findViewById(R.id.oldpassword);
@@ -87,37 +109,4 @@ public class DoiMatKhau extends AppCompatActivity {
             return true;
         }
     }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        controller();
-        loadData();
-        btnDongY.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (oldPass.getEditText().getText().toString().isEmpty() || newPass.getEditText().getText().toString().isEmpty()
-                        || confirmPass.getEditText().toString().isEmpty()) {
-                    Toast.makeText(DoiMatKhau.this, "Không được để trống", Toast.LENGTH_SHORT).show();
-                }
-                if (!oldPass.getEditText().getText().toString().equals(passWord) && !validatePass()) {
-                    Toast.makeText(DoiMatKhau.this, "Mật khẩu cũ bị sai", Toast.LENGTH_SHORT).show();
-                }
-                if (!newPass.getEditText().getText().toString().equals(confirmPass.getEditText().getText().toString())) {
-                    Toast.makeText(DoiMatKhau.this, "Xác nhận mật khẩu sai", Toast.LENGTH_SHORT).show();
-                }
-                User user = new User(fullName, userName, newPass.getEditText().getText().toString(), email, phoneNumber);
-                reference.child(userName).setValue(user);
-                Toast.makeText(DoiMatKhau.this, "Đổi thành công", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(DoiMatKhau.this, TrangCaNhan.class);
-                startActivity(intent);
-                finish();
-
-
-            }
-
-
-        });
-    }
-
 }

@@ -26,10 +26,7 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trang_chu);
         init();
-        AdapterViewPagerTrangChu adapterViewPagerTrangChu =  new AdapterViewPagerTrangChu(getSupportFragmentManager());
-        viewPagerTrangChu.setAdapter(adapterViewPagerTrangChu);
-        viewPagerTrangChu.addOnPageChangeListener(this);
-        rdGroup.setOnCheckedChangeListener(this);
+
         controlButton();
         receiveData();
     }
@@ -65,6 +62,11 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
         rdGroup = (RadioGroup) findViewById(R.id.rdGroup);
         btnGanToi = findViewById(R.id.btnGanToi);
         imbPerson = findViewById(R.id.imageButtonPerson);
+
+        AdapterViewPagerTrangChu adapterViewPagerTrangChu =  new AdapterViewPagerTrangChu(getSupportFragmentManager());
+        viewPagerTrangChu.setAdapter(adapterViewPagerTrangChu);
+        viewPagerTrangChu.addOnPageChangeListener(this);
+        rdGroup.setOnCheckedChangeListener(this);
     }
 
     @Override
