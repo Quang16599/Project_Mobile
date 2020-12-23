@@ -39,7 +39,7 @@ public class SetNewPassword extends AppCompatActivity {
                 }
                 reference.child(userName).child("mPassword").setValue(newPassWord.getText().toString().trim());
                 Toast.makeText(SetNewPassword.this, "Update mật khẩu thành công", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(), MainActivity2.class));
+                startActivity(new Intent(SetNewPassword.this, DangNhap.class));
                 finish();
 //                if (newPassWord.getEditText().getText().toString().isEmpty()
 //                        || confirmPassWord.getEditText().getText().toString().isEmpty()) {

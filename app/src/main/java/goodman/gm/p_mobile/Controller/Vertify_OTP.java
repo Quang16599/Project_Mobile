@@ -107,12 +107,14 @@ public class Vertify_OTP extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
+
+                            Intent intent = new Intent(Vertify_OTP.this, SetNewPassword.class);
+//                            intent.putExtra("username", user.getmUserName());
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putString("username", user.getmUserName());
                             editor.commit();
 
-                            Intent intent = new Intent(Vertify_OTP.this, SetNewPassword.class);
-//                            intent.putExtra("username", user.getmUserName());
                             startActivity(intent);
                             finish();
                             Toast.makeText(Vertify_OTP.this, "Hoàn tất", Toast.LENGTH_SHORT).show();
