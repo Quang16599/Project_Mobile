@@ -18,7 +18,7 @@
             android:layout_height="150dp"
             android:layout_gravity="center"
             android:background="@drawable/custom_avatar"
-            android:src="@drawable/nearby"></ImageView>
+            android:src="@drawable/ic_person"></ImageView>
 
         <TextView
             android:layout_width="match_parent"
@@ -27,7 +27,7 @@
             android:gravity="center"
             android:text="Quản lý gần tôi"
             android:textColor="#FF3D00"
-            android:textSize="40dp"></TextView>
+            android:textSize="30dp"></TextView>
 
         <ListView
             android:id="@+id/lstNear"
