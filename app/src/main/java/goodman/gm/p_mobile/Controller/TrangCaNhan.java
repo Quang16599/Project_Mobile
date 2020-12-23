@@ -33,7 +33,6 @@ public class TrangCaNhan extends AppCompatActivity {
     }
 
 
-
     private void Init() {
         tvFullName = findViewById(R.id.FullName);
         tvUserName = findViewById(R.id.userName);
@@ -50,8 +49,8 @@ public class TrangCaNhan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TrangCaNhan.this, DoiMatKhau.class);
-                User user = new User(fullName,userName,passWord,email,phoneNumber);
-                intent.putExtra("send",user);
+                User user = new User(fullName, userName, passWord, email, phoneNumber);
+                intent.putExtra("send", user);
                 startActivity(intent);
             }
         });

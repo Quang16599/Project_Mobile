@@ -1,7 +1,9 @@
 package goodman.gm.p_mobile.Model;
 
 
-public class DiaChi {
+import java.io.Serializable;
+
+public class DiaChi implements Serializable {
     private String mTenQuanAn;
     private String mDiaChi;
     private double mLatitue;
