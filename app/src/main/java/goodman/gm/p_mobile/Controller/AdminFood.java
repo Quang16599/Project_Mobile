@@ -1,10 +1,14 @@
 package goodman.gm.p_mobile.Controller;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +28,7 @@ import goodman.gm.p_mobile.R;
 
 public class AdminFood extends AppCompatActivity {
 
+    int vitri = 0;
     ListView listView;
     AdminFood_Adapter adapter;
     List<QuanAn> list_quanan;
@@ -69,5 +74,30 @@ public class AdminFood extends AppCompatActivity {
         listView = findViewById(R.id.listAdminFood);
         list_quanan = new ArrayList<>();
         adapter = new AdminFood_Adapter(this, R.layout.custom_listquanan, list_quanan);
+    }
+
+    public void DialogDelete(){
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                vitri  = position;
+            }
+        });
+        AlertDialog.Builder builder = new AlertDialog.Builder(AdminFood.this,android.R.style.Theme_DeviceDefault_Light_Dialog);
+        builder.setMessage("Bạn có muốn xóa không ?");
+        builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                list_quanan.remove(vitri);
+                adapter.notifyDataSetChanged();
+
+            }
+        });
+        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        builder.show();
     }
 }

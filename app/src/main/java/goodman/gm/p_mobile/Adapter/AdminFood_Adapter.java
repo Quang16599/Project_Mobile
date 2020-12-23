@@ -6,21 +6,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
 
+import goodman.gm.p_mobile.Controller.AdminChiTietFood;
 import goodman.gm.p_mobile.Controller.AdminChiTietUser;
+import goodman.gm.p_mobile.Controller.AdminFood;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
 public class AdminFood_Adapter extends BaseAdapter {
 
-    private Context context;
+    private AdminFood context;
     private int layout;
     private List<QuanAn> list_quanan;
 
-    public AdminFood_Adapter(Context context, int layout, List<QuanAn> list_quanan) {
+    public AdminFood_Adapter(AdminFood context, int layout, List<QuanAn> list_quanan) {
         this.context = context;
         this.layout = layout;
         this.list_quanan = list_quanan;
@@ -43,6 +46,7 @@ public class AdminFood_Adapter extends BaseAdapter {
 
     public class ViewHolder {
         TextView tvTenQuanAn, tvDiaChi;
+        Button btnXoa;
 
     }
 
@@ -54,6 +58,7 @@ public class AdminFood_Adapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.tvTenQuanAn = convertView.findViewById(R.id.tvTenQA);
             holder.tvDiaChi = convertView.findViewById(R.id.tvDC);
+            holder.btnXoa = convertView.findViewById(R.id.btnXoa);
             convertView.setTag(holder);
 
         } else {
@@ -66,13 +71,22 @@ public class AdminFood_Adapter extends BaseAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, AdminChiTietUser.class);
+                Intent intent = new Intent(context, AdminChiTietFood.class);
                 intent.putExtra("adminFoods", list_quanan.get(position));
                 context.startActivity(intent);
 
             }
         });
 
+        holder.btnXoa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.DialogDelete();
+            }
+        });
+
         return convertView;
     }
+
+
 }
