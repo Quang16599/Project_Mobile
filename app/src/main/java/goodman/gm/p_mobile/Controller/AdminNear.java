@@ -22,7 +22,7 @@ import goodman.gm.p_mobile.R;
 
 public class AdminNear extends AppCompatActivity {
     ListView listView;
-    AdminNear_Adapter adminNear_adapter;
+    AdminNear_Adapter adapter;
     List<DiaChi> lstDiachi;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("gantois");
 
@@ -42,7 +42,6 @@ public class AdminNear extends AppCompatActivity {
                 for (DataSnapshot value : snapshot.getChildren()) {
 
                     DiaChi diaChi = new DiaChi();
-
                     diaChi.setmLongitue((Double) value.child("longitude").getValue());
                     diaChi.setmLatitue((Double) value.child("latitude").getValue());
                     diaChi.setmDiaChi(value.child("diachi").getValue().toString());
@@ -50,9 +49,8 @@ public class AdminNear extends AppCompatActivity {
                     Log.e("abc", diaChi.toString());
                     lstDiachi.add(diaChi);
 
-
                 }
-                listView.setAdapter(adminNear_adapter);
+                listView.setAdapter(adapter);
             }
 
             @Override
@@ -65,7 +63,7 @@ public class AdminNear extends AppCompatActivity {
     private void init() {
         listView = findViewById(R.id.lstNear);
         lstDiachi = new ArrayList<>();
-        adminNear_adapter = new AdminNear_Adapter(this, R.layout.custom_listnear, lstDiachi);
-        listView.setAdapter(adminNear_adapter);
+        adapter = new AdminNear_Adapter(AdminNear.this, R.layout.custom_listnear, lstDiachi);
+
     }
 }

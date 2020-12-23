@@ -54,7 +54,6 @@ public class AdminFood extends AppCompatActivity {
                     list_quanan.add(quanAn);
                     Log.e("abc", quanAn.toString());
 
-
                 }
                 listView.setAdapter(adapter);
             }
@@ -70,6 +69,5 @@ public class AdminFood extends AppCompatActivity {
         listView = findViewById(R.id.listAdminFood);
         list_quanan = new ArrayList<>();
         adapter = new AdminFood_Adapter(this, R.layout.custom_listquanan, list_quanan);
-        listView.setAdapter(adapter);
     }
 }

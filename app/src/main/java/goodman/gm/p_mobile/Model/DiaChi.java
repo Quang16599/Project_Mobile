@@ -1,6 +1,5 @@
 package goodman.gm.p_mobile.Model;
 
-import java.util.List;
 
 public class DiaChi {
     private String mTenQuanAn;
