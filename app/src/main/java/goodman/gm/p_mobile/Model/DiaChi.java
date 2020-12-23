@@ -60,4 +60,15 @@ public class DiaChi {
     public void setmKhoangCach(double mKhoangCach) {
         this.mKhoangCach = mKhoangCach;
     }
+
+    @Override
+    public String toString() {
+        return "DiaChi{" +
+                "mTenQuanAn='" + mTenQuanAn + '\'' +
+                ", mDiaChi='" + mDiaChi + '\'' +
+                ", mLatitue=" + mLatitue +
+                ", mLongitue=" + mLongitue +
+                ", mKhoangCach=" + mKhoangCach +
+                '}';
+    }
 }
