@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controller.AdminChiTietUser"></activity>
+
+        <activity android:name=".Controller.MainActivity2" />
+        <activity android:name=".Controller.AdminChiTietUser" />
         <activity android:name=".Controller.SetNewPassword" />
         <activity android:name=".Controller.Vertify_OTP" />
         <activity android:name=".Controller.QuenMatKhau" />
@@ -27,9 +29,7 @@
         <activity android:name=".Controller.TrangCaNhan" />
         <activity android:name=".Controller.AdminFood" />
         <activity android:name=".Controller.AdminNear" />
-        <activity android:name=".Controller.AdminUser">
-
-        </activity>
+        <activity android:name=".Controller.AdminUser" />
         <activity android:name=".Controller.AdminComment" />
         <activity android:name=".Controller.GanToi" />
         <activity android:name=".Controller.DoiMatKhau" />

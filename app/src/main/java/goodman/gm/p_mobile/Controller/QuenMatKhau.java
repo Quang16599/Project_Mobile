@@ -23,9 +23,9 @@ import goodman.gm.p_mobile.R;
 
 public class QuenMatKhau extends AppCompatActivity {
 
-    Button btnNext;
-    TextInputEditText edtUserName;
-    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("thanhviens");
+    private Button btnNext;
+    private TextInputEditText edtUserName;
+    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("thanhviens");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

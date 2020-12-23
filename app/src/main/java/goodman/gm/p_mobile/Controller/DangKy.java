@@ -27,7 +27,7 @@ public class DangKy extends AppCompatActivity {
     TextInputLayout edtFullName, edtUserName, edtEmail, edtPhone, edtPassWord;
     Button btnBack, btnDangKy;
     private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("thanhviens");
-    CountryCodePicker countryCodePicker ;
+    CountryCodePicker countryCodePicker;
 
 
     @Override
@@ -70,11 +70,11 @@ public class DangKy extends AppCompatActivity {
                             String username = edtUserName.getEditText().getText().toString();
                             String password = edtPassWord.getEditText().getText().toString();
                             String email = edtEmail.getEditText().getText().toString();
-                            String phone = edtPhone.getEditText().getText().toString();
+                            String phone = edtPhone.getEditText().getText().toString().substring(1);
 
-                            String phoneNumber = "+"+countryCodePicker.getFullNumber()+phone;
+                            String phoneNumber = "+" + countryCodePicker.getFullNumber() + phone;
 
-                            User user = new User(fullname,username,password,email,phoneNumber);
+                            User user = new User(fullname, username, password, email, phoneNumber);
                             reference.child(username).setValue(user);
 
                             Toast.makeText(DangKy.this, "Register Succes", Toast.LENGTH_SHORT).show();
