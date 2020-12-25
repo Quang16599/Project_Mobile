@@ -44,6 +44,7 @@
         <activity android:name=".Controller.TrangChu" />
         <activity android:name=".Controller.TrangCaNhan" />
         <activity android:name=".Controller.AdminNear" />
+        <activity android:name=".Controller.AdminChiTietNear" />
     </application>
 
 </manifest>

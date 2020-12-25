@@ -1,6 +1,5 @@
 package goodman.gm.p_mobile.Adapter;
 
-import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import goodman.gm.p_mobile.Controller.AdminChiTietFood;
-import goodman.gm.p_mobile.Controller.AdminChiTietUser;
 import goodman.gm.p_mobile.Controller.AdminFood;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;

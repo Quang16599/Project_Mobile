@@ -1,15 +1,14 @@
 package goodman.gm.p_mobile.Controller;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,9 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import goodman.gm.p_mobile.Adapter.AdminFood_Adapter;
-import goodman.gm.p_mobile.Adapter.AdminUser_Adapter;
 import goodman.gm.p_mobile.Model.QuanAn;
-import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
 public class AdminFood extends AppCompatActivity {
@@ -57,7 +54,7 @@ public class AdminFood extends AppCompatActivity {
                     quanAn.setmGiaTien(value.child("giatien").getValue().toString());
                     quanAn.setmMoTaQuanAn(value.child("motaquanan").getValue().toString());
                     list_quanan.add(quanAn);
-                    Log.e("abc", quanAn.toString());
+//                    Log.e("abc", quanAn.toString());
 
                 }
                 listView.setAdapter(adapter);

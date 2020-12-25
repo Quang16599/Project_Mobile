@@ -1,11 +1,15 @@
 package goodman.gm.p_mobile.Controller;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,6 +25,7 @@ import goodman.gm.p_mobile.Model.DiaChi;
 import goodman.gm.p_mobile.R;
 
 public class AdminNear extends AppCompatActivity {
+    int vitri = 0;
     ListView listView;
     AdminNear_Adapter adapter;
     List<DiaChi> lstDiachi;
@@ -65,5 +70,29 @@ public class AdminNear extends AppCompatActivity {
         lstDiachi = new ArrayList<>();
         adapter = new AdminNear_Adapter(AdminNear.this, R.layout.custom_listnear, lstDiachi);
 
+    }
+
+    public void DialogDeleteNear() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                vitri = position;
+            }
+        });
+        AlertDialog.Builder builder = new AlertDialog.Builder(AdminNear.this, android.R.style.Theme_DeviceDefault_Light_Dialog);
+        builder.setMessage("Bạn có muốn xóa không ?");
+        builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                lstDiachi.remove(vitri);
+                adapter.notifyDataSetChanged();
+            }
+        });
+        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        builder.show();
     }
 }

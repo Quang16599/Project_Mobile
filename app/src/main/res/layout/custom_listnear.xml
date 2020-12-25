@@ -60,6 +60,7 @@
         android:paddingTop="10dp">
 
         <Button
+            android:id="@+id/btnXoaNear"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/ic_delete"
