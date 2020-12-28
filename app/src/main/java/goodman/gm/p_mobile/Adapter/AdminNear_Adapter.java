@@ -68,6 +68,7 @@ public class AdminNear_Adapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         DiaChi diaChi = list_diachi.get(position);
+        holder.adminMaQuanAn.setText(diaChi.getmMaQuanAn());
         holder.adminTenQuan.setText(diaChi.getmTenQuanAn());
         holder.adminDiaChi.setText(diaChi.getmDiaChi());
 
