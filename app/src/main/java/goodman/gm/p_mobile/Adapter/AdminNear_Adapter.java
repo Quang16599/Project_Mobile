@@ -8,6 +8,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -21,6 +25,7 @@ public class AdminNear_Adapter extends BaseAdapter {
     private AdminNear context;
     private int layout;
     private List<DiaChi> list_diachi;
+    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("gantois");
 
     public AdminNear_Adapter(AdminNear context, int layout, List<DiaChi> list_diachi) {
         this.context = context;
@@ -76,11 +81,20 @@ public class AdminNear_Adapter extends BaseAdapter {
         holder.btnXoaNear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.DialogDeleteNear();
+                String maQuanAn = list_diachi.get(position).getmMaQuanAn();
+                deleteOnFireBase(maQuanAn);
+
+                // xóa trên listview
+                context.DeleteDiaChi(position);
             }
         });
 
 
         return convertView;
+    }
+
+    private void deleteOnFireBase(String maQuanAn) {
+        reference.child(maQuanAn).removeValue();
+        Toast.makeText(context, "Xóa " + maQuanAn + " Thành Công", Toast.LENGTH_SHORT).show();
     }
 }
