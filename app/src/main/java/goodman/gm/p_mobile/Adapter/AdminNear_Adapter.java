@@ -44,7 +44,7 @@ public class AdminNear_Adapter extends BaseAdapter {
     }
 
     public class ViewHolder {
-        TextView adminTenQuan, adminDiaChi;
+        TextView adminTenQuan, adminDiaChi, adminMaQuanAn;
         Button btnXoaNear;
     }
 
@@ -54,6 +54,7 @@ public class AdminNear_Adapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
             holder = new ViewHolder();
+            holder.adminMaQuanAn = convertView.findViewById(R.id.tvMaQANear);
             holder.adminTenQuan = convertView.findViewById(R.id.adminTenQuan);
             holder.adminDiaChi = convertView.findViewById(R.id.adminDiaChi);
             holder.btnXoaNear = convertView.findViewById(R.id.btnXoaNear);

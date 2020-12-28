@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,7 @@ import goodman.gm.p_mobile.Model.DiaChi;
 import goodman.gm.p_mobile.R;
 
 public class AdminNear extends AppCompatActivity {
+    ProgressBar progressBarAdminNear;
     int vitri = 0;
     ListView listView;
     AdminNear_Adapter adapter;
@@ -55,6 +57,7 @@ public class AdminNear extends AppCompatActivity {
                     lstDiachi.add(diaChi);
 
                 }
+                progressBarAdminNear.setVisibility(View.GONE);
                 listView.setAdapter(adapter);
             }
 
@@ -66,6 +69,7 @@ public class AdminNear extends AppCompatActivity {
     }
 
     private void init() {
+        progressBarAdminNear = findViewById(R.id.progressBarAdminNear);
         listView = findViewById(R.id.lstNear);
         lstDiachi = new ArrayList<>();
         adapter = new AdminNear_Adapter(AdminNear.this, R.layout.custom_listnear, lstDiachi);

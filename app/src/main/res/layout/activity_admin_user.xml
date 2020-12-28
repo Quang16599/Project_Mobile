@@ -30,6 +30,13 @@
             android:textColor="#FF3D00"
             android:textSize="40dp"></TextView>
 
+        <ProgressBar
+            android:id="@+id/progressBarAdminUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+        </ProgressBar>
+
         <ListView
             android:id="@+id/lstAdminUser"
             android:layout_width="match_parent"

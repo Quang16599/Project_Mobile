@@ -12,13 +12,16 @@
         android:orientation="vertical"
         android:paddingTop="10dp">
 
-        <ImageView
+        <TextView
+            android:id="@+id/tvMaQANear"
+            android:text="MAQA1"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/custom_avatar"
-            android:src="@drawable/ic_nearby">
+            android:textAlignment="center"
+            android:background="@color/colorAccent"
+            android:textSize="15dp">
 
-        </ImageView>
+        </TextView>
     </LinearLayout>
 
     <LinearLayout

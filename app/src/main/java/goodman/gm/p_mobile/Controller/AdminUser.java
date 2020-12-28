@@ -3,7 +3,9 @@ package goodman.gm.p_mobile.Controller;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +24,7 @@ import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
 public class AdminUser extends AppCompatActivity {
+    ProgressBar progressBarAdminUser;
     ListView listView;
     AdminUser_Adapter adapter;
     List<User> lstUser;
@@ -46,6 +49,7 @@ public class AdminUser extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                lstUser.clear();
                 for (DataSnapshot value : snapshot.getChildren()) {
 
                     User user = new User();
@@ -57,8 +61,8 @@ public class AdminUser extends AppCompatActivity {
                     lstUser.add(user);
 //                    Log.e("abc", user.toString());
 
-
                 }
+                progressBarAdminUser.setVisibility(View.GONE);
                 listView.setAdapter(adapter);
             }
 
@@ -70,10 +74,15 @@ public class AdminUser extends AppCompatActivity {
     }
 
     private void init() {
+        progressBarAdminUser = findViewById(R.id.progressBarAdminUser);
         listView = findViewById(R.id.lstAdminUser);
         lstUser = new ArrayList<>();
         adapter = new AdminUser_Adapter(this, R.layout.custom_listuser, lstUser);
         listView.setAdapter(adapter);
 
+    }
+    public void DeleteUser(final int position) {
+        lstUser.remove(position);
+        adapter.notifyDataSetChanged();
     }
 }
