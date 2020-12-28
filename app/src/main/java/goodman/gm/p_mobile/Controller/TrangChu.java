@@ -21,6 +21,7 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
     RadioGroup rdGroup;
     Button btnGanToi;
     ImageButton imbPerson;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +31,6 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
         controlButton();
         receiveData();
     }
-
 
 
     private void receiveData() {
@@ -63,7 +63,7 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
         btnGanToi = findViewById(R.id.btnGanToi);
         imbPerson = findViewById(R.id.imageButtonPerson);
 
-        AdapterViewPagerTrangChu adapterViewPagerTrangChu =  new AdapterViewPagerTrangChu(getSupportFragmentManager());
+        AdapterViewPagerTrangChu adapterViewPagerTrangChu = new AdapterViewPagerTrangChu(getSupportFragmentManager());
         viewPagerTrangChu.setAdapter(adapterViewPagerTrangChu);
         viewPagerTrangChu.addOnPageChangeListener(this);
         rdGroup.setOnCheckedChangeListener(this);
@@ -77,14 +77,14 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
     @Override
     public void onPageSelected(int position) {
 // dung de chuyen nut o dau sang an gi
-     switch (position){
-         case 0:
-             rdOdau.setChecked(true);
-             break;
-         case 1 :
-             rdAnGi.setChecked(true);
-             break;
-     }
+        switch (position) {
+            case 0:
+                rdOdau.setChecked(true);
+                break;
+            case 1:
+                rdAnGi.setChecked(true);
+                break;
+        }
     }
 
     @Override
@@ -94,7 +94,7 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-        switch (checkedId){
+        switch (checkedId) {
             case R.id.rdOdau:
                 viewPagerTrangChu.setCurrentItem(0);
                 break;

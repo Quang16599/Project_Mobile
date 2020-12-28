@@ -39,22 +39,33 @@ public class DoiMatKhau extends AppCompatActivity {
         btnDongY.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (oldPass.getEditText().getText().toString().isEmpty() || newPass.getEditText().getText().toString().isEmpty()
                         || confirmPass.getEditText().toString().isEmpty()) {
                     Toast.makeText(DoiMatKhau.this, "Không được để trống", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (!oldPass.getEditText().getText().toString().equals(passWord)) {
+                        Toast.makeText(DoiMatKhau.this, "Mật khẩu cũ bị sai", Toast.LENGTH_SHORT).show();
+                    } else {
+                        if (!validatePass()) {
+                            Toast.makeText(DoiMatKhau.this, "Vui lòng nhập đúng định dạng", Toast.LENGTH_SHORT).show();
+                        } else {
+                            if (!newPass.getEditText().getText().toString().equals(confirmPass.getEditText().getText().toString())) {
+                                Toast.makeText(DoiMatKhau.this, "Xác nhận mật khẩu sai", Toast.LENGTH_SHORT).show();
+                            } else {
+                                User user = new User(fullName, userName, newPass.getEditText().getText().toString(), email, phoneNumber);
+                                reference.child(userName).setValue(user);
+                                Toast.makeText(DoiMatKhau.this, "Đổi thành công", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(DoiMatKhau.this, TrangCaNhan.class);
+                                intent.putExtra("change", user);
+                                startActivity(intent);
+                                finish();
+                            }
+                        }
+                    }
                 }
-                if (!oldPass.getEditText().getText().toString().equals(passWord) && !validatePass()) {
-                    Toast.makeText(DoiMatKhau.this, "Mật khẩu cũ bị sai", Toast.LENGTH_SHORT).show();
-                }
-                if (!newPass.getEditText().getText().toString().equals(confirmPass.getEditText().getText().toString())) {
-                    Toast.makeText(DoiMatKhau.this, "Xác nhận mật khẩu sai", Toast.LENGTH_SHORT).show();
-                }
-                User user = new User(fullName, userName, newPass.getEditText().getText().toString(), email, phoneNumber);
-                reference.child(userName).setValue(user);
-                Toast.makeText(DoiMatKhau.this, "Đổi thành công", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(DoiMatKhau.this, TrangCaNhan.class);
-                startActivity(intent);
-                finish();
+
+
             }
         });
 
