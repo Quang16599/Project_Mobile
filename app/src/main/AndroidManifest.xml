@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controller.AdminChiTietFood"></activity>
+        <activity android:name=".Controller.AdminNearAdd"></activity>
+        <activity android:name=".Controller.AdminFoodAdd" />
+        <activity android:name=".Controller.AdminChiTietFood" />
         <activity android:name=".Controller.AdminChiTietUser" />
         <activity android:name=".Controller.SetNewPassword" />
         <activity android:name=".Controller.Vertify_OTP" />
@@ -25,8 +27,7 @@
 
         <activity android:name=".Controller.MainActivity" />
         <activity android:name=".Controller.ChiTietQuanAn" />
-        <activity android:name=".Controller.DangKy" />
-<!--        <activity android:name=".Controller.TestGoogleMap" />-->
+        <activity android:name=".Controller.DangKy" /> <!-- <activity android:name=".Controller.TestGoogleMap" /> -->
         <activity android:name=".Controller.AdminFood" /> <!-- <activity android:name=".Controller.TestGoogleMap" /> -->
         <activity android:name=".Controller.AdminUser" />
         <activity android:name=".Controller.AdminComment" />

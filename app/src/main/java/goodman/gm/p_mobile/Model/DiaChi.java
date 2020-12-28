@@ -15,6 +15,14 @@ public class DiaChi implements Serializable {
 
     }
 
+    public DiaChi(String mTenQuanAn, String mDiaChi, double mLatitue, double mLongitue,  String mMaQuanAn) {
+        this.mTenQuanAn = mTenQuanAn;
+        this.mDiaChi = mDiaChi;
+        this.mLatitue = mLatitue;
+        this.mLongitue = mLongitue;
+        this.mMaQuanAn = mMaQuanAn;
+    }
+
     public DiaChi(String mTenQuanAn, String mDiaChi, double mLatitue, double mLongitue, double mKhoangCach, String mMaQuanAn) {
         this.mTenQuanAn = mTenQuanAn;
         this.mDiaChi = mDiaChi;
