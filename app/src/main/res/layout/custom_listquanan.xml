@@ -9,17 +9,19 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="10dp">
 
-        <ImageView
-
+        <TextView
+            android:id="@+id/tvMaQA"
+            android:text="MAQA1"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/custom_avatar"
-            android:src="@drawable/ic_food">
+            android:textAlignment="center"
+            android:background="@color/colorAccent"
+            android:textSize="15dp">
 
-        </ImageView>
+        </TextView>
     </LinearLayout>
 
     <LinearLayout
@@ -32,10 +34,10 @@
 
         <TextView
 
-            android:gravity="center"
             android:id="@+id/tvTenQA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Tên Quán Ăn"
             android:textColor="#000"
             android:textSize="15dp"
@@ -44,10 +46,10 @@
         </TextView>
 
         <TextView
-            android:gravity="center"
             android:id="@+id/tvDC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Địa chỉ"
             android:textSize="13dp"
             android:textStyle="bold">
@@ -58,8 +60,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="10dp">
 
         <Button
             android:id="@+id/btnXoa"

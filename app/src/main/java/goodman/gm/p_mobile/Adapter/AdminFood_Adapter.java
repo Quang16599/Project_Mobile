@@ -45,7 +45,7 @@ public class AdminFood_Adapter extends BaseAdapter {
     }
 
     public class ViewHolder {
-        TextView tvTenQuanAn, tvDiaChi;
+        TextView tvTenQuanAn, tvDiaChi, tvMaQA;
         Button btnXoa;
 
     }
@@ -56,6 +56,7 @@ public class AdminFood_Adapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
             holder = new ViewHolder();
+            holder.tvMaQA = convertView.findViewById(R.id.tvMaQA);
             holder.tvTenQuanAn = convertView.findViewById(R.id.tvTenQA);
             holder.tvDiaChi = convertView.findViewById(R.id.tvDC);
             holder.btnXoa = convertView.findViewById(R.id.btnXoa);
@@ -65,6 +66,7 @@ public class AdminFood_Adapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         QuanAn quanAn = list_quanan.get(position);
+        holder.tvMaQA.setText(quanAn.getmMaQuanAn());
         holder.tvTenQuanAn.setText(quanAn.getmTenQuanAn());
         holder.tvDiaChi.setText(quanAn.getmDiaChiQuan());
 
@@ -81,7 +83,7 @@ public class AdminFood_Adapter extends BaseAdapter {
         holder.btnXoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.DialogDelete();
+                context.DialogDelete(position);
             }
         });
 

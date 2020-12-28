@@ -23,7 +23,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/map_api_key" />
 
-        <activity android:name=".Controller.Admin" />
+        <activity android:name=".Controller.MainActivity" />
         <activity android:name=".Controller.ChiTietQuanAn" />
         <activity android:name=".Controller.DangKy" />
         <activity android:name=".Controller.TestGoogleMap" />
@@ -33,7 +33,7 @@
         <activity android:name=".Controller.GanToi" />
         <activity android:name=".Controller.DoiMatKhau" />
         <activity android:name=".Controller.TestAPIGoogle" />
-        <activity android:name=".Controller.MainActivity">
+        <activity android:name=".Controller.Admin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
