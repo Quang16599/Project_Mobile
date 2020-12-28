@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="#fff"
     android:orientation="vertical"
     tools:context=".Controller.AdminChiTietNear">
 
@@ -12,7 +13,7 @@
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:background="@drawable/custom_avatar"
-        android:src="@drawable/ic_person"></ImageView>
+        android:src="@drawable/ic_nearby"></ImageView>
 
     <TextView
         android:layout_width="match_parent"
@@ -32,7 +33,7 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_nearby"></ImageView>
+            android:src="@drawable/f"></ImageView>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -51,14 +52,14 @@
 
             </TextView>
 
-            <TextView
+            <EditText
                 android:id="@+id/tvNearTenQuan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Abc"
                 android:textSize="18dp">
 
-            </TextView>
+            </EditText>
         </LinearLayout>
     </LinearLayout>
 
@@ -71,7 +72,7 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_nearby"></ImageView>
+            android:src="@drawable/ic_address"></ImageView>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -90,14 +91,14 @@
 
             </TextView>
 
-            <TextView
+            <EditText
                 android:id="@+id/tvNearDiaChi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Abc"
                 android:textSize="18dp">
 
-            </TextView>
+            </EditText>
         </LinearLayout>
     </LinearLayout>
 
@@ -109,7 +110,7 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_nearby"></ImageView>
+            android:src="@drawable/nearby"></ImageView>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -128,14 +129,14 @@
 
             </TextView>
 
-            <TextView
+            <EditText
                 android:id="@+id/tvNearLong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Abc"
                 android:textSize="18dp">
 
-            </TextView>
+            </EditText>
         </LinearLayout>
     </LinearLayout>
 
@@ -166,45 +167,24 @@
 
             </TextView>
 
-            <TextView
+            <EditText
                 android:id="@+id/tvNearLati"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Abc"
                 android:textSize="18dp">
 
-            </TextView>
+            </EditText>
         </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        >
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnNearUpdate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginBottom="5dp"
-            android:text="CẬP NHẬT"
-            >
 
-        </Button>
-
-        <Button
-            android:id="@+id/btnNearBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="QUAY LẠI"
-            >
-
-        </Button>
     </LinearLayout>
 
 

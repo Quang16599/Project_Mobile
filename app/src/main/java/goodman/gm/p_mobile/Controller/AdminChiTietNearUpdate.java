@@ -11,6 +11,6 @@ public class AdminChiTietNearUpdate extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_chi_tiet_near_update);
+        setContentView(R.layout.activity_admin_chi_tiet_near);
     }
 }
