@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,7 +27,7 @@ import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
 public class AdminFood extends AppCompatActivity {
-
+    ProgressBar progressBarAdminFood;
     ListView listView;
     AdminFood_Adapter adapter;
     List<QuanAn> list_quanan;
@@ -63,6 +64,7 @@ public class AdminFood extends AppCompatActivity {
 //                    Log.e("abc", quanAn.getmMaQuanAn());
 
                 }
+                progressBarAdminFood.setVisibility(View.GONE);
                 listView.setAdapter(adapter);
 
             }
@@ -76,6 +78,7 @@ public class AdminFood extends AppCompatActivity {
 
 
     private void init() {
+        progressBarAdminFood = findViewById(R.id.progressBarAdminFood);
         listView = findViewById(R.id.listAdminFood);
         list_quanan = new ArrayList<>();
         adapter = new AdminFood_Adapter(this, R.layout.custom_listquanan, list_quanan);
@@ -84,37 +87,9 @@ public class AdminFood extends AppCompatActivity {
     }
 
 
-    public void DialogDelete(final int position) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(AdminFood.this, android.R.style.Theme_DeviceDefault_Light_Dialog);
-        builder.setMessage("Bạn có muốn xóa không ?");
-        builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                list_quanan.remove(position);
-
-
-                String maQuanAn = list_quanan.get(position).getmMaQuanAn();
-//                Log.d("test", maQuanAn);
-//                deleteOnFireBase(maQuanAn);
-
-                adapter.notifyDataSetChanged();
-
-
-            }
-        });
-        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
-        builder.show();
-
-
-    }
-
-    private void deleteOnFireBase(String maQuanAn) {
-        reference.child(maQuanAn).removeValue();
-        Toast.makeText(this, "Xóa " + maQuanAn + " Thành công", Toast.LENGTH_SHORT).show();
+    public void DeleteFood(final int position) {
+        list_quanan.remove(position);
+        adapter.notifyDataSetChanged();
     }
 
 

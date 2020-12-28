@@ -1,12 +1,17 @@
 package goodman.gm.p_mobile.Adapter;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -20,6 +25,8 @@ public class AdminFood_Adapter extends BaseAdapter {
     private AdminFood context;
     private int layout;
     private List<QuanAn> list_quanan;
+    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("quanans");
+
 
     public AdminFood_Adapter(AdminFood context, int layout, List<QuanAn> list_quanan) {
         this.context = context;
@@ -81,12 +88,23 @@ public class AdminFood_Adapter extends BaseAdapter {
         holder.btnXoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.DialogDelete(position);
+                // xóa trên firebase
+                String maQuanAn = list_quanan.get(position).getmMaQuanAn();
+                deleteOnFireBase(maQuanAn);
+
+                // xóa trên listview
+                context.DeleteFood(position);
+
+
             }
         });
 
         return convertView;
     }
 
+    private void deleteOnFireBase(String maQuanAn) {
+        reference.child(maQuanAn).removeValue();
+        Toast.makeText(context, "Xóa " + maQuanAn + " Thành Công", Toast.LENGTH_SHORT).show();
+    }
 
 }
