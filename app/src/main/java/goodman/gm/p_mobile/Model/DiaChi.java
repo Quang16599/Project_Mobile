@@ -9,17 +9,19 @@ public class DiaChi implements Serializable {
     private double mLatitue;
     private double mLongitue;
     private double mKhoangCach;
+    private String mMaQuanAn;
 
     public DiaChi() {
 
     }
 
-    public DiaChi(String mTenQuanAn, String mDiaChi, double mLatitue, double mLongitue, double mKhoangCach) {
+    public DiaChi(String mTenQuanAn, String mDiaChi, double mLatitue, double mLongitue, double mKhoangCach, String mMaQuanAn) {
         this.mTenQuanAn = mTenQuanAn;
         this.mDiaChi = mDiaChi;
         this.mLatitue = mLatitue;
         this.mLongitue = mLongitue;
         this.mKhoangCach = mKhoangCach;
+        this.mMaQuanAn = mMaQuanAn;
     }
 
     public String getmTenQuanAn() {
@@ -62,14 +64,12 @@ public class DiaChi implements Serializable {
         this.mKhoangCach = mKhoangCach;
     }
 
-    @Override
-    public String toString() {
-        return "DiaChi{" +
-                "mTenQuanAn='" + mTenQuanAn + '\'' +
-                ", mDiaChi='" + mDiaChi + '\'' +
-                ", mLatitue=" + mLatitue +
-                ", mLongitue=" + mLongitue +
-                ", mKhoangCach=" + mKhoangCach +
-                '}';
+    public String getmMaQuanAn() {
+        return mMaQuanAn;
     }
+
+    public void setmMaQuanAn(String mMaQuanAn) {
+        this.mMaQuanAn = mMaQuanAn;
+    }
+
 }

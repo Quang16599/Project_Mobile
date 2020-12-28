@@ -46,14 +46,17 @@ public class AdminNear extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                lstDiachi.clear();
                 for (DataSnapshot value : snapshot.getChildren()) {
 
                     DiaChi diaChi = new DiaChi();
+                    diaChi.setmMaQuanAn(value.getKey());
                     diaChi.setmLongitue((Double) value.child("longitude").getValue());
                     diaChi.setmLatitue((Double) value.child("latitude").getValue());
                     diaChi.setmDiaChi(value.child("diachi").getValue().toString());
                     diaChi.setmTenQuanAn(value.child("tenquanan").getValue().toString());
-                    Log.e("abc", diaChi.toString());
+
+//                    Log.e("abc", diaChi.toString());
                     lstDiachi.add(diaChi);
 
                 }
@@ -75,28 +78,10 @@ public class AdminNear extends AppCompatActivity {
         adapter = new AdminNear_Adapter(AdminNear.this, R.layout.custom_listnear, lstDiachi);
 
     }
-
-    public void DialogDeleteNear() {
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                vitri = position;
-            }
-        });
-        AlertDialog.Builder builder = new AlertDialog.Builder(AdminNear.this, android.R.style.Theme_DeviceDefault_Light_Dialog);
-        builder.setMessage("Bạn có muốn xóa không ?");
-        builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                lstDiachi.remove(vitri);
-                adapter.notifyDataSetChanged();
-            }
-        });
-        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
-        builder.show();
+    public void DeleteDiaChi(final int position) {
+        lstDiachi.remove(position);
+        adapter.notifyDataSetChanged();
     }
+
+
 }
