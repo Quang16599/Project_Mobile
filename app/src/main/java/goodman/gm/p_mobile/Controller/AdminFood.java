@@ -60,7 +60,7 @@ public class AdminFood extends AppCompatActivity {
                     quanAn.setmMoTaQuanAn(value.child("motaquanan").getValue().toString());
 
                     list_quanan.add(quanAn);
-                    Log.e("abc", quanAn.getmMaQuanAn());
+//                    Log.e("abc", quanAn.getmMaQuanAn());
 
                 }
                 listView.setAdapter(adapter);
@@ -94,7 +94,7 @@ public class AdminFood extends AppCompatActivity {
 
 
                 String maQuanAn = list_quanan.get(position).getmMaQuanAn();
-                Log.d("test", maQuanAn);
+//                Log.d("test", maQuanAn);
 //                deleteOnFireBase(maQuanAn);
 
                 adapter.notifyDataSetChanged();

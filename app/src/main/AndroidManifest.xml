@@ -26,7 +26,7 @@
         <activity android:name=".Controller.MainActivity" />
         <activity android:name=".Controller.ChiTietQuanAn" />
         <activity android:name=".Controller.DangKy" />
-        <activity android:name=".Controller.TestGoogleMap" />
+<!--        <activity android:name=".Controller.TestGoogleMap" />-->
         <activity android:name=".Controller.AdminFood" /> <!-- <activity android:name=".Controller.TestGoogleMap" /> -->
         <activity android:name=".Controller.AdminUser" />
         <activity android:name=".Controller.AdminComment" />
