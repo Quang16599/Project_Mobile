@@ -6,23 +6,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.QuickContactBadge;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
 
 import goodman.gm.p_mobile.Controller.AdminChiTietNear;
-import goodman.gm.p_mobile.Controller.AdminChiTietUser;
+import goodman.gm.p_mobile.Controller.AdminNear;
 import goodman.gm.p_mobile.Model.DiaChi;
 import goodman.gm.p_mobile.R;
 
 public class AdminNear_Adapter extends BaseAdapter {
 
-    private Context context;
+    private AdminNear context;
     private int layout;
     private List<DiaChi> list_diachi;
 
-    public AdminNear_Adapter(Context context, int layout, List<DiaChi> list_diachi) {
+    public AdminNear_Adapter(AdminNear context, int layout, List<DiaChi> list_diachi) {
         this.context = context;
         this.layout = layout;
         this.list_diachi = list_diachi;
@@ -45,6 +45,7 @@ public class AdminNear_Adapter extends BaseAdapter {
 
     public class ViewHolder {
         TextView adminTenQuan, adminDiaChi;
+        Button btnXoaNear;
     }
 
     @Override
@@ -55,6 +56,7 @@ public class AdminNear_Adapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.adminTenQuan = convertView.findViewById(R.id.adminTenQuan);
             holder.adminDiaChi = convertView.findViewById(R.id.adminDiaChi);
+            holder.btnXoaNear = convertView.findViewById(R.id.btnXoaNear);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -69,6 +71,12 @@ public class AdminNear_Adapter extends BaseAdapter {
                 Intent intent = new Intent(context, AdminChiTietNear.class);
                 intent.putExtra("adminNear", list_diachi.get(position));
                 context.startActivity(intent);
+            }
+        });
+        holder.btnXoaNear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.DialogDeleteNear();
             }
         });
 

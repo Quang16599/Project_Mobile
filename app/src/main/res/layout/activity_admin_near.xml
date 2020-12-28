@@ -6,12 +6,12 @@
     android:background="#fff"
 
     tools:context=".Controller.AdminNear">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical">
+
 
         <ImageView
             android:layout_width="150dp"
@@ -35,6 +35,7 @@
             android:layout_height="wrap_content">
 
         </ListView>
+
 
     </LinearLayout>
 

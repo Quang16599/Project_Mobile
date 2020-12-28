@@ -23,16 +23,6 @@
 
             </TextView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="TP HCM"
-                android:textColor="#fff"
-                android:textSize="18dp"
-                android:textStyle="bold">
-
-            </TextView>
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
     <LinearLayout

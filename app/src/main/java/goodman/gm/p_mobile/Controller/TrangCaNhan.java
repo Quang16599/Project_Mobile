@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
@@ -20,6 +21,7 @@ public class TrangCaNhan extends AppCompatActivity {
     Button btnChangePass, btnLogOut;
     SharedPreferences sharedPreferences;
     String passWord, fullName, email, phoneNumber, userName;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,21 @@ public class TrangCaNhan extends AppCompatActivity {
         controlButton();
         loadData();
         sendData();
+
     }
+
+//    private void loadDataChange() {
+//        Intent intent = getIntent();
+//        user = (User) intent.getSerializableExtra("change");
+//
+//        tvFullName.setText(user.getmFullName());
+//        tvEmail.setText(user.getmEmail());
+//        tvPassword.setText(user.getmPassword());
+//        tvPhone.setText(user.getmPhoneNumber());
+//        tvUserName.setText(user.getmUserName());
+//
+//
+//    }
 
 
     private void Init() {
