@@ -34,7 +34,7 @@
         <activity android:name=".Controller.GanToi" />
         <activity android:name=".Controller.DoiMatKhau" />
         <activity android:name=".Controller.TestAPIGoogle" />
-        <activity android:name=".Controller.Admin">
+        <activity android:name=".Controller.TrangChu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,7 +42,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Controller.DangNhap" />
-        <activity android:name=".Controller.TrangChu" />
+        <activity android:name=".Controller.Admin" />
         <activity android:name=".Controller.TrangCaNhan" />
         <activity android:name=".Controller.AdminNear" />
         <activity android:name=".Controller.AdminChiTietNear" />
