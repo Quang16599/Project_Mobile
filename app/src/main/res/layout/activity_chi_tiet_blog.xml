@@ -109,15 +109,19 @@
 
     </ImageView>
 
-    <TextView
-        android:id="@+id/tvNoiDungBLog"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:text="abc"
-        android:textColor="#000"
-        android:textSize="15dp"
-        android:textStyle="bold"></TextView>
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/tvNoiDungBLog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:text="abc"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:textStyle="bold"></TextView>
 
+    </ScrollView>
 </LinearLayout>
