@@ -3,9 +3,7 @@ package goodman.gm.p_mobile.Controller;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +21,6 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 
-
 import java.util.concurrent.TimeUnit;
 
 import goodman.gm.p_mobile.Model.User;
@@ -34,9 +31,7 @@ public class Vertify_OTP extends AppCompatActivity {
     private PinView pinView;
     private Button btnVertify;
     private TextView textView;
-    private String phone, codeBySystem;
-    private User user;
-    private SharedPreferences sharedPreferences;
+    private String username, phone, codeBySystem;
     private final FirebaseAuth auth = FirebaseAuth.getInstance();
 
 
@@ -46,27 +41,30 @@ public class Vertify_OTP extends AppCompatActivity {
         setContentView(R.layout.activity_vertify__otp);
 
         init();
+
         loadData();
 
-        sendVertificationCodeToUser();
+        sendVertificationCodeToUser(phone);
 
         btnVertify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callNextScreenFromOTP();
-
+                String code = pinView.getText().toString();
+                if (!code.isEmpty()) {
+                    vertify(code);
+                }
             }
         });
 
     }
 
-    private void sendVertificationCodeToUser() {
+    private void sendVertificationCodeToUser(String phone) {
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(auth)
                         .setPhoneNumber(phone)       // Phone number to verify
                         .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
                         .setActivity(this)                 // Activity (for callback binding)
-                        .setCallbacks(mCallbacks)          // OnVerificationStateChangedCallbacks
+                        .setCallbacks(mCallbacks)
                         .build();
         PhoneAuthProvider.verifyPhoneNumber(options);
     }
@@ -102,39 +100,22 @@ public class Vertify_OTP extends AppCompatActivity {
     }
 
     private void signInUsingCredential(PhoneAuthCredential credential) {
-
         auth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString("username", user.getmUserName());
-                            editor.commit();
-
                             Intent intent = new Intent(getApplicationContext(), SetNewPassword.class);
-//                            intent.putExtra("username", user.getmUserName());
+                            intent.putExtra("userNamefromVertify", username);
                             startActivity(intent);
-                            Toast.makeText(Vertify_OTP.this, "Hoàn tất", Toast.LENGTH_SHORT).show();
                             finish();
                         } else {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 Toast.makeText(Vertify_OTP.this, "Không hợp lệ. Thử lại", Toast.LENGTH_SHORT).show();
-
                             }
                         }
                     }
                 });
-    }
-
-    private void callNextScreenFromOTP() {
-        String code = pinView.getText().toString();
-        if (!code.isEmpty()) {
-            vertify(code);
-        } else {
-            pinView.requestFocus();
-        }
     }
 
     private void init() {
@@ -142,16 +123,13 @@ public class Vertify_OTP extends AppCompatActivity {
         btnVertify = findViewById(R.id.btnVertify);
         textView = findViewById(R.id.sdt);
 
-        sharedPreferences = getSharedPreferences("UserName", MODE_PRIVATE);
-
     }
 
     private void loadData() {
         Intent intent = getIntent();
-        user = (User) intent.getSerializableExtra("user");
+        User user = (User) intent.getSerializableExtra("QuenMKUser");
+        username = user.getmUserName();
         phone = user.getmPhoneNumber().trim();
         textView.setText(phone);
     }
-
-
 }
