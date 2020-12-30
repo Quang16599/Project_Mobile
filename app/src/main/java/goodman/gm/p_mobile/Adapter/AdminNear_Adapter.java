@@ -1,6 +1,7 @@
 package goodman.gm.p_mobile.Adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -83,11 +86,30 @@ public class AdminNear_Adapter extends BaseAdapter {
         holder.btnXoaNear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String maQuanAn = list_diachi.get(position).getmMaQuanAn();
-                deleteOnFireBase(maQuanAn);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context,
+                        android.R.style.Theme_DeviceDefault_Light_Dialog);
+                builder.setTitle("Bạn có muốn xóa không ?");
+                builder.setCancelable(false);
+                builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String maQuanAn = list_diachi.get(position).getmMaQuanAn();
+                        deleteOnFireBase(maQuanAn);
 
-                // xóa trên listview
-                context.DeleteDiaChi(position);
+                        // xóa trên listview
+                        context.DeleteDiaChi(position);
+                    }
+                });
+                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+                builder.show();
+
+
             }
         });
 

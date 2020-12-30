@@ -23,7 +23,8 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
     ViewPager viewPagerTrangChu;
     RadioButton rdOdau, rdAnGi;
     RadioGroup rdGroup;
-    Button btnGanToi, btnBlog;
+    Button btnGanToi;
+    User user;
     ImageButton imbPerson;
     SliderLayout sliderLayout;
 
@@ -35,8 +36,9 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
         init();
         setSliderViews();
 
-        controlButton();
         receiveData();
+        controlButton();
+
     }
 
     private void setSliderViews() {
@@ -71,7 +73,7 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
 
     private void receiveData() {
         Intent intent = getIntent();
-        User user = (User) intent.getSerializableExtra("users");
+        user = (User) intent.getSerializableExtra("TaiKhoan");
     }
 
     private void controlButton() {
@@ -82,11 +84,13 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
                 startActivity(intent);
             }
         });
+
         btnGanToi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TrangChu.this, GanToi.class);
                 startActivity(intent);
+                finish();
             }
         });
         btnBlog.setOnClickListener(new View.OnClickListener() {
