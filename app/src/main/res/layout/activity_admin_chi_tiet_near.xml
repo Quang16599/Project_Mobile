@@ -31,7 +31,7 @@
 
         <ImageView
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:src="@drawable/ic_nearby"></ImageView>
 
         <LinearLayout
@@ -56,7 +56,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Abc"
-                android:textSize="18dp">
+                android:textSize="18dp"
+                android:textAlignment="center">
 
             </TextView>
         </LinearLayout>
@@ -70,7 +71,7 @@
 
         <ImageView
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:src="@drawable/ic_nearby"></ImageView>
 
         <LinearLayout
@@ -108,7 +109,7 @@
 
         <ImageView
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:src="@drawable/ic_nearby"></ImageView>
 
         <LinearLayout
@@ -146,7 +147,7 @@
 
         <ImageView
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:src="@drawable/ic_nearby"></ImageView>
 
         <LinearLayout

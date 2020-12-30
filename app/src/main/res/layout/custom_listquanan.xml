@@ -16,7 +16,7 @@
             android:id="@+id/tvMaQA"
             android:text="MAQA1"
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:textAlignment="center"
             android:background="@color/colorAccent"
             android:textSize="15dp">

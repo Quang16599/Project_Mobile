@@ -25,7 +25,7 @@ public class QuenMatKhau extends AppCompatActivity {
 
     private Button btnNext;
     private TextInputEditText edtUserName;
-    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("thanhviens");
+    private final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("thanhviens");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class QuenMatKhau extends AppCompatActivity {
 
     private void callVertifyOTP() {
         if (edtUserName.getText().toString().isEmpty()) {
-            Toast.makeText(QuenMatKhau.this, "Please Enter values", Toast.LENGTH_SHORT).show();
+            Toast.makeText(QuenMatKhau.this, "Vui lòng nhập dữ liệu", Toast.LENGTH_SHORT).show();
         } else {
             final ProgressDialog dialog = new ProgressDialog(QuenMatKhau.this);
             dialog.setMessage("Please waiting");

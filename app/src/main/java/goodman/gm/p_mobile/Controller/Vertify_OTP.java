@@ -30,13 +30,14 @@ import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
 public class Vertify_OTP extends AppCompatActivity {
+
     private PinView pinView;
     private Button btnVertify;
     private TextView textView;
     private String phone, codeBySystem;
     private User user;
     private SharedPreferences sharedPreferences;
-    private FirebaseAuth auth = FirebaseAuth.getInstance();
+    private final FirebaseAuth auth = FirebaseAuth.getInstance();
 
 
     @Override
@@ -70,7 +71,7 @@ public class Vertify_OTP extends AppCompatActivity {
         PhoneAuthProvider.verifyPhoneNumber(options);
     }
 
-    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks =
+    private final PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks =
             new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                 @Override
                 public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
@@ -108,17 +109,15 @@ public class Vertify_OTP extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
-
-                            Intent intent = new Intent(Vertify_OTP.this, SetNewPassword.class);
-//                            intent.putExtra("username", user.getmUserName());
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putString("username", user.getmUserName());
                             editor.commit();
 
+                            Intent intent = new Intent(getApplicationContext(), SetNewPassword.class);
+//                            intent.putExtra("username", user.getmUserName());
                             startActivity(intent);
-                            finish();
                             Toast.makeText(Vertify_OTP.this, "Hoàn tất", Toast.LENGTH_SHORT).show();
-
+                            finish();
                         } else {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 Toast.makeText(Vertify_OTP.this, "Không hợp lệ. Thử lại", Toast.LENGTH_SHORT).show();
@@ -144,6 +143,7 @@ public class Vertify_OTP extends AppCompatActivity {
         textView = findViewById(R.id.sdt);
 
         sharedPreferences = getSharedPreferences("UserName", MODE_PRIVATE);
+
     }
 
     private void loadData() {
