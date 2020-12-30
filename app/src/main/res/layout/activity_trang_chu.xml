@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary">
 
-        <ImageView
+        <ImageButton
+            android:id="@+id/imgQuanLy"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:background="?android:selectableItemBackgroundBorderless"

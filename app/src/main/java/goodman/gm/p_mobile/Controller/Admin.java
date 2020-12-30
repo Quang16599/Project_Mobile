@@ -20,6 +20,7 @@ import goodman.gm.p_mobile.R;
 
 public class Admin extends AppCompatActivity {
 
+    User user;
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -31,11 +32,16 @@ public class Admin extends AppCompatActivity {
         setContentView(R.layout.activity_admin);
         init();
 
+        receiveData();
         controlButton();
-//        actionToolBar();
         actionNavigation();
 
 
+    }
+
+    private void receiveData() {
+        Intent intent = getIntent();
+        user = (User) intent.getSerializableExtra("TaiKhoan");
     }
 
     @Override

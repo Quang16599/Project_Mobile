@@ -23,9 +23,8 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
     ViewPager viewPagerTrangChu;
     RadioButton rdOdau, rdAnGi;
     RadioGroup rdGroup;
-    Button btnGanToi;
-    User user;
-    ImageButton imbPerson;
+    Button btnGanToi, btnBlog;
+    ImageButton imbPerson, imbQuanLy;
     SliderLayout sliderLayout;
 
 
@@ -36,7 +35,6 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
         init();
         setSliderViews();
 
-        receiveData();
         controlButton();
 
     }
@@ -71,12 +69,9 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
     }
 
 
-    private void receiveData() {
-        Intent intent = getIntent();
-        user = (User) intent.getSerializableExtra("TaiKhoan");
-    }
 
     private void controlButton() {
+
         imbPerson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +88,7 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
                 finish();
             }
         });
+
         btnBlog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,6 +104,8 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
         rdAnGi = (RadioButton) findViewById(R.id.rdAnGi);
         rdGroup = (RadioGroup) findViewById(R.id.rdGroup);
         btnGanToi = findViewById(R.id.btnGanToi);
+        imbQuanLy = findViewById(R.id.imgQuanLy);
+        imbQuanLy.setEnabled(false);
         imbPerson = findViewById(R.id.imageButtonPerson);
         btnBlog = findViewById(R.id.btnBlog);
 

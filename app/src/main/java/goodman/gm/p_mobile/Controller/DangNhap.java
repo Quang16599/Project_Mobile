@@ -62,8 +62,10 @@ public class DangNhap extends AppCompatActivity {
                                 user = dataSnapshot.child(edtUser.getText().toString()).getValue(User.class);
                                 if (user.getmUserName().equals("admin")) {
                                     if (user.getmPassword().equals(edtPass.getText().toString())) {
+                                        saveData();
                                         Toast.makeText(DangNhap.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(DangNhap.this, Admin.class);
+                                        intent.putExtra("TaiKhoan", user);
                                         startActivity(intent);
                                     } else {
                                         Toast.makeText(DangNhap.this, "Wrong PassWord!!", Toast.LENGTH_SHORT).show();
@@ -73,7 +75,6 @@ public class DangNhap extends AppCompatActivity {
                                     Toast.makeText(DangNhap.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(DangNhap.this, TrangChu.class);
                                     intent.putExtra("TaiKhoan", user);
-
                                     startActivity(intent);
                                 } else {
                                     Toast.makeText(DangNhap.this, "Wrong PassWord!!", Toast.LENGTH_SHORT).show();
