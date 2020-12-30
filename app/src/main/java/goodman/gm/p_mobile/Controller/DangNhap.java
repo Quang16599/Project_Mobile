@@ -63,17 +63,17 @@ public class DangNhap extends AppCompatActivity {
                                 if (user.getmUserName().equals("admin")) {
                                     if (user.getmPassword().equals(edtPass.getText().toString())) {
                                         Toast.makeText(DangNhap.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
-                                        sendData();
                                         Intent intent = new Intent(DangNhap.this, Admin.class);
                                         startActivity(intent);
-
                                     } else {
                                         Toast.makeText(DangNhap.this, "Wrong PassWord!!", Toast.LENGTH_SHORT).show();
                                     }
                                 } else if (user.getmPassword().equals(edtPass.getText().toString())) {
+                                    saveData();
                                     Toast.makeText(DangNhap.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
-                                    sendData();
                                     Intent intent = new Intent(DangNhap.this, TrangChu.class);
+                                    intent.putExtra("TaiKhoan", user);
+
                                     startActivity(intent);
                                 } else {
                                     Toast.makeText(DangNhap.this, "Wrong PassWord!!", Toast.LENGTH_SHORT).show();
@@ -115,7 +115,7 @@ public class DangNhap extends AppCompatActivity {
         });
     }
 
-    private void sendData() {
+    private void saveData() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("FullName", user.getmFullName());
         editor.putString("UserName", user.getmUserName());
