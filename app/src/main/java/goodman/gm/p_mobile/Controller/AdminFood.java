@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -32,6 +33,7 @@ public class AdminFood extends AppCompatActivity {
     AdminFood_Adapter adapter;
     List<QuanAn> list_quanan;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("quanans");
+    Button btnThem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,13 @@ public class AdminFood extends AppCompatActivity {
 
         init();
         LoadData();
+        btnThem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminFood.this, AdminFoodAdd.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -82,6 +91,7 @@ public class AdminFood extends AppCompatActivity {
         listView = findViewById(R.id.listAdminFood);
         list_quanan = new ArrayList<>();
         adapter = new AdminFood_Adapter(this, R.layout.custom_listquanan, list_quanan);
+        btnThem = findViewById(R.id.btnThemQuanAnAdmin);
 
 
     }

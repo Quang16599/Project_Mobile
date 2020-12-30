@@ -4,24 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#fff"
-    tools:context=".Controller.AdminChiTietUser">
+    android:orientation="vertical"
+    tools:context=".Controller.AdminFoodAdd">
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:background="@drawable/custom_avatar"
-        android:src="@drawable/ic_person"></ImageView>
+        android:src="@drawable/ic_food"></ImageView>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bungee"
         android:gravity="center"
-        android:text="Thông tin chi tiết"
-        android:textSize="30dp">
+        android:text="Thêm quán ăn"
+        android:textSize="20dp">
 
     </TextView>
 
@@ -31,9 +31,9 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_name"></ImageView>
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/f"></ImageView>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -45,21 +45,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Họ và tên"
+                android:text="Tên quán ăn"
                 android:textColor="#000"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold">
 
             </TextView>
 
-            <TextView
-                android:id="@+id/tvAdminHoTen"
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Abc"
-                android:textSize="18dp">
+                android:hint="Nhập tên quán"
+                android:textSize="15dp">
 
-            </TextView>
+            </EditText>
         </LinearLayout>
     </LinearLayout>
 
@@ -70,9 +69,9 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_mobile"></ImageView>
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/b"></ImageView>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -84,21 +83,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Số điện thoại"
+                android:text="Địa chỉ"
                 android:textColor="#000"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold">
 
             </TextView>
 
-            <TextView
-                android:id="@+id/tvAdminSdt"
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Abc"
-                android:textSize="18dp">
+                android:hint="Nhập địa chỉ"
+                android:textSize="15dp">
 
-            </TextView>
+            </EditText>
         </LinearLayout>
     </LinearLayout>
 
@@ -108,9 +106,10 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_email"></ImageView>
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/open"></ImageView>
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -122,21 +121,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Email"
+                android:text="Giờ Mở cửa"
                 android:textColor="#000"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold">
 
             </TextView>
 
-            <TextView
-                android:id="@+id/tvAdminEmail"
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Abc"
-                android:textSize="18dp">
+                android:hint="Nhập giờ mở cửa"
+                android:textSize="15dp">
 
-            </TextView>
+            </EditText>
         </LinearLayout>
     </LinearLayout>
 
@@ -146,9 +144,10 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_address"></ImageView>
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/lock"></ImageView>
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -160,21 +159,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Tên đăng nhập"
+                android:text="Giờ Đóng Cửa"
                 android:textColor="#000"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold">
 
             </TextView>
 
-            <TextView
-                android:id="@+id/tvAdminTDN"
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Abc"
-                android:textSize="18dp">
+                android:hint="Nhập giờ đóng cửa"
+                android:textSize="15dp">
 
-            </TextView>
+            </EditText>
         </LinearLayout>
     </LinearLayout>
 
@@ -184,9 +182,9 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_name"></ImageView>
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/money"></ImageView>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -198,22 +196,85 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Mật khẩu"
+                android:text="Giá Tiền"
                 android:textColor="#000"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold">
 
             </TextView>
 
-            <TextView
-                android:id="@+id/tvAdminMK"
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Abc"
-                android:textSize="18dp">
+                android:hint="Nhập giá tiền"
+                android:textSize="15dp">
+
+            </EditText>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/e"></ImageView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mô Tả"
+                android:textColor="#000"
+                android:textSize="15dp"
+                android:textStyle="bold">
 
             </TextView>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Nhập mô tả"
+                android:textSize="15dp">
+
+            </EditText>
         </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="5dp"
+            android:text="Thêm">
+
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="QUAY LẠI">
+
+        </Button>
     </LinearLayout>
 
 

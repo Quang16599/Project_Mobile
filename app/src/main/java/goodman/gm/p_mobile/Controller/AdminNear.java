@@ -1,16 +1,14 @@
 package goodman.gm.p_mobile.Controller;
 
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AlertDialog;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,6 +30,8 @@ public class AdminNear extends AppCompatActivity {
     AdminNear_Adapter adapter;
     List<DiaChi> lstDiachi;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("gantois");
+    Button btnThemDiaChi;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,13 @@ public class AdminNear extends AppCompatActivity {
 
         init();
         loadData();
+        btnThemDiaChi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminNear.this, AdminNearAdd.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void loadData() {
@@ -76,6 +83,7 @@ public class AdminNear extends AppCompatActivity {
         listView = findViewById(R.id.lstNear);
         lstDiachi = new ArrayList<>();
         adapter = new AdminNear_Adapter(AdminNear.this, R.layout.custom_listnear, lstDiachi);
+        btnThemDiaChi = findViewById(R.id.btnThemDiaChiAdmin);
 
     }
     public void DeleteDiaChi(final int position) {

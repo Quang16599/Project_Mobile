@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#fff"
-    tools:context=".Controller.AdminChiTietUser">
+    android:orientation="vertical"
+    tools:context=".Controller.AdminNearAdd">
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:background="@drawable/custom_avatar"
-        android:src="@drawable/ic_person"></ImageView>
+        android:src="@drawable/ic_nearby"></ImageView>
 
     <TextView
         android:layout_width="match_parent"
@@ -31,9 +31,9 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_name"></ImageView>
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/a"></ImageView>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -45,34 +45,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Họ và tên"
+                android:text="Mã quán ăn"
                 android:textColor="#000"
                 android:textSize="20dp"
                 android:textStyle="bold">
 
             </TextView>
 
-            <TextView
-                android:id="@+id/tvAdminHoTen"
+            <EditText
+                android:id="@+id/edtMaQuanNear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Abc"
+                android:hint="Nhập mã quán"
                 android:textSize="18dp">
 
-            </TextView>
+            </EditText>
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_mobile"></ImageView>
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/f"></ImageView>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -84,70 +83,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Số điện thoại"
+                android:text="Tên quán"
                 android:textColor="#000"
                 android:textSize="20dp"
                 android:textStyle="bold">
 
             </TextView>
 
-            <TextView
-                android:id="@+id/tvAdminSdt"
+            <EditText
+                android:id="@+id/edtTenQuanNear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Abc"
+                android:hint="Nhập tên quán"
                 android:textSize="18dp">
 
-            </TextView>
+            </EditText>
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_email"></ImageView>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Email"
-                android:textColor="#000"
-                android:textSize="20dp"
-                android:textStyle="bold">
-
-            </TextView>
-
-            <TextView
-                android:id="@+id/tvAdminEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Abc"
-                android:textSize="18dp">
-
-            </TextView>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:src="@drawable/ic_address"></ImageView>
 
         <LinearLayout
@@ -160,21 +122,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Tên đăng nhập"
+                android:text="Địa chỉ"
                 android:textColor="#000"
                 android:textSize="20dp"
                 android:textStyle="bold">
 
             </TextView>
 
-            <TextView
-                android:id="@+id/tvAdminTDN"
+            <EditText
+                android:id="@+id/edtTenDiaChiNear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Abc"
+                android:hint="Nhập địa chỉ"
                 android:textSize="18dp">
 
-            </TextView>
+            </EditText>
         </LinearLayout>
     </LinearLayout>
 
@@ -184,9 +146,9 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_name"></ImageView>
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/nearby"></ImageView>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -198,22 +160,88 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Mật khẩu"
+                android:text="Longitude"
                 android:textColor="#000"
                 android:textSize="20dp"
                 android:textStyle="bold">
 
             </TextView>
 
-            <TextView
-                android:id="@+id/tvAdminMK"
+            <EditText
+                android:id="@+id/edtLongNear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Abc"
+                android:hint="Nhập Longtitude"
                 android:textSize="18dp">
 
-            </TextView>
+            </EditText>
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_nearby"></ImageView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Latitude"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/edtLatitudeNear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Nhập Latitude "
+                android:textSize="18dp">
+
+            </EditText>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnNearThemAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="5dp"
+            android:text="thêm">
+
+        </Button>
+
+        <Button
+            android:id="@+id/btnNearBackAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="QUAY LẠI">
+
+        </Button>
     </LinearLayout>
 
 

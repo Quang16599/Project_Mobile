@@ -40,8 +40,8 @@ public class AdminChiTietNear extends AppCompatActivity {
         tvNearDiaChi = findViewById(R.id.tvNearDiaChi);
         tvNearLong = findViewById(R.id.tvNearLong);
         tvNearLati = findViewById(R.id.tvNearLati);
-        btnNearUpdate = findViewById(R.id.btnNearUpdate);
-        btnNearBack = findViewById(R.id.btnNearBack);
+//        btnNearUpdate = findViewById(R.id.btnNearUpdate);
+//        btnNearBack = findViewById(R.id.btnNearBack);
     }
 
     @Override

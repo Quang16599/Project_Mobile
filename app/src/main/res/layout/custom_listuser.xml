@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#fff"
 
 
     android:orientation="horizontal">
@@ -9,8 +10,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="10dp">
 
         <ImageView
 
@@ -32,10 +33,10 @@
 
         <TextView
 
-            android:gravity="center"
             android:id="@+id/tvTenDayDu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Teen"
             android:textColor="#000"
             android:textSize="20dp"
@@ -44,10 +45,10 @@
         </TextView>
 
         <TextView
-            android:gravity="center"
             android:id="@+id/tvSDT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="SDT"
             android:textSize="20dp"
             android:textStyle="bold">
@@ -58,8 +59,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="10dp">
 
         <Button
             android:id="@+id/btnDeleterAdmin"
