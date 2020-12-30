@@ -23,7 +23,7 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
     ViewPager viewPagerTrangChu;
     RadioButton rdOdau, rdAnGi;
     RadioGroup rdGroup;
-    Button btnGanToi;
+    Button btnGanToi,btnBlog;
     User user;
     ImageButton imbPerson;
     SliderLayout sliderLayout;
