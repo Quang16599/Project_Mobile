@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controller.AdminNearAdd"></activity>
+        <activity android:name=".Controller.ChiTietBlog"></activity>
+        <activity android:name=".Controller.Blogs" />
+        <activity android:name=".Controller.AdminNearAdd" />
         <activity android:name=".Controller.AdminFoodAdd" />
         <activity android:name=".Controller.AdminChiTietFood" />
         <activity android:name=".Controller.AdminChiTietUser" />

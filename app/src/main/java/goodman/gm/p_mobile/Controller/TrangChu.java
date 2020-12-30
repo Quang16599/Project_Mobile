@@ -8,7 +8,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -24,7 +23,7 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
     ViewPager viewPagerTrangChu;
     RadioButton rdOdau, rdAnGi;
     RadioGroup rdGroup;
-    Button btnGanToi;
+    Button btnGanToi, btnBlog;
     ImageButton imbPerson;
     SliderLayout sliderLayout;
 
@@ -90,6 +89,13 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
                 startActivity(intent);
             }
         });
+        btnBlog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TrangChu.this, Blogs.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void init() {
@@ -99,6 +105,7 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
         rdGroup = (RadioGroup) findViewById(R.id.rdGroup);
         btnGanToi = findViewById(R.id.btnGanToi);
         imbPerson = findViewById(R.id.imageButtonPerson);
+        btnBlog = findViewById(R.id.btnBlog);
 
         AdapterViewPagerTrangChu adapterViewPagerTrangChu = new AdapterViewPagerTrangChu(getSupportFragmentManager());
         viewPagerTrangChu.setAdapter(adapterViewPagerTrangChu);

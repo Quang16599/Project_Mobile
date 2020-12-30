@@ -23,14 +23,14 @@ public class AdminChiTietNear extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_chi_tiet_near);
         init();
-        btnNearBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AdminChiTietNear.this, AdminNear.class);
-                startActivity(intent);
-
-            }
-        });
+//        btnNearBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(AdminChiTietNear.this, AdminNear.class);
+//                startActivity(intent);
+//
+//            }
+//        });
     }
 
 
