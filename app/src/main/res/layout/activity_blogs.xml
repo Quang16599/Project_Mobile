@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
     android:orientation="vertical"
-    tools:context=".Controller.GanToi">
+    tools:context=".Controller.Blogs">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -18,9 +17,9 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/bungee"
             android:gravity="center"
-            android:textSize="20dp"
-            android:text="Gần tôi"
-            android:textColor="#fff">
+            android:text="BLOG"
+            android:textColor="#fff"
+            android:textSize="20dp">
 
         </TextView>
 
@@ -28,8 +27,10 @@
     </androidx.appcompat.widget.Toolbar>
 
     <ListView
-        android:id="@+id/listview"
+        android:id="@+id/lstBlog"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent">
+
+    </ListView>
 
 </LinearLayout>
