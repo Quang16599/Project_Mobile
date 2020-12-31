@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="goodman.gm.p_mobile">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -13,27 +13,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controller.ChiTietBlog"></activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".Controller.MainActivity"
+            android:label="@string/title_activity_map"></activity>
+
+        <activity android:name=".Controller.ChiTietBlog" />
         <activity android:name=".Controller.Blogs" />
         <activity android:name=".Controller.AdminNearAdd" />
         <activity android:name=".Controller.AdminFoodAdd" />
         <activity android:name=".Controller.AdminChiTietFood" />
         <activity android:name=".Controller.AdminChiTietUser" />
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/map_api_key" />
-
         <activity android:name=".Controller.Admin" />
         <activity android:name=".Controller.ChiTietQuanAn" />
-        <activity android:name=".Controller.DangKy" /> <!-- <activity android:name=".Controller.TestGoogleMap" /> -->
-        <activity android:name=".Controller.AdminFood" /> <!-- <activity android:name=".Controller.TestGoogleMap" /> -->
+        <activity android:name=".Controller.DangKy" />
+        <activity android:name=".Controller.AdminFood" />
         <activity android:name=".Controller.AdminUser" />
         <activity android:name=".Controller.AdminComment" />
         <activity android:name=".Controller.GanToi" />
         <activity android:name=".Controller.DoiMatKhau" />
         <activity android:name=".Controller.TestAPIGoogle" />
-        <activity android:name=".Controller.MainActivity">
+        <activity android:name=".Controller.Map">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

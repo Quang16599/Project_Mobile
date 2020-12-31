@@ -19,7 +19,8 @@
     <string name="giaohang">Giao hàng</string>
     <string name="danhgia">Đánh giá</string>
     <string name="blogs">Blogs</string>
-    <string name="map_api_key">AIzaSyBI3bB4MvRzNFb_hTRrHxqncjwnopB70qI</string>
+    <string name="map_api_key">AIzaSyCQ8spyKHH2IxhdesbmLxl-iMYS5XIyoWI</string>
     <string name="otp_code">Code</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_map">Map</string>
 </resources>
