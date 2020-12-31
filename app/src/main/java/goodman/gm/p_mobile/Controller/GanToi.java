@@ -24,6 +24,7 @@ import java.util.List;
 
 import goodman.gm.p_mobile.Adapter.DiaChi_Adapter;
 import goodman.gm.p_mobile.Model.DiaChi;
+import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
 public class GanToi extends AppCompatActivity {
@@ -34,7 +35,6 @@ public class GanToi extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     Location vitrihientai;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("gantois");
-    MapFragment mapFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,14 +71,13 @@ public class GanToi extends AppCompatActivity {
 
                 Collections.sort(list_DiaChi, new Comparator<DiaChi>() {
                     @Override
-                    public int compare(DiaChi d1, DiaChi d2) {
-                        double a = d1.getmKhoangCach() - d2.getmKhoangCach();
-                        return (int) a;
+                    public int compare(DiaChi o1, DiaChi o2) {
+                        return (int) (o1.getmKhoangCach() - o2.getmKhoangCach());
                     }
                 });
+
                 listView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
-
             }
 
             @Override

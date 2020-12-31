@@ -65,33 +65,6 @@ public class DiaChi_Adapter extends BaseAdapter {
         holder.khoangcach.setText(String.format("%.1f", diaChi.getmKhoangCach()) + "km");
         holder.ten.setText(diaChi.getmTenQuanAn());
 
-//
-//        for(int i=0; i<list_ChiNhanh.size();i++){
-//            for (int j = i+1; j<list_ChiNhanh.size() ; j++){
-//                if(list_ChiNhanh.get(j).getmKhoangCach() < list_ChiNhanh.get(i).getmKhoangCach() ){
-//                    double a = list_ChiNhanh.get(j).getmKhoangCach();
-//                    double b = list_ChiNhanh.get(i).getmKhoangCach();
-//                     swap = a;
-//                     a = b;
-//                     b = swap;
-//                }
-//            }
-//        }
-
-
-//        Collections.sort(list_ChiNhanh, new Comparator<DiaChi>() {
-//            @Override
-//            public int compare(DiaChi d1, DiaChi d2) {
-//                return (int) (d1.getmKhoangCach() - d2.getmKhoangCach() );
-//            }
-//        });
-//
-//        for(int i = 0 ; i<list_ChiNhanh.size();i++){
-//            list_ChiNhanh.get(i);
-//            Log.d("adc",list_ChiNhanh.get(i).getmKhoangCach()+ "");
-//        }
-
-
         return view;
     }
 }
