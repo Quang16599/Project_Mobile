@@ -16,7 +16,8 @@ public class QuanAn implements Serializable {
     private String mGiaTien;
     private String mMoTaQuanAn;
 
-    public QuanAn(){
+
+    public QuanAn() {
 
     }
 
@@ -114,4 +115,6 @@ public class QuanAn implements Serializable {
     public void setmMoTaQuanAn(String mMoTaQuanAn) {
         this.mMoTaQuanAn = mMoTaQuanAn;
     }
+
+
 }

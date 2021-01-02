@@ -6,9 +6,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+import java.util.List;
+
+import goodman.gm.p_mobile.Adapter.BinhLuan_Adapter;
+import goodman.gm.p_mobile.Model.BinhLuan;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
@@ -18,7 +26,7 @@ public class ChiTietQuanAn extends AppCompatActivity {
     QuanAn quanAn;
 
 //    RecyclerView recyclerViewBinhLuan;
-//    BinhLuan_Adapter binhLuan_adapter;
+//    BinhLuan_Adapter adapter;
 //    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("binhluans");
 //    List<BinhLuan> lstBinhLuan;
 
@@ -43,6 +51,7 @@ public class ChiTietQuanAn extends AppCompatActivity {
         tvMoTa = findViewById(R.id.tvMoTa);
         tvGiaTien = findViewById(R.id.tvGiaTien);
         tvTieuDe = findViewById(R.id.tvTieuDe);
+//        recyclerViewBinhLuan = findViewById(R.id.recyclerViewBinhLuan);
 
     }
 
@@ -59,6 +68,10 @@ public class ChiTietQuanAn extends AppCompatActivity {
         tvMoTa.setText(quanAn.getmMoTaQuanAn());
         tvGiaTien.setText(quanAn.getmGiaTien());
         tvTieuDe.setText(quanAn.getmTenQuanAn());
+
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+//        recyclerViewBinhLuan.setLayoutManager(layoutManager);
+
 
     }
 }
