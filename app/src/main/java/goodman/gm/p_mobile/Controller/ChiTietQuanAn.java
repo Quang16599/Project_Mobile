@@ -6,17 +6,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
-import goodman.gm.p_mobile.Adapter.BinhLuan_Adapter;
-import goodman.gm.p_mobile.Model.BinhLuan;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
@@ -68,10 +65,38 @@ public class ChiTietQuanAn extends AppCompatActivity {
         tvMoTa.setText(quanAn.getmMoTaQuanAn());
         tvGiaTien.setText(quanAn.getmGiaTien());
         tvTieuDe.setText(quanAn.getmTenQuanAn());
+        SetTrangThai();
+
 
 //        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
 //        recyclerViewBinhLuan.setLayoutManager(layoutManager);
 
+
+    }
+
+    private void SetTrangThai() {
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+
+        String giohientai = dateFormat.format(calendar.getTime());
+        String giomocua = quanAn.getmGioMoCua();
+        String giodongcua = quanAn.getmGioDongCua();
+
+        try {
+            Date dateHienTai = dateFormat.parse(giohientai);
+            Date dateMoCua = dateFormat.parse(giomocua);
+            Date dateDongCua = dateFormat.parse(giodongcua);
+
+            if (dateHienTai.after(dateMoCua) && dateHienTai.before(dateDongCua)) {
+                //gio mo cua
+                tvTrangThaiHoatDong.setText("Đang mở cửa");
+            } else {
+                //dong cua
+                tvTrangThaiHoatDong.setText("Đóng cửa");
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
     }
 }

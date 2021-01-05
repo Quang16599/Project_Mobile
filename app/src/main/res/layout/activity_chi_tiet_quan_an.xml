@@ -150,7 +150,7 @@
             android:id="@+id/tvTrangThai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Đang mở cửa"
+            android:text="abc"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             android:textSize="15dp"
