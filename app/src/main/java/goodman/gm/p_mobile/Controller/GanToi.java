@@ -69,10 +69,19 @@ public class GanToi extends AppCompatActivity {
 
                 }
 
+                // sắp xếp khoảng cách từ min -> max
                 Collections.sort(list_DiaChi, new Comparator<DiaChi>() {
                     @Override
-                    public int compare(DiaChi o1, DiaChi o2) {
-                        return (int) (o1.getmKhoangCach() - o2.getmKhoangCach());
+                    public int compare(DiaChi d1, DiaChi d2) {
+                        if (d1.getmKhoangCach() < d2.getmKhoangCach()) {
+                            return -1;
+                        } else {
+                            if (d1.getmKhoangCach() == d2.getmKhoangCach()) {
+                                return 0;
+                            } else {
+                                return 1;
+                            }
+                        }
                     }
                 });
 
@@ -95,7 +104,7 @@ public class GanToi extends AppCompatActivity {
         vitrihientai.setLongitude(Double.parseDouble(sharedPreferences.getString("Longitude", "0")));
         Log.d("vitri", "latitude" + vitrihientai.getLatitude() + " " + "longitude" + vitrihientai.getLongitude());
         listView = findViewById(R.id.listview);
-        adapter = new DiaChi_Adapter(R.layout.custom_layout_listview_gantoi, list_DiaChi);
+        adapter = new DiaChi_Adapter(GanToi.this,R.layout.custom_layout_listview_gantoi, list_DiaChi);
 
     }
 }

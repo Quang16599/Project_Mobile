@@ -29,12 +29,10 @@
         android:id="@+id/textViewTen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="1dp"
         android:layout_toRightOf="@id/khoangcach"
         android:paddingTop="5dp"
         android:text="Tên"
         android:textColor="#D30B4F"
-        android:textAlignment="center"
         android:textSize="15dp" />
 
     <TextView
@@ -42,11 +40,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewTen"
-        android:layout_marginLeft="0dp"
         android:layout_toRightOf="@id/khoangcach"
         android:paddingTop="10dp"
         android:text="Địa chỉ"
-        android:textAlignment="center"
         android:textSize="15dp" />
 
 </RelativeLayout>

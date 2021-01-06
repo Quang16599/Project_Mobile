@@ -85,7 +85,6 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
             public void onClick(View v) {
                 Intent intent = new Intent(TrangChu.this, GanToi.class);
                 startActivity(intent);
-                finish();
             }
         });
 

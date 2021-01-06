@@ -50,7 +50,6 @@ public class Blogs extends AppCompatActivity {
                     blog.setmTieuDe(value.child("mTieuDe").getValue().toString());
                     blog.setmTenQuan(value.child("mTenQuan").getValue().toString());
                     lstBlog.add(blog);
-//                    Log.e("abc", blog.toString());
                 }
                 listView.setAdapter(adapter);
             }
