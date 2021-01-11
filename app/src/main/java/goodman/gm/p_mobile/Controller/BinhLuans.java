@@ -14,7 +14,7 @@ import java.util.List;
 
 import goodman.gm.p_mobile.R;
 
-public class BinhLuan extends AppCompatActivity {
+public class BinhLuans extends AppCompatActivity {
     TextView txtTen,txtDiaChi;
     ImageButton btnChonHinh;
     List<String> lstDuongDan;
@@ -39,7 +39,7 @@ public class BinhLuan extends AppCompatActivity {
       btnChonHinh.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-            Intent intent = new Intent(BinhLuan.this, ChonHinhBinhLuan.class);
+            Intent intent = new Intent(BinhLuans.this, ChonHinhBinhLuan.class);
             startActivity(intent);
           }
       });

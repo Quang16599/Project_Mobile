@@ -39,7 +39,7 @@ public class ChiTietQuanAn extends AppCompatActivity {
         btnBinhLuan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChiTietQuanAn.this, BinhLuan.class);
+                Intent intent = new Intent(ChiTietQuanAn.this, BinhLuans.class);
                 intent.putExtra("abc", quanAn.getmTenQuanAn());
                 intent.putExtra("abcd", quanAn.getmDiaChiQuan());
                 startActivity(intent);

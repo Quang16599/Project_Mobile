@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Controller.ChonHinhBinhLuan"></activity>
-        <activity android:name=".Controller.BinhLuan" />
+        <activity android:name=".Controller.BinhLuans" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
