@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import goodman.gm.p_mobile.Model.BinhLuan;
 import goodman.gm.p_mobile.R;
 
@@ -26,19 +27,18 @@ public class BinhLuan_Adapter extends RecyclerView.Adapter<BinhLuan_Adapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView img;
-
+        CircleImageView circleImageView;
         TextView txtTieuDeBinhLuan, txtNoiDungBinhLuan, txtSoDiem;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-
-            txtTieuDeBinhLuan = itemView.findViewById(R.id.tvTieuDeBinhLuan);
-            txtNoiDungBinhLuan = (TextView) itemView.findViewById(R.id.tvNoiDungBinhLuan);
-            txtSoDiem = (TextView) itemView.findViewById(R.id.tvDiemBinhLuan);
-            img = itemView.findViewById(R.id.imgBinhLuan);
+            circleImageView = itemView.findViewById(R.id.cicleImageUser);
+            txtTieuDeBinhLuan = itemView.findViewById(R.id.txtTieudebinhluan);
+            txtNoiDungBinhLuan = (TextView) itemView.findViewById(R.id.txtNoidungbinhluan);
+            txtSoDiem = (TextView) itemView.findViewById(R.id.txtChamDiemBinhLuan);
+//            img = itemView.findViewById(R.id.imgBinhLuan);
         }
     }
 

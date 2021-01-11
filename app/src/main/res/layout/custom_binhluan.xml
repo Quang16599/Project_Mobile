@@ -1,72 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
     android:orientation="vertical">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="5dp">
 
-        <ImageView
-            android:id="@+id/imgBinhLuan"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/custom_avatar"
-            android:scaleType="fitXY"
-            android:src="@drawable/a">
-
-        </ImageView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:layout_weight="1"
-            android:text="Tên tài khoản: "></TextView>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/cicleImageUser"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:src="@drawable/nearby"
+            android:text="6.8"
+            android:textColor="@color/colorAccent" />
 
 
-        <TextView
-            android:id="@+id/tvDiemBinhLuan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="8.2"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            ></TextView>
+        -
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tvTieuDeBinhLuan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tiêu đề"
-            android:textColor="#000"
-            android:textStyle="bold">
-
-        </TextView>
-
-        <TextView
-            android:id="@+id/tvNoiDungBinhLuan"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tiêu đề"
-            android:textColor="#000">
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        </TextView>
+            <TextView
+                android:id="@+id/txtTieudebinhluan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gogi House"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-       </LinearLayout>
+            <TextView
+                android:id="@+id/txtNoidungbinhluan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="36 Triệu Quang Phục Quận 3" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtChamDiemBinhLuan"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="6.6" />
+
+    </LinearLayout>
 
 
 </LinearLayout>
