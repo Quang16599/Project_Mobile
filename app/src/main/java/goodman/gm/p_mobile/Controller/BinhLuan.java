@@ -11,6 +11,6 @@ public class BinhLuan extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_binhluan);
+        setContentView(R.layout.activity_binh_luan);
     }
 }

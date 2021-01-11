@@ -53,6 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"></Button>
         <Button
+            android:id="@+id/btnBinhLuanQuanAn"
             android:padding="5dp"
             android:drawableTop="@drawable/ic_photo_camera_black_24dp"
             android:textAllCaps="false"

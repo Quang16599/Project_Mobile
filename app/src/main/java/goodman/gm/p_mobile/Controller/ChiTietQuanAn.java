@@ -2,6 +2,8 @@ package goodman.gm.p_mobile.Controller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +23,7 @@ public class ChiTietQuanAn extends AppCompatActivity {
     ImageView imgView;
     TextView tvThoiGianHoatDong, tvTrangThaiHoatDong, tvTenQuanAn, tvDiem, tvDiaChi, tvMoTa, tvGiaTien, tvTieuDe;
     QuanAn quanAn;
+    Button btnBinhLuan;
 
 //    RecyclerView recyclerViewBinhLuan;
 //    BinhLuan_Adapter adapter;
@@ -33,7 +36,13 @@ public class ChiTietQuanAn extends AppCompatActivity {
         setContentView(R.layout.activity_chi_tiet_quan_an);
 
         Init();
-
+        btnBinhLuan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ChiTietQuanAn.this, BinhLuan.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -49,6 +58,7 @@ public class ChiTietQuanAn extends AppCompatActivity {
         tvGiaTien = findViewById(R.id.tvGiaTien);
         tvTieuDe = findViewById(R.id.tvTieuDe);
 //        recyclerViewBinhLuan = findViewById(R.id.recyclerViewBinhLuan);
+        btnBinhLuan = findViewById(R.id.btnBinhLuanQuanAn);
 
     }
 
