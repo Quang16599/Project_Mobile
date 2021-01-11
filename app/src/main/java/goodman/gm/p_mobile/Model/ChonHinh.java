@@ -4,6 +4,10 @@ public class ChonHinh {
     String duongdan;
     boolean isCheck;
 
+    public ChonHinh() {
+
+    }
+
     public ChonHinh(String duongdan, boolean isCheck) {
         this.duongdan = duongdan;
         this.isCheck = isCheck;

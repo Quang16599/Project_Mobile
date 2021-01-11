@@ -77,6 +77,7 @@ public class OdauFragment extends Fragment {
 
                 for (DataSnapshot value : snapshot.getChildren()) {
                     QuanAn quanAn = new QuanAn();
+                    quanAn.setmMaQuanAn(value.getKey());
                     quanAn.setmDiaChiQuan(value.child("diachi").getValue().toString());
                     quanAn.setmTenQuanAn(value.child("tenquanan").getValue().toString());
                     quanAn.setmGioMoCua(value.child("giomocua").getValue().toString());

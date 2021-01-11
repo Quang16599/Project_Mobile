@@ -2,33 +2,39 @@ package goodman.gm.p_mobile.Controller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
+import goodman.gm.p_mobile.Adapter.BinhLuan_Adapter;
+import goodman.gm.p_mobile.Model.BinhLuan;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
 public class ChiTietQuanAn extends AppCompatActivity {
     ImageView imgView;
-    TextView tvThoiGianHoatDong, tvTrangThaiHoatDong, tvTenQuanAn, tvDiem, tvDiaChi, tvMoTa, tvGiaTien, tvTieuDe;
+    TextView tvThoiGianHoatDong, tvTrangThaiHoatDong, tvTenQuanAn, tvDiaChi, tvMoTa, tvGiaTien, tvTieuDe;
     QuanAn quanAn;
     Button btnBinhLuan;
-
-//    RecyclerView recyclerViewBinhLuan;
-//    BinhLuan_Adapter adapter;
+    RecyclerView recyclerViewBinhLuan;
+    BinhLuan_Adapter adapter;
+    List<BinhLuan> list_BinhLuan;
 //    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("binhluans");
-//    List<BinhLuan> lstBinhLuan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,16 +42,23 @@ public class ChiTietQuanAn extends AppCompatActivity {
         setContentView(R.layout.activity_chi_tiet_quan_an);
 
         Init();
+        loadData();
+
         btnBinhLuan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChiTietQuanAn.this, BinhLuan.class);
-                intent.putExtra("abc", quanAn.getmTenQuanAn());
-                intent.putExtra("abcd", quanAn.getmDiaChiQuan());
+                Intent intent = new Intent(ChiTietQuanAn.this, BinhLuanActivity.class);
+                intent.putExtra("tqa", quanAn.getmTenQuanAn());
+                intent.putExtra("dc", quanAn.getmDiaChiQuan());
+                intent.putExtra("mqa", quanAn.getmMaQuanAn());
                 startActivity(intent);
 
             }
         });
+
+    }
+
+    private void loadData() {
 
     }
 
@@ -55,14 +68,14 @@ public class ChiTietQuanAn extends AppCompatActivity {
         tvThoiGianHoatDong = findViewById(R.id.tvGioHoatDong);
         tvTrangThaiHoatDong = findViewById(R.id.tvTrangThai);
         tvTenQuanAn = findViewById(R.id.tvTenQuanAn);
-//        tvDiem = findViewById(R.id.tvDiem);
         tvDiaChi = findViewById(R.id.tvDiaChi);
         tvMoTa = findViewById(R.id.tvMoTa);
         tvGiaTien = findViewById(R.id.tvGiaTien);
         tvTieuDe = findViewById(R.id.tvTieuDe);
-//        recyclerViewBinhLuan = findViewById(R.id.recyclerViewBinhLuan);
+        recyclerViewBinhLuan = findViewById(R.id.recyclerViewBinhLuan);
         btnBinhLuan = findViewById(R.id.btnBinhLuanQuanAn);
 
+        list_BinhLuan = new ArrayList<>();
     }
 
     @Override
@@ -81,8 +94,10 @@ public class ChiTietQuanAn extends AppCompatActivity {
         SetTrangThai();
 
 
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-//        recyclerViewBinhLuan.setLayoutManager(layoutManager);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerViewBinhLuan.setLayoutManager(layoutManager);
+        adapter = new BinhLuan_Adapter(this,R.layout.custom_binhluan, list_BinhLuan);
+
 
 
     }
@@ -110,6 +125,7 @@ public class ChiTietQuanAn extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
 
     }
 }

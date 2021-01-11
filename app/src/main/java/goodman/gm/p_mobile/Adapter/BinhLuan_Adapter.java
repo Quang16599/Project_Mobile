@@ -52,7 +52,6 @@ public class BinhLuan_Adapter extends RecyclerView.Adapter<BinhLuan_Adapter.View
     @Override
     public void onBindViewHolder(final BinhLuan_Adapter.ViewHolder holder, int position) {
         BinhLuan binhLuan = binhLuanModelList.get(position);
-
         holder.txtTieuDeBinhLuan.setText(binhLuan.getmTieuDe());
         holder.txtNoiDungBinhLuan.setText(binhLuan.getmNoiDung());
         holder.txtSoDiem.setText(binhLuan.getmChamDiem());
