@@ -40,7 +40,10 @@ public class ChiTietQuanAn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ChiTietQuanAn.this, BinhLuan.class);
+                intent.putExtra("abc", quanAn.getmTenQuanAn());
+                intent.putExtra("abcd", quanAn.getmDiaChiQuan());
                 startActivity(intent);
+
             }
         });
 
