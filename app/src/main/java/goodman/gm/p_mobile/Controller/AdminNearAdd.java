@@ -1,6 +1,7 @@
 package goodman.gm.p_mobile.Controller;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,7 +35,7 @@ public class AdminNearAdd extends AppCompatActivity {
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reference.addValueEventListener(new ValueEventListener() {
+                reference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (!snapshot.child(edtMaQuan.getText().toString()).exists()) {
@@ -43,26 +45,24 @@ public class AdminNearAdd extends AppCompatActivity {
                             Double longtitude = Double.valueOf(edtLong.getText().toString());
                             Double latitude = Double.valueOf(edtLati.getText().toString());
 
-
                             DiaChi diaChi = new DiaChi(tenQuan, diaChiQuan, latitude, longtitude, maQuan);
                             reference.child(maQuan).setValue(diaChi);
                             Toast.makeText(AdminNearAdd.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
 
                             Intent intent = new Intent(AdminNearAdd.this, AdminNear.class);
                             startActivity(intent);
-                            finish();
-
                         } else {
                             Toast.makeText(AdminNearAdd.this, "Mã quán ăn tồn tại", Toast.LENGTH_SHORT).show();
                         }
                     }
-
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
 
                     }
                 });
+
+
             }
         });
     }
