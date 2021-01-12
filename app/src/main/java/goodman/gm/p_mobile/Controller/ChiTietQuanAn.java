@@ -53,7 +53,7 @@ public class ChiTietQuanAn extends AppCompatActivity {
         setContentView(R.layout.activity_chi_tiet_quan_an);
 
         Init();
-        loadData();
+//        loadData();
 
         btnBinhLuan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,35 +69,35 @@ public class ChiTietQuanAn extends AppCompatActivity {
 
     }
 
-    private void loadData() {
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                DataSnapshot snapshotQuanAn = snapshot.child("quanans");
-
-                for (DataSnapshot value : snapshotQuanAn.getChildren()) {
-                    quanAn.setmMaQuanAn(value.getKey());
-
-                    DataSnapshot snapshotBinhLuan = snapshot.child("binhluans").child(quanAn.getmMaQuanAn());
-                    for (DataSnapshot valueBinhLuan : snapshotBinhLuan.getChildren()) {
-                        BinhLuan binhLuan = new BinhLuan();
-                        binhLuan.setmNoiDung(valueBinhLuan.child("noidung").getValue().toString());
-//                        binhLuan.setmTieuDe(valueBinhLuan.child("tieude").getValue().toString());
-//                        binhLuan.setmLuotThich(valueBinhLuan.child("luotthich").getValue().toString());
-                        binhLuan.setmChamDiem(valueBinhLuan.child("chamdiem").getValue().toString());
-
-                        list_BinhLuan.add(binhLuan);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-    }
+//    private void loadData() {
+//        reference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                DataSnapshot snapshotQuanAn = snapshot.child("quanans");
+//
+//                for (DataSnapshot value : snapshotQuanAn.getChildren()) {
+//                    quanAn.setmMaQuanAn(value.getKey());
+//
+//                    DataSnapshot snapshotBinhLuan = snapshot.child("binhluans").child(quanAn.getmMaQuanAn());
+//                    for (DataSnapshot valueBinhLuan : snapshotBinhLuan.getChildren()) {
+//                        BinhLuan binhLuan = new BinhLuan();
+////                        binhLuan.setmNoiDung(valueBinhLuan.child("noidung").getValue().toString());
+////                        binhLuan.setmTieuDe(valueBinhLuan.child("tieude").getValue().toString());
+////                        binhLuan.setmLuotThich(valueBinhLuan.child("luotthich").getValue().toString());
+////                        binhLuan.setmChamDiem(valueBinhLuan.child("chamdiem").getValue().toString());
+//
+//                        list_BinhLuan.add(binhLuan);
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//
+//    }
 
 
     private void Init() {

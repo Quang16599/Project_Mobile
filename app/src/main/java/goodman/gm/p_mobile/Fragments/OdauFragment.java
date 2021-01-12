@@ -60,17 +60,17 @@ public class OdauFragment extends Fragment {
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new ODau_Adapter(getContext(),R.layout.custom_layout_recyclerview_odau, list_QuanAn);
+        adapter = new ODau_Adapter(getContext(), R.layout.custom_layout_recyclerview_odau, list_QuanAn);
         recyclerView.setAdapter(adapter);
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
-        Drawable drawable = ContextCompat.getDrawable(getContext(),R.drawable.custom_divider);
+        Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.custom_divider);
         dividerItemDecoration.setDrawable(drawable);
         recyclerView.addItemDecoration(dividerItemDecoration);
 
     }
 
-    private void loadData(){
+    private void loadData() {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -78,15 +78,15 @@ public class OdauFragment extends Fragment {
                 for (DataSnapshot value : snapshot.getChildren()) {
                     QuanAn quanAn = new QuanAn();
                     quanAn.setmMaQuanAn(value.getKey());
-                    quanAn.setmDiaChiQuan(value.child("diachi").getValue().toString());
-                    quanAn.setmTenQuanAn(value.child("tenquanan").getValue().toString());
-                    quanAn.setmGioMoCua(value.child("giomocua").getValue().toString());
-                    quanAn.setmGioDongCua(value.child("giodongcua").getValue().toString());
-                    quanAn.setmHinhAnh(value.child("hinhanh").getValue().toString());
-                    quanAn.setmGiaoHang((Boolean) value.child("giaohang").getValue());
-                    quanAn.setmHinhAnhQuanAn(value.child("hinhanhquanan").getValue().toString());
-                    quanAn.setmGiaTien(value.child("giatien").getValue().toString());
-                    quanAn.setmMoTaQuanAn(value.child("motaquanan").getValue().toString());
+                    quanAn.setmDiaChiQuan(value.child("mDiaChiQuan").getValue().toString());
+                    quanAn.setmTenQuanAn(value.child("mTenQuanAn").getValue().toString());
+                    quanAn.setmGioMoCua(value.child("mGioMoCua").getValue().toString());
+                    quanAn.setmGioDongCua(value.child("mGioDongCua").getValue().toString());
+                    quanAn.setmHinhAnh(value.child("mHinhAnh").getValue().toString());
+                    quanAn.setmGiaoHang((Boolean) value.child("mGiaoHang").getValue());
+                    quanAn.setmHinhAnhQuanAn(value.child("mHinhAnhQuanAn").getValue().toString());
+                    quanAn.setmGiaTien(value.child("mGiaTien").getValue().toString());
+                    quanAn.setmMoTaQuanAn(value.child("mMoTaQuanAn").getValue().toString());
 
 
 //                    Log.d("kiemtra", quanAn.getmDiaChiQuan());
@@ -96,6 +96,7 @@ public class OdauFragment extends Fragment {
                 progressBarODau.setVisibility(View.GONE);
                 adapter.notifyDataSetChanged();
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

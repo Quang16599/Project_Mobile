@@ -70,15 +70,15 @@ public class AnGiFragment extends Fragment {
                 for (DataSnapshot value : snapshot.getChildren()) {
                     QuanAn quanAn = new QuanAn();
                     quanAn.setmMaQuanAn(value.getKey());
-                    quanAn.setmDiaChiQuan(value.child("diachi").getValue().toString());
-                    quanAn.setmTenQuanAn(value.child("tenquanan").getValue().toString());
-                    quanAn.setmGioMoCua(value.child("giomocua").getValue().toString());
-                    quanAn.setmGioDongCua(value.child("giodongcua").getValue().toString());
-                    quanAn.setmHinhAnh(value.child("hinhanh").getValue().toString());
-                    quanAn.setmGiaoHang((Boolean) value.child("giaohang").getValue());
-                    quanAn.setmHinhAnhQuanAn(value.child("hinhanhquanan").getValue().toString());
-                    quanAn.setmGiaTien(value.child("giatien").getValue().toString());
-                    quanAn.setmMoTaQuanAn(value.child("motaquanan").getValue().toString());
+                    quanAn.setmDiaChiQuan(value.child("mDiaChiQuan").getValue().toString());
+                    quanAn.setmTenQuanAn(value.child("mTenQuanAn").getValue().toString());
+                    quanAn.setmGioMoCua(value.child("mGioMoCua").getValue().toString());
+                    quanAn.setmGioDongCua(value.child("mGioDongCua").getValue().toString());
+                    quanAn.setmHinhAnh(value.child("mHinhAnh").getValue().toString());
+                    quanAn.setmGiaoHang((Boolean) value.child("mGiaoHang").getValue());
+                    quanAn.setmHinhAnhQuanAn(value.child("mHinhAnhQuanAn").getValue().toString());
+                    quanAn.setmGiaTien(value.child("mGiaTien").getValue().toString());
+                    quanAn.setmMoTaQuanAn(value.child("mMoTaQuanAn").getValue().toString());
 
 
                     list_QuanAn.add(quanAn);

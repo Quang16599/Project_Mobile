@@ -65,12 +65,12 @@ public class AdminFood extends AppCompatActivity {
 
                     QuanAn quanAn = new QuanAn();
                     quanAn.setmMaQuanAn(value.getKey());
-                    quanAn.setmTenQuanAn(value.child("tenquanan").getValue().toString());
-                    quanAn.setmDiaChiQuan(value.child("diachi").getValue().toString());
-                    quanAn.setmGioDongCua(value.child("giodongcua").getValue().toString());
-                    quanAn.setmGioMoCua(value.child("giomocua").getValue().toString());
-                    quanAn.setmGiaTien(value.child("giatien").getValue().toString());
-                    quanAn.setmMoTaQuanAn(value.child("motaquanan").getValue().toString());
+                    quanAn.setmTenQuanAn(value.child("mTenQuanAn").getValue().toString());
+                    quanAn.setmDiaChiQuan(value.child("mDiaChiQuan").getValue().toString());
+                    quanAn.setmGioDongCua(value.child("mGioDongCua").getValue().toString());
+                    quanAn.setmGioMoCua(value.child("mGioMoCua").getValue().toString());
+                    quanAn.setmGiaTien(value.child("mGiaTien").getValue().toString());
+                    quanAn.setmMoTaQuanAn(value.child("mMoTaQuanAn").getValue().toString());
 
                     list_quanan.add(quanAn);
 //                    Log.e("abc", quanAn.getmMaQuanAn());

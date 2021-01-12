@@ -51,10 +51,11 @@ public class GanToi extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot value : snapshot.getChildren()) {
                     DiaChi diaChi = new DiaChi();
-                    diaChi.setmLongitue((Double) value.child("longitude").getValue());
-                    diaChi.setmLatitue((Double) value.child("latitude").getValue());
-                    diaChi.setmDiaChi(value.child("diachi").getValue().toString());
-                    diaChi.setmTenQuanAn(value.child("tenquanan").getValue().toString());
+                    diaChi.setmMaQuanAn(value.getKey());
+                    diaChi.setmLongitue((Double) value.child("mLongitue").getValue());
+                    diaChi.setmLatitue((Double) value.child("mLatitue").getValue());
+                    diaChi.setmDiaChi(value.child("mLatitue").getValue().toString());
+                    diaChi.setmTenQuanAn(value.child("mTenQuanAn").getValue().toString());
 
 
                     Location location = new Location("");
