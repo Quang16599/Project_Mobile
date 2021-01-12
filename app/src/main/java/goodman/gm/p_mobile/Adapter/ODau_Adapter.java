@@ -1,7 +1,5 @@
 package goodman.gm.p_mobile.Adapter;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -20,7 +18,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
-import java.io.Serializable;
 import java.util.List;
 
 import goodman.gm.p_mobile.Controller.ChiTietQuanAn;
@@ -52,16 +49,16 @@ public class ODau_Adapter extends RecyclerView.Adapter<ODau_Adapter.ViewHolder> 
         QuanAn quanAn = list_QuanAn.get(position);
         holder.tvTenQuanAnODau.setText(quanAn.getmTenQuanAn());
         holder.tvDiaChi.setText(quanAn.getmDiaChiQuan());
-        StorageReference storage = FirebaseStorage.getInstance().getReference().child(quanAn.getmHinhAnhQuanAn());
-        long ONE_MEGABYTE = 1024 * 1024;
-        storage.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-            @Override
-            public void onSuccess(byte[] bytes) {
-                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
-                holder.hinhQuanAnODau.setImageBitmap(bitmap);
-            }
-        });
-//        Picasso.get().load(quanAn.getmHinhAnhQuanAn()).into(holder.hinhQuanAnODau);
+//        StorageReference storage = FirebaseStorage.getInstance().getReference().child(quanAn.getmHinhAnhQuanAn());
+//        long ONE_MEGABYTE = 1024 * 1024;
+//        storage.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+//            @Override
+//            public void onSuccess(byte[] bytes) {
+//                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+//                holder.hinhQuanAnODau.setImageBitmap(bitmap);
+//            }
+//        });
+        Picasso.get().load(quanAn.getmHinhAnhQuanAn()).into(holder.hinhQuanAnODau);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
