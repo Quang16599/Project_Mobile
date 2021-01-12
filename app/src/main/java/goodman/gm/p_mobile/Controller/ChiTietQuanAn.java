@@ -1,6 +1,8 @@
 package goodman.gm.p_mobile.Controller;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
@@ -83,8 +88,16 @@ public class ChiTietQuanAn extends AppCompatActivity {
         super.onStart();
         Intent intent = getIntent();
         quanAn = (QuanAn) intent.getSerializableExtra("quanans");
-
-        Picasso.get().load(quanAn.getmHinhAnhQuanAn()).into(imgView);
+        StorageReference storage = FirebaseStorage.getInstance().getReference().child(quanAn.getmHinhAnhQuanAn());
+        long ONE_MEGABYTE = 1024 * 1024;
+        storage.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                imgView.setImageBitmap(bitmap);
+            }
+        });
+//        Picasso.get().load(quanAn.getmHinhAnhQuanAn()).into(imgView);
         tvTenQuanAn.setText(quanAn.getmTenQuanAn());
         tvDiaChi.setText(quanAn.getmDiaChiQuan());
         tvThoiGianHoatDong.setText(quanAn.getmGioMoCua() + " " + quanAn.getmGioDongCua());

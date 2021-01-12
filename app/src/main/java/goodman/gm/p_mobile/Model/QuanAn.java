@@ -17,6 +17,7 @@ public class QuanAn implements Serializable {
     private String mMoTaQuanAn;
 
 
+
     public QuanAn() {
 
     }

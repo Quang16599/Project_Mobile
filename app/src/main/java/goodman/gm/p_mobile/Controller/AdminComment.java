@@ -49,7 +49,7 @@ public class AdminComment extends AppCompatActivity {
 
                 for (DataSnapshot valueBinhLuan : snapshot.getChildren()) {
                     binhLuan = valueBinhLuan.getValue(BinhLuan.class);
-                    binhLuan.setMaQuanAn(valueBinhLuan.getKey());
+//                    binhLuan.setMaQuanAn(valueBinhLuan.getKey());
                     // lay ds bluan cua quan an
 //                    DataSnapshot dataSnapshotBinhLuan = snapshot.child("binhluans").child(valueBinhLuan.getKey());
 //                    for (DataSnapshot valueBluan : dataSnapshotBinhLuan.getChildren()) {

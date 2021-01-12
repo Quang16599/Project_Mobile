@@ -80,7 +80,7 @@ public class AdminComment_Adapter extends BaseAdapter {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // xóa trên firebase
-                        String maQuanAn = lst_BinhLuan.get(position).getMaQuanAn();
+//                        String maQuanAn = lst_BinhLuan.get(position).getMaQuanAn();
 //                        deleteOnFireBase(maQuanAn);
 
 

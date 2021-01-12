@@ -2,6 +2,8 @@ package goodman.gm.p_mobile.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -41,7 +46,16 @@ public class AnGi_Adapter extends RecyclerView.Adapter<AnGi_Adapter.ViewHolder> 
 
         QuanAn quanAn = list_QuanAn.get(position);
         holder.tvTenQuanAnAngi.setText(quanAn.getmTenQuanAn());
-        Picasso.get().load(quanAn.getmHinhAnh()).into(holder.hinhQuanAnAngi);
+        StorageReference storage = FirebaseStorage.getInstance().getReference().child(quanAn.getmHinhAnh());
+        long ONE_MEGABYTE = 1024 * 1024;
+        storage.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                holder.hinhQuanAnAngi.setImageBitmap(bitmap);
+            }
+        });
+//        Picasso.get().load(quanAn.getmHinhAnh()).into(holder.hinhQuanAnAngi);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
