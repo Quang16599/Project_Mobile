@@ -51,30 +51,30 @@ public class AdminNear extends AppCompatActivity {
 
     private void loadData() {
         reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                lstDiachi.clear();
-                for (DataSnapshot value : snapshot.getChildren()) {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    lstDiachi.clear();
+                    for (DataSnapshot value : snapshot.getChildren()) {
 
-                    DiaChi diaChi = new DiaChi();
-                    diaChi.setmMaQuanAn(value.getKey());
-                    diaChi.setmLongitue((Double) value.child("mLongitue").getValue());
-                    diaChi.setmLatitue((Double) value.child("mLatitue").getValue());
-                    diaChi.setmDiaChi(value.child("mDiaChi").getValue().toString());
-                    diaChi.setmTenQuanAn(value.child("mTenQuanAn").getValue().toString());
+                        DiaChi diaChi = new DiaChi();
+                        diaChi.setmMaQuanAn(value.getKey());
+                        diaChi.setmLongitue((Double) value.child("mLongitue").getValue());
+                        diaChi.setmLatitue((Double) value.child("mLatitue").getValue());
+                        diaChi.setmDiaChi(value.child("mDiaChi").getValue().toString());
+                        diaChi.setmTenQuanAn(value.child("mTenQuanAn").getValue().toString());
 
 //                    Log.e("abc", diaChi.toString());
-                    lstDiachi.add(diaChi);
+                        lstDiachi.add(diaChi);
+
+                    }
+                    progressBarAdminNear.setVisibility(View.GONE);
+                    listView.setAdapter(adapter);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
                 }
-                progressBarAdminNear.setVisibility(View.GONE);
-                listView.setAdapter(adapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
         });
     }
 

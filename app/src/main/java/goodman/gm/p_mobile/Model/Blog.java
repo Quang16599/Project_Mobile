@@ -9,6 +9,7 @@ public class Blog implements Serializable {
     private String mTenQuan;
     private String mNgayCapNhat;
     private Double mPoint;
+    private String mMaBlog;
 
     public Blog() {
 
@@ -69,6 +70,14 @@ public class Blog implements Serializable {
 
     public void setmPoint(Double mPoint) {
         this.mPoint = mPoint;
+    }
+
+    public String getmMaBlog() {
+        return mMaBlog;
+    }
+
+    public void setmMaBlog(String mMaBlog) {
+        this.mMaBlog = mMaBlog;
     }
 
     @Override

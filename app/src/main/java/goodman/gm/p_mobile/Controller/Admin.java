@@ -24,7 +24,7 @@ public class Admin extends AppCompatActivity {
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    ImageButton imgMenu, imgUser, imgFood, imgNear, imgCom;
+    ImageButton imgMenu, imgUser, imgFood, imgNear, imgCom,imgBlog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +118,13 @@ public class Admin extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        imgBlog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Admin.this, AdminBlog.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -127,6 +134,7 @@ public class Admin extends AppCompatActivity {
         imgNear = findViewById(R.id.imgNear);
         imgCom = findViewById(R.id.imgComment);
         imgMenu = findViewById(R.id.imgMenu);
+        imgBlog = findViewById(R.id.imgBLog);
 
         toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navigation_view);
