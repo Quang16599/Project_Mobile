@@ -54,7 +54,7 @@ public class GanToi extends AppCompatActivity {
                     diaChi.setmMaQuanAn(value.getKey());
                     diaChi.setmLongitue((Double) value.child("mLongitue").getValue());
                     diaChi.setmLatitue((Double) value.child("mLatitue").getValue());
-                    diaChi.setmDiaChi(value.child("mLatitue").getValue().toString());
+                    diaChi.setmDiaChi(value.child("mDiaChi").getValue().toString());
                     diaChi.setmTenQuanAn(value.child("mTenQuanAn").getValue().toString());
 
 

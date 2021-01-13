@@ -17,9 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controller.AdminBlog"></activity>
+        <activity android:name=".Controller.AdminBlog" />
         <activity android:name=".Controller.BinhLuanActivity" />
-
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

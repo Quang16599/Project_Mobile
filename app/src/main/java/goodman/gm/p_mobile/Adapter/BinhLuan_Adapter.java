@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,12 +17,12 @@ import goodman.gm.p_mobile.R;
 public class BinhLuan_Adapter extends RecyclerView.Adapter<BinhLuan_Adapter.ViewHolder> {
     private Context context;
     int layout;
-    List<BinhLuan> binhLuanModelList;
+    List<BinhLuan> list_BinhLuan;
 
-    public BinhLuan_Adapter(Context context, int layout, List<BinhLuan> binhLuanModelList) {
+    public BinhLuan_Adapter(Context context, int layout, List<BinhLuan> list_BinhLuan) {
         this.context = context;
         this.layout = layout;
-        this.binhLuanModelList = binhLuanModelList;
+        this.list_BinhLuan = list_BinhLuan;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -33,7 +32,6 @@ public class BinhLuan_Adapter extends RecyclerView.Adapter<BinhLuan_Adapter.View
 
         public ViewHolder(View itemView) {
             super(itemView);
-
             circleImageView = itemView.findViewById(R.id.cicleImageUser);
             txtTieuDeBinhLuan = itemView.findViewById(R.id.txtTieudebinhluan);
             txtNoiDungBinhLuan = (TextView) itemView.findViewById(R.id.txtNoidungbinhluan);
@@ -51,7 +49,7 @@ public class BinhLuan_Adapter extends RecyclerView.Adapter<BinhLuan_Adapter.View
 
     @Override
     public void onBindViewHolder(final BinhLuan_Adapter.ViewHolder holder, int position) {
-        BinhLuan binhLuan = binhLuanModelList.get(position);
+        BinhLuan binhLuan = list_BinhLuan.get(position);
         holder.txtTieuDeBinhLuan.setText(binhLuan.getmTieuDe());
         holder.txtNoiDungBinhLuan.setText(binhLuan.getmNoiDung());
         holder.txtSoDiem.setText(binhLuan.getmChamDiem());
@@ -60,11 +58,11 @@ public class BinhLuan_Adapter extends RecyclerView.Adapter<BinhLuan_Adapter.View
 
     @Override
     public int getItemCount() {
-        int soBinhLuan = binhLuanModelList.size();
+        int soBinhLuan = list_BinhLuan.size();
         if (soBinhLuan > 0 && soBinhLuan > 5) {
             return 5;
         } else {
-            return binhLuanModelList.size();
+            return list_BinhLuan.size();
         }
     }
 }

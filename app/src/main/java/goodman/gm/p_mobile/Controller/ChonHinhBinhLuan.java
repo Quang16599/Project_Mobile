@@ -57,8 +57,8 @@ public class ChonHinhBinhLuan extends AppCompatActivity implements View.OnClickL
         listDuongDan = new ArrayList<>();
         listHinhDuocChon = new ArrayList<>();
 
-        txtXong = (TextView) findViewById(R.id.txtXong);
-        recyclerChonHinhBinhLuan = (RecyclerView) findViewById(R.id.recyclerChonHinhBinhLuan);
+        txtXong = findViewById(R.id.txtXong);
+        recyclerChonHinhBinhLuan = findViewById(R.id.recyclerChonHinhBinhLuan);
 
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
         adapterChonHinhBinhLuan = new AdapterChonHinhBinhLuan(this, R.layout.custom_layout_chonhinhbinhluan, listDuongDan);

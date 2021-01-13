@@ -6,11 +6,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
@@ -53,13 +57,24 @@ public class DoiMatKhau extends AppCompatActivity {
                             if (!newPass.getEditText().getText().toString().equals(confirmPass.getEditText().getText().toString())) {
                                 Toast.makeText(DoiMatKhau.this, "Xác nhận mật khẩu sai", Toast.LENGTH_SHORT).show();
                             } else {
-                                User user = new User(fullName, userName, newPass.getEditText().getText().toString(), email, phoneNumber);
-                                reference.child(userName).setValue(user);
-                                Toast.makeText(DoiMatKhau.this, "Đổi thành công", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(DoiMatKhau.this, TrangCaNhan.class);
-                                intent.putExtra("change", user);
-                                startActivity(intent);
-                                finish();
+                                reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        User user = new User(fullName, userName, newPass.getEditText().getText().toString(), email, phoneNumber);
+                                        reference.child(userName).setValue(user);
+                                        Toast.makeText(DoiMatKhau.this, "Đổi thành công", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(DoiMatKhau.this, TrangCaNhan.class);
+                                        intent.putExtra("change", user);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
                             }
                         }
                     }

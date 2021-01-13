@@ -53,7 +53,6 @@ public class ChiTietQuanAn extends AppCompatActivity {
         setContentView(R.layout.activity_chi_tiet_quan_an);
 
         Init();
-//        loadData();
 
         btnBinhLuan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,37 +68,6 @@ public class ChiTietQuanAn extends AppCompatActivity {
 
     }
 
-//    private void loadData() {
-//        reference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                DataSnapshot snapshotQuanAn = snapshot.child("quanans");
-//
-//                for (DataSnapshot value : snapshotQuanAn.getChildren()) {
-//                    quanAn.setmMaQuanAn(value.getKey());
-//
-//                    DataSnapshot snapshotBinhLuan = snapshot.child("binhluans").child(quanAn.getmMaQuanAn());
-//                    for (DataSnapshot valueBinhLuan : snapshotBinhLuan.getChildren()) {
-//                        BinhLuan binhLuan = new BinhLuan();
-////                        binhLuan.setmNoiDung(valueBinhLuan.child("noidung").getValue().toString());
-////                        binhLuan.setmTieuDe(valueBinhLuan.child("tieude").getValue().toString());
-////                        binhLuan.setmLuotThich(valueBinhLuan.child("luotthich").getValue().toString());
-////                        binhLuan.setmChamDiem(valueBinhLuan.child("chamdiem").getValue().toString());
-//
-//                        list_BinhLuan.add(binhLuan);
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//
-//    }
-
-
     private void Init() {
         imgView = findViewById(R.id.imageView);
         tvThoiGianHoatDong = findViewById(R.id.tvGioHoatDong);
@@ -113,6 +81,13 @@ public class ChiTietQuanAn extends AppCompatActivity {
         btnBinhLuan = findViewById(R.id.btnBinhLuanQuanAn);
 
         list_BinhLuan = new ArrayList<>();
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerViewBinhLuan.setLayoutManager(layoutManager);
+        adapter = new BinhLuan_Adapter(this, R.layout.custom_binhluan, list_BinhLuan);
+        recyclerViewBinhLuan.setAdapter(adapter);
+
+
     }
 
     @Override
@@ -120,15 +95,7 @@ public class ChiTietQuanAn extends AppCompatActivity {
         super.onStart();
         Intent intent = getIntent();
         quanAn = (QuanAn) intent.getSerializableExtra("quanans");
-//        StorageReference storage = FirebaseStorage.getInstance().getReference().child(quanAn.getmHinhAnhQuanAn());
-//        long ONE_MEGABYTE = 1024 * 1024;
-//        storage.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-//            @Override
-//            public void onSuccess(byte[] bytes) {
-//                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
-//                imgView.setImageBitmap(bitmap);
-//           }
-//         });
+
         Picasso.get().load(quanAn.getmHinhAnhQuanAn()).into(imgView);
         tvTenQuanAn.setText(quanAn.getmTenQuanAn());
         tvDiaChi.setText(quanAn.getmDiaChiQuan());
@@ -136,16 +103,44 @@ public class ChiTietQuanAn extends AppCompatActivity {
         tvMoTa.setText(quanAn.getmMoTaQuanAn());
         tvGiaTien.setText(quanAn.getmGiaTien());
         tvTieuDe.setText(quanAn.getmTenQuanAn());
+
         SetTrangThai();
 
-
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerViewBinhLuan.setLayoutManager(layoutManager);
-        adapter = new BinhLuan_Adapter(this,R.layout.custom_binhluan, list_BinhLuan);
-
-
+        loadDanhSachBinhLuan();
 
     }
+
+    private void loadDanhSachBinhLuan() {
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                DataSnapshot snapshotQuanAn = snapshot.child("quanans");
+
+                for (DataSnapshot value : snapshotQuanAn.getChildren()) {
+                    quanAn.setmMaQuanAn(value.getKey());
+
+                    DataSnapshot snapshotBinhLuan = snapshot.child("binhluans").child(quanAn.getmMaQuanAn());
+                    for (DataSnapshot valueBinhLuan : snapshotBinhLuan.getChildren()) {
+                        BinhLuan binhLuan = new BinhLuan();
+                        binhLuan.setmNoiDung(valueBinhLuan.child("mNoiDung").getValue().toString());
+                        binhLuan.setmTieuDe(valueBinhLuan.child("mTieuDe").getValue().toString());
+                        binhLuan.setmLuotThich(valueBinhLuan.child("mLuotThich").getValue().toString());
+                        binhLuan.setmChamDiem(valueBinhLuan.child("mChamDiem").getValue().toString());
+
+                        list_BinhLuan.add(binhLuan);
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
 
     private void SetTrangThai() {
         Calendar calendar = Calendar.getInstance();
@@ -170,7 +165,5 @@ public class ChiTietQuanAn extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
-
     }
 }

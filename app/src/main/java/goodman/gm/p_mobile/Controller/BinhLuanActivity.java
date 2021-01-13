@@ -6,14 +6,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.renderscript.Script;
 import android.util.Log;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +34,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -49,8 +55,8 @@ public class BinhLuanActivity extends AppCompatActivity {
     AdapterHienThiHinhBinhLuan adapter;
     SharedPreferences sharedPreferences;
     List<String> listHinhDuocChon;
-
     final int REQUEST_CHONHINHBINHLUAN = 100;
+    StorageReference storage = FirebaseStorage.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +98,6 @@ public class BinhLuanActivity extends AppCompatActivity {
             String noidung = edtNoiDung.getText().toString();
             String tenuser = sharedPreferences.getString("UserName", "");
 
-            Toast.makeText(BinhLuanActivity.this, "dsadjkas", Toast.LENGTH_SHORT).show();
-
             binhLuan.setmTieuDe(tieude);
             binhLuan.setmNoiDung(noidung);
             binhLuan.setmChamDiem("0");
@@ -118,29 +122,50 @@ public class BinhLuanActivity extends AppCompatActivity {
                     if (listHinhDuocChon.size() > 0) {
                         for (String valueHinh : listHinhDuocChon) {
                             Uri uri = Uri.fromFile(new File(valueHinh));
-                            StorageReference storageReference = FirebaseStorage.getInstance().getReference("hinhanh/" + uri.getLastPathSegment());
-                            storageReference.putFile(uri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                            ProgressDialog dialog = new ProgressDialog(BinhLuanActivity.this);
+                            dialog.setTitle("Đang đăng");
+                            dialog.show();
+//                            StorageReference storageReference = FirebaseStorage.getInstance().getReference("hinhanh/" + uri.getLastPathSegment());
+//                            storageReference.putFile(uri)
+                            StorageReference file = storage.child(System.currentTimeMillis() + "." + getFileExtension(uri));
+                            file.putFile(uri)
+                                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                        @Override
+                                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                            file.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                @Override
+                                                public void onSuccess(Uri uri) {
+                                                    FirebaseDatabase.getInstance().getReference().child("hinhanhbinhluans").child(mabinhluan).push().setValue(uri.toString());
+                                                    dialog.dismiss();
+                                                    Toast.makeText(BinhLuanActivity.this, "Upload thành công", Toast.LENGTH_SHORT).show();
 
-                                }
-                            });
+                                                }
+                                            });
+
+//                                            dialog.dismiss();
+//                                            Toast.makeText(BinhLuanActivity.this, "Upload thành công", Toast.LENGTH_SHORT).show();
+                                        }
+                                    })
+                                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                                        @Override
+                                        public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                                            float percent = (100 * snapshot.getBytesTransferred()) / snapshot.getTotalByteCount();
+                                            dialog.setTitle("Đang tải " + (int) percent + "%");
+                                        }
+                                    });
+                            Log.d("ccc", uri + "");
                         }
                     }
 
                 }
             }
         });
+    }
 
-
-        if (listHinhDuocChon.size() > 0) {
-            for (String valueHinh : listHinhDuocChon) {
-                Uri uri = Uri.fromFile(new File(valueHinh));
-                FirebaseDatabase.getInstance().getReference().child("hinhanhbinhluans").child(mabinhluan).push().setValue(uri.getLastPathSegment());
-            }
-        }
-
-
+    private String getFileExtension(Uri uri) {
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cr.getType(uri));
     }
 
 
@@ -151,7 +176,6 @@ public class BinhLuanActivity extends AppCompatActivity {
         txtTen.setText(intent.getStringExtra("tqa"));
         txtDiaChi.setText(intent.getStringExtra("dc"));
         maquanan = intent.getStringExtra("mqa");
-
     }
 
     @Override
