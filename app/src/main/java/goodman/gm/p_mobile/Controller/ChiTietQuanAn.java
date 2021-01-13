@@ -46,7 +46,7 @@ public class ChiTietQuanAn extends AppCompatActivity {
     BinhLuan_Adapter adapter;
     List<BinhLuan> list_BinhLuan;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-
+    String maQuan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +95,7 @@ public class ChiTietQuanAn extends AppCompatActivity {
         super.onStart();
         Intent intent = getIntent();
         quanAn = (QuanAn) intent.getSerializableExtra("quanans");
+        maQuan = quanAn.getmMaQuanAn();
 
         Picasso.get().load(quanAn.getmHinhAnhQuanAn()).into(imgView);
         tvTenQuanAn.setText(quanAn.getmTenQuanAn());
@@ -119,16 +120,21 @@ public class ChiTietQuanAn extends AppCompatActivity {
                 for (DataSnapshot value : snapshotQuanAn.getChildren()) {
                     quanAn.setmMaQuanAn(value.getKey());
 
-                    DataSnapshot snapshotBinhLuan = snapshot.child("binhluans").child(quanAn.getmMaQuanAn());
-                    for (DataSnapshot valueBinhLuan : snapshotBinhLuan.getChildren()) {
-                        BinhLuan binhLuan = new BinhLuan();
-                        binhLuan.setmNoiDung(valueBinhLuan.child("mNoiDung").getValue().toString());
-                        binhLuan.setmTieuDe(valueBinhLuan.child("mTieuDe").getValue().toString());
-                        binhLuan.setmLuotThich(valueBinhLuan.child("mLuotThich").getValue().toString());
-                        binhLuan.setmChamDiem(valueBinhLuan.child("mChamDiem").getValue().toString());
+                        DataSnapshot snapshotBinhLuan = snapshot.child("binhluans").child(quanAn.getmMaQuanAn());
+                        for (DataSnapshot valueBinhLuan : snapshotBinhLuan.getChildren()) {
+                            BinhLuan binhLuan = new BinhLuan();
+                            if(maQuan.equals(value.getKey())){
+                            binhLuan.setmNoiDung(valueBinhLuan.child("mNoiDung").getValue().toString());
+                            binhLuan.setmTieuDe(valueBinhLuan.child("mTieuDe").getValue().toString());
+                            binhLuan.setmLuotThich(valueBinhLuan.child("mLuotThich").getValue().toString());
+                            binhLuan.setmChamDiem(valueBinhLuan.child("mChamDiem").getValue().toString());
 
-                        list_BinhLuan.add(binhLuan);
+                            list_BinhLuan.add(binhLuan);
+
+                        }
+
                     }
+
                     adapter.notifyDataSetChanged();
                 }
                 adapter.notifyDataSetChanged();

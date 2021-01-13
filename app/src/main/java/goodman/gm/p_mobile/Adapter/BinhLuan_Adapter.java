@@ -58,12 +58,13 @@ public class BinhLuan_Adapter extends RecyclerView.Adapter<BinhLuan_Adapter.View
 
     @Override
     public int getItemCount() {
-        int soBinhLuan = list_BinhLuan.size();
-        if (soBinhLuan > 0 && soBinhLuan > 5) {
-            return 5;
-        } else {
-            return list_BinhLuan.size();
-        }
+//        int soBinhLuan = list_BinhLuan.size();
+//        if (soBinhLuan > 0 && soBinhLuan > 5) {
+//            return 5;
+//        } else {
+//            return list_BinhLuan.size();
+//        }
+        return list_BinhLuan.size();
     }
 }
 

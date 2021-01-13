@@ -1,7 +1,9 @@
 package goodman.gm.p_mobile.Model;
 
 
-public class BinhLuan {
+import java.io.Serializable;
+
+public class BinhLuan  implements Serializable {
     private String mChamDiem;
     private String mLuotThich;
     private String mNoiDung;
