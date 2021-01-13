@@ -109,7 +109,6 @@ public class ChonHinhBinhLuan extends AppCompatActivity implements View.OnClickL
                 data.putStringArrayListExtra("listHinhDuocChon", (ArrayList<String>) listHinhDuocChon);
                 setResult(RESULT_OK, data);
                 finish();
-
                 break;
         }
     }

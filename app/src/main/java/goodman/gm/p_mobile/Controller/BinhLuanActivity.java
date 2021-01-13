@@ -18,7 +18,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -75,32 +82,27 @@ public class BinhLuanActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(BinhLuanActivity.this, ChonHinhBinhLuan.class);
-                intent.setAction(Intent.ACTION_PICK);
                 startActivityForResult(intent, REQUEST_CHONHINHBINHLUAN);
             }
         });
 
-        tvDang.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BinhLuan binhLuan = new BinhLuan();
-                String tieude = edtTieuDe.getText().toString();
-                String noidung = edtNoiDung.getText().toString();
-                String tenuser = sharedPreferences.getString("UserName", "");
+        tvDang.setOnClickListener(v -> {
+            BinhLuan binhLuan = new BinhLuan();
+            String tieude = edtTieuDe.getText().toString();
+            String noidung = edtNoiDung.getText().toString();
+            String tenuser = sharedPreferences.getString("UserName", "");
 
-                Toast.makeText(BinhLuanActivity.this, "dsadjkas", Toast.LENGTH_SHORT).show();
+            Toast.makeText(BinhLuanActivity.this, "dsadjkas", Toast.LENGTH_SHORT).show();
 
-                binhLuan.setmTieuDe(tieude);
-                binhLuan.setmNoiDung(noidung);
-                binhLuan.setmChamDiem("0");
-                binhLuan.setmLuotThich("0");
-                binhLuan.setTenuser(tenuser);
+            binhLuan.setmTieuDe(tieude);
+            binhLuan.setmNoiDung(noidung);
+            binhLuan.setmChamDiem("0");
+            binhLuan.setmLuotThich("0");
+            binhLuan.setTenuser(tenuser);
 
-                ThemBinhLuan(maquanan, binhLuan, listHinhDuocChon);
-                Log.d("ccc", maquanan);
+            ThemBinhLuan(maquanan, binhLuan, listHinhDuocChon);
 
 
-            }
         });
     }
 
@@ -116,7 +118,7 @@ public class BinhLuanActivity extends AppCompatActivity {
                     if (listHinhDuocChon.size() > 0) {
                         for (String valueHinh : listHinhDuocChon) {
                             Uri uri = Uri.fromFile(new File(valueHinh));
-                            StorageReference storageReference = FirebaseStorage.getInstance().getReference("image/" + uri.getLastPathSegment());
+                            StorageReference storageReference = FirebaseStorage.getInstance().getReference("hinhanh/" + uri.getLastPathSegment());
                             storageReference.putFile(uri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
@@ -144,17 +146,17 @@ public class BinhLuanActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+        super.onStart();
         Intent intent = getIntent();
         txtTen.setText(intent.getStringExtra("tqa"));
         txtDiaChi.setText(intent.getStringExtra("dc"));
         maquanan = intent.getStringExtra("mqa");
-        super.onStart();
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (requestCode == REQUEST_CHONHINHBINHLUAN) {
             if (resultCode == RESULT_OK) {
                 listHinhDuocChon = data.getStringArrayListExtra("listHinhDuocChon");

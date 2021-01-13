@@ -127,8 +127,8 @@ public class ChiTietQuanAn extends AppCompatActivity {
 //            public void onSuccess(byte[] bytes) {
 //                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
 //                imgView.setImageBitmap(bitmap);
-//            }
-//        });
+//           }
+//         });
         Picasso.get().load(quanAn.getmHinhAnhQuanAn()).into(imgView);
         tvTenQuanAn.setText(quanAn.getmTenQuanAn());
         tvDiaChi.setText(quanAn.getmDiaChiQuan());

@@ -47,7 +47,6 @@ public class AdapterChonHinhBinhLuan extends RecyclerView.Adapter<AdapterChonHin
         Uri uri = Uri.parse(chonHinhBinhLuan.getDuongdan());
         Log.d("kiemtra", uri + "");
         holder.imageView.setImageURI(uri);
-//        Picasso.get().load(chonHinhBinhLuan.getDuongdan()).into(holder.imageView);
         holder.checkBox.setChecked(chonHinhBinhLuan.isCheck());
         holder.checkBox.setOnClickListener(v -> {
             CheckBox checkBox = (CheckBox) v;
