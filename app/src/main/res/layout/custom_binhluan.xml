@@ -17,8 +17,9 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="5dp"
+            android:background="@drawable/custom_avatar"
             android:gravity="center"
-            android:src="@drawable/nearby"
+            android:src="@drawable/ic_person"
             android:text="6.8"
             android:textColor="@color/colorAccent" />
 
@@ -52,9 +53,19 @@
             android:id="@+id/txtChamDiemBinhLuan"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="6.6" />
+            android:text="6.6"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
 
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lstHinhAnhBinhLuan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 </LinearLayout>
