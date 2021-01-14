@@ -22,7 +22,7 @@ import goodman.gm.p_mobile.Adapter.AdminComment_Adapter;
 import goodman.gm.p_mobile.Model.BinhLuan;
 import goodman.gm.p_mobile.R;
 
-public class AdminComment extends AppCompatActivity {
+public class Admin_Comment extends AppCompatActivity {
     ProgressBar progressBarAdminCommnent;
     ListView listView;
     AdminComment_Adapter adapter;

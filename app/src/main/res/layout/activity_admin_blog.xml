@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#fff"
 
-    tools:context=".Controller.AdminBlog">
+    tools:context=".Controller.Admin_Blog">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import goodman.gm.p_mobile.Model.DiaChi;
 import goodman.gm.p_mobile.R;
 
-public class AdminNearAdd extends AppCompatActivity {
+public class Admin_Near_Add extends AppCompatActivity {
     EditText editTenQuan, edtDiaChi, edtLong, edtLati, edtMaQuan;
     Button btnThem, btnQuayLai;
     private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("gantois");
@@ -50,12 +50,12 @@ public class AdminNearAdd extends AppCompatActivity {
 
                             DiaChi diaChi = new DiaChi(tenQuan, diaChiQuan, latitude, longtitude, maQuan);
                             reference.child(maQuan).setValue(diaChi);
-                            Toast.makeText(AdminNearAdd.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Admin_Near_Add.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(AdminNearAdd.this, AdminNear.class);
+                            Intent intent = new Intent(Admin_Near_Add.this, Admin_Near.class);
                             startActivity(intent);
                         } else {
-                            Toast.makeText(AdminNearAdd.this, "Mã quán ăn tồn tại", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Admin_Near_Add.this, "Mã quán ăn tồn tại", Toast.LENGTH_SHORT).show();
                         }
                     }
 

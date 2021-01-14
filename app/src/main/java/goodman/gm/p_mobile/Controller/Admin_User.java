@@ -21,7 +21,7 @@ import goodman.gm.p_mobile.Adapter.AdminUser_Adapter;
 import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
-public class AdminUser extends AppCompatActivity {
+public class Admin_User extends AppCompatActivity {
     ProgressBar progressBarAdminUser;
     ListView listView;
     AdminUser_Adapter adapter;

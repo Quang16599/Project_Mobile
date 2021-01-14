@@ -17,19 +17,19 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
-import goodman.gm.p_mobile.Controller.AdminChiTietUser;
-import goodman.gm.p_mobile.Controller.AdminUser;
+import goodman.gm.p_mobile.Controller.Admin_ChiTiet_User;
+import goodman.gm.p_mobile.Controller.Admin_User;
 import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
 public class AdminUser_Adapter extends BaseAdapter {
-    private AdminUser context;
+    private Admin_User context;
     private int layout;
     private List<User> lstUser;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("thanhviens");
 
 
-    public AdminUser_Adapter(AdminUser context, int layout, List<User> lstUser) {
+    public AdminUser_Adapter(Admin_User context, int layout, List<User> lstUser) {
         this.context = context;
         this.layout = layout;
         this.lstUser = lstUser;
@@ -78,7 +78,7 @@ public class AdminUser_Adapter extends BaseAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, AdminChiTietUser.class);
+                Intent intent = new Intent(context, Admin_ChiTiet_User.class);
                 intent.putExtra("adminUsers", lstUser.get(position));
                 context.startActivity(intent);
 

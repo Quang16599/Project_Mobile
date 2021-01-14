@@ -12,7 +12,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import goodman.gm.p_mobile.R;
 
-public class AdminFoodAdd extends AppCompatActivity {
+public class Admin_Food_Add extends AppCompatActivity {
     EditText edtMaQuan,edtTenQuan, edtDiaChi, edtGioMoCua, edtGioDongCua,edtGiaTien,edtMoTa;
     String image , imageQuanAn;
     Button btnThem, btnQuayLai;

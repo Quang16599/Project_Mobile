@@ -7,7 +7,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -93,35 +92,35 @@ public class Admin extends AppCompatActivity {
         imgUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Admin.this, AdminUser.class);
+                Intent intent = new Intent(Admin.this, Admin_User.class);
                 startActivity(intent);
             }
         });
         imgFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Admin.this, AdminFood.class);
+                Intent intent = new Intent(Admin.this, Admin_Food.class);
                 startActivity(intent);
             }
         });
         imgNear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Admin.this, AdminNear.class);
+                Intent intent = new Intent(Admin.this, Admin_Near.class);
                 startActivity(intent);
             }
         });
         imgCom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Admin.this, AdminComment.class);
+                Intent intent = new Intent(Admin.this, Admin_Comment.class);
                 startActivity(intent);
             }
         });
         imgBlog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Admin.this, AdminBlog.class);
+                Intent intent = new Intent(Admin.this, Admin_Blog.class);
                 startActivity(intent);
             }
         });

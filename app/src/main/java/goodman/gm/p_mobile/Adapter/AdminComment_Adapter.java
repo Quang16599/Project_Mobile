@@ -15,18 +15,18 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
-import goodman.gm.p_mobile.Controller.AdminComment;
+import goodman.gm.p_mobile.Controller.Admin_Comment;
 import goodman.gm.p_mobile.Model.BinhLuan;
 import goodman.gm.p_mobile.R;
 
 public class AdminComment_Adapter extends BaseAdapter {
-    private AdminComment context;
+    private Admin_Comment context;
     private int layout;
     private List<BinhLuan> lst_BinhLuan;
 
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("binhluans");
 
-    public AdminComment_Adapter(AdminComment context, int layout, List<BinhLuan> lst_BinhLuan) {
+    public AdminComment_Adapter(Admin_Comment context, int layout, List<BinhLuan> lst_BinhLuan) {
         this.context = context;
         this.layout = layout;
         this.lst_BinhLuan = lst_BinhLuan;

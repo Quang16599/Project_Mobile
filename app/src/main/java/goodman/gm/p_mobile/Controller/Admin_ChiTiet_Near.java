@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import goodman.gm.p_mobile.Model.DiaChi;
 import goodman.gm.p_mobile.R;
 
-public class AdminChiTietNear extends AppCompatActivity {
+public class Admin_ChiTiet_Near extends AppCompatActivity {
     TextView tvNearTenQuan, tvNearDiaChi, tvNearLong, tvNearLati;
     Button btnNearUpdate, btnNearBack;
     DiaChi diachi;
@@ -49,9 +49,9 @@ public class AdminChiTietNear extends AppCompatActivity {
 
                         DiaChi diaChi = new DiaChi(tenQuan, diaChiQuan, latitude, longtitude, maquanan);
                         reference.child(maquanan).setValue(diaChi);
-                        Toast.makeText(AdminChiTietNear.this, "Update thành công", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Admin_ChiTiet_Near.this, "Update thành công", Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(AdminChiTietNear.this, AdminNear.class);
+                        Intent intent = new Intent(Admin_ChiTiet_Near.this, Admin_Near.class);
                         startActivity(intent);
                     }
 
@@ -66,7 +66,7 @@ public class AdminChiTietNear extends AppCompatActivity {
         btnNearBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminChiTietNear.this, AdminNear.class);
+                Intent intent = new Intent(Admin_ChiTiet_Near.this, Admin_Near.class);
                 startActivity(intent);
 
             }

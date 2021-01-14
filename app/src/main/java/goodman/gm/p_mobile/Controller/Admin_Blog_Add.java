@@ -78,7 +78,7 @@ public class Admin_Blog_Add extends AppCompatActivity {
                             Blog blog = new Blog(tieude, image, noidung, tenQuan, ngay, Double.parseDouble(diem));
                             reference.child(maBlog).setValue(blog);
                             Toast.makeText(Admin_Blog_Add.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(Admin_Blog_Add.this, AdminBlog.class);
+                            Intent intent = new Intent(Admin_Blog_Add.this, Admin_Blog.class);
                             startActivity(intent);
                         }
 

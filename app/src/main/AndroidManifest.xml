@@ -20,7 +20,7 @@
         <activity android:name=".Controller.Admin_Blog_Add"></activity>
         <activity android:name=".Controller.Admin_ChiTiet_Blog" />
         <activity android:name=".Controller.EditProfile" />
-        <activity android:name=".Controller.AdminBlog" />
+        <activity android:name=".Controller.Admin_Blog" />
         <activity android:name=".Controller.BinhLuanActivity" />
 
         <meta-data
@@ -32,17 +32,17 @@
             android:label="@string/title_activity_map" />
         <activity android:name=".Controller.ChiTietBlog" />
         <activity android:name=".Controller.BlogActivity" />
-        <activity android:name=".Controller.AdminNearAdd" />
-        <activity android:name=".Controller.AdminFoodAdd" />
-        <activity android:name=".Controller.AdminChiTietFood" />
-        <activity android:name=".Controller.AdminChiTietUser" />
+        <activity android:name=".Controller.Admin_Near_Add" />
+        <activity android:name=".Controller.Admin_Food_Add" />
+        <activity android:name=".Controller.Admin_ChiTiet_Food" />
+        <activity android:name=".Controller.Admin_ChiTiet_User" />
         <activity android:name=".Controller.Admin" />
         <activity android:name=".Controller.ChiTietQuanAn" />
         <activity android:name=".Controller.ChonHinhBinhLuan" />
         <activity android:name=".Controller.DangKy" />
-        <activity android:name=".Controller.AdminFood" />
-        <activity android:name=".Controller.AdminUser" />
-        <activity android:name=".Controller.AdminComment" />
+        <activity android:name=".Controller.Admin_Food" />
+        <activity android:name=".Controller.Admin_User" />
+        <activity android:name=".Controller.Admin_Comment" />
         <activity android:name=".Controller.GanToi" />
         <activity android:name=".Controller.DoiMatKhau" />
         <activity android:name=".Controller.TestAPIGoogle" />
@@ -56,8 +56,8 @@
         <activity android:name=".Controller.DangNhap" />
         <activity android:name=".Controller.TrangChu" />
         <activity android:name=".Controller.TrangCaNhan" />
-        <activity android:name=".Controller.AdminNear" />
-        <activity android:name=".Controller.AdminChiTietNear" />
+        <activity android:name=".Controller.Admin_Near" />
+        <activity android:name=".Controller.Admin_ChiTiet_Near" />
         <activity android:name=".Controller.SetNewPassword" />
         <activity android:name=".Controller.Vertify_OTP" />
         <activity android:name=".Controller.QuenMatKhau" />

@@ -1,6 +1,5 @@
 package goodman.gm.p_mobile.Adapter;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -18,19 +17,19 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
-import goodman.gm.p_mobile.Controller.AdminChiTietNear;
-import goodman.gm.p_mobile.Controller.AdminNear;
+import goodman.gm.p_mobile.Controller.Admin_ChiTiet_Near;
+import goodman.gm.p_mobile.Controller.Admin_Near;
 import goodman.gm.p_mobile.Model.DiaChi;
 import goodman.gm.p_mobile.R;
 
 public class AdminNear_Adapter extends BaseAdapter {
 
-    private AdminNear context;
+    private Admin_Near context;
     private int layout;
     private List<DiaChi> list_diachi;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("gantois");
 
-    public AdminNear_Adapter(AdminNear context, int layout, List<DiaChi> list_diachi) {
+    public AdminNear_Adapter(Admin_Near context, int layout, List<DiaChi> list_diachi) {
         this.context = context;
         this.layout = layout;
         this.list_diachi = list_diachi;
@@ -78,7 +77,7 @@ public class AdminNear_Adapter extends BaseAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, AdminChiTietNear.class);
+                Intent intent = new Intent(context, Admin_ChiTiet_Near.class);
                 intent.putExtra("adminNear", list_diachi.get(position));
                 context.startActivity(intent);
             }

@@ -33,7 +33,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
-public class AdminChiTietFood extends AppCompatActivity {
+public class Admin_ChiTiet_Food extends AppCompatActivity {
     TextView tvAdminTenQA, tvAdminDC, tvAdminGMC, tvAdminGDC, tvAdminGT, tvAdminMT;
     CircleImageView circleImageView;
     Uri uri;
@@ -101,8 +101,8 @@ public class AdminChiTietFood extends AppCompatActivity {
                         quananMap.put("mMoTaQuanAn", moTa);
 
                         reference.child(maquanan).updateChildren(quananMap);
-                        Toast.makeText(AdminChiTietFood.this, "Update thành công", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(AdminChiTietFood.this, AdminFood.class);
+                        Toast.makeText(Admin_ChiTiet_Food.this, "Update thành công", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Admin_ChiTiet_Food.this, Admin_Food.class);
                         startActivity(intent);
                     }
 
@@ -133,7 +133,7 @@ public class AdminChiTietFood extends AppCompatActivity {
     }
 
     private void uploadImage() {
-        ProgressDialog dialog = new ProgressDialog(AdminChiTietFood.this);
+        ProgressDialog dialog = new ProgressDialog(Admin_ChiTiet_Food.this);
         dialog.setTitle("Đang xử lý");
         dialog.show();
         if (uri != null) {

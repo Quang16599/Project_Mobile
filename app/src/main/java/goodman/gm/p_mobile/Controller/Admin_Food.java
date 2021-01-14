@@ -23,7 +23,7 @@ import goodman.gm.p_mobile.Adapter.AdminFood_Adapter;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
-public class AdminFood extends AppCompatActivity {
+public class Admin_Food extends AppCompatActivity {
     ProgressBar progressBarAdminFood;
     ListView listView;
     AdminFood_Adapter adapter;
@@ -42,7 +42,7 @@ public class AdminFood extends AppCompatActivity {
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminFood.this, AdminFoodAdd.class);
+                Intent intent = new Intent(Admin_Food.this, Admin_Food_Add.class);
                 startActivity(intent);
             }
         });

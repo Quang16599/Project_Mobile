@@ -9,7 +9,7 @@ import android.widget.TextView;
 import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
-public class AdminChiTietUser extends AppCompatActivity {
+public class Admin_ChiTiet_User extends AppCompatActivity {
     TextView tvAdminFullName, tvAdminEmail, tvAdminSdt, tvAdminUserName, tvAdminPass;
     User user;
 

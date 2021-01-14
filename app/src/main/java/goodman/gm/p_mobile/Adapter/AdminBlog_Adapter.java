@@ -17,18 +17,17 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
-import goodman.gm.p_mobile.Controller.AdminBlog;
-import goodman.gm.p_mobile.Controller.AdminChiTietFood;
+import goodman.gm.p_mobile.Controller.Admin_Blog;
 import goodman.gm.p_mobile.Controller.Admin_ChiTiet_Blog;
 import goodman.gm.p_mobile.Model.Blog;
 import goodman.gm.p_mobile.R;
 
 public class AdminBlog_Adapter extends BaseAdapter {
-    private AdminBlog context;
+    private Admin_Blog context;
     private int layout;
     private List<Blog> lstBlog;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("blogs");
-    public AdminBlog_Adapter(AdminBlog context, int layout, List<Blog> lstBlog) {
+    public AdminBlog_Adapter(Admin_Blog context, int layout, List<Blog> lstBlog) {
         this.context = context;
         this.layout = layout;
         this.lstBlog = lstBlog;

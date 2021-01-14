@@ -86,7 +86,7 @@ public class Admin_ChiTiet_Blog extends AppCompatActivity {
 
                         reference.child(maBlog).updateChildren(blog);
                         Toast.makeText(Admin_ChiTiet_Blog.this, "Update thành công", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(Admin_ChiTiet_Blog.this, AdminBlog.class);
+                        Intent intent = new Intent(Admin_ChiTiet_Blog.this, Admin_Blog.class);
                         startActivity(intent);
                     }
 

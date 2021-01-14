@@ -2,7 +2,6 @@ package goodman.gm.p_mobile.Adapter;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,20 +17,20 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
-import goodman.gm.p_mobile.Controller.AdminChiTietFood;
-import goodman.gm.p_mobile.Controller.AdminFood;
+import goodman.gm.p_mobile.Controller.Admin_ChiTiet_Food;
+import goodman.gm.p_mobile.Controller.Admin_Food;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
 public class AdminFood_Adapter extends BaseAdapter {
 
-    private AdminFood context;
+    private Admin_Food context;
     private int layout;
     private List<QuanAn> list_quanan;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("quanans");
 
 
-    public AdminFood_Adapter(AdminFood context, int layout, List<QuanAn> list_quanan) {
+    public AdminFood_Adapter(Admin_Food context, int layout, List<QuanAn> list_quanan) {
         this.context = context;
         this.layout = layout;
         this.list_quanan = list_quanan;
@@ -81,7 +80,7 @@ public class AdminFood_Adapter extends BaseAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, AdminChiTietFood.class);
+                Intent intent = new Intent(context, Admin_ChiTiet_Food.class);
                 intent.putExtra("adminFoods", list_quanan.get(position));
                 context.startActivity(intent);
 

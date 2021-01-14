@@ -23,7 +23,7 @@ import goodman.gm.p_mobile.Adapter.AdminBlog_Adapter;
 import goodman.gm.p_mobile.Model.Blog;
 import goodman.gm.p_mobile.R;
 
-public class AdminBlog extends AppCompatActivity {
+public class Admin_Blog extends AppCompatActivity {
     ProgressBar progressBarAdminBlog;
     ListView listView;
     AdminBlog_Adapter adapter;
@@ -41,7 +41,7 @@ public class AdminBlog extends AppCompatActivity {
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminBlog.this, Admin_Blog_Add.class);
+                Intent intent = new Intent(Admin_Blog.this, Admin_Blog_Add.class);
                 startActivity(intent);
             }
         });
@@ -81,7 +81,7 @@ public class AdminBlog extends AppCompatActivity {
         progressBarAdminBlog = findViewById(R.id.progressBarAdminBlog);
         listView = findViewById(R.id.listAdminBlog);
         lstBlog = new ArrayList<>();
-        adapter = new AdminBlog_Adapter(AdminBlog.this, R.layout.custom_listblog, lstBlog);
+        adapter = new AdminBlog_Adapter(Admin_Blog.this, R.layout.custom_listblog, lstBlog);
         btnThem = findViewById(R.id.btnThemBlogAdmin);
 
     }

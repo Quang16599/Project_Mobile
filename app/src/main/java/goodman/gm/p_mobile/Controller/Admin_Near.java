@@ -23,7 +23,7 @@ import goodman.gm.p_mobile.Adapter.AdminNear_Adapter;
 import goodman.gm.p_mobile.Model.DiaChi;
 import goodman.gm.p_mobile.R;
 
-public class AdminNear extends AppCompatActivity {
+public class Admin_Near extends AppCompatActivity {
     ProgressBar progressBarAdminNear;
     ListView listView;
     AdminNear_Adapter adapter;
@@ -42,7 +42,7 @@ public class AdminNear extends AppCompatActivity {
         btnThemDiaChi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminNear.this, AdminNearAdd.class);
+                Intent intent = new Intent(Admin_Near.this, Admin_Near_Add.class);
                 startActivity(intent);
             }
         });
@@ -81,7 +81,7 @@ public class AdminNear extends AppCompatActivity {
         progressBarAdminNear = findViewById(R.id.progressBarAdminNear);
         listView = findViewById(R.id.lstNear);
         lstDiachi = new ArrayList<>();
-        adapter = new AdminNear_Adapter(AdminNear.this, R.layout.custom_listnear, lstDiachi);
+        adapter = new AdminNear_Adapter(Admin_Near.this, R.layout.custom_listnear, lstDiachi);
         btnThemDiaChi = findViewById(R.id.btnThemDiaChiAdmin);
 
     }
