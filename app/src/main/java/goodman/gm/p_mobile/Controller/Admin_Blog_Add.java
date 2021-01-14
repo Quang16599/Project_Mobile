@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -153,7 +154,7 @@ public class Admin_Blog_Add extends AppCompatActivity {
         tvAdminNgay = findViewById(R.id.tvNgayCapNhatAdminAdd);
         tvAdminDiem = findViewById(R.id.tvBlogDiemAdminAdd);
         tvAdminNoiDung = findViewById(R.id.tvBlogNoiDungAdminAdd);
-        circleImageView = findViewById(R.id.imageBlogAdd);
+        circleImageView = findViewById(R.id.imageBlog);
         btnThem = findViewById(R.id.btnBlogAddDone);
         btnBack = findViewById(R.id.btnBlogBackDoneAdd);
     }

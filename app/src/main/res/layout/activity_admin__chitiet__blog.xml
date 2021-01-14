@@ -12,16 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bungee"
-        android:layout_marginTop="10dp"
         android:gravity="center"
         android:textColor="@color/colorPrimary"
         android:text="Thông tin chi tiết"
-        android:textSize="30dp">
+        android:textSize="20dp">
 
     </TextView>
 
     <LinearLayout
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -213,13 +211,36 @@
         </LinearLayout>
     </LinearLayout>
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageBlog"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/cong"
-        android:layout_gravity="center"
-        ></de.hdodenhof.circleimageview.CircleImageView>
+<!--    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--        android:id="@+id/imageBlog"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:src="@drawable/cong"-->
+<!--        android:layout_gravity="center"-->
+<!--        ></de.hdodenhof.circleimageview.CircleImageView>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Hình ảnh blog"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageBlogChiTiet"
+            android:layout_gravity="center"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/logo"></ImageView>
+
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

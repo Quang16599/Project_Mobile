@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,7 +36,7 @@ import goodman.gm.p_mobile.R;
 
 public class Admin_ChiTiet_Food extends AppCompatActivity {
     TextView tvAdminTenQA, tvAdminDC, tvAdminGMC, tvAdminGDC, tvAdminGT, tvAdminMT;
-    CircleImageView circleImageView;
+    ImageView imgAnhQuan,imgAnhMon;
     Uri uri;
     String maquanan, image;
     Button btnUpdate, btnBack;
@@ -68,7 +69,7 @@ public class Admin_ChiTiet_Food extends AppCompatActivity {
 
     private void xuly() {
 
-        circleImageView.setOnClickListener(new View.OnClickListener() {
+        imgAnhQuan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
@@ -127,7 +128,7 @@ public class Admin_ChiTiet_Food extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 2 && resultCode == RESULT_OK && data != null) {
             uri = data.getData();
-            circleImageView.setImageURI(uri);
+            imgAnhQuan.setImageURI(uri);
             uploadImage();
         }
     }
@@ -168,7 +169,7 @@ public class Admin_ChiTiet_Food extends AppCompatActivity {
     }
 
     private void init() {
-        circleImageView = findViewById(R.id.imageFood);
+        imgAnhQuan = findViewById(R.id.imageAnhQuanAn);
         tvAdminTenQA = findViewById(R.id.tvAdminTenQA);
         tvAdminDC = findViewById(R.id.tvAdminDC);
         tvAdminGMC = findViewById(R.id.tvAdminGMC);
@@ -177,5 +178,6 @@ public class Admin_ChiTiet_Food extends AppCompatActivity {
         tvAdminMT = findViewById(R.id.tvAdminMT);
         btnUpdate = findViewById(R.id.btnFoodUpdateDone);
         btnBack = findViewById(R.id.btnFoodBackDone);
+        imgAnhMon = findViewById(R.id.imageAnhMonAn);
     }
 }

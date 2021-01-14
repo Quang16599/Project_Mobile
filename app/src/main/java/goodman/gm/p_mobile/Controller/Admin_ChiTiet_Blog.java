@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,7 +36,7 @@ import goodman.gm.p_mobile.R;
 
 public class Admin_ChiTiet_Blog extends AppCompatActivity {
     TextView tvAdminTenQA, tvAdminTieuDe, tvAdminNgay, tvAdminDiem, tvAdminNoiDung;
-    CircleImageView circleImageView;
+    ImageView img;
     String maBlog, image;
     Uri uri;
     Button btnUpdate, btnBack;
@@ -54,7 +55,7 @@ public class Admin_ChiTiet_Blog extends AppCompatActivity {
 
     private void xuly() {
 
-        circleImageView.setOnClickListener(new View.OnClickListener() {
+        img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
@@ -111,7 +112,7 @@ public class Admin_ChiTiet_Blog extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 2 && resultCode == RESULT_OK && data != null) {
             uri = data.getData();
-            circleImageView.setImageURI(uri);
+            img.setImageURI(uri);
             uploadImage();
         }
     }
@@ -170,7 +171,7 @@ public class Admin_ChiTiet_Blog extends AppCompatActivity {
         tvAdminNgay = findViewById(R.id.tvNgayCapNhatAdmin);
         tvAdminDiem = findViewById(R.id.tvBlogDiemAdmin);
         tvAdminNoiDung = findViewById(R.id.tvBlogNoiDungAdmin);
-        circleImageView = findViewById(R.id.imageBlog);
+        img = findViewById(R.id.imageBlogChiTiet);
         btnUpdate = findViewById(R.id.btnBlogUpdateDone);
         btnBack = findViewById(R.id.btnBlogBackDone);
     }

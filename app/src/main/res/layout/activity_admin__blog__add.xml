@@ -5,257 +5,290 @@
     android:layout_height="match_parent"
     android:background="#fff"
     android:orientation="vertical"
-    tools:context=".Controller.Admin_ChiTiet_Blog">
+    tools:context=".Controller.Admin_Blog_Add">
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bungee"
         android:gravity="center"
+        android:text="Thêm hình ảnh Blog"
         android:textColor="@color/colorPrimary"
-        android:text="Thông tin chi tiết"
         android:textSize="20dp">
 
     </TextView>
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/f"></ImageView>
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Mã Blog"
-                android:textColor="#000"
-                android:textSize="15dp"
-                android:textStyle="bold">
+                android:orientation="horizontal">
 
-            </TextView>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/f"></ImageView>
 
-            <EditText
-                android:id="@+id/tvBlogMaBlogAdminAdd"
-                android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Mã Blog"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/tvBlogMaBlogAdminAdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Mã blog"
+                        android:textAlignment="center"
+                        android:textSize="15dp">
+
+                    </EditText>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Abc"
-                android:textSize="15dp"
-                android:textAlignment="center">
+                android:orientation="horizontal">
 
-            </EditText>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/f"></ImageView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Tên quán"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/tvBlogTenQuanAnAdminAdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Tên quán"
+                        android:textAlignment="center"
+                        android:textSize="15dp">
+
+                    </EditText>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/d"></ImageView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Tiêu Đề"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/tvBlogTieuDeAdminAdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Tiêu đề"
+                        android:textSize="15dp">
+
+                    </EditText>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/calendar"></ImageView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Ngày cập nhật"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/tvNgayCapNhatAdminAdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Ngày cập nhật"
+                        android:inputType="datetime"
+                        android:textSize="15dp">
+
+                    </EditText>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/diem"></ImageView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Điểm"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/tvBlogDiemAdminAdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Điểm"
+                        android:inputType="number"
+                        android:textSize="15dp">
+
+                    </EditText>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/e"></ImageView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Nội Dung"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/tvBlogNoiDungAdminAdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Nội dung"
+                        android:textSize="15dp">
+
+                    </EditText>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Thêm hình ảnh blog"
+                    android:textColor="#000"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageBlog"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/cong"
+                        android:layout_gravity="center"
+                        ></de.hdodenhof.circleimageview.CircleImageView>
+
+
+            </LinearLayout>
+
+
+
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/f"></ImageView>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Tên quán"
-                android:textColor="#000"
-                android:textSize="15dp"
-                android:textStyle="bold">
-
-            </TextView>
-
-            <EditText
-                android:id="@+id/tvBlogTenQuanAnAdminAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Abc"
-                android:textSize="15dp"
-                android:textAlignment="center">
-
-            </EditText>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/d"></ImageView>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Tiêu Đề"
-                android:textColor="#000"
-                android:textSize="15dp"
-                android:textStyle="bold">
-
-            </TextView>
-
-            <EditText
-                android:id="@+id/tvBlogTieuDeAdminAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Abc"
-                android:textSize="15dp">
-
-            </EditText>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/calendar"></ImageView>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Ngày cập nhật"
-                android:textColor="#000"
-                android:textSize="15dp"
-                android:textStyle="bold">
-
-            </TextView>
-
-            <EditText
-                android:id="@+id/tvNgayCapNhatAdminAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Abc"
-                android:textSize="15dp">
-
-            </EditText>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/diem"></ImageView>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Điểm"
-                android:textColor="#000"
-                android:textSize="15dp"
-                android:textStyle="bold">
-
-            </TextView>
-
-            <EditText
-                android:id="@+id/tvBlogDiemAdminAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Abc"
-                android:textSize="15dp">
-
-            </EditText>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/e"></ImageView>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Nội Dung"
-                android:textColor="#000"
-                android:textSize="15dp"
-                android:textStyle="bold">
-
-            </TextView>
-
-            <EditText
-                android:id="@+id/tvBlogNoiDungAdminAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Abc"
-                android:textSize="15dp">
-
-            </EditText>
-        </LinearLayout>
-    </LinearLayout>
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageBlogAdd"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/cong"
-        android:layout_gravity="center"
-        ></de.hdodenhof.circleimageview.CircleImageView>
+    </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -282,7 +315,6 @@
 
         </Button>
     </LinearLayout>
-
 
 
 
