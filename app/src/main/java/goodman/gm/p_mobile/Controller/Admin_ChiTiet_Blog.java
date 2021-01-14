@@ -30,40 +30,26 @@ import com.google.firebase.storage.UploadTask;
 import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import goodman.gm.p_mobile.Model.QuanAn;
+import goodman.gm.p_mobile.Model.Blog;
 import goodman.gm.p_mobile.R;
 
-public class AdminChiTietFood extends AppCompatActivity {
-    TextView tvAdminTenQA, tvAdminDC, tvAdminGMC, tvAdminGDC, tvAdminGT, tvAdminMT;
+public class Admin_ChiTiet_Blog extends AppCompatActivity {
+    TextView tvAdminTenQA, tvAdminTieuDe, tvAdminNgay, tvAdminDiem, tvAdminNoiDung;
     CircleImageView circleImageView;
+    String maBlog, image;
     Uri uri;
-    String maquanan, image;
     Button btnUpdate, btnBack;
-    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("quanans");
+    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("blogs");
     StorageReference storage = FirebaseStorage.getInstance().getReference();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_chi_tiet_food);
+        setContentView(R.layout.activity_admin__chitiet__blog);
 
         init();
-        xuly();
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Intent intent = getIntent();
-        QuanAn quanAn = (QuanAn) intent.getSerializableExtra("adminFoods");
-        maquanan = quanAn.getmMaQuanAn();
-        tvAdminTenQA.setText(quanAn.getmTenQuanAn());
-        tvAdminDC.setText(quanAn.getmDiaChiQuan());
-        tvAdminGMC.setText(quanAn.getmGioMoCua());
-        tvAdminGDC.setText(quanAn.getmGioDongCua());
-        tvAdminGT.setText(quanAn.getmGiaTien());
-        tvAdminMT.setText(quanAn.getmMoTaQuanAn());
+        xuly();
     }
 
     private void xuly() {
@@ -74,7 +60,7 @@ public class AdminChiTietFood extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(intent, 2);
+                startActivityForResult(intent, 16);
             }
         });
 
@@ -85,24 +71,22 @@ public class AdminChiTietFood extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String tenQuan = tvAdminTenQA.getText().toString();
-                        String diaChiQuan = tvAdminDC.getText().toString();
-                        String GMC = tvAdminGMC.getText().toString();
-                        String GDC = tvAdminGDC.getText().toString();
-                        String moTa = tvAdminMT.getText().toString();
-                        String giaTien = tvAdminGT.getText().toString();
+                        String tieude = tvAdminTieuDe.getText().toString();
+                        String ngay = tvAdminNgay.getText().toString();
+                        String noidung = tvAdminNoiDung.getText().toString();
+                        String diem = tvAdminDiem.getText().toString();
 
-                        HashMap<String, Object> quananMap = new HashMap<>();
-                        quananMap.put("mHinhAnhQuanAn", image);
-                        quananMap.put("mGioDongCua", GDC);
-                        quananMap.put("mGioMoCua", GMC);
-                        quananMap.put("mTenQuanAn", tenQuan);
-                        quananMap.put("mDiaChiQuan", diaChiQuan);
-                        quananMap.put("mGiaTien", giaTien);
-                        quananMap.put("mMoTaQuanAn", moTa);
+                        HashMap<String, Object> blog = new HashMap<>();
+                        blog.put("mHinhAnh", image);
+                        blog.put("mNoiDung", noidung);
+                        blog.put("mTenQuan", tenQuan);
+                        blog.put("mNgayCapNhat", ngay);
+                        blog.put("mPoint", diem);
+                        blog.put("mTieuDe", tieude);
 
-                        reference.child(maquanan).updateChildren(quananMap);
-                        Toast.makeText(AdminChiTietFood.this, "Update thành công", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(AdminChiTietFood.this, AdminFood.class);
+                        reference.child(maBlog).updateChildren(blog);
+                        Toast.makeText(Admin_ChiTiet_Blog.this, "Update thành công", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Admin_ChiTiet_Blog.this, AdminBlog.class);
                         startActivity(intent);
                     }
 
@@ -133,7 +117,7 @@ public class AdminChiTietFood extends AppCompatActivity {
     }
 
     private void uploadImage() {
-        ProgressDialog dialog = new ProgressDialog(AdminChiTietFood.this);
+        ProgressDialog dialog = new ProgressDialog(Admin_ChiTiet_Blog.this);
         dialog.setTitle("Đang xử lý");
         dialog.show();
         if (uri != null) {
@@ -167,15 +151,27 @@ public class AdminChiTietFood extends AppCompatActivity {
         return mime.getExtensionFromMimeType(cr.getType(uri));
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Intent intent = getIntent();
+        Blog blog = (Blog) intent.getSerializableExtra("adminBlogs");
+        maBlog = blog.getmMaBlog();
+        tvAdminTenQA.setText(blog.getmTenQuan());
+        tvAdminTieuDe.setText(blog.getmTieuDe());
+        tvAdminNgay.setText(blog.getmNgayCapNhat());
+        tvAdminDiem.setText(String.valueOf(blog.getmPoint()));
+//        tvAdminNoiDung.setText(blog.getmNoiDung());
+    }
+
     private void init() {
-        circleImageView = findViewById(R.id.imageFood);
-        tvAdminTenQA = findViewById(R.id.tvAdminTenQA);
-        tvAdminDC = findViewById(R.id.tvAdminDC);
-        tvAdminGMC = findViewById(R.id.tvAdminGMC);
-        tvAdminGDC = findViewById(R.id.tvAdminGDC);
-        tvAdminGT = findViewById(R.id.tvAdminGT);
-        tvAdminMT = findViewById(R.id.tvAdminMT);
-        btnUpdate = findViewById(R.id.btnFoodUpdateDone);
-        btnBack = findViewById(R.id.btnFoodBackDone);
+        tvAdminTenQA = findViewById(R.id.tvBlogTenQuanAnAdmin);
+        tvAdminTieuDe = findViewById(R.id.tvBlogTieuDeAdmin);
+        tvAdminNgay = findViewById(R.id.tvNgayCapNhatAdmin);
+        tvAdminDiem = findViewById(R.id.tvBlogDiemAdmin);
+        tvAdminNoiDung = findViewById(R.id.tvBlogNoiDungAdmin);
+        circleImageView = findViewById(R.id.imageBlog);
+        btnUpdate = findViewById(R.id.btnBlogUpdateDone);
+        btnBack = findViewById(R.id.btnBlogBackDone);
     }
 }

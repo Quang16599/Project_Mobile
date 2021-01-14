@@ -9,17 +9,17 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import goodman.gm.p_mobile.Controller.Blogs;
+import goodman.gm.p_mobile.Controller.BlogActivity;
 import goodman.gm.p_mobile.Controller.ChiTietBlog;
 import goodman.gm.p_mobile.Model.Blog;
 import goodman.gm.p_mobile.R;
 
 public class Blog_Adapter extends BaseAdapter {
-    private Blogs context;
+    private BlogActivity context;
     private int layout;
     private List<Blog> lstBlog;
 
-    public Blog_Adapter(Blogs context, int layout, List<Blog> lstBlog) {
+    public Blog_Adapter(BlogActivity context, int layout, List<Blog> lstBlog) {
         this.context = context;
         this.layout = layout;
         this.lstBlog = lstBlog;

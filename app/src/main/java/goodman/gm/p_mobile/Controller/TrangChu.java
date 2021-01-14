@@ -16,7 +16,6 @@ import com.smarteist.autoimageslider.SliderLayout;
 import com.smarteist.autoimageslider.SliderView;
 
 import goodman.gm.p_mobile.Adapter.AdapterViewPagerTrangChu;
-import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
 public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener {
@@ -91,7 +90,7 @@ public class TrangChu extends AppCompatActivity implements ViewPager.OnPageChang
         btnBlog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TrangChu.this, Blogs.class);
+                Intent intent = new Intent(TrangChu.this, BlogActivity.class);
                 startActivity(intent);
             }
         });

@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
@@ -20,9 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import goodman.gm.p_mobile.Adapter.AdminComment_Adapter;
-import goodman.gm.p_mobile.Adapter.AdminFood_Adapter;
 import goodman.gm.p_mobile.Model.BinhLuan;
-import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
 public class AdminComment extends AppCompatActivity {

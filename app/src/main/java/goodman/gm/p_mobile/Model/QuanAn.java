@@ -21,18 +21,6 @@ public class QuanAn implements Serializable {
 
     }
 
-    public QuanAn(String mGioDongCua,
-                  String mGioMoCua, String mTenQuanAn, String mDiaChiQuan,
-                  String mMaQuanAn, String mHinhAnhQuanAn, String mGiaTien, String mMoTaQuanAn) {
-        this.mGioDongCua = mGioDongCua;
-        this.mGioMoCua = mGioMoCua;
-        this.mTenQuanAn = mTenQuanAn;
-        this.mDiaChiQuan = mDiaChiQuan;
-        this.mMaQuanAn = mMaQuanAn;
-        this.mHinhAnhQuanAn = mHinhAnhQuanAn;
-        this.mGiaTien = mGiaTien;
-        this.mMoTaQuanAn = mMoTaQuanAn;
-    }
 
     public QuanAn(boolean mGiaoHang, String mGioDongCua,
                   String mGioMoCua, String mHinhAnh, String mTenQuanAn, String mDiaChiQuan,

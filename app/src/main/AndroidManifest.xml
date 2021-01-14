@@ -17,7 +17,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controller.EditProfile"></activity>
+        <activity android:name=".Controller.Admin_Blog_Add"></activity>
+        <activity android:name=".Controller.Admin_ChiTiet_Blog" />
+        <activity android:name=".Controller.EditProfile" />
         <activity android:name=".Controller.AdminBlog" />
         <activity android:name=".Controller.BinhLuanActivity" />
 
@@ -29,7 +31,7 @@
             android:name=".Controller.Map"
             android:label="@string/title_activity_map" />
         <activity android:name=".Controller.ChiTietBlog" />
-        <activity android:name=".Controller.Blogs" />
+        <activity android:name=".Controller.BlogActivity" />
         <activity android:name=".Controller.AdminNearAdd" />
         <activity android:name=".Controller.AdminFoodAdd" />
         <activity android:name=".Controller.AdminChiTietFood" />

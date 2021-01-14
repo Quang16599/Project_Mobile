@@ -1,7 +1,6 @@
 package goodman.gm.p_mobile.Controller;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -18,10 +17,9 @@ import java.util.List;
 
 import goodman.gm.p_mobile.Adapter.Blog_Adapter;
 import goodman.gm.p_mobile.Model.Blog;
-import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
-public class Blogs extends AppCompatActivity {
+public class BlogActivity extends AppCompatActivity {
     ListView listView;
     Blog_Adapter adapter;
     List<Blog> lstBlog;
@@ -42,7 +40,7 @@ public class Blogs extends AppCompatActivity {
                 for (DataSnapshot value : snapshot.getChildren()) {
 
                     Blog blog = new Blog();
-
+                    blog.setmMaBlog(value.getKey());
                     blog.setmHinhAnh(value.child("mHinhAnh").getValue().toString());
                     blog.setmNgayCapNhat(value.child("mNgayCapNhat").getValue().toString());
                     blog.setmNoiDung(value.child("mNoiDung").getValue().toString());
@@ -64,7 +62,7 @@ public class Blogs extends AppCompatActivity {
     private void init() {
         lstBlog = new ArrayList<>();
         listView = findViewById(R.id.lstBlog);
-        adapter = new Blog_Adapter(Blogs.this, R.layout.custom_blog, lstBlog);
+        adapter = new Blog_Adapter(BlogActivity.this, R.layout.custom_blog, lstBlog);
 
 
     }

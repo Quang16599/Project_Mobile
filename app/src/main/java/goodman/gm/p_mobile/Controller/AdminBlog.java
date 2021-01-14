@@ -1,5 +1,6 @@
 package goodman.gm.p_mobile.Controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,12 +21,10 @@ import java.util.List;
 
 import goodman.gm.p_mobile.Adapter.AdminBlog_Adapter;
 import goodman.gm.p_mobile.Model.Blog;
-import goodman.gm.p_mobile.Model.DiaChi;
 import goodman.gm.p_mobile.R;
 
 public class AdminBlog extends AppCompatActivity {
     ProgressBar progressBarAdminBlog;
-    int vitri = 0;
     ListView listView;
     AdminBlog_Adapter adapter;
     List<Blog> lstBlog;
@@ -38,6 +37,14 @@ public class AdminBlog extends AppCompatActivity {
         setContentView(R.layout.activity_admin_blog);
         init();
         loadData();
+
+        btnThem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminBlog.this, Admin_Blog_Add.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void loadData() {

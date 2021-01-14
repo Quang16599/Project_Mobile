@@ -14,8 +14,9 @@ import goodman.gm.p_mobile.R;
 
 public class AdminFoodAdd extends AppCompatActivity {
     EditText edtMaQuan,edtTenQuan, edtDiaChi, edtGioMoCua, edtGioDongCua,edtGiaTien,edtMoTa;
+    String image , imageQuanAn;
     Button btnThem, btnQuayLai;
-    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("gantois");
+    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("quanans");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,13 @@ public class AdminFoodAdd extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+            }
+        });
+
+        btnQuayLai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

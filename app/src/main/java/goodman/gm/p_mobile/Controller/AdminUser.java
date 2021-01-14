@@ -1,8 +1,6 @@
 package goodman.gm.p_mobile.Controller;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -38,12 +36,6 @@ public class AdminUser extends AppCompatActivity {
         init();
         LoadData();
     }
-//
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.menu_admin_user, menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
 
     private void LoadData() {
         reference.addValueEventListener(new ValueEventListener() {
@@ -81,6 +73,7 @@ public class AdminUser extends AppCompatActivity {
         listView.setAdapter(adapter);
 
     }
+
     public void DeleteUser(final int position) {
         lstUser.remove(position);
         adapter.notifyDataSetChanged();

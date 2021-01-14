@@ -25,7 +25,6 @@ import goodman.gm.p_mobile.R;
 
 public class AdminNear extends AppCompatActivity {
     ProgressBar progressBarAdminNear;
-    int vitri = 0;
     ListView listView;
     AdminNear_Adapter adapter;
     List<DiaChi> lstDiachi;
@@ -51,30 +50,30 @@ public class AdminNear extends AppCompatActivity {
 
     private void loadData() {
         reference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    lstDiachi.clear();
-                    for (DataSnapshot value : snapshot.getChildren()) {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                lstDiachi.clear();
+                for (DataSnapshot value : snapshot.getChildren()) {
 
-                        DiaChi diaChi = new DiaChi();
-                        diaChi.setmMaQuanAn(value.getKey());
-                        diaChi.setmLongitue((Double) value.child("mLongitue").getValue());
-                        diaChi.setmLatitue((Double) value.child("mLatitue").getValue());
-                        diaChi.setmDiaChi(value.child("mDiaChi").getValue().toString());
-                        diaChi.setmTenQuanAn(value.child("mTenQuanAn").getValue().toString());
+                    DiaChi diaChi = new DiaChi();
+                    diaChi.setmMaQuanAn(value.getKey());
+                    diaChi.setmLongitue((Double) value.child("mLongitue").getValue());
+                    diaChi.setmLatitue((Double) value.child("mLatitue").getValue());
+                    diaChi.setmDiaChi(value.child("mDiaChi").getValue().toString());
+                    diaChi.setmTenQuanAn(value.child("mTenQuanAn").getValue().toString());
 
 //                    Log.e("abc", diaChi.toString());
-                        lstDiachi.add(diaChi);
-
-                    }
-                    progressBarAdminNear.setVisibility(View.GONE);
-                    listView.setAdapter(adapter);
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
+                    lstDiachi.add(diaChi);
 
                 }
+                progressBarAdminNear.setVisibility(View.GONE);
+                listView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
         });
     }
 
@@ -86,6 +85,7 @@ public class AdminNear extends AppCompatActivity {
         btnThemDiaChi = findViewById(R.id.btnThemDiaChiAdmin);
 
     }
+
     public void DeleteDiaChi(final int position) {
         lstDiachi.remove(position);
         adapter.notifyDataSetChanged();

@@ -1,6 +1,7 @@
 package goodman.gm.p_mobile.Adapter;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.List;
 
 import goodman.gm.p_mobile.Controller.AdminBlog;
+import goodman.gm.p_mobile.Controller.AdminChiTietFood;
+import goodman.gm.p_mobile.Controller.Admin_ChiTiet_Blog;
 import goodman.gm.p_mobile.Model.Blog;
 import goodman.gm.p_mobile.R;
 
@@ -68,6 +71,14 @@ public class AdminBlog_Adapter extends BaseAdapter {
         Blog blog = lstBlog.get(position);
         holder.tvMABlog.setText(blog.getmMaBlog());
         holder.tvTieuDeBlogAdmin.setText(blog.getmTieuDe());
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, Admin_ChiTiet_Blog.class);
+                intent.putExtra("adminBlogs", lstBlog.get(position));
+                context.startActivity(intent);
+            }
+        });
 
         holder.btnDele.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +90,7 @@ public class AdminBlog_Adapter extends BaseAdapter {
                 builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        // xóa trên firebase
                         String maBlog = lstBlog.get(position).getmMaBlog();
                         deleteOnFireBase(maBlog);
 

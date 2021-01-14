@@ -6,9 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-
-import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
