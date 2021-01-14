@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/bungee"
         android:gravity="center"
-        android:text="Thêm hình ảnh Blog"
+        android:text="Thêm Blog"
         android:textColor="@color/colorPrimary"
         android:textSize="20dp">
 
@@ -40,15 +40,14 @@
                     android:src="@drawable/f"></ImageView>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="Mã Blog"
                         android:textColor="#000"
                         android:textSize="15dp"
@@ -57,6 +56,7 @@
                     </TextView>
 
                     <EditText
+                        android:layout_marginLeft="10dp"
                         android:id="@+id/tvBlogMaBlogAdminAdd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -79,15 +79,14 @@
                     android:src="@drawable/f"></ImageView>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="Tên quán"
                         android:textColor="#000"
                         android:textSize="15dp"
@@ -96,6 +95,7 @@
                     </TextView>
 
                     <EditText
+                        android:layout_marginLeft="10dp"
                         android:id="@+id/tvBlogTenQuanAnAdminAdd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -119,13 +119,13 @@
                     android:src="@drawable/d"></ImageView>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Tiêu Đề"
@@ -137,8 +137,8 @@
 
                     <EditText
                         android:id="@+id/tvBlogTieuDeAdminAdd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
                         android:hint="Tiêu đề"
                         android:textSize="15dp">
 
@@ -160,7 +160,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -174,6 +174,7 @@
                     </TextView>
 
                     <EditText
+                        android:layout_marginLeft="10dp"
                         android:id="@+id/tvNgayCapNhatAdminAdd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -196,15 +197,14 @@
                     android:src="@drawable/diem"></ImageView>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="Điểm"
                         android:textColor="#000"
                         android:textSize="15dp"
@@ -213,6 +213,7 @@
                     </TextView>
 
                     <EditText
+                        android:layout_marginLeft="10dp"
                         android:id="@+id/tvBlogDiemAdminAdd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -235,13 +236,13 @@
                     android:src="@drawable/e"></ImageView>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Nội Dung"
@@ -253,8 +254,8 @@
 
                     <EditText
                         android:id="@+id/tvBlogNoiDungAdminAdd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
                         android:hint="Nội dung"
                         android:textSize="15dp">
 
