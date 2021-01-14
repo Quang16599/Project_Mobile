@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,7 +17,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import goodman.gm.p_mobile.Model.DiaChi;
-import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
 public class AdminChiTietNear extends AppCompatActivity {
@@ -32,16 +30,9 @@ public class AdminChiTietNear extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_chi_tiet_near);
+
         init();
         xulysukien();
-//        btnNearBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(AdminChiTietNear.this, AdminNear.class);
-//                startActivity(intent);
-//
-//            }
-//        });
     }
 
     private void xulysukien() {
@@ -58,7 +49,7 @@ public class AdminChiTietNear extends AppCompatActivity {
 
                         DiaChi diaChi = new DiaChi(tenQuan, diaChiQuan, latitude, longtitude, maquanan);
                         reference.child(maquanan).setValue(diaChi);
-                        Toast.makeText(AdminChiTietNear.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AdminChiTietNear.this, "Update thành công", Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(AdminChiTietNear.this, AdminNear.class);
                         startActivity(intent);
@@ -69,6 +60,15 @@ public class AdminChiTietNear extends AppCompatActivity {
 
                     }
                 });
+            }
+        });
+
+        btnNearBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminChiTietNear.this, AdminNear.class);
+                startActivity(intent);
+
             }
         });
     }

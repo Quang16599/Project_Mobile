@@ -10,18 +10,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
 public class TrangCaNhan extends AppCompatActivity {
+    CircleImageView circleImageView;
     TextView tvFullName, tvUserName, tvPassword, tvEmail, tvPhone;
     Button btnChangePass, btnLogOut;
     SharedPreferences sharedPreferences;
     String passWord, fullName, email, phoneNumber, userName;
-    User user;
+    //    User user;
+    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("thanhviens");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +40,9 @@ public class TrangCaNhan extends AppCompatActivity {
         setContentView(R.layout.activity_trang_ca_nhan);
 
         Init();
-        controlButton();
         loadData();
         sendData();
+        controlButton();
 
     }
 
@@ -57,10 +68,22 @@ public class TrangCaNhan extends AppCompatActivity {
         tvPhone = findViewById(R.id.phoneNumber);
         btnChangePass = findViewById(R.id.btnChangPass);
         btnLogOut = findViewById(R.id.btnLogOut);
+        circleImageView = findViewById(R.id.avatar);
         sharedPreferences = getSharedPreferences("User", Context.MODE_PRIVATE);
     }
 
     private void controlButton() {
+
+        circleImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TrangCaNhan.this, EditProfile.class);
+                User user = new User(fullName, userName, passWord, email, phoneNumber);
+                intent.putExtra("sendEdit", user);
+                startActivity(intent);
+            }
+        });
+
         btnChangePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,6 +119,28 @@ public class TrangCaNhan extends AppCompatActivity {
 
             }
         });
+
+        getUserInfomation();
+    }
+
+    private void getUserInfomation() {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.child(userName).exists() && snapshot.child(userName).getChildrenCount() > 0) {
+                    if (snapshot.child(userName).hasChild("mHinhAnh")) {
+                        String image = snapshot.child(userName).child("mHinhAnh").getValue().toString();
+                        Picasso.get().load(image).into(circleImageView);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
 

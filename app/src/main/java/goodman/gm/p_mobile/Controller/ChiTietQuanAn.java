@@ -47,6 +47,7 @@ public class ChiTietQuanAn extends AppCompatActivity {
     List<BinhLuan> list_BinhLuan;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
     String maQuan;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,21 +121,18 @@ public class ChiTietQuanAn extends AppCompatActivity {
                 for (DataSnapshot value : snapshotQuanAn.getChildren()) {
                     quanAn.setmMaQuanAn(value.getKey());
 
-                        DataSnapshot snapshotBinhLuan = snapshot.child("binhluans").child(quanAn.getmMaQuanAn());
-                        for (DataSnapshot valueBinhLuan : snapshotBinhLuan.getChildren()) {
-                            BinhLuan binhLuan = new BinhLuan();
-                            if(maQuan.equals(value.getKey())){
+                    DataSnapshot snapshotBinhLuan = snapshot.child("binhluans").child(quanAn.getmMaQuanAn());
+                    for (DataSnapshot valueBinhLuan : snapshotBinhLuan.getChildren()) {
+                        BinhLuan binhLuan = new BinhLuan();
+                        if (maQuan.equals(value.getKey())) {
                             binhLuan.setmNoiDung(valueBinhLuan.child("mNoiDung").getValue().toString());
                             binhLuan.setmTieuDe(valueBinhLuan.child("mTieuDe").getValue().toString());
                             binhLuan.setmLuotThich(valueBinhLuan.child("mLuotThich").getValue().toString());
                             binhLuan.setmChamDiem(valueBinhLuan.child("mChamDiem").getValue().toString());
 
                             list_BinhLuan.add(binhLuan);
-
                         }
-
                     }
-
                     adapter.notifyDataSetChanged();
                 }
                 adapter.notifyDataSetChanged();

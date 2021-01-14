@@ -8,12 +8,15 @@
     android:background="#fff"
     tools:context=".Controller.AdminChiTietUser">
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:background="@drawable/custom_avatar"
-        android:src="@drawable/ic_person"></ImageView>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/avatar"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_person"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        app:civ_border_width="2dp"
+        ></de.hdodenhof.circleimageview.CircleImageView>
 
     <TextView
         android:layout_width="match_parent"

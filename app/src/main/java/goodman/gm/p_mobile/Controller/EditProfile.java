@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -25,108 +24,99 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import goodman.gm.p_mobile.Model.QuanAn;
+import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
-public class AdminChiTietFood extends AppCompatActivity {
-    TextView tvAdminTenQA, tvAdminDC, tvAdminGMC, tvAdminGDC, tvAdminGT, tvAdminMT;
-    CircleImageView circleImageView;
-    Uri uri;
-    String maquanan, image;
-    Button btnUpdate, btnBack;
-    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("quanans");
-    StorageReference storage = FirebaseStorage.getInstance().getReference();
+public class EditProfile extends AppCompatActivity {
 
+    CircleImageView circleImageView;
+    Button btnSave, btnClose;
+    Uri uri;
+    User user;
+    static final int REQUEST_EDIT_PROFILE = 1;
+    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("thanhviens");
+    StorageReference storage = FirebaseStorage.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_chi_tiet_food);
+        setContentView(R.layout.activity_edit_profile);
 
         init();
+        receiveData();
         xuly();
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
+    private void receiveData() {
         Intent intent = getIntent();
-        QuanAn quanAn = (QuanAn) intent.getSerializableExtra("adminFoods");
-        maquanan = quanAn.getmMaQuanAn();
-        tvAdminTenQA.setText(quanAn.getmTenQuanAn());
-        tvAdminDC.setText(quanAn.getmDiaChiQuan());
-        tvAdminGMC.setText(quanAn.getmGioMoCua());
-        tvAdminGDC.setText(quanAn.getmGioDongCua());
-        tvAdminGT.setText(quanAn.getmGiaTien());
-        tvAdminMT.setText(quanAn.getmMoTaQuanAn());
+        user = (User) intent.getSerializableExtra("sendEdit");
     }
 
     private void xuly() {
-
         circleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(intent, 2);
+                startActivityForResult(intent, REQUEST_EDIT_PROFILE);
             }
         });
 
-        btnUpdate.setOnClickListener(new View.OnClickListener() {
+        btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reference.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String tenQuan = tvAdminTenQA.getText().toString();
-                        String diaChiQuan = tvAdminDC.getText().toString();
-                        String GMC = tvAdminGMC.getText().toString();
-                        String GDC = tvAdminGDC.getText().toString();
-                        String moTa = tvAdminMT.getText().toString();
-                        String giaTien = tvAdminGT.getText().toString();
-
-                        HashMap<String, Object> quananMap = new HashMap<>();
-                        quananMap.put("mHinhAnhQuanAn", image);
-                        quananMap.put("mGioDongCua", GDC);
-                        quananMap.put("mGioMoCua", GMC);
-                        quananMap.put("mTenQuanAn", tenQuan);
-                        quananMap.put("mDiaChiQuan", diaChiQuan);
-                        quananMap.put("mGiaTien", giaTien);
-                        quananMap.put("mMoTaQuanAn", moTa);
-
-                        reference.child(maquanan).updateChildren(quananMap);
-                        Toast.makeText(AdminChiTietFood.this, "Update thành công", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(AdminChiTietFood.this, AdminFood.class);
-                        startActivity(intent);
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+                Intent intent = new Intent(EditProfile.this, TrangCaNhan.class);
+                startActivity(intent);
             }
         });
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadProfileImage();
+            }
+        });
+
+        getUserInfomation();
+    }
+
+    private void getUserInfomation() {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.child(user.getmUserName()).exists() && snapshot.child(user.getmUserName()).getChildrenCount() >0){
+                    if(snapshot.child(user.getmUserName()).hasChild("mHinhAnh")){
+                        String image = snapshot.child(user.getmUserName()).child("mHinhAnh").getValue().toString();
+                        Picasso.get().load(image).into(circleImageView);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 2 && resultCode == RESULT_OK && data != null) {
+        if (requestCode == REQUEST_EDIT_PROFILE && resultCode == RESULT_OK && data != null) {
             uri = data.getData();
             circleImageView.setImageURI(uri);
-            uploadImage();
         }
     }
 
-    private void uploadImage() {
-        ProgressDialog dialog = new ProgressDialog(AdminChiTietFood.this);
+    private void uploadProfileImage() {
+        ProgressDialog dialog = new ProgressDialog(EditProfile.this);
         dialog.setTitle("Đang xử lý");
         dialog.show();
         if (uri != null) {
@@ -138,8 +128,11 @@ public class AdminChiTietFood extends AppCompatActivity {
                             file.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    image = uri.toString();
+                                    HashMap<String, Object> userMap = new HashMap<>();
+                                    userMap.put("mHinhAnh", uri.toString());
+                                    reference.child(user.getmUserName()).updateChildren(userMap);
                                     dialog.dismiss();
+                                    Toast.makeText(EditProfile.this, "Upload thành công", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         }
@@ -161,14 +154,8 @@ public class AdminChiTietFood extends AppCompatActivity {
     }
 
     private void init() {
-        circleImageView = findViewById(R.id.imageFood);
-        tvAdminTenQA = findViewById(R.id.tvAdminTenQA);
-        tvAdminDC = findViewById(R.id.tvAdminDC);
-        tvAdminGMC = findViewById(R.id.tvAdminGMC);
-        tvAdminGDC = findViewById(R.id.tvAdminGDC);
-        tvAdminGT = findViewById(R.id.tvAdminGT);
-        tvAdminMT = findViewById(R.id.tvAdminMT);
-        btnUpdate = findViewById(R.id.btnFoodUpdateDone);
-        btnBack = findViewById(R.id.btnFoodBackDone);
+        circleImageView = findViewById(R.id.avatarEdit);
+        btnClose = findViewById(R.id.btnClose);
+        btnSave = findViewById(R.id.btnSave);
     }
 }

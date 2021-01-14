@@ -52,7 +52,7 @@ public class DangNhap extends AppCompatActivity {
                     final ProgressDialog dialog = new ProgressDialog(DangNhap.this);
                     dialog.setMessage("Please waiting");
                     dialog.show();
-                    databaseReference.addValueEventListener(new ValueEventListener() {
+                    databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             // kiem tra tai khoan co ton tai trong database
@@ -90,6 +90,7 @@ public class DangNhap extends AppCompatActivity {
 
                         }
                     });
+
                 }
             }
         });

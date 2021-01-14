@@ -31,7 +31,13 @@ public class AdminNearAdd extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_near_add);
+
         init();
+        controlButton();
+
+    }
+
+    private void controlButton() {
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +69,13 @@ public class AdminNearAdd extends AppCompatActivity {
                 });
 
 
+            }
+        });
+
+        btnQuayLai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

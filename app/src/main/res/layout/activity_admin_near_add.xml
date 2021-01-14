@@ -21,7 +21,7 @@
         android:fontFamily="@font/bungee"
         android:gravity="center"
         android:text="Thông tin chi tiết"
-        android:textSize="30dp">
+        android:textSize="20dp">
 
     </TextView>
 
@@ -32,7 +32,7 @@
 
         <ImageView
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:src="@drawable/a"></ImageView>
 
         <LinearLayout
@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Nhập mã quán"
-                android:textSize="18dp">
+                android:textSize="15dp">
 
             </EditText>
         </LinearLayout>
@@ -70,7 +70,7 @@
 
         <ImageView
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:src="@drawable/f"></ImageView>
 
         <LinearLayout
@@ -109,7 +109,7 @@
 
         <ImageView
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:src="@drawable/ic_address"></ImageView>
 
         <LinearLayout
@@ -147,7 +147,7 @@
 
         <ImageView
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="112dp"
             android:src="@drawable/nearby"></ImageView>
 
         <LinearLayout
@@ -185,7 +185,7 @@
 
         <ImageView
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:src="@drawable/ic_nearby"></ImageView>
 
         <LinearLayout

@@ -3,13 +3,14 @@ package goodman.gm.p_mobile.Model;
 import java.io.Serializable;
 
 public class User implements Serializable {
-   public String mFullName;
-   public String mUserName;
-   public String mPassword;
-   public String mEmail;
-   public String mPhoneNumber;
+    private String mFullName;
+    private String mUserName;
+    private String mPassword;
+    private String mEmail;
+    private String mPhoneNumber;
+    private String mHinhAnh;
 
-    public User(){
+    public User() {
 
     }
 
@@ -19,6 +20,23 @@ public class User implements Serializable {
         this.mPassword = mPassword;
         this.mEmail = mEmail;
         this.mPhoneNumber = mPhoneNumber;
+    }
+
+    public User(String mFullName, String mUserName, String mPassword, String mEmail, String mPhoneNumber, String mHinhAnh) {
+        this.mFullName = mFullName;
+        this.mUserName = mUserName;
+        this.mPassword = mPassword;
+        this.mEmail = mEmail;
+        this.mPhoneNumber = mPhoneNumber;
+        this.mHinhAnh = mHinhAnh;
+    }
+
+    public String getmHinhAnh() {
+        return mHinhAnh;
+    }
+
+    public void setmHinhAnh(String mHinhAnh) {
+        this.mHinhAnh = mHinhAnh;
     }
 
     public String getmFullName() {
