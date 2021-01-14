@@ -17,12 +17,14 @@ import java.util.List;
 
 import goodman.gm.p_mobile.Controller.Admin_Comment;
 import goodman.gm.p_mobile.Model.BinhLuan;
+import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
 public class Admin_Comment_Adapter extends BaseAdapter {
     private Admin_Comment context;
     private int layout;
     private List<BinhLuan> lst_BinhLuan;
+    private List<QuanAn> lstQuanAn;
 
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("binhluans");
 
@@ -66,8 +68,9 @@ public class Admin_Comment_Adapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-//            BinhLuan binhLuan = lst_BinhLuan.get(position);
-//            holder.tvMaQA.setText(binhLuan.getMaQuanAn());
+        QuanAn quanAn = lstQuanAn.get(position);
+//        BinhLuan binhLuan = lst_BinhLuan.get(position);
+        holder.tvMaQA.setText(quanAn.getmMaQuanAn());
 
         holder.btnXoa.setOnClickListener(new View.OnClickListener() {
             @Override

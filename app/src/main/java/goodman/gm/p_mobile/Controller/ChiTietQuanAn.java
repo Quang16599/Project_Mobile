@@ -123,39 +123,6 @@ public class ChiTietQuanAn extends AppCompatActivity {
         }
     }
 
-//    private void loadDanhSachBinhLuan() {
-//        reference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                DataSnapshot snapshotQuanAn = snapshot.child("quanans");
-//
-//                for (DataSnapshot value : snapshotQuanAn.getChildren()) {
-//                    quanAn.setmMaQuanAn(value.getKey());
-//
-//                    DataSnapshot snapshotBinhLuan = snapshot.child("binhluans").child(quanAn.getmMaQuanAn());
-//                    for (DataSnapshot valueBinhLuan : snapshotBinhLuan.getChildren()) {
-//                        BinhLuan binhLuan = new BinhLuan();
-//                        if (maQuan.equals(quanAn.getmMaQuanAn())) {
-//                            binhLuan.setmNoiDung(valueBinhLuan.child("mNoiDung").getValue().toString());
-//                            binhLuan.setmTieuDe(valueBinhLuan.child("mTieuDe").getValue().toString());
-//                            binhLuan.setmLuotThich(valueBinhLuan.child("mLuotThich").getValue().toString());
-//                            binhLuan.setmChamDiem(valueBinhLuan.child("mChamDiem").getValue().toString());
-//
-//                            list_BinhLuan.add(binhLuan);
-//                        }
-//                    }
-//                    adapter.notifyDataSetChanged();
-//                }
-//                adapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//    }
-
 
     private void SetTrangThai() {
         Calendar calendar = Calendar.getInstance();

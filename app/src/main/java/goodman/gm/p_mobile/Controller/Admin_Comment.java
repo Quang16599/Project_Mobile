@@ -20,6 +20,7 @@ import java.util.List;
 
 import goodman.gm.p_mobile.Adapter.Admin_Comment_Adapter;
 import goodman.gm.p_mobile.Model.BinhLuan;
+import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
 public class Admin_Comment extends AppCompatActivity {
@@ -27,8 +28,9 @@ public class Admin_Comment extends AppCompatActivity {
     ListView listView;
     Admin_Comment_Adapter adapter;
     List<BinhLuan> lstBinhLuan;
-    BinhLuan binhLuan;
-    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("binhluans");
+    List<QuanAn> lstQuanAn;
+
+    DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,25 +45,28 @@ public class Admin_Comment extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                DataSnapshot snapshotQuanAn = snapshot.child("quanans");
+                for (DataSnapshot value : snapshotQuanAn.getChildren()) {
+                    QuanAn quanAn = new QuanAn();
+                    quanAn.setmMaQuanAn(value.getKey());
+                    DataSnapshot snapshotBinhLuan = snapshot.child("binhluans").child(quanAn.getmMaQuanAn());
+                    List<BinhLuan> list_BinhLuan = new ArrayList<>();
+                    for (DataSnapshot valueBinhLuan : snapshotBinhLuan.getChildren()) {
+                        BinhLuan binhLuan = new BinhLuan();
+                        binhLuan.setmNoiDung(valueBinhLuan.child("mNoiDung").getValue().toString());
+                        binhLuan.setmTieuDe(valueBinhLuan.child("mTieuDe").getValue().toString());
+                        binhLuan.setmLuotThich(valueBinhLuan.child("mLuotThich").getValue().toString());
+                        binhLuan.setmChamDiem(valueBinhLuan.child("mChamDiem").getValue().toString());
 
-                for (DataSnapshot valueBinhLuan : snapshot.getChildren()) {
-                    binhLuan = valueBinhLuan.getValue(BinhLuan.class);
-//                    binhLuan.setMaQuanAn(valueBinhLuan.getKey());
-                    // lay ds bluan cua quan an
-//                    DataSnapshot dataSnapshotBinhLuan = snapshot.child("binhluans").child(valueBinhLuan.getKey());
-//                    for (DataSnapshot valueBluan : dataSnapshotBinhLuan.getChildren()) {
-//                        binhLuan = valueBluan.getValue(BinhLuan.class);
-//
-//
-//                    }
-                    lstBinhLuan.add(binhLuan);
-                    Log.d("abc",binhLuan.toString());
+                        list_BinhLuan.add(binhLuan);
+
+                    }
+                    quanAn.setList_BinhLuan(list_BinhLuan);
+                    lstQuanAn.add(quanAn);
+                    Log.d("abcd", String.valueOf(lstQuanAn.get(0)));
                 }
-
                 progressBarAdminCommnent.setVisibility(View.GONE);
-                listView.setAdapter(adapter);
-
-
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -75,7 +80,8 @@ public class Admin_Comment extends AppCompatActivity {
         progressBarAdminCommnent = findViewById(R.id.progressBarAdminComment);
         listView = findViewById(R.id.lstBinhLuan);
         lstBinhLuan = new ArrayList<>();
-        adapter = new Admin_Comment_Adapter(this, R.layout.custom_listquanan, lstBinhLuan);
+        adapter = new Admin_Comment_Adapter(this, R.layout.custom_binhluan, lstBinhLuan);
+        lstQuanAn = new ArrayList<>();
 
     }
 }
