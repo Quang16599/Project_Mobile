@@ -17,14 +17,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import goodman.gm.p_mobile.Adapter.AdminUser_Adapter;
+import goodman.gm.p_mobile.Adapter.Admin_User_Adapter;
 import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
 public class Admin_User extends AppCompatActivity {
     ProgressBar progressBarAdminUser;
     ListView listView;
-    AdminUser_Adapter adapter;
+    Admin_User_Adapter adapter;
     List<User> lstUser;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("thanhviens");
 
@@ -69,7 +69,7 @@ public class Admin_User extends AppCompatActivity {
         progressBarAdminUser = findViewById(R.id.progressBarAdminUser);
         listView = findViewById(R.id.lstAdminUser);
         lstUser = new ArrayList<>();
-        adapter = new AdminUser_Adapter(this, R.layout.custom_listuser, lstUser);
+        adapter = new Admin_User_Adapter(this, R.layout.custom_listuser, lstUser);
         listView.setAdapter(adapter);
 
     }
