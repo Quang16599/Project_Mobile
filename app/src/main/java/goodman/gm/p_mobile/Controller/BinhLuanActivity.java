@@ -31,8 +31,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -44,12 +47,13 @@ import java.util.List;
 
 import goodman.gm.p_mobile.Adapter.AdapterHienThiHinhBinhLuan;
 import goodman.gm.p_mobile.Model.BinhLuan;
+import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
 public class BinhLuanActivity extends AppCompatActivity {
     TextView txtTen, txtDiaChi, tvDang;
     String maquanan;
-    EditText edtTieuDe, edtNoiDung;
+    EditText edtTieuDe, edtNoiDung, edtDiem;
     ImageButton btnChonHinh;
     RecyclerView recyclerViewChonHinhBinhLuan;
     AdapterHienThiHinhBinhLuan adapter;
@@ -57,6 +61,8 @@ public class BinhLuanActivity extends AppCompatActivity {
     List<String> listHinhDuocChon;
     final int REQUEST_CHONHINHBINHLUAN = 100;
     StorageReference storage = FirebaseStorage.getInstance().getReference();
+//    QuanAn quanAn;
+//    DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +83,7 @@ public class BinhLuanActivity extends AppCompatActivity {
         tvDang = findViewById(R.id.txtDangBinhLuan);
         edtTieuDe = findViewById(R.id.edtTieuDeBinhLuan);
         edtNoiDung = findViewById(R.id.edtNoiDungBinhLuan);
+        edtDiem = findViewById(R.id.edtDiemBinhLuan);
         listHinhDuocChon = new ArrayList<>();
         sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
 
@@ -96,21 +103,42 @@ public class BinhLuanActivity extends AppCompatActivity {
             BinhLuan binhLuan = new BinhLuan();
             String tieude = edtTieuDe.getText().toString();
             String noidung = edtNoiDung.getText().toString();
+            String diem = edtDiem.getText().toString();
             String tenuser = sharedPreferences.getString("UserName", "");
 
             binhLuan.setmTieuDe(tieude);
             binhLuan.setmNoiDung(noidung);
-            binhLuan.setmChamDiem("0");
+            binhLuan.setmChamDiem(diem);
             binhLuan.setmLuotThich("0");
             binhLuan.setTenuser(tenuser);
 
             ThemBinhLuan(maquanan, binhLuan, listHinhDuocChon);
+//            Log.d("abcd", maquanan);
 
 
         });
     }
 
     private void ThemBinhLuan(String maquanan, BinhLuan binhLuan, List<String> listHinhDuocChon) {
+//        reference.addValueEventListener(new ValueEventListener() {
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                DataSnapshot snapshotQuanAn = snapshot.child("quanans");
+//
+//                for (DataSnapshot value : snapshotQuanAn.getChildren()) {
+//                    quanAn.setmMaQuanAn(value.getKey());
+//
+//                    DataSnapshot snapshotBinhLuan = snapshot.child("binhluans").child(quanAn.getmMaQuanAn());
+//                    for (DataSnapshot valueBinhLuan : snapshotBinhLuan.getChildren()) {
+//                    }
+//                }
+//            }
+//
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
         DatabaseReference nodeBinhLuan = FirebaseDatabase.getInstance().getReference("binhluans");
         String mabinhluan = nodeBinhLuan.child(maquanan).push().getKey();
 
