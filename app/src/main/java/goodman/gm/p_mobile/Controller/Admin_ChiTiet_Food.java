@@ -26,19 +26,16 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
-
-import java.util.HashMap;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
 public class Admin_ChiTiet_Food extends AppCompatActivity {
     TextView tvAdminTenQA, tvAdminDC, tvAdminGMC, tvAdminGDC, tvAdminGT, tvAdminMT;
-    ImageView imgAnhQuan,imgAnhMon;
+    ImageView imgAnhQuan, imgAnhMon;
     Uri uri;
-    String maquanan, image;
+    String maquanan, imageAnhQuan, imageAnhMon;
     Button btnUpdate, btnBack;
     private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("quanans");
     StorageReference storage = FirebaseStorage.getInstance().getReference();
@@ -50,8 +47,10 @@ public class Admin_ChiTiet_Food extends AppCompatActivity {
         setContentView(R.layout.activity_admin_chi_tiet_food);
 
         init();
+        loadData();
         xuly();
     }
+
 
     @Override
     protected void onStart() {
@@ -67,6 +66,7 @@ public class Admin_ChiTiet_Food extends AppCompatActivity {
         tvAdminMT.setText(quanAn.getmMoTaQuanAn());
     }
 
+
     private void xuly() {
 
         imgAnhQuan.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +76,16 @@ public class Admin_ChiTiet_Food extends AppCompatActivity {
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(intent, 2);
+            }
+        });
+
+        imgAnhMon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(intent, 3);
             }
         });
 
@@ -92,16 +102,17 @@ public class Admin_ChiTiet_Food extends AppCompatActivity {
                         String moTa = tvAdminMT.getText().toString();
                         String giaTien = tvAdminGT.getText().toString();
 
-                        HashMap<String, Object> quananMap = new HashMap<>();
-                        quananMap.put("mHinhAnhQuanAn", image);
-                        quananMap.put("mGioDongCua", GDC);
-                        quananMap.put("mGioMoCua", GMC);
-                        quananMap.put("mTenQuanAn", tenQuan);
-                        quananMap.put("mDiaChiQuan", diaChiQuan);
-                        quananMap.put("mGiaTien", giaTien);
-                        quananMap.put("mMoTaQuanAn", moTa);
+//                        HashMap<String, Object> quananMap = new HashMap<>();
+//                        quananMap.put("mHinhAnhQuanAn", image);
+//                        quananMap.put("mGioDongCua", GDC);
+//                        quananMap.put("mGioMoCua", GMC);
+//                        quananMap.put("mTenQuanAn", tenQuan);
+//                        quananMap.put("mDiaChiQuan", diaChiQuan);
+//                        quananMap.put("mGiaTien", giaTien);
+//                        quananMap.put("mMoTaQuanAn", moTa);
 
-                        reference.child(maquanan).updateChildren(quananMap);
+                        QuanAn quanAn = new QuanAn(false, GDC, GMC, imageAnhMon, tenQuan, diaChiQuan, maquanan, imageAnhQuan, giaTien, moTa);
+                        reference.child(maquanan).setValue(quanAn);
                         Toast.makeText(Admin_ChiTiet_Food.this, "Update thành công", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(Admin_ChiTiet_Food.this, Admin_Food.class);
                         startActivity(intent);
@@ -129,11 +140,17 @@ public class Admin_ChiTiet_Food extends AppCompatActivity {
         if (requestCode == 2 && resultCode == RESULT_OK && data != null) {
             uri = data.getData();
             imgAnhQuan.setImageURI(uri);
-            uploadImage();
+            uploadImageAnhQuan();
+        }
+        if (requestCode == 3 && resultCode == RESULT_OK && data != null) {
+            uri = data.getData();
+            imgAnhMon.setImageURI(uri);
+            uploadImageAnhMon();
+
         }
     }
 
-    private void uploadImage() {
+    private void uploadImageAnhQuan() {
         ProgressDialog dialog = new ProgressDialog(Admin_ChiTiet_Food.this);
         dialog.setTitle("Đang xử lý");
         dialog.show();
@@ -146,7 +163,36 @@ public class Admin_ChiTiet_Food extends AppCompatActivity {
                             file.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    image = uri.toString();
+                                    imageAnhQuan = uri.toString();
+                                    dialog.dismiss();
+                                }
+                            });
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                            float percent = (100 * snapshot.getBytesTransferred()) / snapshot.getTotalByteCount();
+                            dialog.setTitle("Đang tải " + (int) percent + "%");
+                        }
+                    });
+        }
+    }
+
+    private void uploadImageAnhMon() {
+        ProgressDialog dialog = new ProgressDialog(Admin_ChiTiet_Food.this);
+        dialog.setTitle("Đang xử lý");
+        dialog.show();
+        if (uri != null) {
+            StorageReference file = storage.child(System.currentTimeMillis() + "." + getFileExtension(uri));
+            file.putFile(uri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            file.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    imageAnhMon = uri.toString();
                                     dialog.dismiss();
                                 }
                             });
@@ -166,6 +212,29 @@ public class Admin_ChiTiet_Food extends AppCompatActivity {
         ContentResolver cr = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cr.getType(uri));
+    }
+
+    private void loadData() {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.child(maquanan).exists()) {
+                    if (snapshot.child(maquanan).hasChild("mHinhAnh")) {
+                        String image = snapshot.child(maquanan).child("mHinhAnh").getValue().toString();
+                        Picasso.get().load(image).into(imgAnhMon);
+                    }
+                    if (snapshot.child(maquanan).hasChild("mHinhAnhQuanAn")) {
+                        String image = snapshot.child(maquanan).child("mHinhAnhQuanAn").getValue().toString();
+                        Picasso.get().load(image).into(imgAnhQuan);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void init() {

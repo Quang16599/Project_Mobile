@@ -15,12 +15,12 @@ public class QuanAn implements Serializable {
     private String mHinhAnhQuanAn;
     private String mGiaTien;
     private String mMoTaQuanAn;
+    private List<BinhLuan> list_BinhLuan;
 
 
     public QuanAn() {
 
     }
-
 
     public QuanAn(boolean mGiaoHang, String mGioDongCua,
                   String mGioMoCua, String mHinhAnh, String mTenQuanAn, String mDiaChiQuan,
@@ -35,6 +35,14 @@ public class QuanAn implements Serializable {
         this.mHinhAnhQuanAn = mHinhAnhQuanAn;
         this.mGiaTien = mGiaTien;
         this.mMoTaQuanAn = mMoTaQuanAn;
+    }
+
+    public List<BinhLuan> getList_BinhLuan() {
+        return list_BinhLuan;
+    }
+
+    public void setList_BinhLuan(List<BinhLuan> list_BinhLuan) {
+        this.list_BinhLuan = list_BinhLuan;
     }
 
     public boolean ismGiaoHang() {

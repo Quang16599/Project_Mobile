@@ -310,7 +310,7 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/imageBlogChiTiet"
+                android:id="@+id/imageQuanAnAdd"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/cong"></ImageView>
@@ -332,6 +332,7 @@
                 android:textStyle="bold" />
 
             <ImageView
+                android:id="@+id/imageMonAnAdd"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/cong"></ImageView>
