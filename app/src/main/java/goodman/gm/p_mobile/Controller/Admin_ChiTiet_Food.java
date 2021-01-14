@@ -102,15 +102,6 @@ public class Admin_ChiTiet_Food extends AppCompatActivity {
                         String moTa = tvAdminMT.getText().toString();
                         String giaTien = tvAdminGT.getText().toString();
 
-//                        HashMap<String, Object> quananMap = new HashMap<>();
-//                        quananMap.put("mHinhAnhQuanAn", image);
-//                        quananMap.put("mGioDongCua", GDC);
-//                        quananMap.put("mGioMoCua", GMC);
-//                        quananMap.put("mTenQuanAn", tenQuan);
-//                        quananMap.put("mDiaChiQuan", diaChiQuan);
-//                        quananMap.put("mGiaTien", giaTien);
-//                        quananMap.put("mMoTaQuanAn", moTa);
-
                         QuanAn quanAn = new QuanAn(false, GDC, GMC, imageAnhMon, tenQuan, diaChiQuan, maquanan, imageAnhQuan, giaTien, moTa);
                         reference.child(maquanan).setValue(quanAn);
                         Toast.makeText(Admin_ChiTiet_Food.this, "Update thành công", Toast.LENGTH_SHORT).show();

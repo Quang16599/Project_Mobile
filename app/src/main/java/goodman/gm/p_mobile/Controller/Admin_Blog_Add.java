@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,7 +45,6 @@ public class Admin_Blog_Add extends AppCompatActivity {
         setContentView(R.layout.activity_admin__blog__add);
 
         init();
-
         xuly();
     }
 
@@ -68,7 +66,7 @@ public class Admin_Blog_Add extends AppCompatActivity {
                 reference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (!snapshot.child(tvAdminMaQuanAn.getText().toString()).exists()){
+                        if (!snapshot.child(tvAdminMaQuanAn.getText().toString()).exists()) {
                             String maBlog = tvAdminMaQuanAn.getText().toString();
                             String tenQuan = tvAdminTenQA.getText().toString();
                             String tieude = tvAdminTieuDe.getText().toString();
@@ -147,7 +145,6 @@ public class Admin_Blog_Add extends AppCompatActivity {
     }
 
     private void init() {
-
         tvAdminMaQuanAn = findViewById(R.id.tvBlogMaBlogAdminAdd);
         tvAdminTenQA = findViewById(R.id.tvBlogTenQuanAnAdminAdd);
         tvAdminTieuDe = findViewById(R.id.tvBlogTieuDeAdminAdd);

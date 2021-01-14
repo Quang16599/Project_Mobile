@@ -26,11 +26,11 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 
 import java.util.HashMap;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 import goodman.gm.p_mobile.Model.Blog;
 import goodman.gm.p_mobile.R;
 
@@ -43,14 +43,34 @@ public class Admin_ChiTiet_Blog extends AppCompatActivity {
     private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("blogs");
     StorageReference storage = FirebaseStorage.getInstance().getReference();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin__chitiet__blog);
 
         init();
-
+        loadData();
         xuly();
+    }
+
+    private void loadData() {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.child(maBlog).exists()) {
+                    if (snapshot.child(maBlog).hasChild("mHinhAnh")) {
+                        String image = snapshot.child(maBlog).child("mHinhAnh").getValue().toString();
+                        Picasso.get().load(image).into(img);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void xuly() {
@@ -77,15 +97,8 @@ public class Admin_ChiTiet_Blog extends AppCompatActivity {
                         String noidung = tvAdminNoiDung.getText().toString();
                         String diem = tvAdminDiem.getText().toString();
 
-                        HashMap<String, Object> blog = new HashMap<>();
-                        blog.put("mHinhAnh", image);
-                        blog.put("mNoiDung", noidung);
-                        blog.put("mTenQuan", tenQuan);
-                        blog.put("mNgayCapNhat", ngay);
-                        blog.put("mPoint", diem);
-                        blog.put("mTieuDe", tieude);
-
-                        reference.child(maBlog).updateChildren(blog);
+                        Blog blog = new Blog(tieude, image, noidung, tenQuan, ngay, Double.parseDouble(diem));
+                        reference.child(maBlog).setValue(blog);
                         Toast.makeText(Admin_ChiTiet_Blog.this, "Update thành công", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(Admin_ChiTiet_Blog.this, Admin_Blog.class);
                         startActivity(intent);
@@ -110,7 +123,7 @@ public class Admin_ChiTiet_Blog extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 2 && resultCode == RESULT_OK && data != null) {
+        if (requestCode == 16 && resultCode == RESULT_OK && data != null) {
             uri = data.getData();
             img.setImageURI(uri);
             uploadImage();
