@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controller.Admin_Blog_Add"></activity>
+        <activity android:name=".Controller.HienThiChiTietBinhLuan"></activity>
+        <activity android:name=".Controller.Admin_Blog_Add" />
         <activity android:name=".Controller.Admin_ChiTiet_Blog" />
         <activity android:name=".Controller.EditProfile" />
         <activity android:name=".Controller.Admin_Blog" />

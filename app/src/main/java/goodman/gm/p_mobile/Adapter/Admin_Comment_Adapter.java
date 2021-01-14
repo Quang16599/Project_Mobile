@@ -1,6 +1,7 @@
 package goodman.gm.p_mobile.Adapter;
 
 import android.content.DialogInterface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,15 +29,15 @@ public class Admin_Comment_Adapter extends BaseAdapter {
 
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("binhluans");
 
-    public Admin_Comment_Adapter(Admin_Comment context, int layout, List<BinhLuan> lst_BinhLuan) {
+    public Admin_Comment_Adapter(Admin_Comment context, int layout, List<QuanAn> lstQuanAn) {
         this.context = context;
         this.layout = layout;
-        this.lst_BinhLuan = lst_BinhLuan;
+        this.lstQuanAn = lstQuanAn;
     }
 
     @Override
     public int getCount() {
-        return lst_BinhLuan.size();
+        return lstQuanAn.size();
     }
 
     @Override
@@ -68,9 +69,12 @@ public class Admin_Comment_Adapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
+
         QuanAn quanAn = lstQuanAn.get(position);
-//        BinhLuan binhLuan = lst_BinhLuan.get(position);
-        holder.tvMaQA.setText(quanAn.getmMaQuanAn());
+        List<BinhLuan> list_binhLuan = (List<BinhLuan>) quanAn.getList_BinhLuan();
+        holder.tvMaQA.setText(list_binhLuan.get(position).getmNoiDung());
+        Log.d("ccc", list_binhLuan.get(position).getmNoiDung());
+        Log.d("ccc", quanAn.getmMaQuanAn());
 
         holder.btnXoa.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -83,11 +83,18 @@ public class AnGiFragment extends Fragment {
                     List<BinhLuan> list_BinhLuan = new ArrayList<>();
                     for (DataSnapshot valueBinhLuan : snapshotBinhLuan.getChildren()) {
                         BinhLuan binhLuan = new BinhLuan();
+                        binhLuan.setManbinhluan(valueBinhLuan.getKey());
                         binhLuan.setmNoiDung(valueBinhLuan.child("mNoiDung").getValue().toString());
                         binhLuan.setmTieuDe(valueBinhLuan.child("mTieuDe").getValue().toString());
                         binhLuan.setmLuotThich(valueBinhLuan.child("mLuotThich").getValue().toString());
                         binhLuan.setmChamDiem(valueBinhLuan.child("mChamDiem").getValue().toString());
 
+                        DataSnapshot snapshotHinhAnhBL = snapshot.child("hinhanhbinhluans").child(binhLuan.getManbinhluan());
+                        List<String> list_HinhAnhBinhLuan = new ArrayList<>();
+                        for (DataSnapshot valueHinhBinhLuan : snapshotHinhAnhBL.getChildren()) {
+                            list_HinhAnhBinhLuan.add(valueHinhBinhLuan.getValue(String.class));
+                        }
+                        binhLuan.setHinhanhBinhLuanList(list_HinhAnhBinhLuan);
                         list_BinhLuan.add(binhLuan);
                     }
                     quanAn.setList_BinhLuan(list_BinhLuan);
@@ -101,6 +108,5 @@ public class AnGiFragment extends Fragment {
 
             }
         });
-
     }
 }

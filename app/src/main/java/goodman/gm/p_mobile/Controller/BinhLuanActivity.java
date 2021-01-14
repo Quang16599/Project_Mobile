@@ -101,8 +101,8 @@ public class BinhLuanActivity extends AppCompatActivity {
             binhLuan.setTenuser(tenuser);
 
             ThemBinhLuan(maquanan, binhLuan, listHinhDuocChon);
-            Intent intent = new Intent(BinhLuanActivity.this, ChiTietQuanAn.class);
-            startActivity(intent);
+//            Intent intent = new Intent(BinhLuanActivity.this, ChiTietQuanAn.class);
+//            startActivity(intent);
 
 
         });
@@ -173,7 +173,7 @@ public class BinhLuanActivity extends AppCompatActivity {
                             Log.d("ccc", uri + "");
                         }
                     }
-
+                    Toast.makeText(BinhLuanActivity.this, "Đã đăng", Toast.LENGTH_SHORT).show();
                 }
             }
         });

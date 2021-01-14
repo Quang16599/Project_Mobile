@@ -27,7 +27,6 @@ public class Admin_Comment extends AppCompatActivity {
     ProgressBar progressBarAdminCommnent;
     ListView listView;
     Admin_Comment_Adapter adapter;
-    List<BinhLuan> lstBinhLuan;
     List<QuanAn> lstQuanAn;
 
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
@@ -49,6 +48,7 @@ public class Admin_Comment extends AppCompatActivity {
                 for (DataSnapshot value : snapshotQuanAn.getChildren()) {
                     QuanAn quanAn = new QuanAn();
                     quanAn.setmMaQuanAn(value.getKey());
+
                     DataSnapshot snapshotBinhLuan = snapshot.child("binhluans").child(quanAn.getmMaQuanAn());
                     List<BinhLuan> list_BinhLuan = new ArrayList<>();
                     for (DataSnapshot valueBinhLuan : snapshotBinhLuan.getChildren()) {
@@ -63,7 +63,6 @@ public class Admin_Comment extends AppCompatActivity {
                     }
                     quanAn.setList_BinhLuan(list_BinhLuan);
                     lstQuanAn.add(quanAn);
-                    Log.d("abcd", String.valueOf(lstQuanAn.get(0)));
                 }
                 progressBarAdminCommnent.setVisibility(View.GONE);
                 adapter.notifyDataSetChanged();
@@ -78,10 +77,11 @@ public class Admin_Comment extends AppCompatActivity {
 
     private void init() {
         progressBarAdminCommnent = findViewById(R.id.progressBarAdminComment);
-        listView = findViewById(R.id.lstBinhLuan);
-        lstBinhLuan = new ArrayList<>();
-        adapter = new Admin_Comment_Adapter(this, R.layout.custom_binhluan, lstBinhLuan);
+        listView = findViewById(R.id.lstBinhLuanAdmin);
         lstQuanAn = new ArrayList<>();
+        adapter = new Admin_Comment_Adapter(this, R.layout.custom_listbinhluan, lstQuanAn);
+        listView.setAdapter(adapter);
+
 
     }
 }

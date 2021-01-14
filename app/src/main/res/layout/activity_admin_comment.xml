@@ -39,7 +39,7 @@
 
         <ListView
 
-            android:id="@+id/lstBinhLuan"
+            android:id="@+id/lstBinhLuanAdmin"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

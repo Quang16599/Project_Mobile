@@ -6,8 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -18,25 +21,28 @@ public class BinhLuan_Adapter extends RecyclerView.Adapter<BinhLuan_Adapter.View
     private Context context;
     int layout;
     List<BinhLuan> list_BinhLuan;
+    List<String> list_HinhAnh;
 
     public BinhLuan_Adapter(Context context, int layout, List<BinhLuan> list_BinhLuan) {
         this.context = context;
         this.layout = layout;
         this.list_BinhLuan = list_BinhLuan;
+        list_HinhAnh = new ArrayList<>();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         CircleImageView circleImageView;
         TextView txtTieuDeBinhLuan, txtNoiDungBinhLuan, txtSoDiem;
+        RecyclerView recyclerViewBinhLuan;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
+            recyclerViewBinhLuan = itemView.findViewById(R.id.lstHinhAnhBinhLuan);
             circleImageView = itemView.findViewById(R.id.cicleImageUser);
             txtTieuDeBinhLuan = itemView.findViewById(R.id.txtTieudebinhluan);
-            txtNoiDungBinhLuan = (TextView) itemView.findViewById(R.id.txtNoidungbinhluan);
-            txtSoDiem = (TextView) itemView.findViewById(R.id.txtChamDiemBinhLuan);
-//            img = itemView.findViewById(R.id.imgBinhLuan);
+            txtNoiDungBinhLuan = itemView.findViewById(R.id.txtNoidungbinhluan);
+            txtSoDiem = itemView.findViewById(R.id.txtChamDiemBinhLuan);
         }
     }
 
@@ -54,16 +60,22 @@ public class BinhLuan_Adapter extends RecyclerView.Adapter<BinhLuan_Adapter.View
         holder.txtNoiDungBinhLuan.setText(binhLuan.getmNoiDung());
         holder.txtSoDiem.setText(binhLuan.getmChamDiem());
 
+        for (String value : binhLuan.getHinhanhBinhLuanList()) {
+            list_HinhAnh.add(value);
+            if (list_HinhAnh.size() == binhLuan.getHinhanhBinhLuanList().size()) {
+                HinhBinhLuan_Adapter adapter = new HinhBinhLuan_Adapter(context, R.layout.custom_hinh_binh_luan, list_HinhAnh,binhLuan,false);
+                RecyclerView.LayoutManager layoutManager = new GridLayoutManager(context, 2);
+                holder.recyclerViewBinhLuan.setLayoutManager(layoutManager);
+                holder.recyclerViewBinhLuan.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+            }
+
+        }
+
     }
 
     @Override
     public int getItemCount() {
-//        int soBinhLuan = list_BinhLuan.size();
-//        if (soBinhLuan > 0 && soBinhLuan > 5) {
-//            return 5;
-//        } else {
-//            return list_BinhLuan.size();
-//        }
         return list_BinhLuan.size();
     }
 }

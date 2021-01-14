@@ -2,15 +2,16 @@ package goodman.gm.p_mobile.Model;
 
 
 import java.io.Serializable;
+import java.util.List;
 
-public class BinhLuan  implements Serializable {
+public class BinhLuan implements Serializable {
     private String mChamDiem;
     private String mLuotThich;
     private String mNoiDung;
     private String mTieuDe;
     private String manbinhluan;
     private String tenuser;
-//    List<String> hinhanhBinhLuanList;
+    private List<String> hinhanhBinhLuanList;
 
 
     public BinhLuan() {
@@ -33,13 +34,13 @@ public class BinhLuan  implements Serializable {
     }
 
 
-//    public List<String> getHinhanhBinhLuanList() {
-//        return hinhanhBinhLuanList;
-//    }
-//
-//    public void setHinhanhBinhLuanList(List<String> hinhanhList) {
-//        this.hinhanhBinhLuanList = hinhanhList;
-//    }
+    public List<String> getHinhanhBinhLuanList() {
+        return hinhanhBinhLuanList;
+    }
+
+    public void setHinhanhBinhLuanList(List<String> hinhanhList) {
+        this.hinhanhBinhLuanList = hinhanhList;
+    }
 
     public String getManbinhluan() {
         return manbinhluan;
