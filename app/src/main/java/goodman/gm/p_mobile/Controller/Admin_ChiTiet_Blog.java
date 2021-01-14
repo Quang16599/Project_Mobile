@@ -162,7 +162,8 @@ public class Admin_ChiTiet_Blog extends AppCompatActivity {
         tvAdminTieuDe.setText(blog.getmTieuDe());
         tvAdminNgay.setText(blog.getmNgayCapNhat());
         tvAdminDiem.setText(String.valueOf(blog.getmPoint()));
-//        tvAdminNoiDung.setText(blog.getmNoiDung());
+        tvAdminNoiDung.setText(blog.getmNoiDung());
+
     }
 
     private void init() {
