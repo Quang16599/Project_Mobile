@@ -19,14 +19,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import goodman.gm.p_mobile.Adapter.AdminBlog_Adapter;
+import goodman.gm.p_mobile.Adapter.Admin_Blog_Adapter;
 import goodman.gm.p_mobile.Model.Blog;
 import goodman.gm.p_mobile.R;
 
 public class Admin_Blog extends AppCompatActivity {
     ProgressBar progressBarAdminBlog;
     ListView listView;
-    AdminBlog_Adapter adapter;
+    Admin_Blog_Adapter adapter;
     List<Blog> lstBlog;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("blogs");
     Button btnThem;
@@ -81,7 +81,7 @@ public class Admin_Blog extends AppCompatActivity {
         progressBarAdminBlog = findViewById(R.id.progressBarAdminBlog);
         listView = findViewById(R.id.listAdminBlog);
         lstBlog = new ArrayList<>();
-        adapter = new AdminBlog_Adapter(Admin_Blog.this, R.layout.custom_listblog, lstBlog);
+        adapter = new Admin_Blog_Adapter(Admin_Blog.this, R.layout.custom_listblog, lstBlog);
         btnThem = findViewById(R.id.btnThemBlogAdmin);
 
     }

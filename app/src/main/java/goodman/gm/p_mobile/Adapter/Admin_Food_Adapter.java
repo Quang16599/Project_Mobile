@@ -17,25 +17,28 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
-import goodman.gm.p_mobile.Controller.Admin_Blog;
-import goodman.gm.p_mobile.Controller.Admin_ChiTiet_Blog;
-import goodman.gm.p_mobile.Model.Blog;
+import goodman.gm.p_mobile.Controller.Admin_ChiTiet_Food;
+import goodman.gm.p_mobile.Controller.Admin_Food;
+import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
-public class AdminBlog_Adapter extends BaseAdapter {
-    private Admin_Blog context;
+public class Admin_Food_Adapter extends BaseAdapter {
+
+    private Admin_Food context;
     private int layout;
-    private List<Blog> lstBlog;
-    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("blogs");
-    public AdminBlog_Adapter(Admin_Blog context, int layout, List<Blog> lstBlog) {
+    private List<QuanAn> list_quanan;
+    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("quanans");
+
+
+    public Admin_Food_Adapter(Admin_Food context, int layout, List<QuanAn> list_quanan) {
         this.context = context;
         this.layout = layout;
-        this.lstBlog = lstBlog;
+        this.list_quanan = list_quanan;
     }
 
     @Override
     public int getCount() {
-        return lstBlog.size();
+        return list_quanan.size();
     }
 
     @Override
@@ -49,37 +52,42 @@ public class AdminBlog_Adapter extends BaseAdapter {
     }
 
     public class ViewHolder {
-        TextView tvMABlog, tvTieuDeBlogAdmin;
-        Button btnDele;
+        TextView tvTenQuanAn, tvDiaChi, tvMaQA;
+        Button btnXoa;
+
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
             holder = new ViewHolder();
-            holder.tvMABlog = convertView.findViewById(R.id.tvMaBlogAdmin);
-            holder.tvTieuDeBlogAdmin = convertView.findViewById(R.id.tvTieuDeBlogAdmin);
-            holder.btnDele = convertView.findViewById(R.id.btnXoaBlog);
+            holder.tvMaQA = convertView.findViewById(R.id.tvMaQA);
+            holder.tvTenQuanAn = convertView.findViewById(R.id.tvTenQA);
+            holder.tvDiaChi = convertView.findViewById(R.id.tvDC);
+            holder.btnXoa = convertView.findViewById(R.id.btnXoa);
             convertView.setTag(holder);
 
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        Blog blog = lstBlog.get(position);
-        holder.tvMABlog.setText(blog.getmMaBlog());
-        holder.tvTieuDeBlogAdmin.setText(blog.getmTieuDe());
+        QuanAn quanAn = list_quanan.get(position);
+        holder.tvMaQA.setText(quanAn.getmMaQuanAn());
+        holder.tvTenQuanAn.setText(quanAn.getmTenQuanAn());
+        holder.tvDiaChi.setText(quanAn.getmDiaChiQuan());
+
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, Admin_ChiTiet_Blog.class);
-                intent.putExtra("adminBlogs", lstBlog.get(position));
+                Intent intent = new Intent(context, Admin_ChiTiet_Food.class);
+                intent.putExtra("adminFoods", list_quanan.get(position));
                 context.startActivity(intent);
+
             }
         });
 
-        holder.btnDele.setOnClickListener(new View.OnClickListener() {
+        holder.btnXoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context,
@@ -90,11 +98,11 @@ public class AdminBlog_Adapter extends BaseAdapter {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // xóa trên firebase
-                        String maBlog = lstBlog.get(position).getmMaBlog();
-                        deleteOnFireBase(maBlog);
+                        String maQuanAn = list_quanan.get(position).getmMaQuanAn();
+                        deleteOnFireBase(maQuanAn);
 
                         // xóa trên listview
-                        context.DeleteBlog(position);
+                        context.DeleteFood(position);
                     }
                 });
                 builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
@@ -113,8 +121,9 @@ public class AdminBlog_Adapter extends BaseAdapter {
         return convertView;
     }
 
-    private void deleteOnFireBase(String maBlog) {
-        reference.child(maBlog).removeValue();
-        Toast.makeText(context, "Xóa " + maBlog + " Thành Công", Toast.LENGTH_SHORT).show();
+    private void deleteOnFireBase(String maQuanAn) {
+        reference.child(maQuanAn).removeValue();
+        Toast.makeText(context, "Xóa " + maQuanAn + " Thành Công", Toast.LENGTH_SHORT).show();
     }
+
 }

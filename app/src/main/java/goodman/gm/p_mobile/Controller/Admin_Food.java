@@ -19,14 +19,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import goodman.gm.p_mobile.Adapter.AdminFood_Adapter;
+import goodman.gm.p_mobile.Adapter.Admin_Food_Adapter;
 import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
 public class Admin_Food extends AppCompatActivity {
     ProgressBar progressBarAdminFood;
     ListView listView;
-    AdminFood_Adapter adapter;
+    Admin_Food_Adapter adapter;
     List<QuanAn> list_quanan;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("quanans");
     Button btnThem;
@@ -87,7 +87,7 @@ public class Admin_Food extends AppCompatActivity {
         progressBarAdminFood = findViewById(R.id.progressBarAdminFood);
         listView = findViewById(R.id.listAdminFood);
         list_quanan = new ArrayList<>();
-        adapter = new AdminFood_Adapter(this, R.layout.custom_listquanan, list_quanan);
+        adapter = new Admin_Food_Adapter(this, R.layout.custom_listquanan, list_quanan);
         btnThem = findViewById(R.id.btnThemQuanAnAdmin);
 
 

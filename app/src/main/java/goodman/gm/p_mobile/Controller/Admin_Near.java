@@ -19,14 +19,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import goodman.gm.p_mobile.Adapter.AdminNear_Adapter;
+import goodman.gm.p_mobile.Adapter.Admin_Near_Adapter;
 import goodman.gm.p_mobile.Model.DiaChi;
 import goodman.gm.p_mobile.R;
 
 public class Admin_Near extends AppCompatActivity {
     ProgressBar progressBarAdminNear;
     ListView listView;
-    AdminNear_Adapter adapter;
+    Admin_Near_Adapter adapter;
     List<DiaChi> lstDiachi;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("gantois");
     Button btnThemDiaChi;
@@ -81,7 +81,7 @@ public class Admin_Near extends AppCompatActivity {
         progressBarAdminNear = findViewById(R.id.progressBarAdminNear);
         listView = findViewById(R.id.lstNear);
         lstDiachi = new ArrayList<>();
-        adapter = new AdminNear_Adapter(Admin_Near.this, R.layout.custom_listnear, lstDiachi);
+        adapter = new Admin_Near_Adapter(Admin_Near.this, R.layout.custom_listnear, lstDiachi);
         btnThemDiaChi = findViewById(R.id.btnThemDiaChiAdmin);
 
     }

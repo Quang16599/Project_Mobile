@@ -18,14 +18,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import goodman.gm.p_mobile.Adapter.AdminComment_Adapter;
+import goodman.gm.p_mobile.Adapter.Admin_Comment_Adapter;
 import goodman.gm.p_mobile.Model.BinhLuan;
 import goodman.gm.p_mobile.R;
 
 public class Admin_Comment extends AppCompatActivity {
     ProgressBar progressBarAdminCommnent;
     ListView listView;
-    AdminComment_Adapter adapter;
+    Admin_Comment_Adapter adapter;
     List<BinhLuan> lstBinhLuan;
     BinhLuan binhLuan;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("binhluans");
@@ -75,7 +75,7 @@ public class Admin_Comment extends AppCompatActivity {
         progressBarAdminCommnent = findViewById(R.id.progressBarAdminComment);
         listView = findViewById(R.id.lstBinhLuan);
         lstBinhLuan = new ArrayList<>();
-        adapter = new AdminComment_Adapter(this, R.layout.custom_listquanan, lstBinhLuan);
+        adapter = new Admin_Comment_Adapter(this, R.layout.custom_listquanan, lstBinhLuan);
 
     }
 }

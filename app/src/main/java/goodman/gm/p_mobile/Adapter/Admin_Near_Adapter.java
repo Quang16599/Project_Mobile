@@ -17,28 +17,27 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
-import goodman.gm.p_mobile.Controller.Admin_ChiTiet_Food;
-import goodman.gm.p_mobile.Controller.Admin_Food;
-import goodman.gm.p_mobile.Model.QuanAn;
+import goodman.gm.p_mobile.Controller.Admin_ChiTiet_Near;
+import goodman.gm.p_mobile.Controller.Admin_Near;
+import goodman.gm.p_mobile.Model.DiaChi;
 import goodman.gm.p_mobile.R;
 
-public class AdminFood_Adapter extends BaseAdapter {
+public class Admin_Near_Adapter extends BaseAdapter {
 
-    private Admin_Food context;
+    private Admin_Near context;
     private int layout;
-    private List<QuanAn> list_quanan;
-    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("quanans");
+    private List<DiaChi> list_diachi;
+    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("gantois");
 
-
-    public AdminFood_Adapter(Admin_Food context, int layout, List<QuanAn> list_quanan) {
+    public Admin_Near_Adapter(Admin_Near context, int layout, List<DiaChi> list_diachi) {
         this.context = context;
         this.layout = layout;
-        this.list_quanan = list_quanan;
+        this.list_diachi = list_diachi;
     }
 
     @Override
     public int getCount() {
-        return list_quanan.size();
+        return list_diachi.size();
     }
 
     @Override
@@ -52,9 +51,8 @@ public class AdminFood_Adapter extends BaseAdapter {
     }
 
     public class ViewHolder {
-        TextView tvTenQuanAn, tvDiaChi, tvMaQA;
-        Button btnXoa;
-
+        TextView adminTenQuan, adminDiaChi, adminMaQuanAn;
+        Button btnXoaNear;
     }
 
     @Override
@@ -63,31 +61,28 @@ public class AdminFood_Adapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
             holder = new ViewHolder();
-            holder.tvMaQA = convertView.findViewById(R.id.tvMaQA);
-            holder.tvTenQuanAn = convertView.findViewById(R.id.tvTenQA);
-            holder.tvDiaChi = convertView.findViewById(R.id.tvDC);
-            holder.btnXoa = convertView.findViewById(R.id.btnXoa);
+            holder.adminMaQuanAn = convertView.findViewById(R.id.tvMaQANear);
+            holder.adminTenQuan = convertView.findViewById(R.id.adminTenQuan);
+            holder.adminDiaChi = convertView.findViewById(R.id.adminDiaChi);
+            holder.btnXoaNear = convertView.findViewById(R.id.btnXoaNear);
             convertView.setTag(holder);
-
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        QuanAn quanAn = list_quanan.get(position);
-        holder.tvMaQA.setText(quanAn.getmMaQuanAn());
-        holder.tvTenQuanAn.setText(quanAn.getmTenQuanAn());
-        holder.tvDiaChi.setText(quanAn.getmDiaChiQuan());
+        DiaChi diaChi = list_diachi.get(position);
+        holder.adminMaQuanAn.setText(diaChi.getmMaQuanAn());
+        holder.adminTenQuan.setText(diaChi.getmTenQuanAn());
+        holder.adminDiaChi.setText(diaChi.getmDiaChi());
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, Admin_ChiTiet_Food.class);
-                intent.putExtra("adminFoods", list_quanan.get(position));
+                Intent intent = new Intent(context, Admin_ChiTiet_Near.class);
+                intent.putExtra("adminNear", list_diachi.get(position));
                 context.startActivity(intent);
-
             }
         });
-
-        holder.btnXoa.setOnClickListener(new View.OnClickListener() {
+        holder.btnXoaNear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context,
@@ -97,12 +92,11 @@ public class AdminFood_Adapter extends BaseAdapter {
                 builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // xóa trên firebase
-                        String maQuanAn = list_quanan.get(position).getmMaQuanAn();
+                        String maQuanAn = list_diachi.get(position).getmMaQuanAn();
                         deleteOnFireBase(maQuanAn);
 
                         // xóa trên listview
-                        context.DeleteFood(position);
+                        context.DeleteDiaChi(position);
                     }
                 });
                 builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
@@ -118,6 +112,7 @@ public class AdminFood_Adapter extends BaseAdapter {
             }
         });
 
+
         return convertView;
     }
 
@@ -125,5 +120,4 @@ public class AdminFood_Adapter extends BaseAdapter {
         reference.child(maQuanAn).removeValue();
         Toast.makeText(context, "Xóa " + maQuanAn + " Thành Công", Toast.LENGTH_SHORT).show();
     }
-
 }

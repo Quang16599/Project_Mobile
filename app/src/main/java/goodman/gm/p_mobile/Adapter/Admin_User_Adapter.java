@@ -22,14 +22,14 @@ import goodman.gm.p_mobile.Controller.Admin_User;
 import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
-public class AdminUser_Adapter extends BaseAdapter {
+public class Admin_User_Adapter extends BaseAdapter {
     private Admin_User context;
     private int layout;
     private List<User> lstUser;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("thanhviens");
 
 
-    public AdminUser_Adapter(Admin_User context, int layout, List<User> lstUser) {
+    public Admin_User_Adapter(Admin_User context, int layout, List<User> lstUser) {
         this.context = context;
         this.layout = layout;
         this.lstUser = lstUser;

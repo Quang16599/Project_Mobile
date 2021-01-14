@@ -17,27 +17,25 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
-import goodman.gm.p_mobile.Controller.Admin_ChiTiet_Near;
-import goodman.gm.p_mobile.Controller.Admin_Near;
-import goodman.gm.p_mobile.Model.DiaChi;
+import goodman.gm.p_mobile.Controller.Admin_Blog;
+import goodman.gm.p_mobile.Controller.Admin_ChiTiet_Blog;
+import goodman.gm.p_mobile.Model.Blog;
 import goodman.gm.p_mobile.R;
 
-public class AdminNear_Adapter extends BaseAdapter {
-
-    private Admin_Near context;
+public class Admin_Blog_Adapter extends BaseAdapter {
+    private Admin_Blog context;
     private int layout;
-    private List<DiaChi> list_diachi;
-    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("gantois");
-
-    public AdminNear_Adapter(Admin_Near context, int layout, List<DiaChi> list_diachi) {
+    private List<Blog> lstBlog;
+    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("blogs");
+    public Admin_Blog_Adapter(Admin_Blog context, int layout, List<Blog> lstBlog) {
         this.context = context;
         this.layout = layout;
-        this.list_diachi = list_diachi;
+        this.lstBlog = lstBlog;
     }
 
     @Override
     public int getCount() {
-        return list_diachi.size();
+        return lstBlog.size();
     }
 
     @Override
@@ -51,38 +49,37 @@ public class AdminNear_Adapter extends BaseAdapter {
     }
 
     public class ViewHolder {
-        TextView adminTenQuan, adminDiaChi, adminMaQuanAn;
-        Button btnXoaNear;
+        TextView tvMABlog, tvTieuDeBlogAdmin;
+        Button btnDele;
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
             holder = new ViewHolder();
-            holder.adminMaQuanAn = convertView.findViewById(R.id.tvMaQANear);
-            holder.adminTenQuan = convertView.findViewById(R.id.adminTenQuan);
-            holder.adminDiaChi = convertView.findViewById(R.id.adminDiaChi);
-            holder.btnXoaNear = convertView.findViewById(R.id.btnXoaNear);
+            holder.tvMABlog = convertView.findViewById(R.id.tvMaBlogAdmin);
+            holder.tvTieuDeBlogAdmin = convertView.findViewById(R.id.tvTieuDeBlogAdmin);
+            holder.btnDele = convertView.findViewById(R.id.btnXoaBlog);
             convertView.setTag(holder);
+
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        DiaChi diaChi = list_diachi.get(position);
-        holder.adminMaQuanAn.setText(diaChi.getmMaQuanAn());
-        holder.adminTenQuan.setText(diaChi.getmTenQuanAn());
-        holder.adminDiaChi.setText(diaChi.getmDiaChi());
-
+        Blog blog = lstBlog.get(position);
+        holder.tvMABlog.setText(blog.getmMaBlog());
+        holder.tvTieuDeBlogAdmin.setText(blog.getmTieuDe());
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, Admin_ChiTiet_Near.class);
-                intent.putExtra("adminNear", list_diachi.get(position));
+                Intent intent = new Intent(context, Admin_ChiTiet_Blog.class);
+                intent.putExtra("adminBlogs", lstBlog.get(position));
                 context.startActivity(intent);
             }
         });
-        holder.btnXoaNear.setOnClickListener(new View.OnClickListener() {
+
+        holder.btnDele.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context,
@@ -92,11 +89,12 @@ public class AdminNear_Adapter extends BaseAdapter {
                 builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String maQuanAn = list_diachi.get(position).getmMaQuanAn();
-                        deleteOnFireBase(maQuanAn);
+                        // xóa trên firebase
+                        String maBlog = lstBlog.get(position).getmMaBlog();
+                        deleteOnFireBase(maBlog);
 
                         // xóa trên listview
-                        context.DeleteDiaChi(position);
+                        context.DeleteBlog(position);
                     }
                 });
                 builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
@@ -112,12 +110,11 @@ public class AdminNear_Adapter extends BaseAdapter {
             }
         });
 
-
         return convertView;
     }
 
-    private void deleteOnFireBase(String maQuanAn) {
-        reference.child(maQuanAn).removeValue();
-        Toast.makeText(context, "Xóa " + maQuanAn + " Thành Công", Toast.LENGTH_SHORT).show();
+    private void deleteOnFireBase(String maBlog) {
+        reference.child(maBlog).removeValue();
+        Toast.makeText(context, "Xóa " + maBlog + " Thành Công", Toast.LENGTH_SHORT).show();
     }
 }
