@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 
@@ -71,10 +72,9 @@ public class Admin_Comment_Adapter extends BaseAdapter {
         }
 
         QuanAn quanAn = lstQuanAn.get(position);
-        List<BinhLuan> list_binhLuan = (List<BinhLuan>) quanAn.getList_BinhLuan();
-        holder.tvMaQA.setText(list_binhLuan.get(position).getmNoiDung());
-        Log.d("ccc", list_binhLuan.get(position).getmNoiDung());
-        Log.d("ccc", quanAn.getmMaQuanAn());
+//        List<BinhLuan> list_binhLuan = quanAn.getList_BinhLuan();
+        holder.tvMaQA.setText(quanAn.getmMaQuanAn());
+
 
         holder.btnXoa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,13 +86,13 @@ public class Admin_Comment_Adapter extends BaseAdapter {
                 builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // xóa trên firebase
-//                        String maQuanAn = lst_BinhLuan.get(position).getMaQuanAn();
-//                        deleteOnFireBase(maQuanAn);
+//                         xóa trên firebase
+                        String maQuanAn = quanAn.getmMaQuanAn();
+                        deleteOnFireBase(maQuanAn);
 
 
-                        // xóa trên listview
-//                        context.DeleteFood(position);
+//                         xóa trên listview
+                        context.DeleteCommnet(position);
                     }
                 });
                 builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
@@ -110,10 +110,11 @@ public class Admin_Comment_Adapter extends BaseAdapter {
 
         return convertView;
     }
-//
-//    private void deleteOnFireBase(String maQuanAn) {
-//        reference.child(maQuanAn).removeValue();
-//        Toast.makeText(context, "Xóa " + maQuanAn + " Thành Công", Toast.LENGTH_SHORT).show();
-//    }
+
+    //
+    private void deleteOnFireBase(String maQuanAn) {
+        reference.child(maQuanAn).removeValue();
+        Toast.makeText(context, "Xóa " + maQuanAn + " Thành Công", Toast.LENGTH_SHORT).show();
+    }
 
 }

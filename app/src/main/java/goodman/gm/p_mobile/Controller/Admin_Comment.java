@@ -44,11 +44,11 @@ public class Admin_Comment extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                lstQuanAn.clear();
                 DataSnapshot snapshotQuanAn = snapshot.child("quanans");
                 for (DataSnapshot value : snapshotQuanAn.getChildren()) {
                     QuanAn quanAn = new QuanAn();
                     quanAn.setmMaQuanAn(value.getKey());
-
                     DataSnapshot snapshotBinhLuan = snapshot.child("binhluans").child(quanAn.getmMaQuanAn());
                     List<BinhLuan> list_BinhLuan = new ArrayList<>();
                     for (DataSnapshot valueBinhLuan : snapshotBinhLuan.getChildren()) {
@@ -57,7 +57,7 @@ public class Admin_Comment extends AppCompatActivity {
                         binhLuan.setmTieuDe(valueBinhLuan.child("mTieuDe").getValue().toString());
                         binhLuan.setmLuotThich(valueBinhLuan.child("mLuotThich").getValue().toString());
                         binhLuan.setmChamDiem(valueBinhLuan.child("mChamDiem").getValue().toString());
-
+                        binhLuan.setTenuser(valueBinhLuan.child("tenuser").getValue().toString());
                         list_BinhLuan.add(binhLuan);
 
                     }
@@ -83,5 +83,10 @@ public class Admin_Comment extends AppCompatActivity {
         listView.setAdapter(adapter);
 
 
+    }
+
+    public void DeleteCommnet(int position) {
+        lstQuanAn.remove(position);
+        adapter.notifyDataSetChanged();
     }
 }
