@@ -93,7 +93,7 @@ public class ChiTietQuanAn extends AppCompatActivity {
         Picasso.get().load(quanAn.getmHinhAnhQuanAn()).into(imgView);
         tvTenQuanAn.setText(quanAn.getmTenQuanAn());
         tvDiaChi.setText(quanAn.getmDiaChiQuan());
-        tvThoiGianHoatDong.setText(quanAn.getmGioMoCua() + " " + quanAn.getmGioDongCua());
+        tvThoiGianHoatDong.setText(quanAn.getmGioMoCua() + "-" + quanAn.getmGioDongCua());
         tvMoTa.setText(quanAn.getmMoTaQuanAn());
         tvGiaTien.setText(quanAn.getmGiaTien());
         tvTieuDe.setText(quanAn.getmTenQuanAn());

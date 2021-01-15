@@ -186,6 +186,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:drawableLeft="@drawable/ic_update"
             android:id="@+id/btnNearUpdateDone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -197,6 +198,7 @@
         </Button>
 
         <Button
+            android:drawableLeft="@drawable/ic_back"
             android:id="@+id/btnNearBackDone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

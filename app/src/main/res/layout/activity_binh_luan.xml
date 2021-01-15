@@ -64,21 +64,20 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-         />
+        android:layout_height="1dp" />
+
     <EditText
         android:id="@+id/edtDiemBinhLuan"
-        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#FFF"
         android:hint="Đánh giá điểm"
+        android:inputType="number"
         android:textSize="12sp" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        />
+        android:layout_height="1dp" />
 
     <EditText
         android:id="@+id/edtNoiDungBinhLuan"
@@ -97,23 +96,15 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
-
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
         <ImageButton
             android:id="@+id/btnChonHinh"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/ic_photo_camera_black_24dp" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/nearby" />
-
-
     </LinearLayout>
 
 </LinearLayout>

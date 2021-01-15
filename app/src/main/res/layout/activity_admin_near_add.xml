@@ -223,6 +223,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:drawableLeft="@drawable/ic_add"
             android:id="@+id/btnNearThemAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -234,6 +235,7 @@
         </Button>
 
         <Button
+            android:drawableLeft="@drawable/ic_back"
             android:id="@+id/btnNearBackAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -127,6 +127,7 @@
             >
 
             <Button
+                android:drawableLeft="@drawable/ic_add"
                 android:id="@+id/btnDangKy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -139,6 +140,7 @@
             </Button>
 
             <Button
+                android:drawableLeft="@drawable/ic_update"
                 android:id="@+id/btnBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

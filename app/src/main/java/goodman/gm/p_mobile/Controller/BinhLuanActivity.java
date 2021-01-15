@@ -61,6 +61,7 @@ public class BinhLuanActivity extends AppCompatActivity {
         XuLy();
 
 
+
     }
 
     private void init() {
@@ -75,10 +76,10 @@ public class BinhLuanActivity extends AppCompatActivity {
         listHinhDuocChon = new ArrayList<>();
         sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
 
-
     }
 
     private void XuLy() {
+
         btnChonHinh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

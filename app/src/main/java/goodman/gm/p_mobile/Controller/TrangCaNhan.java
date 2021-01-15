@@ -46,20 +46,6 @@ public class TrangCaNhan extends AppCompatActivity {
 
     }
 
-//    private void loadDataChange() {
-//        Intent intent = getIntent();
-//        user = (User) intent.getSerializableExtra("change");
-//
-//        tvFullName.setText(user.getmFullName());
-//        tvEmail.setText(user.getmEmail());
-//        tvPassword.setText(user.getmPassword());
-//        tvPhone.setText(user.getmPhoneNumber());
-//        tvUserName.setText(user.getmUserName());
-//
-//
-//    }
-
-
     private void Init() {
         tvFullName = findViewById(R.id.FullName);
         tvUserName = findViewById(R.id.userName);
