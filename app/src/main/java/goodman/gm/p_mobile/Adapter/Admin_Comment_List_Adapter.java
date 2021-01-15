@@ -17,29 +17,27 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
-import goodman.gm.p_mobile.Controller.Admin_Comment;
 import goodman.gm.p_mobile.Controller.Admin_Comment_MaBinhLuan;
 import goodman.gm.p_mobile.Model.BinhLuan;
-import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
-public class Admin_Comment_Adapter extends BaseAdapter {
-    private Admin_Comment context;
+public class Admin_Comment_List_Adapter extends BaseAdapter {
+    private Admin_Comment_MaBinhLuan context;
     private int layout;
     private List<BinhLuan> lst_BinhLuan;
-    private List<QuanAn> lstQuanAn;
 
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("binhluans");
 
-    public Admin_Comment_Adapter(Admin_Comment context, int layout, List<QuanAn> lstQuanAn) {
+
+    public Admin_Comment_List_Adapter(Admin_Comment_MaBinhLuan context, int layout, List<BinhLuan> lst_BinhLuan) {
         this.context = context;
         this.layout = layout;
-        this.lstQuanAn = lstQuanAn;
+        this.lst_BinhLuan = lst_BinhLuan;
     }
 
     @Override
     public int getCount() {
-        return lstQuanAn.size();
+        return lst_BinhLuan.size();
     }
 
     @Override
@@ -53,7 +51,7 @@ public class Admin_Comment_Adapter extends BaseAdapter {
     }
 
     public class ViewHolder {
-        TextView tvMaQA;
+        TextView tvMaBl, tvTieuDe, tvNoiDung;
         Button btnXoa;
 
     }
@@ -64,27 +62,18 @@ public class Admin_Comment_Adapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
             holder = new ViewHolder();
-            holder.tvMaQA = convertView.findViewById(R.id.tvMaQABl);
-            holder.btnXoa = convertView.findViewById(R.id.btnXoaBl);
+            holder.tvMaBl = convertView.findViewById(R.id.tvMaBinhLuan);
+            holder.tvTieuDe = convertView.findViewById(R.id.tvTieuDeBinhLuan);
+            holder.tvNoiDung = convertView.findViewById(R.id.tvNoiDungBinhLuan);
+            holder.btnXoa = convertView.findViewById(R.id.btnXoaBinhLuan);
             convertView.setTag(holder);
-
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-
-        QuanAn quanAn = lstQuanAn.get(position);
-//        List<BinhLuan> list_binhLuan = quanAn.getList_BinhLuan();
-        holder.tvMaQA.setText(quanAn.getmMaQuanAn());
-        convertView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, Admin_Comment_MaBinhLuan.class);
-                intent.putExtra("lstQuanans", lstQuanAn.get(position));
-                context.startActivity(intent);
-            }
-        });
-
-
+        BinhLuan binhLuan = lst_BinhLuan.get(position);
+        holder.tvMaBl.setText(binhLuan.getManbinhluan());
+        holder.tvTieuDe.setText(binhLuan.getmTieuDe());
+        holder.tvNoiDung.setText(binhLuan.getmNoiDung());
         holder.btnXoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,13 +84,12 @@ public class Admin_Comment_Adapter extends BaseAdapter {
                 builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-//                         xóa trên firebase
-                        String maQuanAn = quanAn.getmMaQuanAn();
-                        deleteOnFireBase(maQuanAn);
+                        // xóa trên firebase
+                        String maBinhLuan = lst_BinhLuan.get(position).getManbinhluan();
+                        deleteOnFireBase(maBinhLuan);
 
-
-//                         xóa trên listview
-                        context.DeleteCommnet(position);
+                        // xóa trên listview
+                        context.DeleteComment(position);
                     }
                 });
                 builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
@@ -119,11 +107,8 @@ public class Admin_Comment_Adapter extends BaseAdapter {
 
         return convertView;
     }
-
-    //
-    private void deleteOnFireBase(String maQuanAn) {
-        reference.child(maQuanAn).removeValue();
-        Toast.makeText(context, "Xóa " + maQuanAn + " Thành Công", Toast.LENGTH_SHORT).show();
+    public void deleteOnFireBase(String maBl) {
+        reference.child(maBl).removeValue();
+        Toast.makeText(context, "Xóa " + maBl + " Thành Công", Toast.LENGTH_SHORT).show();
     }
-
 }

@@ -53,6 +53,7 @@ public class Admin_Comment extends AppCompatActivity {
                     List<BinhLuan> list_BinhLuan = new ArrayList<>();
                     for (DataSnapshot valueBinhLuan : snapshotBinhLuan.getChildren()) {
                         BinhLuan binhLuan = new BinhLuan();
+                        binhLuan.setManbinhluan(valueBinhLuan.getKey());
                         binhLuan.setmNoiDung(valueBinhLuan.child("mNoiDung").getValue().toString());
                         binhLuan.setmTieuDe(valueBinhLuan.child("mTieuDe").getValue().toString());
                         binhLuan.setmLuotThich(valueBinhLuan.child("mLuotThich").getValue().toString());

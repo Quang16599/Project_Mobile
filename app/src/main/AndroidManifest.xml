@@ -17,7 +17,8 @@
         android:roundIcon="@drawable/custom_avatar"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controller.HienThiChiTietBinhLuan"></activity>
+        <activity android:name=".Controller.Admin_Comment_MaBinhLuan"></activity>
+        <activity android:name=".Controller.HienThiChiTietBinhLuan" />
         <activity android:name=".Controller.Admin_Blog_Add" />
         <activity android:name=".Controller.Admin_ChiTiet_Blog" />
         <activity android:name=".Controller.EditProfile" />
