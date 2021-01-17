@@ -63,7 +63,7 @@ public class DoiMatKhau extends AppCompatActivity {
                                         User user = new User(fullName, userName, newPass.getEditText().getText().toString(), email, phoneNumber);
                                         reference.child(userName).setValue(user);
                                         Toast.makeText(DoiMatKhau.this, "Đổi thành công", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(DoiMatKhau.this, TrangCaNhan.class);
+                                        Intent intent = new Intent(DoiMatKhau.this, DangNhap.class);
                                         intent.putExtra("change", user);
                                         startActivity(intent);
                                         finish();

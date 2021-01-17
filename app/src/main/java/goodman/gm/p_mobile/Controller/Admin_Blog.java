@@ -55,7 +55,7 @@ public class Admin_Blog extends AppCompatActivity {
                 for (DataSnapshot value : snapshot.getChildren()) {
                     Blog blog = new Blog();
                     blog.setmMaBlog(value.getKey());
-                    blog.setmHinhAnh(value.child("mHinhAnh").getValue().toString());
+//                    blog.setmHinhAnh(value.child("mHinhAnh").getValue().toString());
                     blog.setmNgayCapNhat(value.child("mNgayCapNhat").getValue().toString());
                     blog.setmNoiDung(value.child("mNoiDung").getValue().toString());
                     blog.setmPoint(Double.valueOf(value.child("mPoint").getValue().toString()));

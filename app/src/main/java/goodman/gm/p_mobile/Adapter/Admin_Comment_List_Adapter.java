@@ -10,15 +10,21 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import goodman.gm.p_mobile.Controller.Admin_Comment_MaBinhLuan;
 import goodman.gm.p_mobile.Model.BinhLuan;
+import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
 public class Admin_Comment_List_Adapter extends BaseAdapter {
@@ -27,6 +33,7 @@ public class Admin_Comment_List_Adapter extends BaseAdapter {
     private List<BinhLuan> lst_BinhLuan;
 
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("binhluans");
+    DatabaseReference xoaBinhLuan = FirebaseDatabase.getInstance().getReference();
 
 
     public Admin_Comment_List_Adapter(Admin_Comment_MaBinhLuan context, int layout, List<BinhLuan> lst_BinhLuan) {
@@ -107,8 +114,36 @@ public class Admin_Comment_List_Adapter extends BaseAdapter {
 
         return convertView;
     }
+
     public void deleteOnFireBase(String maBl) {
-        reference.child(maBl).removeValue();
-        Toast.makeText(context, "Xóa " + maBl + " Thành Công", Toast.LENGTH_SHORT).show();
+        xoaBinhLuan.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                DataSnapshot snapshotQuanAn = snapshot.child("quanans");
+                for (DataSnapshot value : snapshotQuanAn.getChildren()) {
+                    QuanAn quanAn = new QuanAn();
+                    quanAn.setmMaQuanAn(value.getKey());
+                    DataSnapshot snapshotBinhLuan = snapshot.child("binhluans").child(quanAn.getmMaQuanAn());
+                    for (DataSnapshot valueBinhLuan : snapshotBinhLuan.getChildren()) {
+                        BinhLuan binhLuan = new BinhLuan();
+                        binhLuan.setManbinhluan(valueBinhLuan.getKey());
+                        if (maBl.equals(valueBinhLuan.getKey())) {
+                            reference.child(quanAn.getmMaQuanAn()).child(maBl).removeValue();
+                            Toast.makeText(context, "Xóa " + maBl + " Thành Công", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
     }
 }
