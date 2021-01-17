@@ -16,6 +16,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 import goodman.gm.p_mobile.Model.User;
 import goodman.gm.p_mobile.R;
 
@@ -60,11 +62,15 @@ public class DoiMatKhau extends AppCompatActivity {
                                 reference.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        User user = new User(fullName, userName, newPass.getEditText().getText().toString(), email, phoneNumber);
-                                        reference.child(userName).setValue(user);
+                                        HashMap<String, Object> userMap = new HashMap<>();
+                                        userMap.put("mFullName", fullName);
+                                        userMap.put("mUserName", userName);
+                                        userMap.put("mPassword", newPass.getEditText().getText().toString());
+                                        userMap.put("mEmail", email);
+                                        userMap.put("mPhoneNumber", phoneNumber);
+                                        reference.child(userName).updateChildren(userMap);
                                         Toast.makeText(DoiMatKhau.this, "Đổi thành công!!! Vui lòng đăng nhập lại", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(DoiMatKhau.this, DangNhap.class);
-                                        intent.putExtra("change", user);
                                         startActivity(intent);
                                         finish();
                                     }
