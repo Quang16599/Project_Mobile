@@ -41,7 +41,7 @@ public class Blog_Adapter extends BaseAdapter {
     }
 
     public class ViewHolder {
-        TextView tvBlogTieuDe, tvBlogTenQuan, tvBlogDiem, tvBlogNgayCapNhat;
+        TextView tvBlogTieuDe, tvBlogTenQuan, tvBlogDiem;
 
     }
 

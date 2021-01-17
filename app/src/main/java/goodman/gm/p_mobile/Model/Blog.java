@@ -80,15 +80,5 @@ public class Blog implements Serializable {
         this.mMaBlog = mMaBlog;
     }
 
-    @Override
-    public String toString() {
-        return "Blog{" +
-                "mTieuDe='" + mTieuDe + '\'' +
-                ", mHinhAnh='" + mHinhAnh + '\'' +
-                ", mNoiDung='" + mNoiDung + '\'' +
-                ", mTenQuan='" + mTenQuan + '\'' +
-                ", mNgayCapNhat='" + mNgayCapNhat + '\'' +
-                ", mPoint=" + mPoint +
-                '}';
-    }
+
 }

@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import goodman.gm.p_mobile.Model.Blog;
-import goodman.gm.p_mobile.Model.QuanAn;
 import goodman.gm.p_mobile.R;
 
 public class ChiTietBlog extends AppCompatActivity {

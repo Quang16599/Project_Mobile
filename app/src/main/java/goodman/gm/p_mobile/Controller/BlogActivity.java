@@ -23,7 +23,8 @@ public class BlogActivity extends AppCompatActivity {
     ListView listView;
     Blog_Adapter adapter;
     List<Blog> lstBlog;
-    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("blogs");
+    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("blogs");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +42,12 @@ public class BlogActivity extends AppCompatActivity {
 
                     Blog blog = new Blog();
                     blog.setmMaBlog(value.getKey());
-                    blog.setmHinhAnh(value.child("mHinhAnh").getValue().toString());
                     blog.setmNgayCapNhat(value.child("mNgayCapNhat").getValue().toString());
                     blog.setmNoiDung(value.child("mNoiDung").getValue().toString());
                     blog.setmPoint(Double.valueOf(value.child("mPoint").getValue().toString()));
                     blog.setmTieuDe(value.child("mTieuDe").getValue().toString());
                     blog.setmTenQuan(value.child("mTenQuan").getValue().toString());
+                    blog.setmHinhAnh(value.child("mHinhAnh").getValue().toString());
                     lstBlog.add(blog);
                 }
                 listView.setAdapter(adapter);
