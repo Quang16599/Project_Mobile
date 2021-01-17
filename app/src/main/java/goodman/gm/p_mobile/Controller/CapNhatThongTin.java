@@ -69,11 +69,11 @@ public class CapNhatThongTin extends AppCompatActivity {
                         userMap.put("mEmail", email);
                         userMap.put("mPhoneNumber", phone);
                         userMap.put("mFullName", fullname);
-                        userMap.put("mPassword",matKhau);
-                        userMap.put("mUserName",tenDn);
+                        userMap.put("mPassword", matKhau);
+                        userMap.put("mUserName", tenDn);
 
 
-                        reference.child(tenDn).setValue(userMap);
+                        reference.child(tenDn).updateChildren(userMap);
 
                         Toast.makeText(CapNhatThongTin.this, "Cập nhật thành công!!! Vui lòng đăng nhập lại", Toast.LENGTH_SHORT).show();
 
