@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/bungee"
         android:gravity="center"
-        android:text="Thông tin chi tiết"
+        android:text="Cập nhật thông tin"
         android:textSize="30dp">
 
     </TextView>
@@ -54,14 +54,14 @@
 
             </TextView>
 
-            <TextView
-                android:id="@+id/FullName"
+            <EditText
+                android:id="@+id/edtFullNameInfor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Abc"
                 android:textSize="15dp">
 
-            </TextView>
+            </EditText>
         </LinearLayout>
     </LinearLayout>
 
@@ -93,14 +93,14 @@
 
             </TextView>
 
-            <TextView
-                android:id="@+id/phoneNumber"
+            <EditText
+                android:id="@+id/edtNumberInfor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Abc"
                 android:textSize="15dp">
 
-            </TextView>
+            </EditText>
         </LinearLayout>
     </LinearLayout>
 
@@ -131,98 +131,22 @@
 
             </TextView>
 
-            <TextView
-                android:id="@+id/email"
+            <EditText
+                android:id="@+id/edtEmailInfor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Abc"
                 android:textSize="15dp">
 
-            </TextView>
+            </EditText>
         </LinearLayout>
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_address"></ImageView>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Tên đăng nhập"
-                android:textColor="#000"
-                android:textSize="15dp"
-                android:textStyle="bold">
-
-            </TextView>
-
-            <TextView
-                android:id="@+id/userName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Abc"
-                android:textSize="15dp">
-
-            </TextView>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_name"></ImageView>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Mật khẩu"
-                android:textColor="#000"
-                android:textSize="15dp"
-                android:textStyle="bold">
-
-            </TextView>
-
-            <TextView
-                android:id="@+id/password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Abc"
-                android:textSize="15dp">
-
-            </TextView>
-        </LinearLayout>
-    </LinearLayout>
-
-
-    <LinearLayout
         android:layout_marginTop="100dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -245,7 +169,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:drawableLeft="@drawable/ic_back"
-            android:text="ĐĂNG XUẤT">
+            android:text="Quay lại">
 
         </Button>
     </LinearLayout>

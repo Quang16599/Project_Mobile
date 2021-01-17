@@ -28,7 +28,8 @@ import goodman.gm.p_mobile.R;
 public class TrangCaNhan extends AppCompatActivity {
     CircleImageView circleImageView;
     TextView tvFullName, tvUserName, tvPassword, tvEmail, tvPhone;
-    Button btnChangePass, btnLogOut;
+    Button btnChangePass, btnLogOut, btnUp;
+
     SharedPreferences sharedPreferences;
     String passWord, fullName, email, phoneNumber, userName;
     //    User user;
@@ -55,10 +56,19 @@ public class TrangCaNhan extends AppCompatActivity {
         btnChangePass = findViewById(R.id.btnChangPass);
         btnLogOut = findViewById(R.id.btnLogOut);
         circleImageView = findViewById(R.id.avatar);
+        btnUp = findViewById(R.id.btnUp);
+
         sharedPreferences = getSharedPreferences("User", Context.MODE_PRIVATE);
     }
 
     private void controlButton() {
+        btnUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TrangCaNhan.this, CapNhatThongTin.class);
+                startActivity(intent);
+            }
+        });
 
         circleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
