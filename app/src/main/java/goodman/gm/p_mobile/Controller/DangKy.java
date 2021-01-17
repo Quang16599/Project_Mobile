@@ -77,14 +77,13 @@ public class DangKy extends AppCompatActivity {
                             User user = new User(fullname, username, password, email, phoneNumber);
                             reference.child(username).setValue(user);
 
-                            Toast.makeText(DangKy.this, "Register Succes", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(DangKy.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
 
                             Intent intent = new Intent(DangKy.this, DangNhap.class);
                             startActivity(intent);
-                            finish();
 
                         } else {
-                            Toast.makeText(DangKy.this, "User Name already exists", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(DangKy.this, "Tên đăng nhập đã tồn tại!!! Vui lòng nhập lại", Toast.LENGTH_SHORT).show();
                         }
                     }
 
