@@ -22,7 +22,7 @@ import goodman.gm.p_mobile.R;
 
 public class QuenMatKhau extends AppCompatActivity {
 
-    private Button btnNext;
+    private Button btnNext, btnBack;
     private TextInputEditText edtUserName;
     private final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("thanhviens");
 
@@ -37,6 +37,13 @@ public class QuenMatKhau extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 callVertifyOTP();
+            }
+        });
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(QuenMatKhau.this, DangNhap.class);
+                startActivity(intent);
             }
         });
     }
@@ -77,6 +84,7 @@ public class QuenMatKhau extends AppCompatActivity {
     private void init() {
         btnNext = findViewById(R.id.btnNext);
         edtUserName = findViewById(R.id.edtUser_Name);
+        btnBack = findViewById(R.id.btnBackFor);
     }
 
 }

@@ -61,7 +61,6 @@ public class BinhLuanActivity extends AppCompatActivity {
         XuLy();
 
 
-
     }
 
     private void init() {
@@ -175,6 +174,8 @@ public class BinhLuanActivity extends AppCompatActivity {
                         }
                     }
                     Toast.makeText(BinhLuanActivity.this, "Đã đăng", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(BinhLuanActivity.this, TrangChu.class);
+                    startActivity(intent);
                 }
             }
         });

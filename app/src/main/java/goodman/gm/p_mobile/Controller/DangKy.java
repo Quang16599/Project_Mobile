@@ -37,10 +37,18 @@ public class DangKy extends AppCompatActivity {
 
         // khởi tạo
         Init();
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DangKy.this, DangNhap.class);
+                startActivity(intent);
+            }
+        });
         controlButton();
 
 
     }
+
 
     private void Init() {
         edtFullName = findViewById(R.id.edtFullName);
@@ -78,14 +86,16 @@ public class DangKy extends AppCompatActivity {
                             reference.child(username).setValue(user);
 
                             Toast.makeText(DangKy.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
-
                             Intent intent = new Intent(DangKy.this, DangNhap.class);
                             startActivity(intent);
 
                         } else {
-                            Toast.makeText(DangKy.this, "Tên đăng nhập đã tồn tại!!! Vui lòng nhập lại", Toast.LENGTH_SHORT).show();
+//                            finish();
+//                            Toast.makeText(DangKy.this, "Tên đăng nhập đã tồn tại!!! Vui lòng nhập lại", Toast.LENGTH_SHORT).show();
                         }
+
                     }
+
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -94,12 +104,7 @@ public class DangKy extends AppCompatActivity {
             }
         });
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+
     }
 
     private boolean validateName() {

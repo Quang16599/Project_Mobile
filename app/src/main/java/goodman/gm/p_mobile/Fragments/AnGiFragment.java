@@ -65,6 +65,7 @@ public class AnGiFragment extends Fragment {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list_QuanAn.clear();
                 DataSnapshot snapshotQuanAn = snapshot.child("quanans");
                 for (DataSnapshot value : snapshotQuanAn.getChildren()) {
                     QuanAn quanAn = new QuanAn();
